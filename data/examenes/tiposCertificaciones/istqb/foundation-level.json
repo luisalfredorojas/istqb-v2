@@ -3,7 +3,6 @@
   "titulo": "ISTQB® Certified Tester Syllabus Foundation Level v4.0 Exam A",
   "descripcion": "Exam based in ISTQB® Certified Tester Syllabus Foundation Level v4.0 syllabus",
   "minimo_aprobacion": 26,
-  "explicacion": "The correct test objective is to reduce risk and build confidence in the system quality. The other options represent unrealistic or incorrect testing goals.",
   "retroalimentacion": [
     { "umbral": 90, "mensaje": "¡Excelente! Nivel muy alto de preparación." },
     { "umbral": 75, "mensaje": "Muy bien, estás en camino de aprobar." },
@@ -20,8 +19,9 @@
         "c) To reduce the risk level of the test object and to build confidence in the quality level",
         "d) To verify that there are no untested combinations of inputs"
       ],
-      "respuesta_correcta": 3,
-      "numero_respuestas": "ONE"
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "Option c) is the only valid objective. The others describe unrealistic or incorrect goals for testing."
     },
     {
       "numero": 2,
@@ -32,8 +32,9 @@
         "c) Testers collaborating with end users help to improve the quality of defect reports during component integration and system testing",
         "d) Certified testers will design much better test cases than non-certified testers"
       ],
-      "respuesta_correcta": [1,2],
-      "numero_respuestas": "ONE"
+      "respuesta_correcta": [0, 2],
+      "numero_respuestas": "MULTIPLE",
+      "explicacion": "Options a) and c) involve testers actively throughout the process, which aligns with best practices and contributes to quality."
     }
   ]
 }

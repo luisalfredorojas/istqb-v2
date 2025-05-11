@@ -34,7 +34,7 @@ examenOriginal.examen.forEach(pregunta => {
 
     puntajeTotal += puntajePregunta;
 
-    // Determinar clase visual
+    // Determinar estilo visual
     let claseResultado = 'incorrect';
     if (esCorrecta) {
         claseResultado = 'correct';
@@ -54,17 +54,23 @@ examenOriginal.examen.forEach(pregunta => {
         ? correcta.map(i => pregunta.opciones[i]).join(', ')
         : pregunta.opciones[correcta];
 
-    div.innerHTML = `
-    <p><strong>Q${pregunta.numero}:</strong> ${pregunta.pregunta}</p>
-    <p><strong>Your answer:</strong> ${respuestaTexto}</p>
-    <p><strong>Correct answer:</strong> ${correctaTexto}</p>
-    <p><strong>Score:</strong> ${puntajePregunta.toFixed(2)}</p>
-  `;
+    let contenido = `
+  <p><strong>Q${pregunta.numero}:</strong> ${pregunta.pregunta}</p>
+  <p><strong>Your answer:</strong> ${respuestaTexto}</p>
+  <p><strong>Correct answer:</strong> ${correctaTexto}</p>
+  <p><strong>Score:</strong> ${puntajePregunta.toFixed(2)}</p>
+`;
+
+    if (pregunta.explicacion) {
+        contenido += `<p class="explicacion"><em>${pregunta.explicacion}</em></p>`;
+    }
+
+    div.innerHTML = contenido;
 
     detalleDiv.appendChild(div);
 });
 
-// Calcular y mostrar resumen general
+// Mostrar resumen general
 const porcentaje = Math.round((puntajeTotal / totalPreguntas) * 100);
 const aprobado = puntajeTotal >= examenOriginal.minimo_aprobacion;
 const feedback = examenOriginal.retroalimentacion.find(r => porcentaje >= r.umbral);
