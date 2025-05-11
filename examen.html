@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Take your certification practice exam.">
+    <title>Practice Exam</title>
+    <link rel="stylesheet" href="css/examen.css">
+</head>
+<body>
+<header>
+    <nav class="gnav">
+        <div class="logo"><a href="index.html">CertifyMe</a></div>
+    </nav>
+</header>
+
+<main>
+    <div class="header-bar">
+        <h1 id="exam-title">Loading exam...</h1>
+        <div id="timer">00:00</div>
+    </div>
+
+    <form id="exam-form"></form>
+
+    <div class="exam-nav">
+        <button id="back-btn" disabled>Back</button>
+        <button id="next-btn">Next</button>
+        <button id="finish-btn" style="display: none;">Finish Exam</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 CertifyMe. All rights reserved.</p>
+</footer>
+
+<script src="js/examen.js"></script>
+</body>
+</html>
