@@ -1,0 +1,150 @@
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+/* GNAV */
+.gnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #123458;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+.gnav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.gnav nav a {
+  margin-left: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Contenedor principal */
+.resultado-main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.resultado-main h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Score y feedback */
+.score {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.feedback {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Lista de respuestas */
+.answers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.answer-card {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+/* Estados */
+.answer-card.correct {
+  background-color: #d4edda;
+} /* verde pastel */
+.answer-card.partial {
+  background-color: #fff3cd;
+} /* amarillo pastel */
+.answer-card.wrong {
+  background-color: #f8d7da;
+} /* rojo pastel */
+
+.answer-card h4 {
+  margin-bottom: 0.5rem;
+}
+.answer-card p {
+  margin: 0.25rem 0;
+}
+
+/* Botones */
+.result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.result-buttons button {
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* Dentro de resultado.css */
+
+.answer-card details {
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.answer-card summary {
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+}
+
+.answer-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.answer-card summary::before {
+  content: '▶ ';
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.answer-card[open] summary::before {
+  transform: rotate(90deg);
+}
+/* Quita el marcador nativo y deja sólo tu flecha personalizada */
+.answer-card summary {
+  list-style: none; /* elimina cualquier viñeta/marker */
+}
+
+.answer-card summary::-webkit-details-marker {
+  display: none; /* Safari/Chrome */
+}
+
+.answer-card summary::-moz-list-bullet {
+  font-size: 0; /* Firefox */
+}
+
+/* Tu flecha que gira al abrir */
+.answer-card summary::before {
+  content: '▶ ';
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+.answer-card[open] summary::before {
+  transform: rotate(90deg);
+}

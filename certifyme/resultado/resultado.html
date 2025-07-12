@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CertifyMe - Resultado</title>
+    <link rel="stylesheet" href="resultado.css" />
+    <link rel="stylesheet" href="../partials/header.css" />
+    <link rel="stylesheet" href="../partials/footer.css" />
+  </head>
+  <body>
+    <div data-include="../partials/header.html"></div>
+
+    <main class="resultado-main">
+      <h1>Resultados del Examen</h1>
+      <div id="score" class="score"></div>
+      <div id="feedback" class="feedback"></div>
+      <div class="answers-list"></div>
+      <div class="result-buttons">
+        <button id="retry-btn">Intentar de nuevo</button>
+        <button id="back-btn">Volver a exámenes</button>
+      </div>
+    </main>
+    <div data-include="../partials/footer.html"></div>
+    <script src="../common/include.js"></script>
+    <script src="resultado.js" type="module"></script>
+  </body>
+</html>

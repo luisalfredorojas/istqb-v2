@@ -1,0 +1,46 @@
+[
+  {
+    "empresa": "istqb",
+    "titulo": "ISTQB® Certified Tester Syllabus Foundation Level v4.0 Exam A",
+    "descripcion": "Exam based in ISTQB® Certified Tester Syllabus Foundation Level v4.0 syllabus",
+    "minimo_aprobacion": 26,
+    "retroalimentacion": [
+      { "umbral": 90, "mensaje": "¡Excelente! Nivel muy alto de preparación." },
+      { "umbral": 75, "mensaje": "Muy bien, estás en camino de aprobar." },
+      {
+        "umbral": 65,
+        "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+      },
+      { "umbral": 0, "mensaje": "Recomendamos seguir estudiando." }
+    ],
+    "examen": [
+      {
+        "numero": 1,
+        "pregunta": "Which of the following statements describe a valid test objective?",
+        "opciones": [
+          "a) To prove that there are no unfixed defects in the system under test",
+          "b) To prove that there will be no failures after the implementation of the system into production",
+          "c) To reduce the risk level of the test object and to build confidence in the quality level",
+          "d) To verify that there are no untested combinations of inputs"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "Option c) To reduce the risk level...",
+        "imageUrl": "/images/foundation-level/image.png"
+      },
+      {
+        "numero": 1,
+        "pregunta": "Which of the following statements describe a valid test objective?",
+        "opciones": [
+          "a) To prove that there are no unfixed defects in the system under test",
+          "b) To prove that there will be no failures after the implementation of the system into production",
+          "c) To reduce the risk level of the test object and to build confidence in the quality level",
+          "d) To verify that there are no untested combinations of inputs"
+        ],
+        "respuesta_correcta": [1, 3],
+        "numero_respuestas": "TWO",
+        "explicacion": "Option c) To reduce the risk level..."
+      }
+    ]
+  }
+]
