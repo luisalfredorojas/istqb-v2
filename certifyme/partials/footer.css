@@ -1,0 +1,11 @@
+/* Estilos para el Footer compartido */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #123458;
+  color: #fff;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

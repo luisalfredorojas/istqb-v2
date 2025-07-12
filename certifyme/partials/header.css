@@ -1,0 +1,25 @@
+/* Estilos para el GNAV compartido */
+.gnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #123458;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.gnav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.gnav nav a {
+  margin-left: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.gnav nav a:hover {
+  text-decoration: underline;
+}
