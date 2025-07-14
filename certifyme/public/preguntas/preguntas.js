@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Fetch examen JSON (puede ser un objeto o un array con un objeto)
   let resp;
   try {
-    resp = await fetch(`/data/exams/${slug}.json`);
+    resp = await fetch(`../data/exams/${slug}.json`);
   } catch (err) {
     console.error('Fetch error:', err);
     return;
