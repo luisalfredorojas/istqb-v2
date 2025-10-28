@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <details>
           <summary>Ver mi respuesta</summary>
           <ul>${userList}</ul>
-          ${q.explicacion ? `<p><strong>Explicación:</strong> ${q.explicacion}</p>` : ''}
+          ${q.explicacion ? `<br><p><strong>Explicación:</strong> ${q.explicacion}</p>` : ''}
         </details>
       `;
             listEl.appendChild(card);
