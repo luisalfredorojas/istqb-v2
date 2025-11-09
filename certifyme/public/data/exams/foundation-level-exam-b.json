@@ -255,7 +255,7 @@
     },
     {
       "numero": 17,
-      "pregunta": "Given the following task descriptions:\n\n1. The quality characteristics to be evaluated and the exit criteria are selected\n2. Everyone has access to the work product\n3. Anomalies are identified in the work product\n4. Anomalies are discussed\n\nAnd the following review activities\n\nA. Individual review\nB. Review initiation\nC. Planning\nD. Communication and analysis\n\nWhich of the following BEST matches the task descriptions and activities?",
+      "pregunta": "Given the following task descriptions:<p style='margin-left:40px'><br>1. The quality characteristics to be evaluated and the exit criteria are selected<br>2. Everyone has access to the work product<br>3. Anomalies are identified in the work product<br>4. Anomalies are discussed</p>\n\n<br>And the following review activities\n\n<p style='margin-left:40px'><br>A. Individual review\n<br>B. Review initiation\n<br>C. Planning\n<br>D. Communication and analysis\n\n</p><br>Which of the following BEST matches the task descriptions and activities?",
       "opciones": [
         "a) 1B, 2C, 3D, 4A",
         "b) 1B, 2D, 3C, 4A",
@@ -270,7 +270,7 @@
     },
     {
       "numero": 18,
-      "pregunta": "Given the following roles in reviews:\n\n1. Scribe\n2. Review leader\n3. Facilitator\n4. Manager\n\nAnd the following responsibilities in reviews:\n\nA. Ensures the effective running of review meetings and the setting up a safe review environment\nB. Records review information, such as decisions and new anomalies found during the review meeting\nC. Decides what is to be reviewed and provides resources, such as staff and time for the review\nD. Takes overall responsibility for the review such as organizing when and where the review will take place\n\nWhich of the following BEST matches the roles and responsibilities?",
+      "pregunta": "Given the following roles in reviews:<p style='margin-left:40px'><br>1. Scribe<br>2. Review leader<br>3. Facilitator<br>4. Manager\n\n</p>And the following responsibilities in reviews:<p style='margin-left:40px'><br>A. Ensures the effective running of review meetings and the setting up a safe review environment<br>B. Records review information, such as decisions and new anomalies found during the review meeting<br>C. Decides what is to be reviewed and provides resources, such as staff and time for the review<br>D. Takes overall responsibility for the review such as organizing when and where the review will take place</p>Which of the following BEST matches the roles and responsibilities?",
       "opciones": [
         "a) 1A, 2B, 3D, 4C",
         "b) 1A, 2C, 3B, 4D",
@@ -300,7 +300,7 @@
     },
     {
       "numero": 20,
-      "pregunta": "Customers of the TestWash car wash chain have cards with a record of the number of washes they have bought so far. The initial value is 0. After entering the car wash, the system increases the number on the card by one. This value represents the number of the current wash. Based on this number the system decides what discount the customer is entitled to.\n\nFor every tenth wash the system gives a 10% discount, and for every twentieth wash, the system gives a further 40% discount (i.e., a 50% discount in total).\n\nWhich of the following sets of input data (understood as the numbers of the current wash) achieves the highest equivalence partition coverage?",
+      "pregunta": "Customers of the TestWash car wash chain have cards with a record of the number of washes they have bought so far. The initial value is 0. After entering the car wash, the system increases the number on the card by one. This value represents the number of the current wash. Based on this number the system decides what discount the customer is entitled to.<br><br>For every tenth wash the system gives a 10% discount, and for every twentieth wash, the system gives a further 40% discount (i.e., a 50% discount in total).<br><br>Which of the following sets of input data (understood as the numbers of the current wash) achieves the highest equivalence partition coverage?",
       "opciones": [
         "a) 19, 20, 30",
         "b) 11, 12, 20",
@@ -315,7 +315,7 @@
     },
     {
       "numero": 21,
-      "pregunta": "You are testing a form that verifies the correctness of the length of the password given as input. The form accepts a password with the correct length and rejects a password that is too short or too long. The password length is correct if it has between 6 and 12 characters inclusive. Otherwise, it is considered incorrect.\n\nAt first, the form is empty (password length = 0). You apply boundary value analysis to the “password length” variable.\n\nYour set of test cases achieves 100% 2-value boundary value coverage. The team decided that due to the high risk of this component, test cases should be added to ensure 100% 3-value boundary value coverage.\n\nWhich additional password lengths should be tested to achieve this?",
+      "pregunta": "You are testing a form that verifies the correctness of the length of the password given as input. The form accepts a password with the correct length and rejects a password that is too short or too long. The password length is correct if it has between 6 and 12 characters inclusive. Otherwise, it is considered incorrect.<br><br>At first, the form is empty (password length = 0). You apply boundary value analysis to the “password length” variable.<br><br>Your set of test cases achieves 100% 2-value boundary value coverage. The team decided that due to the high risk of this component, test cases should be added to ensure 100% 3-value boundary value coverage.<br><br>Which additional password lengths should be tested to achieve this?",
       "opciones": [
         "a) 4, 5, 13, 14",
         "b) 7, 11",
@@ -330,7 +330,7 @@
     },
     {
       "numero": 22,
-      "pregunta": "The following decision table contains the rules for determining the risk of atherosclerosis.\n\n Rule 1 Rule 2 Rule 3 Rule 4 Rule 5\n\nConditions\n\nCholesterol (mg/dl)\n≤ 124 ≤ 124 125 – 200 125 – 200 ≥ 201\n\nBlood pressure (mm Hg)\n≤ 140 > 140 ≤ 140 > 140 –\n\nAction\n\nRisk level very low low medium high very high\n\nYou designed the test cases with the following input data:\n\nTC1: Cholesterol = 125 mg/dl Blood pressure = 141 mm Hg\nTC2: Cholesterol = 200 mg/dl Blood pressure = 201 mm Hg\nTC3: Cholesterol = 124 mg/dl Blood pressure = 201 mm Hg\nTC4: Cholesterol = 109 mg/dl Blood pressure = 200 mm Hg\nTC5: Cholesterol = 201 mg/dl Blood pressure = 140 mm Hg\n\nWhat is the decision table coverage achieved by these test cases?",
+      "pregunta": "",
       "opciones": [
         "a) 40%",
         "b) 60%",
@@ -340,12 +340,12 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "Se cubren reglas 2 (TC3, TC4), 4 (TC1, TC2) y 5 (TC5): 3 de 5 reglas → 60%.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/qustion22b.png",
       "ytURL": ""
     },
     {
       "numero": 23,
-      "pregunta": "A storage system can store up to three elements and is modeled by the following state transition diagram. The variable N represents the number of currently stored elements.\n\nWhich of the following test cases, represented as sequences of events, achieves the highest level of valid transitions coverage?",
+      "pregunta": "",
       "opciones": [
         "a) Add, Remove, Add, Add, Add",
         "b) Add, Add, Add, Add, Remove, Remove",
@@ -355,12 +355,12 @@
       "respuesta_correcta": 2,
       "numero_respuestas": "ONE",
       "explicacion": "La secuencia c cubre transiciones válidas 0→1, 1→2, 2→3, 3→2 y 2→1; maximiza cobertura sin intentar una operación inválida.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question23b.png",
       "ytURL": ""
     },
     {
       "numero": 24,
-      "pregunta": "You run two test cases, T1 and T2, on the same code. Test T1 achieved 40% statement coverage and test T2 achieved 65% statement coverage.\n\nWhich of the following sentences must be necessarily true?",
+      "pregunta": "You run two test cases, T1 and T2, on the same code. Test T1 achieved 40% statement coverage and test T2 achieved 65% statement coverage.<br><br>Which of the following sentences must be necessarily true?",
       "opciones": [
         "a) The test suite composed of tests T1 and T2 achieves 105% statement coverage",
         "b) There exists at least one statement that must have been executed by both T1 and T2",
@@ -375,7 +375,7 @@
     },
     {
       "numero": 25,
-      "pregunta": "Let the branch coverage metric be defined as BCov = (X / Y) * 100%.\n\nWhat do X and Y represent in this formula?",
+      "pregunta": "Let the branch coverage metric be defined as BCov = (X / Y) * 100%.<br><br>What do X and Y represent in this formula?",
       "opciones": [
         "a) X = number of decision outcomes exercised by the test cases; Y = total number of decision outcomes in the code",
         "b) X = number of conditional branches exercised by the test cases; Y = total number of branches in the code",
@@ -421,7 +421,7 @@
     },
     {
       "numero": 28,
-      "pregunta": "Consider the following acceptance criteria for a user story written from the perspective of an online store owner.\n\nGiven that the user is logged in and on the homepage,\n\nWhen the user clicks on the Add Item button, \n\n Then the create item form should appear,\n\nAnd the user should be able to input a name and price for the new item.\n\nIn what format is this acceptance criteria written?",
+      "pregunta": "",
       "opciones": [
         "a) Rule-oriented",
         "b) Scenario-oriented",
@@ -431,12 +431,12 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "Está en formato Given/When/Then, propio de criterios de aceptación orientados a escenarios (BDD).",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question28b.png",
       "ytURL": ""
     },
     {
       "numero": 29,
-      "pregunta": "Your team analyzes the following user story in order to define the acceptance criteria:\n\nAs a registered customer, I want to be able to view my previous orders on the company's website, so that I can keep track of my purchases.\n\nWhich of the following test cases will NOT be relevant for this user story?",
+      "pregunta": "",
       "opciones": [
         "a) Input: the customer logs into their account on the website and clicks the “see order history” button; Expected result: the system shows a list of all the customer’s previous orders, including the date, order number, and total cost",
         "b) Input: the customer clicks on an order from the order list; Expected result: the system displays the individual items purchased, along with their prices and quantities",
@@ -446,12 +446,12 @@
       "respuesta_correcta": 3,
       "numero_respuestas": "ONE",
       "explicacion": "La historia trata de ver órdenes de un cliente registrado; el caso de registro de nuevos clientes no es pertinente.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question29b.png",
       "ytURL": ""
     },
     {
       "numero": 30,
-      "pregunta": "Your team follows the process that uses the DevOps delivery pipeline. The first three steps of this process are:\n\n(1) Code development\n\n(2) Submit code into a version control system and merge it into the 'test' branch\n\n(3) Perform component testing for the submitted code\n\nWhich of the following is BEST suited to be the entry criterion for step (2) of this pipeline?",
+      "pregunta": "Your team follows the process that uses the DevOps delivery pipeline. The first three steps of this process are:<p style='margin-left:40px'><br>(1) Code development\n\n(2) Submit code into a version control system and merge it into the 'test' branch\n\n(3) Perform component testing for the submitted code</p>Which of the following is BEST suited to be the entry criterion for step (2) of this pipeline?",
       "opciones": [
         "a) Static analysis returns no high severity warnings for the submitted code",
         "b) System version control reports no conflicts when merging code into the 'test', branch",
@@ -466,8 +466,8 @@
     },
     {
       "numero": 31,
-      "pregunta": "You want to estimate the test effort for the new project using estimation based on ratios. You calculate the test-to-development effort ratio using averaged data for both development effort and test effort from four historical projects similar to the new one. The table shows this historical data.\n\nProject Development effort ($) Test effort ($)\nP1 800,000 40,000\nP2 1,200,000 130,000\nP3 600,000 70,000\nP4 1,000,000 120,000\n\nThe estimated development effort for the new project is $800,000. What is your estimate of the test effort in this project?",
-      "opciones": [
+      "pregunta": "",
+       "opciones": [
         "a) $40,000",
         "b) $80,000",
         "c) $81,250",
@@ -476,12 +476,12 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "Promedio de ratios: (0.05+0.1083+0.1167+0.12)/4 ≈ 0.09875; 0.09875×800,000 ≈ $79,000 → opción más cercana: $80,000.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question31b.png",
       "ytURL": ""
     },
     {
       "numero": 32,
-      "pregunta": "You are testing a web application that allows users to SEARCH for products, VIEW product details, ADD products to a shopping cart, and place an ORDER.\n\nYou have prepared the following seven test cases, all of which you want to execute. The tests should be executed in the best order, based on test priority.\n\nTest Priority (1 = higher priority)\nTC1 SEARCH for product A 4\nTC2 SEARCH for product B 4\nTC3 VIEW product A details 3\nTC4 VIEW product B details 2\nTC5 ADD product A to a shopping cart 3\nTC6 ADD product B to a shopping cart 1\nTC7 place an ORDER 5\n\nYou also identified the following logical dependencies between test cases:\n• SEARCH functionality must be tested before VIEW functionality can be tested.\n• VIEW functionality must be tested before ADD functionality.\n• ADD functionality must be tested before ORDER functionality.\n\nWhich test case should be executed as the fourth one?",
+      "pregunta": "",
       "opciones": [
         "a) TC3",
         "b) TC1",
@@ -491,7 +491,7 @@
       "respuesta_correcta": 0,
       "numero_respuestas": "ONE",
       "explicacion": "Orden óptimo por prioridad y dependencias: TC2 (SEARCH B) → TC4 (VIEW B) → TC6 (ADD B) → TC3 (VIEW A). El cuarto es TC3.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question32b.png",
       "ytURL": ""
     },
     {
@@ -511,7 +511,7 @@
     },
     {
       "numero": 34,
-      "pregunta": "Given the following risks:\n\n1. Ineffective loop implementation causes long system responses\n2. Consumers change their preferences\n3. Flooding of the server room\n4. Patients above a certain age receive inaccurate reports\n\nAnd the following mitigation activities:\n\nA. Risk acceptance\nB. Testing for performance efficiency\nC. Using boundary value analysis as the test technique\nD. Risk transfer\n\nWhich of the following BEST matches the risks with the mitigation activities?",
+      "pregunta": "Given the following risks:<p style='margin-left:40px'><br>1. Ineffective loop implementation causes long system responses<br>2. Consumers change their preferences<br>3. Flooding of the server room<br>4. Patients above a certain age receive inaccurate reports</p><br>\n\nAnd the following mitigation activities:<p style='margin-left:40px'><br>A. Risk acceptance<br>B. Testing for performance efficiency<br>C. Using boundary value analysis as the test technique<br>D. Risk transfer</p><br>Which of the following BEST matches the risks with the mitigation activities?",
       "opciones": [
         "a) 1C, 2D, 3A, 4B",
         "b) 1B, 2D, 3A, 4C",
@@ -541,7 +541,7 @@
     },
     {
       "numero": 36,
-      "pregunta": "You are a member of a test team located in North America, developing a product for a client located in Europe. The team is agile and follows the DevOps approach and uses a continuous integration/continuous delivery pipeline.\n\nWhich of the following is the LEAST effective way to communicate test progress to the customer?",
+      "pregunta": "You are a member of a test team located in North America, developing a product for a client located in Europe. The team is agile and follows the DevOps approach and uses a continuous integration/continuous delivery pipeline.<br>Which of the following is the LEAST effective way to communicate test progress to the customer?",
       "opciones": [
         "a) Face-to-face",
         "b) Dashboards",
@@ -571,7 +571,7 @@
     },
     {
       "numero": 38,
-      "pregunta": "You are testing a sort function that gets a set of numbers as input and returns the same set of numbers sorted in ascending order. The log from the test execution looks as follows.\n\nEnvironment configuration: sort function build 2.002.2182, test case set: TCS-3, # of TCs: 5\nTest run ID: 736\nStart 12:43:21.003\n12:43:21.003 Execution of TC1. Input: 3. Output: 3. Result: passed\n12:43:21.003 Execution of TC2. Input: 3 11 6 5. Output: 3 5 6 11. Result: passed\n12:43:21.004 Execution of TC3. Input: 8 7 3 7 1. Output: 1 3 7 8. Result: failed\n12:43:21.005 Execution of TC4. Input: -2 -2 -2 -3 -3. Output: -3 -2. Result: failed\n12:43:21.005 Execution of TC5. Input: 0 -2 0 3 4 4. Output: -2 0 3 4. Result: failed\nEnd 12:43:21.005\nTotal time of test cycle: 0:00:00.002\n\nWhich of the following provides the BEST description of the failure that can be used in a defect report?",
+      "pregunta": "",
       "opciones": [
         "a) The system fails to sort several sets of numbers. Reference: TC3, TC4, TC5.",
         "b) The system seems to disregard duplicates while sorting. Reference: TC3, TC4, TC5.",
@@ -581,12 +581,12 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "La salida elimina duplicados (TC3, TC4, TC5), por eso fallan; el problema no es ordenar ni números negativos.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question38b.png",
       "ytURL": ""
     },
     {
       "numero": 39,
-      "pregunta": "Given the following descriptions:\n\n1. Support workflow tracking\n2. Facilitate communication\n3. Virtual machines\n4. Support reviews\n\nAnd the following test tool categories:\n\nA. Static testing tools\nB. Tools supporting scalability and deployment standardization\nC. DevOps tools\nD. Collaboration tools\n\nWhich of the following BEST matches the descriptions and categories?",
+      "pregunta": "Given the following descriptions:<p style='margin-left:40px'><br>1. Support workflow tracking<br>2. Facilitate communication<br>3. Virtual machines<br>4. Support reviews</p><br>And the following test tool categories:<p style='margin-left:40px'><br>A. Static testing tools<br>B. Tools supporting scalability and deployment standardization<br>C. DevOps tools<br>D. Collaboration tools</p><br>Which of the following BEST matches the descriptions and categories?",
       "opciones": [
         "a) 1A, 2B, 3C, 4D",
         "b) 1B, 2D, 3C, 4A",

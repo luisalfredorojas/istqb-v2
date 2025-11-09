@@ -7,7 +7,7 @@
   },
   {
     "slug": "foundation-level-exam-b",
-    "titulo": "IISTQB® Foundation Level v4.0 Exam B",
+    "titulo": "ISTQB® Foundation Level v4.0 Exam B",
     "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
     "minimo_aprobacion": 26
   },
@@ -22,5 +22,11 @@
     "titulo": "ISTQB® Foundation Level v4.0 Exam D",
     "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
     "minimo_aprobacion": 26
+  },
+  {
+    "slug": "advance-level-test-analyst",
+    "titulo": "ISTQB® Certified Tester Advanced Level Test Analyst (CTAL-TA) v4.0",
+    "descripcion": "Simulador de examen ISTQB Certified Tester Advance Level v4.0",
+    "minimo_aprobacion": 51
   }
 ]

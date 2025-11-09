@@ -82,9 +82,9 @@
       "c) ii, iv, v have significant influence",
       "d) iii, v have significant influence"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 1,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "i) The SDLC (ciclo de vida de desarrollo): El modelo (ágil, V-Model, incremental, DevOps) define cuándo y cómo integramos pruebas (niveles, técnicas, artefactos, cadencia), por tanto condiciona el enfoque desde la raíz. <br> iii) The identified product risks: En ISTQB, el enfoque es dirigido por riesgo. Riesgos altos ⇒ mayor profundidad, cobertura y priorización; elección de técnicas (caja negra/blanca), criterios de entrada/salida y evidencia.<br>iv) New regulatory requirements forcing formal white-box testing: La regulación impone qué técnicas/evidencias se exigen (p. ej., cobertura estructural mínima, trazabilidad), lo que moldea directamente la estrategia y el proceso de prueba.",
     "imageUrl": "../images/foundation-level/question5.png"
   },
   {
@@ -111,9 +111,9 @@
       "c) i, ii and v are important",
       "d) iii and iv are important"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 1,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "i) Conocimiento del dominio: acelera la comprensión de requisitos, riesgos y escenarios de uso reales; mejora la detección de defectos relevantes.<br>iii) Trabajo en equipo: el testing es colaborativo (con devs, PO, negocio). Comunicación y cooperación impactan directamente la calidad y el flujo.<br>v) Pensamiento crítico: habilidad central del tester para cuestionar supuestos, analizar evidencia y diseñar pruebas efectivas.",
     "imageUrl": "../images/foundation-level/question7.png"
   },
   {
@@ -195,9 +195,9 @@
       "c) 1B, 2A, 3D, 4C",
       "d) 1C, 2B, 3A, 4D"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 0,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "1 → D (Acceptance testing): Desviaciones respecto a las necesidades del negocio/usuario se validan mejor en aceptación, donde se comprueba el ajuste al uso real.<br>2 → B (Component integration testing): Los fallos de comunicación entre componentes son típicos de la integración de componentes (interfaces, contratos, protocolos).<br>3 → A (Component testing): Los errores de lógica en el código se detectan mejor en pruebas de componente/unidad, centradas en ramas, condiciones y cálculos.<br>4 → C (System testing): Reglas de negocio mal implementadas afectan el comportamiento global del sistema y se verifican contra requisitos del sistema en pruebas de sistema.",
     "imageUrl": "../images/foundation-level/question13.png"
   },
   {
@@ -211,9 +211,9 @@
       "c) Only 4, 6, 8, 9",
       "d) Only 5, 6"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 1,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "Regression testing: se repiten casos que habían pasado en la ejecución previa para detectar efectos colaterales.",
     "imageUrl": "../images/foundation-level/question14.png"
   },
   {
@@ -295,9 +295,9 @@
       "c) 5",
       "d) 6"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 1,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "Para cubrir todas las particiones válidas al menos una vez:Ground + Small garden → cubre Ground y Small.<br>Ground + Large garden → cubre Large.<br>First floor + No garden → cubre First y No garden.<br>Second or higher + No garden → cubre Second or higher.",
     "imageUrl": "../images/foundation-level/question20.png"
   },
   {
@@ -309,9 +309,9 @@
       "c) 33.3%",
       "d) 100%"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 1,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "En BVA de 2 valores, se prueban los límites inferiores y superiores de cada partición. Hay 6 particiones de notas (0–50, 51–60, etc.), por lo tanto se esperan 12 valores límite (2 por cada una), pero solo hay 6 valores usados. Eso da 6/10 límites cubiertos = 60%.",
     "imageUrl": "../images/foundation-level/question21.png"
   },
   {
@@ -323,9 +323,9 @@
       "c) R6",
       "d) R8"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 3,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "La regla R8 indica que un no-miembro (F) que ha alquilado por 15ª vez (T) recibe un regalo. Pero el sistema solo da regalos a miembros. Por eso, esta combinación es imposible.",
     "imageUrl": "../images/foundation-level/question21.png"
   },
   {
@@ -337,9 +337,9 @@
       "c) 7",
       "d) 3"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 3,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "Para lograr cobertura de transiciones válidas en un diagrama de estados, se debe ejecutar cada transición al menos una vez. Con una estrategia adecuada se puede cubrir todas las transiciones válidas en solo 4 casos de prueba.",
     "imageUrl": "../images/foundation-level/question23.png"
   },
   {
@@ -464,9 +464,9 @@
       "c) 11 person-hours",
       "d) 10 person-hours"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 3,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "La técnica de estimación de tres puntos usa la fórmula: (optimista + 4 × más probable + pesimista) / 6. Aplicando: (2 + 4×11 +14) / 6 = 10.",
     "imageUrl": "../images/foundation-level/question32.png"
   },
   {
@@ -478,9 +478,9 @@
       "c) TC 002",
       "d) TC 001"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 0,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "Aunque TC003 tiene la mayor prioridad (1), depende de TC002, que a su vez depende de TC001. El orden correcto sería TC001, TC002 y luego TC003 como tercer caso a ejecutar.",
     "imageUrl": "../images/foundation-level/question33.png"
   },
   {
@@ -492,9 +492,9 @@
       "c) 1C, 2B, 3D, 4A",
       "d) 1D, 2B, 3C, 4A"
     ],
-    "respuesta_correcta": "",
+    "respuesta_correcta": 0,
     "numero_respuestas": "ONE",
-    "explicacion": "",
+    "explicacion": "La prueba de usabilidad (1) corresponde al cuadrante 3 (C, crítica del producto orientada al negocio), pruebas de componentes (2) al Q1 (A), funcionales (3) al Q2 (B), y confiabilidad (4) al Q4 (D).",
     "imageUrl": "../images/foundation-level/question34.png"
   },
   {

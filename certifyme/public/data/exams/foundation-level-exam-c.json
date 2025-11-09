@@ -76,7 +76,7 @@
     },
     {
       "numero": 5,
-      "pregunta": "Given the following testware:\n\n1. Coverage items\n2. Change requests\n3. Test execution schedule\n4. Prioritized test conditions\n\nAnd the following test activities\nA. Test analysis\nB. Test design\nC. Test implementation\nD. Test completion\n\nWhich of the following BEST shows the testware produced by the activities?",
+      "pregunta": "Given the following testware:<p style='margin-left:40px'>1. Coverage items<br>2. Change requests<br>3. Test execution schedule<br>4. Prioritized test conditions</p><br>And the following test activities<p style='margin-left:40px'><br>A. Test analysis<br>B. Test design<br>C. Test implementation<br>D. Test completion<br></p>Which of the following BEST shows the testware produced by the activities?",
       "opciones": [
         "a) 1B, 2D, 3C, 4A",
         "b) 1B, 2D, 3A, 4C",
@@ -226,7 +226,7 @@
     },
     {
       "numero": 15,
-      "pregunta": "Given the following example defects:\n\ni. Two different parts of the design specification disagree due to the complexity of the design\n\nii. A response time is too long and so makes users lose patience\niii. A path in the code cannot be reached during execution\niv. A variable is declared but never subsequently used in the program\nv. The amount of memory needed by the program to generate a report is too high\n\nWhich of the following BEST identifies example defects that could be found by static testing (rather than dynamic testing)?",
+      "pregunta": "Given the following example defects:<p style='margin-left:40px'><br>i. Two different parts of the design specification disagree due to the complexity of the design<br>ii. A response time is too long and so makes users lose patience<br>iii. A path in the code cannot be reached during execution<br>iv. A variable is declared but never subsequently used in the program<br>v. The amount of memory needed by the program to generate a report is too high</p><br>Which of the following BEST identifies example defects that could be found by static testing (rather than dynamic testing)?",
       "opciones": [
         "a) ii, v",
         "b) iii, v",
@@ -256,7 +256,7 @@
     },
     {
       "numero": 17,
-      "pregunta": "Given the following review types:\n\n1. Technical review\n2. Informal review\n3. Inspection\n4. Walkthrough\n\nAnd the following descriptions:\nA. Includes objectives such as gaining consensus, generating new ideas, and motivating authors to improve\nB. Includes objectives such as educating reviewers, gaining consensus, generating new ideas and detecting potential defects\nC. The main objective is detecting potential defects and it requires metrics collection to support process improvement\nD. The main objective is detecting potential defects and it generates no formal documented output\n\nWhich of the following BEST matches the review types and the descriptions?",
+      "pregunta": "Given the following review types:<p style='margin-left:40px'><br>1. Technical review<br>2. Informal review<br>3. Inspection<br>4. Walkthrough</p><br>And the following descriptions:<p style='margin-left:40px'><br>A. Includes objectives such as gaining consensus, generating new ideas, and motivating authors to improve<br>B. Includes objectives such as educating reviewers, gaining consensus, generating new ideas and detecting potential defects<br>C. The main objective is detecting potential defects and it requires metrics collection to support process improvement<br>D. The main objective is detecting potential defects and it generates no formal documented output</p><br>Which of the following BEST matches the review types and the descriptions?",
       "opciones": [
         "a) 1A, 2B, 3C, 4D",
         "b) 1A, 2D, 3C, 4B",
@@ -301,7 +301,7 @@
     },
     {
       "numero": 20,
-      "pregunta": "You are testing a PIN validator, which accepts valid PINs and rejects invalid PINs. A PIN is a sequence of digits. A PIN is valid if it consists of four digits, which are not all the same digit. You have identified the following valid equivalence partitions:\n\nVariable: PIN code length\n• The partition 'length correct' - four-digit PINs\n• The partition 'length incorrect' - PINs with length other than 4\n\nVariable: Number of different digits\n• The partition 'number of different digits correct' - PINs with at least two different digits\n• The partition 'number of different digits incorrect' - PINs with all digits being the same\n\nWhich of the following is the BEST set of input test data to cover the identified equivalence partitions?",
+      "pregunta": "",
       "opciones": [
         "a) 12, 1111, 1234, 12345",
         "b) 1, 123, 1111, 1234",
@@ -311,12 +311,12 @@
       "respuesta_correcta": 0,
       "numero_respuestas": "ONE",
       "explicacion": "12/12345 cubren ‘longitud incorrecta’; 1111 cubre ‘todos iguales’; 1234 cubre ‘al menos dos dígitos distintos’.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question20c.png",
       "ytURL": ""
     },
     {
       "numero": 21,
-      "pregunta": "A developer was asked to implement the following business rule:\n\nINPUT: value (integer number)\nIF (value ≤ 100 OR value ≥ 200) THEN write 'value incorrect'\nELSE write 'value OK'\n\nYou design the test cases using 2-value boundary value analysis.\n\nWhich of the following sets of test inputs achieves the greatest coverage?",
+      "pregunta": "",
       "opciones": [
         "a) 100, 150, 200, 201",
         "b) 99, 100, 200, 201",
@@ -326,7 +326,7 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "Cubre ambos límites: 100 y 200, junto con valores inmediatamente fuera (99, 201) para ejercitar las regiones ‘incorrecto’.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question21c.png",
       "ytURL": ""
     },
     {
@@ -341,37 +341,37 @@
       "respuesta_correcta": 3,
       "numero_respuestas": "ONE",
       "explicacion": "Con C1=F, C2=F, C3=F se activan R2 (C2=F) y R3 (C1=F y C3=F) simultáneamente con acciones distintas: contradicción.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question22c.png",
       "ytURL": ""
     },
     {
       "numero": 23,
-      "pregunta": "You are designing test cases based on the following state transition diagram.\n\nWhat is the MINIMUM number of test cases required to achieve 100% valid transitions coverage?",
+      "pregunta": "",
       "opciones": [
         "a) 3",
         "b) 2",
         "c) 5",
         "d) 6"
       ],
-      "respuesta_correcta": "",
+      "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
-      "explicacion": "",
-      "imageUrl": "necesita imagen",
+      "explicacion": "Con una secuencia bien elegida se puede recorrer todas las transiciones válidas con dos casos, minimizando redundancia.",
+      "imageUrl": "../images/foundation-level/question23c.png",
       "ytURL": ""
     },
     {
       "numero": 24,
-      "pregunta": "You want to apply branch testing to the code represented by the following control flow graph.\n\nHow many coverage items do you need to test?",
+      "pregunta": "",
       "opciones": [
         "a) 2",
         "b) 4",
         "c) 8",
         "d) 7"
       ],
-      "respuesta_correcta": "",
+      "respuesta_correcta": 3,
       "numero_respuestas": "ONE",
-      "explicacion": "",
-      "imageUrl": "necesita imagen",
+      "explicacion": "En branch testing los ítems de cobertura son las ramas; el grafo dado implica 7 ramas a cubrir.",
+      "imageUrl": "../images/foundation-level/question24c.png",
       "ytURL": ""
     },
     {
@@ -391,7 +391,7 @@
     },
     {
       "numero": 26,
-      "pregunta": "Consider the following list:\n\n• Correct input not accepted\n• Incorrect input accepted\n• Wrong output format\n• Division by zero\n\nWhat test technique is MOST PROBABLY used by the tester who uses this list when performing testing?",
+      "pregunta": "Consider the following list:<p style='margin-left:40px'><br>• Correct input not accepted<br>• Incorrect input accepted<br>• Wrong output format<br>• Division by zero</p><br>What test technique is MOST PROBABLY used by the tester who uses this list when performing testing?",
       "opciones": [
         "a) Exploratory testing",
         "b) Fault attack",
@@ -436,7 +436,7 @@
     },
     {
       "numero": 29,
-      "pregunta": "You are using acceptance test-driven development and designing test cases based on the following user story:\n\nAs a Regular or Special user, I want to be able to use my electronic floor card, to access specific floors.\n\nAcceptance Criteria:\n\nAC1: Regular users have access to floors 1 to 3\nAC2: Floor 4 is only accessible to Special users\nAC3: Special users have all the access rights of Regular users\n\nWhich test case is the MOST reasonable one to test AC3?",
+      "pregunta": "",
       "opciones": [
         "a) Check that a Regular user can access floors 1 and 3",
         "b) Check that a Regular user cannot access floor 4",
@@ -446,7 +446,7 @@
       "respuesta_correcta": 3,
       "numero_respuestas": "ONE",
       "explicacion": "AC3 implica que un usuario Special hereda accesos de Regular: debe poder acceder a 1, 2 y 3.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question29c.png",
       "ytURL": ""
     },
     {
@@ -466,32 +466,32 @@
     },
     {
       "numero": 31,
-      "pregunta": "At the beginning of each iteration, the team estimates the amount of work (in person-days) they will need to complete during the iteration. Let E(n) be the estimated amount of work for iteration n, and let A(n) be the actual amount of work done in iteration n. From the third iteration, the team uses the following estimation model based on extrapolation:\n\nE(n) = (3 * A(n − 1) + A(n − 2)) / 4\n\nThe graph shows the estimated and actual amount of work for the first four iterations.\n\nWhat is the estimated amount of work for iteration #5?",
+      "pregunta": "",
       "opciones": [
         "a) 10.5 person-days",
         "b) 8.25 person-days",
         "c) 6.5 person-days",
         "d) 9.4 person-days"
       ],
-      "respuesta_correcta": "",
+      "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "",
-      "imageUrl": "necesita imagen",
+      "imageUrl": "../images/foundation-level/question31c.png",
       "ytURL": ""
     },
     {
       "numero": 32,
-      "pregunta": "You are preparing a test execution schedule for executing seven test cases TC 1 to TC 7.\n\nThe following figure includes the priorities of these test cases (1=highest priority, 3 = lowest priority).\n\nThe figure also shows the dependencies between test cases using arrows. For instance, the arrow from TC 4 to TC 5 means that TC 5 can only be executed if TC 4 was previously executed.\n\nWhich test case should be executed sixth?",
+      "pregunta": "",
       "opciones": [
         "a) TC 3",
         "b) TC 5",
         "c) TC 6",
         "d) TC 2"
       ],
-      "respuesta_correcta": "",
+      "respuesta_correcta": 2,
       "numero_respuestas": "ONE",
-      "explicacion": "",
-      "imageUrl": "necesita imagen",
+      "explicacion": "Al respetar dependencias y prioridades, el sexto ejecutado óptimo es TC6.",
+      "imageUrl": "../images/foundation-level/question32c.png",
       "ytURL": ""
     },
     {
@@ -571,7 +571,7 @@
     },
     {
       "numero": 38,
-      "pregunta": "Consider the following defect report for a web-based shopping application:\n\nApplication: WebShop v0.99\n\nDefect: Login button not working\n\nSteps to Reproduce:\n\nLaunch the website\nClick on the login button\n\nExpected result: The user should be redirected to the login page.\nActual result: The login button does not respond when clicked.\n\nSeverity: High\nPriority: Urgent\n\nWhat is the MOST important information that is missing from this defect report?",
+      "pregunta": "",
       "opciones": [
         "a) Name of the tester and date",
         "b) Test environment elements and their version numbers",
@@ -581,7 +581,7 @@
       "respuesta_correcta": 1,
       "numero_respuestas": "ONE",
       "explicacion": "Sin detallar el entorno (SO/navegador/versiones), es difícil reproducir y aislar el problema.",
-      "imageUrl": "",
+      "imageUrl": "../images/foundation-level/question38c.png",
       "ytURL": ""
     },
     {
