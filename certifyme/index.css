@@ -27,6 +27,11 @@ body {
   font-weight: bold;
   text-decoration: none;
 }
+.gnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .gnav nav a {
   margin-left: 1rem;
   color: #fff;
@@ -35,6 +40,19 @@ body {
 }
 .gnav nav a:hover {
   text-decoration: underline;
+}
+.qa-lab-btn {
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: #facc15;
+  color: #123458;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.qa-lab-btn:hover {
+  transform: translateY(-1px);
 }
 
 /* Hero */

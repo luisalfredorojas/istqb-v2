@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Automation Practice Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="lab-hero">
+      <div>
+        <p class="eyebrow">Hands-on widgets para practicar</p>
+        <h1>QA Automation Practice Lab</h1>
+        <p>
+          Interactúa con formularios, tablas, drag-and-drop, modales, tooltips y operaciones
+          asíncronas para tus scripts de automatización end-to-end.
+        </p>
+        <div class="hero-actions">
+          <button id="back-home" class="ghost">Volver al inicio</button>
+          <button id="trigger-async" class="primary" data-testid="async-button">Simular API</button>
+          <span id="async-status" class="status-message" data-testid="async-status">Idle</span>
+        </div>
+      </div>
+      <div class="session-info">
+        <span class="status-label">Session timer:</span>
+        <span id="session-timer" data-testid="session-timer">00:00</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="qa-playground" class="qa-section" data-testid="qa-playground">
+        <div class="grid two">
+          <article class="card" id="login-card">
+            <h2>1. Login Form</h2>
+            <p class="helper">Botón habilitado solo cuando hay datos.</p>
+            <form id="login-form" data-testid="login-form">
+              <label>Email
+                <input id="login-email" name="email" type="email" data-testid="login-email" required />
+              </label>
+              <label>Password
+                <input id="login-password" name="password" type="password" data-testid="login-password" required />
+              </label>
+              <div class="form-actions">
+                <button type="button" id="clear-login" class="ghost">Limpiar</button>
+                <button type="submit" id="login-submit" data-testid="login-submit" disabled>Access</button>
+              </div>
+              <p id="login-message" class="message" data-testid="login-message"></p>
+            </form>
+          </article>
+
+          <article class="card" id="registration-card">
+            <h2>2. Registro + Validación</h2>
+            <p class="helper">Dropdowns, radios, checkbox y file input.</p>
+            <form id="register-form" data-testid="register-form">
+              <label>Full name
+                <input id="register-name" type="text" placeholder="Ada Lovelace" required />
+              </label>
+              <label>Work email
+                <input id="register-email" type="email" placeholder="qa@example.com" required />
+              </label>
+              <label>Preferred role
+                <select id="register-role" data-testid="role-select" required>
+                  <option value="">Select</option>
+                  <option value="manual">Manual QA</option>
+                  <option value="automation">Automation QA</option>
+                  <option value="lead">QA Lead</option>
+                </select>
+              </label>
+              <fieldset>
+                <legend>Experience level</legend>
+                <label><input type="radio" name="experience" value="junior" checked /> Junior</label>
+                <label><input type="radio" name="experience" value="mid" /> Mid</label>
+                <label><input type="radio" name="experience" value="senior" /> Senior</label>
+              </fieldset>
+              <label>Upload resume (simulado)
+                <input id="resume-upload" type="file" data-testid="resume-input" />
+              </label>
+              <p id="file-feedback" class="helper" data-testid="file-feedback">No file selected.</p>
+              <label class="terms">
+                <input id="register-terms" type="checkbox" /> Acepto los términos
+              </label>
+              <button type="submit" id="register-submit" data-testid="register-submit" disabled>Completar registro</button>
+              <p id="register-errors" class="message" data-testid="register-message"></p>
+            </form>
+          </article>
+        </div>
+
+        <div class="grid two">
+          <article class="card" id="table-card">
+            <h2>3. Tabla ordenable/filtrable</h2>
+            <div class="table-controls">
+              <input id="table-search" type="search" placeholder="Search suite" data-testid="table-search" />
+              <select id="table-filter" data-testid="table-filter">
+                <option value="all">All statuses</option>
+                <option value="passed">Passed</option>
+                <option value="failed">Failed</option>
+                <option value="blocked">Blocked</option>
+              </select>
+              <button id="table-clear" class="ghost" type="button">Clear filters</button>
+            </div>
+            <table id="qa-table" data-testid="qa-table">
+              <thead>
+                <tr>
+                  <th data-sort="suite">Suite ▲▼</th>
+                  <th data-sort="status">Status ▲▼</th>
+                  <th data-sort="duration">Duration (ms) ▲▼</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p class="helper"><span id="table-count" data-testid="table-count">0</span> rows shown.</p>
+          </article>
+
+          <article class="card" id="todo-card">
+            <h2>4. Checklist</h2>
+            <form id="todo-form" class="todo-form" data-testid="todo-form">
+              <input id="todo-input" type="text" placeholder="Add a QA step" data-testid="todo-input" />
+              <button type="submit" class="primary">Add</button>
+            </form>
+            <ul id="todo-list" class="todo-list" data-testid="todo-list"></ul>
+            <p class="helper"><span id="todo-count" data-testid="todo-count">0</span> pending steps.</p>
+          </article>
+        </div>
+
+        <div class="grid two">
+          <article class="card" id="drag-card">
+            <h2>5. Drag & Drop Scenarios</h2>
+            <p class="helper">Arrastra los casos al panel ejecutado.</p>
+            <div class="drag-columns">
+              <div class="drag-column" id="drag-pending" data-testid="drag-pending">
+                <h3>Pending</h3>
+                <div class="drag-list" id="pending-list"></div>
+              </div>
+              <div class="drag-column" id="drag-done" data-testid="drag-done">
+                <h3>Executed</h3>
+                <div class="drag-list" id="done-list"></div>
+              </div>
+            </div>
+            <p id="drop-status" class="message" data-testid="drop-status">Nothing moved yet.</p>
+          </article>
+
+          <article class="card" id="interactions-card">
+            <h2>6. Modals, Tooltips & States</h2>
+            <button id="open-modal" class="primary" data-testid="open-modal">Abrir modal</button>
+            <div class="tooltip-wrapper" data-testid="tooltip-target">
+              Hover info icon
+              <span class="tooltip" role="tooltip">Environment ready ✔️</span>
+            </div>
+            <button id="toggle-disabled" type="button" class="ghost" data-testid="toggle-disabled">Toggle disabled field</button>
+            <input id="toggle-target" type="text" value="Cannot edit" disabled data-testid="toggle-target" />
+            <div class="radio-group">
+              <p>Notification channel</p>
+              <label><input type="radio" name="channel" value="email" checked /> Email</label>
+              <label><input type="radio" name="channel" value="slack" /> Slack</label>
+              <label><input type="radio" name="channel" value="sms" /> SMS</label>
+            </div>
+            <div class="file-simulated">
+              <label>Attach screenshot<input id="screenshot-input" type="file" data-testid="screenshot-input" /></label>
+              <p id="screenshot-feedback" class="helper">Waiting for a file...</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid two">
+          <article class="card" id="scroll-card">
+            <h2>7. Scroll & Visibility</h2>
+            <div id="scroll-box" class="scroll-box" data-testid="scroll-box" tabindex="0">
+              <p>Scroll this panel to reveal checkpoints. Testers can assert scrollTop changes.</p>
+              <p>Checkpoint 1</p>
+              <p>Checkpoint 2</p>
+              <p>Checkpoint 3</p>
+              <p>Checkpoint 4</p>
+              <p>Checkpoint 5</p>
+              <p>Checkpoint 6</p>
+              <p>Checkpoint 7</p>
+              <p class="hidden-checkpoint" aria-hidden="true">Hidden checkpoint revealed!</p>
+            </div>
+            <p id="scroll-status" class="message" data-testid="scroll-status">Not scrolled yet.</p>
+          </article>
+
+          <article class="card" id="delayed-card">
+            <h2>8. Async Widgets</h2>
+            <p id="delayed-widget" data-testid="delayed-widget">Loading metrics...</p>
+            <button id="delayed-refresh" type="button" class="ghost" data-testid="delayed-refresh">Reload metrics</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" hidden></div>
+    <dialog id="qa-modal" class="qa-modal" data-testid="qa-modal">
+      <h3>Execution summary</h3>
+      <p>Usa este modal para validar estados abierto/cerrado.</p>
+      <button id="close-modal" class="primary" data-testid="close-modal">Close</button>
+    </dialog>
+
+    <script src="./lab.js" type="module"></script>
+  </body>
+</html>
