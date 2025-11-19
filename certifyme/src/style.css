@@ -175,3 +175,350 @@ body {
   font-size: 0.8rem;
   color: #666;
 }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: min(320px, 100%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.hero-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.hero-card p {
+  margin-bottom: 1rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: #00c6ff;
+  color: #02203c;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* QA Lab styles */
+:root {
+  --qa-bg: #eef2ff;
+  --qa-primary: #4338ca;
+  --qa-border: #c7d2fe;
+  --qa-card: #fff;
+  --qa-muted: #475569;
+}
+
+.qa-section {
+  background: var(--qa-bg);
+  padding: 3rem 1.5rem;
+  color: #0f172a;
+}
+
+.qa-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.qa-header h1 {
+  margin: 0.5rem 0;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #1e1b4b;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+}
+
+.status-bar .primary {
+  background: #fbbf24;
+  border: none;
+  color: #1e1b4b;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.status-message {
+  min-width: 120px;
+}
+
+.grid.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qa-section .card {
+  background: var(--qa-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+  border: 1px solid #e0e7ff;
+}
+
+.qa-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.helper {
+  color: var(--qa-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+form label,
+fieldset {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 10px;
+  border: 1px solid var(--qa-border);
+  margin-top: 0.35rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.primary {
+  background: var(--qa-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.2rem;
+  cursor: pointer;
+}
+
+.ghost {
+  border: 1px dashed var(--qa-border);
+  background: transparent;
+  border-radius: 10px;
+  padding: 0.65rem 1.2rem;
+  cursor: pointer;
+}
+
+.message {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.message.success {
+  color: #15803d;
+}
+
+.message.error {
+  color: #dc2626;
+}
+
+.table-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#qa-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#qa-table th,
+#qa-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  cursor: pointer;
+}
+
+#qa-table td {
+  cursor: default;
+}
+
+.status.passed {
+  color: #15803d;
+}
+
+.status.failed {
+  color: #dc2626;
+}
+
+.status.blocked {
+  color: #d97706;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.todo-text.done {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.drag-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.drag-column {
+  border: 1px dashed var(--qa-border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.drag-list {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.draggable {
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: #e0e7ff;
+  cursor: grab;
+}
+
+.drag-list.droppable,
+.drag-column.droppable {
+  background: #eef2ff;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px dashed var(--qa-border);
+}
+
+.tooltip {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #fff;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-wrapper:hover .tooltip {
+  opacity: 1;
+}
+
+.scroll-box {
+  border: 1px solid var(--qa-border);
+  border-radius: 12px;
+  height: 180px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.hidden-checkpoint {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  z-index: 20;
+}
+
+.qa-modal {
+  border: none;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.qa-modal::backdrop {
+  background: transparent;
+}
+
+.lab-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .qa-header {
+    flex-direction: column;
+  }
+  .status-bar {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
