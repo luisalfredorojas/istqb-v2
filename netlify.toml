@@ -9,15 +9,14 @@
   # Directory with build output (Vite default)
   publish = "dist"
 
-# Redirect rules for SPA-like behavior
+
+# Redirect rules - only for 404s, not for existing files
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
-  
-  # Don't redirect these paths (they're actual files)
-  conditions = {Role = ["admin"]}
+  # This will only apply if the file doesn't exist
 
 # Headers for security
 [[headers]]
