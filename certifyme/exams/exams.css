@@ -35,7 +35,7 @@ body {
 .exams-list h1 {
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .exams-container {
   display: grid;
