@@ -10,26 +10,22 @@
   <meta property="og:url" content="https://certifyme.com/exams/exams.html" />
   <link rel="canonical" href="https://certifyme.com/exams/exams.html" />
   <title>CertifyMe - Listado de Exámenes</title>
+    <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="exams.css" />
-    <link rel="stylesheet" href="../partials/header.css" />
-    <link rel="stylesheet" href="../partials/footer.css" />
+    <link rel="stylesheet" href="/partials/header.css" />
+    <link rel="stylesheet" href="/partials/footer.css" />
   </head>
   <body>
-    <header class="gnav">
-      <a href="/index.html" class="logo">TestifyHQ</a>
-      <nav>
-        <a href="/exams/exams.html">Exams</a>
-        <a href="/index.html#about">About</a>
-      </nav>
-    </header>
+    <div data-include="/partials/header.html"></div>
     <main>
       <section class="section exams-list">
         <h1>Exámenes Disponibles</h1>
         <div class="exams-container"></div>
       </section>
     </main>
-    <div data-include="../partials/footer.html"></div>
-    <script src="../common/include.js"></script>
+    <div data-include="/partials/footer.html"></div>
+    <script type="module" src="/common/include.js"></script>
     <script src="exams.js" type="module"></script>
+    <script type="module" src="/src/init-auth.js"></script>
   </body>
 </html>

@@ -17,16 +17,7 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-<header class="gnav">
-  <a href="/index.html" class="logo">TestifyHQ</a>
-  <div class="gnav-actions">
-    <nav>
-      <a href="/exams/exams.html">Exams</a>
-      <a href="/index.html#about">About</a>
-    </nav>
-    <button class="qa-lab-btn" onclick="location.href='/qa-lab/index.html'">QA Lab</button>
-  </div>
-</header>
+<div data-include="/partials/header.html"></div>
 
 <main>
   <!-- Hero -->
@@ -145,5 +136,8 @@
   </section>
 </main>
 
+  <!-- Scripts -->
+  <script type="module" src="/common/include.js"></script>
+  <script type="module" src="/src/init-auth.js"></script>
 </body>
 </html>

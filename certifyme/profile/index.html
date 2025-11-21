@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil - CertifyMe</title>
+  <link rel="stylesheet" href="/index.css" />
+  <link rel="stylesheet" href="/partials/header.css" />
+  <link rel="stylesheet" href="/partials/footer.css" />
+  <style>
+    .profile-container {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .profile-avatar-large {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #123458;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .profile-info h1 {
+      margin-bottom: 0.5rem;
+      color: #123458;
+    }
+    .profile-info p {
+      color: #666;
+    }
+    
+    .history-section h2 {
+      margin-bottom: 1.5rem;
+      color: #123458;
+    }
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .history-table th,
+    .history-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .history-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #444;
+    }
+    .history-table tr:last-child td {
+      border-bottom: none;
+    }
+    .score-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .score-pass {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .score-fail {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+
+  <main class="profile-container">
+    <div id="profile-loading" style="text-align: center; padding: 2rem;">
+      Cargando perfil...
+    </div>
+
+    <div id="profile-content" style="display: none;">
+      <section class="profile-header">
+        <div id="profile-avatar" class="profile-avatar-large">U</div>
+        <div class="profile-info">
+          <h1 id="profile-name">Usuario</h1>
+          <p id="profile-email">email@example.com</p>
+          <p id="profile-joined" style="font-size: 0.9rem; margin-top: 0.5rem; color: #888;">Miembro desde: -</p>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <h2>Historial de Exámenes</h2>
+        <div style="overflow-x: auto;">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Examen</th>
+                <th>Fecha</th>
+                <th>Puntaje</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="history-list">
+              <!-- Rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+        <p id="no-history" style="display: none; text-align: center; padding: 2rem; color: #666;">
+          Aún no has realizado ningún examen.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script type="module" src="/common/include.js"></script>
+  <script type="module" src="/src/init-auth.js"></script>
+  <script type="module" src="/src/profile.js"></script>
+</body>
+</html>

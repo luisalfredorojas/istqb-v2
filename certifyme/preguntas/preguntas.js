@@ -1,4 +1,5 @@
-// preguntas.js - Lógica para mostrar preguntas de examen
+import { auth } from '../../src/firebase-config.js';
+import { saveExamResult } from '../../src/db.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
@@ -48,6 +49,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   let answers =
     JSON.parse(localStorage.getItem(`answers_${slug}`)) ||
     Array(total).fill([]);
+
+  // Restart Handler
+  const restartBtn = document.getElementById('restart-btn');
+  if (restartBtn) {
+    restartBtn.addEventListener('click', () => {
+      if(confirm('¿Estás seguro de que quieres reiniciar el examen? Se borrará tu progreso.')) {
+        localStorage.removeItem(`answers_${slug}`);
+        window.location.reload();
+      }
+    });
+  }
 
   // Timer (120 minutos)
   let timeLeft = 120 * 60;
@@ -116,12 +128,68 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (currentPage > 0) currentPage--;
     render();
   });
-  nextBtn.addEventListener('click', () => {
+
+  nextBtn.addEventListener('click', async () => {
     saveAnswers();
     const start = currentPage * perPage;
     const end = Math.min(start + perPage, total);
+    
     if (end >= total) {
-      window.location.href = `../resultado/resultado.html?slug=${slug}`;
+      // Finish Exam Logic
+      console.log("Finishing exam...");
+      console.log("Total questions:", questions.length);
+      console.log("All answers:", JSON.stringify(answers));
+      
+      // Calculate Score
+      let score = 0;
+      questions.forEach((q, idx) => {
+         const userAns = answers[idx];
+         const correctAns = Array.isArray(q.respuesta_correcta) 
+           ? q.respuesta_correcta 
+           : [q.respuesta_correcta];
+         
+         console.log(`Q${idx + 1}: User answered:`, userAns, "Correct:", correctAns);
+         
+         // Check if user answer matches correct answer
+         const isCorrect = Array.isArray(userAns) && userAns.length === correctAns.length && 
+             userAns.every(a => correctAns.includes(a));
+         
+         console.log(`Q${idx + 1}: Match result:`, isCorrect);
+         
+         if (isCorrect) {
+           score++;
+         }
+      });
+      
+      console.log("Final score:", score, "/", questions.length);
+      
+      const user = auth.currentUser;
+      console.log("User state:", user);
+      
+      if (user) {
+        try {
+          console.log("Saving result to Firestore...");
+          const success = await saveExamResult(user.uid, slug, score, total);
+          if (success) {
+            alert('Exam result saved to your profile!');
+            // Don't clear localStorage here - resultado page needs it
+            console.log("Redirecting to results...");
+            window.location.href = `/resultado/resultado.html?slug=${slug}`;
+          } else {
+            alert('Failed to save result, but you can view your score.');
+            window.location.href = `/resultado/resultado.html?slug=${slug}`;
+          }
+        } catch (err) {
+          console.error("Error saving exam result:", err);
+          alert('Error saving result, but you can still view your score.');
+          window.location.href = `/resultado/resultado.html?slug=${slug}`;
+        }
+      } else {
+        console.warn("User not logged in. Result not saved.");
+        // Not logged in - just show results
+        localStorage.removeItem(`answers_${slug}`);
+        window.location.href = `/resultado/resultado.html?slug=${slug}`;
+      }
     } else {
       currentPage++;
       render();

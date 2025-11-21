@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let correctCount = 0;
 
         const listEl = document.querySelector('.answers-list');
+        
+        console.log("RESULTADO PAGE - Total questions:", questions.length);
+        console.log("RESULTADO PAGE - All answers from localStorage:", JSON.stringify(answers));
+        
         questions.forEach((q, idx) => {
             const card = document.createElement('div');
             card.className = 'answer-card';
@@ -35,10 +39,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ? q.respuesta_correcta
                 : [q.respuesta_correcta];
 
+            console.log(`RESULTADO Q${idx + 1}: User:`, userAns, "Correct:", correctAns, "Question:", q.numero);
+
             const isCorrect =
                 userAns.length === correctAns.length &&
                 userAns.every(a => correctAns.includes(a));
             const isPartial = !isCorrect && userAns.some(a => correctAns.includes(a));
+            
+            console.log(`RESULTADO Q${idx + 1}: isCorrect=${isCorrect}, isPartial=${isPartial}`);
 
             if (isCorrect) {
                 card.classList.add('correct');
@@ -75,12 +83,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             .find(item => percent >= item.umbral)?.mensaje || '';
         document.getElementById('feedback').textContent = feedbackMsg;
 
+        // Clear localStorage now that we've displayed the results
+        console.log("Clearing localStorage after displaying results");
+        localStorage.removeItem(`answers_${slug}`);
+
         // Botones
         document.getElementById('retry-btn').addEventListener('click', () => {
+            // Already cleared above, but just to be safe
             localStorage.removeItem(`answers_${slug}`);
             window.location.href = `/preguntas/preguntas.html?slug=${slug}`;
         });
         document.getElementById('back-btn').addEventListener('click', () => {
+            // Clear just in case
+            localStorage.removeItem(`answers_${slug}`);
             window.location.href = `/exams/exams.html`;
         });
     } catch (error) {
