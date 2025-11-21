@@ -1,7 +1,27 @@
 <header class="gnav">
   <a href="/index.html" class="logo">TestifyHQ</a>
-  <nav>
-    <a href="/exams/exams.html">Exams</a>
-    <a href="/index.html#about">About</a>
-  </nav>
+  <div class="gnav-actions">
+    <nav>
+      <a href="/exams/exams.html">Exams</a>
+      <a href="/index.html#about">About</a>
+    </nav>
+    <button class="qa-lab-btn" onclick="location.href='/qa-lab/index.html'">QA Lab</button>
+    
+    <!-- Auth Elements -->
+    <div id="auth-container">
+      <button id="login-btn" class="btn" style="background: transparent; border: 1px solid white;">Login</button>
+      
+      <div id="user-menu" class="user-menu" style="display: none;">
+        <div id="user-avatar" class="user-avatar">U</div>
+        <div id="user-dropdown" class="user-dropdown">
+          <div style="padding: 0.75rem 1rem; border-bottom: 1px solid #eee;">
+            <strong id="user-name" style="display: block; font-size: 0.9rem;">User</strong>
+            <small id="user-email" style="color: #666; font-size: 0.8rem;">email@example.com</small>
+          </div>
+          <a href="/profile/index.html">Mi Perfil</a>
+          <button id="logout-btn">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

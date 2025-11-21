@@ -1,4 +1,6 @@
 import './style.css';
+import { auth } from './firebase-config';
+import { saveExamResult } from './db';
 
 const app = document.getElementById('app');
 
@@ -86,7 +88,10 @@ async function renderExamDetail(slug) {
   document.title = `Examen - ${slug.replace(/-/g, ' ')}`;
   app.innerHTML = `
     <section id="exam-detail">
-      <h1>${slug.replace(/-/g, ' ')}</h1>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>${slug.replace(/-/g, ' ')}</h1>
+        <button id="restart-btn" style="background: #ef4444; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Reiniciar</button>
+      </div>
       <div id="timer">00:00</div>
       <div id="questions"></div>
       <button id="next-btn">Siguiente</button>
@@ -99,6 +104,14 @@ async function renderExamDetail(slug) {
     const totalQuestions = exam.examen.length;
     let currentPage = 0;
     let answers = JSON.parse(localStorage.getItem(`answers_${slug}`)) || [];
+
+    // Restart Handler
+    document.getElementById('restart-btn').addEventListener('click', () => {
+      if(confirm('¿Estás seguro de que quieres reiniciar el examen? Se borrará tu progreso.')) {
+        localStorage.removeItem(`answers_${slug}`);
+        window.location.reload();
+      }
+    });
 
     // Timer
     let seconds = 0;
@@ -146,9 +159,14 @@ async function renderExamDetail(slug) {
 
     renderPage();
 
-    document.getElementById('next-btn').addEventListener('click', () => {
+    document.getElementById('next-btn').addEventListener('click', async () => {
+      // ALERT TO DEBUG
+      alert("Button clicked! Checking console for details..."); 
+      
       const start = currentPage * 2;
       const end = start + 2;
+      console.log("Next button clicked. Start:", start, "End:", end, "Total:", totalQuestions);
+      
       for (let i = start; i < end; i++) {
         const selected = [];
         document.querySelectorAll(`input[name="q${i}"]`).forEach((input) => {
@@ -160,6 +178,43 @@ async function renderExamDetail(slug) {
 
       if (end >= totalQuestions) {
         clearInterval(intervalId);
+        
+        // Calculate Score
+        let score = 0;
+        exam.examen.forEach((q, idx) => {
+           const userAns = answers[idx];
+           if (Array.isArray(userAns) && userAns.includes(q.correcta)) {
+             score++;
+           }
+        });
+
+        // Save to Firestore if logged in
+        const user = auth.currentUser;
+        console.log("Finishing exam. User:", user);
+        console.log("Score calculated:", score, "/", totalQuestions);
+
+        if (user) {
+          try {
+             console.log("Attempting to save result...");
+             const success = await saveExamResult(user.uid, slug, score, totalQuestions);
+             if (success) {
+                alert('Exam result saved to your profile!');
+                // Clear storage on success
+                localStorage.removeItem(`answers_${slug}`);
+             } else {
+                console.error("saveExamResult returned false");
+                alert('Error saving result. Check console.');
+             }
+          } catch (e) {
+             console.error('Failed to save result', e);
+             alert('Exception saving result: ' + e.message);
+          }
+        } else {
+            console.warn("User not logged in, cannot save result.");
+            // Optional: Alert user they are not logged in
+            // alert("You are not logged in. Result not saved.");
+        }
+
         window.location.hash = `/exam/${slug}/results`;
       } else {
         currentPage++;

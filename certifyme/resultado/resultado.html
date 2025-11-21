@@ -10,16 +10,13 @@
   <meta property="og:url" content="https://certifyme.com/resultado/resultado.html" />
   <link rel="canonical" href="https://certifyme.com/resultado/resultado.html" />
   <title>CertifyMe - Resultado</title>
+  <link rel="stylesheet" href="/index.css" />
   <link rel="stylesheet" href="resultado.css" />
+  <link rel="stylesheet" href="/partials/header.css" />
+  <link rel="stylesheet" href="/partials/footer.css" />
 </head>
 <body>
-<header class="gnav">
-  <a href="/index.html" class="logo">TestifyHQ</a>
-  <nav>
-    <a href="/exams/exams.html">Exams</a>
-    <a href="/index.html#about">About</a>
-  </nav>
-</header>
+<div data-include="/partials/header.html"></div>
 
 <main class="resultado-main">
   <h1>Resultados del Examen</h1>
@@ -32,6 +29,9 @@
   </div>
 </main>
 
+<div data-include="/partials/footer.html"></div>
+<script src="/common/include.js"></script>
 <script type="module" src="resultado.js"></script>
+<script type="module" src="/src/init-auth.js"></script>
 </body>
 </html>

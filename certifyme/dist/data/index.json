@@ -1,32 +1,32 @@
 [
   {
-    "slug": "foundation-level",
+    "slug": "foundation-level-exam-a",
     "titulo": "ISTQB® Foundation Level v4.0 Exam A",
     "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
     "minimo_aprobacion": 26
   },
   {
-    "slug": "advanced-level",
-    "titulo": "ISTQB® Advanced Level Exam",
-    "descripcion": "Simulador de examen ISTQB Advanced Level",
-    "minimo_aprobacion": 24
+    "slug": "foundation-level-exam-b",
+    "titulo": "ISTQB® Foundation Level v4.0 Exam B",
+    "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
+    "minimo_aprobacion": 26
   },
   {
-    "slug": "Ai test",
-    "titulo": "ISTQB® AI certified",
-    "descripcion": "Simulador de examen ISTQB Advanced Level",
-    "minimo_aprobacion": 24
+    "slug": "foundation-level-exam-c",
+    "titulo": "ISTQB® Foundation Level v4.0 Exam C",
+    "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
+    "minimo_aprobacion": 26
   },
   {
-    "slug": "Mid level",
-    "titulo": "ISTQB® mid level certified",
-    "descripcion": "Simulador de examen ISTQB Advanced Level",
-    "minimo_aprobacion": 24
+    "slug": "foundation-level-exam-d",
+    "titulo": "ISTQB® Foundation Level v4.0 Exam D",
+    "descripcion": "Simulador de examen ISTQB Foundation Level v4.0",
+    "minimo_aprobacion": 26
   },
   {
-    "slug": "Mid level ",
-    "titulo": "ISTQB® experft leve",
-    "descripcion": "Simulador de examen ISTQB Advanced Level",
-    "minimo_aprobacion": 24
+    "slug": "advance-level-test-analyst",
+    "titulo": "ISTQB® Certified Tester Advanced Level Test Analyst (CTAL-TA) v4.0",
+    "descripcion": "Simulador de examen ISTQB Certified Tester Advance Level v4.0",
+    "minimo_aprobacion": 51
   }
 ]
