@@ -50,10 +50,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-.exam-card h3 {
+.exam-card h2 {
   margin-bottom: 0.5rem;
   color: #123458;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 .exam-card p {
   flex-grow: 1;
