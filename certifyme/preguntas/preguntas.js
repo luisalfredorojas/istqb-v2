@@ -1,5 +1,5 @@
-import { auth } from '../../src/firebase-config.js';
-import { saveExamResult } from '../../src/db.js';
+import { auth } from '../src/firebase-config.js';
+import { saveExamResult } from '../src/db.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
