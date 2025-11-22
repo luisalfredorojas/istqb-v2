@@ -16,6 +16,27 @@ export class AuthModal {
           <h2 id="auth-title">Iniciar Sesión</h2>
           
           <form id="auth-form">
+            <div class="signup-fields hidden">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="auth-firstname">Nombre</label>
+                  <input type="text" id="auth-firstname">
+                </div>
+                <div class="form-group">
+                  <label for="auth-lastname">Apellido</label>
+                  <input type="text" id="auth-lastname">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="auth-dob">Fecha de nacimiento</label>
+                <input type="date" id="auth-dob">
+              </div>
+              <div class="form-group">
+                <label for="auth-profession">Profesión</label>
+                <input type="text" id="auth-profession" placeholder="Ej. QA Engineer, Estudiante...">
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="auth-email">Email</label>
               <input type="email" id="auth-email" required>
@@ -92,6 +113,7 @@ export class AuthModal {
     const switchText = this.modal.querySelector('#auth-switch-text');
     const switchLink = this.modal.querySelector('#auth-switch-link');
     const errorMsg = this.modal.querySelector('#auth-error');
+    const signupFields = this.modal.querySelector('.signup-fields');
 
     errorMsg.textContent = '';
 
@@ -100,11 +122,25 @@ export class AuthModal {
       submitBtn.textContent = 'Entrar';
       switchText.textContent = '¿No tienes cuenta?';
       switchLink.textContent = 'Regístrate';
+      signupFields.classList.add('hidden');
+      
+      // Remove required attribute from signup fields
+      this.modal.querySelector('#auth-firstname').removeAttribute('required');
+      this.modal.querySelector('#auth-lastname').removeAttribute('required');
+      this.modal.querySelector('#auth-dob').removeAttribute('required');
+      this.modal.querySelector('#auth-profession').removeAttribute('required');
     } else {
       title.textContent = 'Crear Cuenta';
       submitBtn.textContent = 'Registrarse';
       switchText.textContent = '¿Ya tienes cuenta?';
       switchLink.textContent = 'Inicia sesión';
+      signupFields.classList.remove('hidden');
+
+      // Add required attribute to signup fields
+      this.modal.querySelector('#auth-firstname').setAttribute('required', 'true');
+      this.modal.querySelector('#auth-lastname').setAttribute('required', 'true');
+      this.modal.querySelector('#auth-dob').setAttribute('required', 'true');
+      this.modal.querySelector('#auth-profession').setAttribute('required', 'true');
     }
   }
 
@@ -116,7 +152,20 @@ export class AuthModal {
       if (this.isLoginMode) {
         await loginWithEmail(email, password);
       } else {
-        await registerWithEmail(email, password);
+        const firstName = this.modal.querySelector('#auth-firstname').value;
+        const lastName = this.modal.querySelector('#auth-lastname').value;
+        const dob = this.modal.querySelector('#auth-dob').value;
+        const profession = this.modal.querySelector('#auth-profession').value;
+
+        const additionalData = {
+          firstName,
+          lastName,
+          dob,
+          profession,
+          displayName: `${firstName} ${lastName}`
+        };
+
+        await registerWithEmail(email, password, additionalData);
       }
       this.close();
     } catch (error) {

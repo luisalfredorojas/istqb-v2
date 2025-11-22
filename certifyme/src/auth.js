@@ -13,7 +13,7 @@ import { auth, db } from "./firebase-config";
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-const createUserDocument = async (user) => {
+const createUserDocument = async (user, additionalData = {}) => {
   if (!user) return;
   
   const userRef = doc(db, "users", user.uid);
@@ -26,7 +26,8 @@ const createUserDocument = async (user) => {
         email,
         displayName: displayName || email.split('@')[0],
         photoURL,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        ...additionalData // Add additional data here
       });
       console.log("User document created in Firestore");
     } catch (error) {
@@ -57,10 +58,10 @@ export const loginWithGithub = async () => {
   }
 };
 
-export const registerWithEmail = async (email, password) => {
+export const registerWithEmail = async (email, password, additionalData = {}) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    await createUserDocument(userCredential.user);
+    await createUserDocument(userCredential.user, additionalData);
     return userCredential.user;
   } catch (error) {
     console.error("Error registering with email", error);
