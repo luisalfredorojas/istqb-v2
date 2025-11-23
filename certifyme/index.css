@@ -240,6 +240,8 @@ body {
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(5px);
+  padding: 2rem;
+  overflow-y: auto;
 }
 
 .auth-modal.hidden {
@@ -257,6 +259,7 @@ body {
   animation: slideIn 0.3s ease-out;
   max-height: 90vh;
   overflow-y: auto;
+  margin: auto;
 }
 
 .form-row {
