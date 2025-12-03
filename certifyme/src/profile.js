@@ -1,5 +1,6 @@
 import { auth } from "./firebase-config";
 import { getUserHistory } from "./db";
+import { checkSubscriptionStatus, activateSubscription } from "./subscription";
 import { onAuthStateChanged } from "firebase/auth";
 
 const renderHistory = (history) => {
@@ -35,6 +36,52 @@ const renderHistory = (history) => {
   }).join('');
 };
 
+const renderSubscription = async (user) => {
+  const container = document.getElementById('subscription-section');
+  if (!container) return;
+
+  const isPremium = await checkSubscriptionStatus(user.uid);
+  
+  container.style.display = 'block';
+  if (isPremium) {
+    container.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 style="color: #123458; margin-bottom: 0.5rem;">Tu Plan: Premium 🌟</h2>
+          <p style="color: #666;">Tienes acceso ilimitado a todos los exámenes.</p>
+        </div>
+        <div style="background: #dcfce7; color: #166534; padding: 0.5rem 1rem; border-radius: 999px; font-weight: bold;">
+          Activo
+        </div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="color: #123458; margin-bottom: 0.5rem;">Tu Plan: Gratuito</h2>
+          <p style="color: #666;">Tienes un límite de 1 intento por examen al día.</p>
+        </div>
+        <button id="upgrade-btn" style="background: #d97706; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem;">
+          Mejorar a Premium ($7.99)
+        </button>
+      </div>
+    `;
+    
+    document.getElementById('upgrade-btn').addEventListener('click', async () => {
+      if (confirm('¿Confirmar suscripción por $7.99? (Simulación)')) {
+        const success = await activateSubscription(user.uid);
+        if (success) {
+          alert('¡Suscripción activada con éxito!');
+          renderSubscription(user); // Re-render
+        } else {
+          alert('Error al activar la suscripción.');
+        }
+      }
+    });
+  }
+};
+
 const initProfile = async (user) => {
   const loading = document.getElementById('profile-loading');
   const content = document.getElementById('profile-content');
@@ -54,6 +101,7 @@ const initProfile = async (user) => {
   try {
     const history = await getUserHistory(user.uid);
     renderHistory(history);
+    await renderSubscription(user);
   } catch (error) {
     console.error("Error loading history", error);
   } finally {
