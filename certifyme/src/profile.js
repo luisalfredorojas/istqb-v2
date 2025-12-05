@@ -36,6 +36,113 @@ const renderHistory = (history) => {
   }).join('');
 };
 
+// Success Modal Functions
+const showSuccessModal = () => {
+  document.getElementById('success-overlay').style.display = 'block';
+  document.getElementById('success-modal').style.display = 'block';
+};
+
+const closeSuccessModal = () => {
+  document.getElementById('success-overlay').style.display = 'none';
+  document.getElementById('success-modal').style.display = 'none';
+  // Limpiar URL parameters
+  window.history.replaceState({}, document.title, window.location.pathname);
+};
+
+// PayPhone Payment Modal Functions
+let currentUser = null; // Store current user for payment callbacks
+
+const showPaymentModal = (user) => {
+  currentUser = user;
+  document.getElementById('payment-overlay').style.display = 'block';
+  document.getElementById('payment-popup').style.display = 'block';
+  initPayPhoneBox(user);
+};
+
+const closePaymentModal = () => {
+  document.getElementById('payment-overlay').style.display = 'none';
+  document.getElementById('payment-popup').style.display = 'none';
+};
+
+const initPayPhoneBox = async (user) => {
+  // Generate unique transaction ID
+  const clientTransactionId = `CERTIFYME-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  
+  const ppb = new PPaymentButtonBox({
+    token: '5rDff4Dujq2aM6rqUPLFMRh2H933vKVGthSlumsGZRe-rmvz-ntuA_lwaYpqLCXI4OpsoufvYnYpujaMLGvq-QBOIEy4ogx1bnhugvCz8xkxgPKzKgXwulSA9vhNc_PG5V4zANzZTFRn3oNjH5uKA_tPkWkWqmeNHt47f56f1Z13HbNZz8pW2E_csIhpgYu92sUzyELGe9uklHFJbnp8CQogBP00FW7Hx4MwMaOK83Zq8zzNhntdB4tpJdPtuD5Ak19Inh_YZiSj2W9r3p5F0hXzrkXc1sPOBddTf_3b0JH0KGhF28yVnHYLJjyAwt4DT16s5g',
+    clientTransactionId: clientTransactionId,
+    amount: 1199, // $11.99 USD total
+    amountWithoutTax: 1199, // Monto sin impuestos (todo el monto en este caso)
+    amountWithTax: 0, // Monto con impuestos (0 porque el impuesto ya está incluido)
+    tax: 0,
+    service: 0,
+    tip: 0,
+    currency: 'USD',
+    storeId: '55d1b2a9-204a-46a7-bfe1-229a153d08ca',
+    reference: 'Suscripción Premium CertifyMe',
+    backgroundColor: '#123458',
+    // Callbacks de PayPhone
+    onPayment: async (response) => {
+      console.log('PayPhone Response:', response);
+      
+      // Verificar si el pago fue exitoso
+      if (response && response.transactionStatus === 'Approved') {
+        try {
+          // Activar suscripción en Firebase
+          const success = await activateSubscription(user.uid);
+          
+          if (success) {
+            closePaymentModal();
+            // Actualizar la UI
+            await renderSubscription(user);
+            alert('🎉 ¡Suscripción Premium activada con éxito! Ahora tienes acceso ilimitado a todos los exámenes.');
+          } else {
+            alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+          }
+        } catch (error) {
+          console.error('Error activating subscription:', error);
+          alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+        }
+      } else if (response && response.transactionStatus === 'Declined') {
+        alert('❌ Pago rechazado. Por favor, verifica tu información de pago e intenta nuevamente.');
+      }
+    },
+    onCancel: () => {
+      console.log('Payment cancelled by user');
+      // El usuario cerró el formulario de pago sin completar
+    }
+  }).render('pp-button');
+};
+
+// Detectar retorno de PayPhone y activar suscripción
+const handlePayPhoneReturn = async (user) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const transactionId = urlParams.get('id');
+  const clientTransactionId = urlParams.get('clientTransactionId');
+  
+  // Si hay parámetros de PayPhone, es un retorno de pago
+  if (transactionId && clientTransactionId) {
+    console.log('PayPhone return detected:', { transactionId, clientTransactionId });
+    
+    try {
+      // Activar suscripción
+      const success = await activateSubscription(user.uid);
+      
+      if (success) {
+        // Actualizar UI
+        await renderSubscription(user);
+        // Mostrar modal de éxito
+        showSuccessModal();
+      } else {
+        alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+      }
+    } catch (error) {
+      console.error('Error activating subscription on return:', error);
+      alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+    }
+  }
+};
+
 const renderSubscription = async (user) => {
   const container = document.getElementById('subscription-section');
   if (!container) return;
@@ -63,21 +170,13 @@ const renderSubscription = async (user) => {
           <p style="color: #666;">Tienes un límite de 1 intento por examen al día.</p>
         </div>
         <button id="upgrade-btn" style="background: #d97706; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem;">
-          Mejorar a Premium ($7.99)
+          Mejorar a Premium ($11.99)
         </button>
       </div>
     `;
     
-    document.getElementById('upgrade-btn').addEventListener('click', async () => {
-      if (confirm('¿Confirmar suscripción por $7.99? (Simulación)')) {
-        const success = await activateSubscription(user.uid);
-        if (success) {
-          alert('¡Suscripción activada con éxito!');
-          renderSubscription(user); // Re-render
-        } else {
-          alert('Error al activar la suscripción.');
-        }
-      }
+    document.getElementById('upgrade-btn').addEventListener('click', () => {
+      showPaymentModal(user);
     });
   }
 };
@@ -102,6 +201,9 @@ const initProfile = async (user) => {
     const history = await getUserHistory(user.uid);
     renderHistory(history);
     await renderSubscription(user);
+    
+    // Verificar si es retorno de PayPhone
+    await handlePayPhoneReturn(user);
   } catch (error) {
     console.error("Error loading history", error);
   } finally {
@@ -119,3 +221,11 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = '/index.html';
   }
 });
+
+// Setup modal close listeners
+document.getElementById('btn-cerrar-payment').addEventListener('click', closePaymentModal);
+document.getElementById('payment-overlay').addEventListener('click', closePaymentModal);
+
+// Setup success modal close listeners
+document.getElementById('btn-cerrar-success').addEventListener('click', closeSuccessModal);
+document.getElementById('success-overlay').addEventListener('click', closeSuccessModal);
