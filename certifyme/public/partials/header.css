@@ -4,24 +4,104 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #123458;
-  color: #fff;
+  background: #123458;
   position: sticky;
   top: 0;
   z-index: 100;
 }
+
 .gnav .logo {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  color: #fff !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
   text-decoration: none;
 }
+
+.gnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .gnav nav a {
   margin-left: 1rem;
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
 }
+
 .gnav nav a:hover {
   text-decoration: underline;
+}
+
+.qa-lab-btn {
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: #facc15 !important;
+  color: #123458 !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.qa-lab-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* User Menu in Header */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #123458;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 200px;
+  display: none;
+  z-index: 100;
+  margin-top: 0.5rem;
+}
+
+.user-dropdown.show {
+  display: block;
+}
+
+.user-dropdown a, 
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background: #f5f5f5;
 }
