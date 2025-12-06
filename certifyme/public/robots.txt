@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /profile/
+Disallow: /resultado/
+Disallow: /dist/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://testifyhq.com/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 1
