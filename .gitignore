@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Sensitive documentation with credentials
+NETLIFY_ENV_SETUP.md
+**/NETLIFY_ENV_SETUP.md
+
+# Build outputs
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
