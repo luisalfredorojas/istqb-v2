@@ -69,7 +69,7 @@ const initPayPhoneBox = async (user) => {
   const clientTransactionId = `CERTIFYME-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   
   const ppb = new PPaymentButtonBox({
-    token: '5rDff4Dujq2aM6rqUPLFMRh2H933vKVGthSlumsGZRe-rmvz-ntuA_lwaYpqLCXI4OpsoufvYnYpujaMLGvq-QBOIEy4ogx1bnhugvCz8xkxgPKzKgXwulSA9vhNc_PG5V4zANzZTFRn3oNjH5uKA_tPkWkWqmeNHt47f56f1Z13HbNZz8pW2E_csIhpgYu92sUzyELGe9uklHFJbnp8CQogBP00FW7Hx4MwMaOK83Zq8zzNhntdB4tpJdPtuD5Ak19Inh_YZiSj2W9r3p5F0hXzrkXc1sPOBddTf_3b0JH0KGhF28yVnHYLJjyAwt4DT16s5g',
+    token: import.meta.env.VITE_PAYPHONE_TOKEN,
     clientTransactionId: clientTransactionId,
     amount: 1199, // $11.99 USD total
     amountWithoutTax: 1199, // Monto sin impuestos (todo el monto en este caso)
