@@ -1,9 +1,8 @@
-import { loginWithGoogle, loginWithGithub, loginWithEmail, registerWithEmail } from "../auth.js";
+import { loginWithGoogle } from "../auth.js";
 
 export class AuthModal {
   constructor() {
     this.modal = null;
-    this.isLoginMode = true;
     this.render();
     this.attachEvents();
   }
@@ -14,55 +13,21 @@ export class AuthModal {
         <div class="auth-modal-content">
           <span class="close-modal">&times;</span>
           <h2 id="auth-title">Iniciar Sesión</h2>
+          <p style="text-align: center; color: #666; margin-bottom: 2rem;">Accede a TestifyHQ con tu cuenta de Google para guardar tu progreso y acceder a funciones premium.</p>
           
-          <form id="auth-form">
-            <div class="signup-fields hidden">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="auth-firstname">Nombre</label>
-                  <input type="text" id="auth-firstname">
-                </div>
-                <div class="form-group">
-                  <label for="auth-lastname">Apellido</label>
-                  <input type="text" id="auth-lastname">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="auth-dob">Fecha de nacimiento</label>
-                <input type="date" id="auth-dob">
-              </div>
-              <div class="form-group">
-                <label for="auth-profession">Profesión</label>
-                <input type="text" id="auth-profession" placeholder="Ej. QA Engineer, Estudiante...">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="auth-email">Email</label>
-              <input type="email" id="auth-email" required>
-            </div>
-            <div class="form-group">
-              <label for="auth-password">Contraseña</label>
-              <input type="password" id="auth-password" required>
-            </div>
-            <button type="submit" class="btn-primary" id="auth-submit-btn">Entrar</button>
-          </form>
-
-          <div class="auth-divider">o continúa con</div>
-
-          <div class="social-auth">
-            <button id="google-login" class="btn-social google">
-              Google
-            </button>
-            <button id="github-login" class="btn-social github">
-              GitHub
+          <div style="display: flex; justify-content: center; margin: 2rem 0;">
+            <button id="google-login" class="btn-social google" style="width: 100%; max-width: 280px; padding: 0.875rem 1.5rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+              <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                <path fill="none" d="M0 0h48v48H0z"/>
+              </svg>
+              Continuar con Google
             </button>
           </div>
 
-          <p class="auth-switch">
-            <span id="auth-switch-text">¿No tienes cuenta?</span>
-            <a href="#" id="auth-switch-link">Regístrate</a>
-          </p>
           <p id="auth-error" class="error-message"></p>
         </div>
       </div>
@@ -77,10 +42,7 @@ export class AuthModal {
 
   attachEvents() {
     const closeBtn = this.modal.querySelector('.close-modal');
-    const switchLink = this.modal.querySelector('#auth-switch-link');
-    const form = this.modal.querySelector('#auth-form');
     const googleBtn = this.modal.querySelector('#google-login');
-    const githubBtn = this.modal.querySelector('#github-login');
 
     closeBtn.onclick = () => this.close();
     
@@ -90,87 +52,7 @@ export class AuthModal {
       }
     };
 
-    switchLink.onclick = (e) => {
-      e.preventDefault();
-      this.toggleMode();
-    };
-
-    form.onsubmit = async (e) => {
-      e.preventDefault();
-      const email = this.modal.querySelector('#auth-email').value;
-      const password = this.modal.querySelector('#auth-password').value;
-      this.handleEmailAuth(email, password);
-    };
-
     googleBtn.onclick = () => this.handleSocialLogin(loginWithGoogle);
-    githubBtn.onclick = () => this.handleSocialLogin(loginWithGithub);
-  }
-
-  toggleMode() {
-    this.isLoginMode = !this.isLoginMode;
-    const title = this.modal.querySelector('#auth-title');
-    const submitBtn = this.modal.querySelector('#auth-submit-btn');
-    const switchText = this.modal.querySelector('#auth-switch-text');
-    const switchLink = this.modal.querySelector('#auth-switch-link');
-    const errorMsg = this.modal.querySelector('#auth-error');
-    const signupFields = this.modal.querySelector('.signup-fields');
-
-    errorMsg.textContent = '';
-
-    if (this.isLoginMode) {
-      title.textContent = 'Iniciar Sesión';
-      submitBtn.textContent = 'Entrar';
-      switchText.textContent = '¿No tienes cuenta?';
-      switchLink.textContent = 'Regístrate';
-      signupFields.classList.add('hidden');
-      
-      // Remove required attribute from signup fields
-      this.modal.querySelector('#auth-firstname').removeAttribute('required');
-      this.modal.querySelector('#auth-lastname').removeAttribute('required');
-      this.modal.querySelector('#auth-dob').removeAttribute('required');
-      this.modal.querySelector('#auth-profession').removeAttribute('required');
-    } else {
-      title.textContent = 'Crear Cuenta';
-      submitBtn.textContent = 'Registrarse';
-      switchText.textContent = '¿Ya tienes cuenta?';
-      switchLink.textContent = 'Inicia sesión';
-      signupFields.classList.remove('hidden');
-
-      // Add required attribute to signup fields
-      this.modal.querySelector('#auth-firstname').setAttribute('required', 'true');
-      this.modal.querySelector('#auth-lastname').setAttribute('required', 'true');
-      this.modal.querySelector('#auth-dob').setAttribute('required', 'true');
-      this.modal.querySelector('#auth-profession').setAttribute('required', 'true');
-    }
-  }
-
-  async handleEmailAuth(email, password) {
-    const errorMsg = this.modal.querySelector('#auth-error');
-    errorMsg.textContent = '';
-    
-    try {
-      if (this.isLoginMode) {
-        await loginWithEmail(email, password);
-      } else {
-        const firstName = this.modal.querySelector('#auth-firstname').value;
-        const lastName = this.modal.querySelector('#auth-lastname').value;
-        const dob = this.modal.querySelector('#auth-dob').value;
-        const profession = this.modal.querySelector('#auth-profession').value;
-
-        const additionalData = {
-          firstName,
-          lastName,
-          dob,
-          profession,
-          displayName: `${firstName} ${lastName}`
-        };
-
-        await registerWithEmail(email, password, additionalData);
-      }
-      this.close();
-    } catch (error) {
-      errorMsg.textContent = this.mapErrorMessage(error.code);
-    }
   }
 
   async handleSocialLogin(loginMethod) {
@@ -180,19 +62,7 @@ export class AuthModal {
       await loginMethod();
       this.close();
     } catch (error) {
-      errorMsg.textContent = 'Error al iniciar sesión. Intenta nuevamente.';
-    }
-  }
-
-  mapErrorMessage(code) {
-    switch (code) {
-      case 'auth/invalid-email': return 'Email inválido.';
-      case 'auth/user-disabled': return 'Usuario deshabilitado.';
-      case 'auth/user-not-found': return 'Usuario no encontrado.';
-      case 'auth/wrong-password': return 'Contraseña incorrecta.';
-      case 'auth/email-already-in-use': return 'El email ya está en uso.';
-      case 'auth/weak-password': return 'La contraseña es muy débil.';
-      default: return 'Ocurrió un error. Intenta nuevamente.';
+      errorMsg.textContent = 'Error al iniciar sesión con Google. Intenta nuevamente.';
     }
   }
 
