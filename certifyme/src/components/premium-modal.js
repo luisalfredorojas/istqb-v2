@@ -1,4 +1,6 @@
-import { activateSubscription } from "../subscription.js";
+// ⚠️ premium-modal.js - DEPRECATED
+// Este modal ya NO activa Premium directamente (inseguro)
+// Ahora redirige al usuario a la página de perfil para usar PayPhone
 
 export class PremiumModal {
   constructor(userId, onUpgradeSuccess) {
@@ -31,7 +33,7 @@ export class PremiumModal {
           </div>
 
           <button id="premium-upgrade-btn" class="btn-primary" style="background: #d97706; border: none; width: 100%; padding: 1rem; font-size: 1.1rem;">
-            Obtener Premium por $7.99
+            Ir a Premium - $11.99
           </button>
           
           <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
@@ -61,17 +63,9 @@ export class PremiumModal {
       }
     };
 
-    upgradeBtn.onclick = async () => {
-      if (confirm('¿Confirmar suscripción por $7.99? (Simulación)')) {
-        const success = await activateSubscription(this.userId);
-        if (success) {
-          alert('¡Suscripción activada con éxito! Disfruta de acceso ilimitado.');
-          this.close();
-          if (this.onUpgradeSuccess) this.onUpgradeSuccess();
-        } else {
-          alert('Error al activar la suscripción.');
-        }
-      }
+    // ✅ NUEVO: Redirigir a página de perfil donde está PayPhone
+    upgradeBtn.onclick = () => {
+      window.location.href = '/profile/';
     };
   }
 
