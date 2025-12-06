@@ -1,6 +1,6 @@
 import { auth } from "./firebase-config";
 import { getUserHistory } from "./db";
-import { checkSubscriptionStatus, activateSubscription } from "./subscription";
+import { checkSubscriptionStatus } from "./subscription";
 import { onAuthStateChanged } from "firebase/auth";
 
 const renderHistory = (history) => {
@@ -88,20 +88,35 @@ const initPayPhoneBox = async (user) => {
       // Verificar si el pago fue exitoso
       if (response && response.transactionStatus === 'Approved') {
         try {
-          // Activar suscripción en Firebase
-          const success = await activateSubscription(user.uid);
-          
-          if (success) {
-            closePaymentModal();
-            // Actualizar la UI
+          // ✅ NUEVO: Llamar a Netlify Function para activar Premium
+          const result = await fetch('/.netlify/functions/activate-premium', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              userId: user.uid,
+              transactionId: response.transactionId,
+              clientTransactionId: response.clientTransactionId
+            })
+          });
+
+          const data = await result.json();
+
+          if (result.ok && data.success) {
+            // Premium activado exitosamente
+            closePaymentModal(); // Close payment modal
             await renderSubscription(user);
-            alert('🎉 ¡Suscripción Premium activada con éxito! Ahora tienes acceso ilimitado a todos los exámenes.');
+            
+            // Mostrar modal de éxito
+            showSuccessModal(); // Use existing function
           } else {
-            alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+            console.error('Error activating premium:', data.error);
+            alert(`❌ Error al activar Premium: ${data.error || 'Intenta nuevamente'}`);
           }
         } catch (error) {
           console.error('Error activating subscription:', error);
-          alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+          alert('❌ Error al procesar el pago. Por favor contacta soporte.');
         }
       } else if (response && response.transactionStatus === 'Declined') {
         alert('❌ Pago rechazado. Por favor, verifica tu información de pago e intenta nuevamente.');
@@ -125,20 +140,36 @@ const handlePayPhoneReturn = async (user) => {
     console.log('PayPhone return detected:', { transactionId, clientTransactionId });
     
     try {
-      // Activar suscripción
-      const success = await activateSubscription(user.uid);
-      
-      if (success) {
+      // ✅ NUEVO: Llamar a Netlify Function
+      const result = await fetch('/.netlify/functions/activate-premium', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: user.uid,
+          transactionId,
+          clientTransactionId
+        })
+      });
+
+      const data = await result.json();
+
+      if (result.ok && data.success) {
         // Actualizar UI
         await renderSubscription(user);
         // Mostrar modal de éxito
         showSuccessModal();
+        
+        // Limpiar URL params
+        window.history.replaceState({}, document.title, window.location.pathname);
       } else {
-        alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+        console.error('Error:', data.error);
+        alert(`❌ Error al activar Premium: ${data.error || 'Contacta soporte'}`);
       }
     } catch (error) {
       console.error('Error activating subscription on return:', error);
-      alert('❌ Error al activar la suscripción. Por favor, contacta a soporte.');
+      alert('❌ Error al procesar el pago. Por favor, contacta a soporte.');
     }
   }
 };

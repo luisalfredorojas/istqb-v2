@@ -22,11 +22,26 @@ export const checkSubscriptionStatus = async (userId) => {
 };
 
 /**
- * Activate premium subscription for the user.
- * @param {string} userId 
- * @returns {Promise<boolean>}
+ * ⚠️ DEPRECATED & DANGEROUS - DO NOT USE ⚠️
+ * 
+ * This function allows client-side Premium activation which is a CRITICAL SECURITY VULNERABILITY.
+ * 
+ * Firestore Security Rules now PREVENT this function from working (client cannot modify subscription field).
+ * Premium activation is now done ONLY through Netlify Function: /.netlify/functions/activate-premium
+ * 
+ * The Netlify Function:
+ * 1. Verifies PayPhone transaction server-side
+ * 2. Prevents duplicate transaction usage
+ * 3. Uses Firebase Admin SDK (bypasses security rules)
+ * 
+ * @deprecated Since security-audit branch (2025-12-06)
+ * @see netlify/functions/activate-premium.js for secure implementation
  */
+/*
 export const activateSubscription = async (userId) => {
+  // ❌ SECURITY RISK: This allowed any user to activate Premium from browser console
+  // ✅ NOW BLOCKED: Firestore Security Rules prevent modifying subscription field from client
+  
   try {
     const userRef = doc(db, "users", userId);
     await setDoc(userRef, {
@@ -41,6 +56,7 @@ export const activateSubscription = async (userId) => {
     return false;
   }
 };
+*/
 
 /**
  * Check if the user is allowed to take the exam.
