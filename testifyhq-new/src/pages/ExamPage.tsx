@@ -12,12 +12,15 @@ import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export function ExamPage() {
+  console.log('ExamPage: Rendering...');
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const examId = parseInt(id || '1', 10);
   
   const { data: questions, isLoading, error } = useQuestions(examId);
-  
+  console.log('ExamPage: Questions loaded:', questions?.length);
+
   useEffect(() => {
     if (questions) {
       console.log('Loaded questions:', questions);
@@ -39,6 +42,7 @@ export function ExamPage() {
     answers,
     timeRemaining,
   } = useExamStore();
+  console.log('ExamPage: Store state:', { currentQuestion, examStarted, totalQuestions: questions?.length });
 
   useEffect(() => {
     // Start exam when questions are loaded
@@ -131,91 +135,90 @@ export function ExamPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Header with Timer and Progress */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-2xl font-bold text-gray-900">
-              Examen ISTQB Foundation
-            </h1>
-            <Timer />
+      <ErrorBoundary>
+        <div className="container mx-auto px-4 max-w-4xl">
+          {/* Header with Timer and Progress */}
+          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <h1 className="text-2xl font-bold text-gray-900">
+                Examen ISTQB Foundation
+              </h1>
+              <Timer />
+            </div>
+            <ProgressBar />
           </div>
-          <ProgressBar />
-        </div>
 
-
-        {/* Question Card */}
-        <div className="mb-6">
-          {questions[currentQuestion] ? (
-            <ErrorBoundary>
+          {/* Question Card */}
+          <div className="mb-6">
+            {questions[currentQuestion] ? (
               <QuestionCard
                 question={questions[currentQuestion]}
                 questionNumber={currentQuestion + 1}
               />
-            </ErrorBoundary>
-          ) : (
-            <div className="p-4 text-center text-red-500">
-              Error: Pregunta no encontrada (Índice: {currentQuestion})
-            </div>
-          )}
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex items-center justify-between bg-white rounded-lg shadow-sm p-6">
-          <Button
-            onClick={previousQuestion}
-            disabled={currentQuestion === 0}
-            variant="outline"
-          >
-            ← Anterior
-          </Button>
-
-          <div className="flex gap-3">
-            {currentQuestion === questions.length - 1 ? (
-              <Button 
-                onClick={handleSubmit} 
-                className="bg-success-500 hover:bg-green-600"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Enviando...' : 'Enviar Examen'}
-              </Button>
             ) : (
-              <Button onClick={nextQuestion}>
-                Siguiente →
-              </Button>
+              <div className="p-4 text-center text-red-500">
+                Error: Pregunta no encontrada (Índice: {currentQuestion})
+              </div>
             )}
           </div>
-        </div>
 
-        {/* Question Navigator */}
-        <div className="mt-6 bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">
-            Navegación rápida:
-          </h3>
-          <div className="grid grid-cols-10 gap-2">
-            {questions.map((q, index) => {
-              const { answers } = useExamStore.getState();
-              const isAnswered = !!answers[q.id];
-              const isCurrent = index === currentQuestion;
+          {/* Navigation Buttons */}
+          <div className="flex items-center justify-between bg-white rounded-lg shadow-sm p-6">
+            <Button
+              onClick={previousQuestion}
+              disabled={currentQuestion === 0}
+              variant="outline"
+            >
+              ← Anterior
+            </Button>
 
-              return (
-                <button
-                  key={q.id}
-                  onClick={() => useExamStore.getState().goToQuestion(index)}
-                  className={cn(
-                    'w-10 h-10 rounded-md border-2 font-medium text-sm transition-all',
-                    isCurrent && 'border-blue-600 bg-blue-50',
-                    !isCurrent && isAnswered && 'border-green-500 bg-green-50',
-                    !isCurrent && !isAnswered && 'border-gray-300 hover:border-gray-400'
-                  )}
+            <div className="flex gap-3">
+              {currentQuestion === questions.length - 1 ? (
+                <Button 
+                  onClick={handleSubmit} 
+                  className="bg-success-500 hover:bg-green-600"
+                  disabled={isSubmitting}
                 >
-                  {index + 1}
-                </button>
-              );
-            })}
+                  {isSubmitting ? 'Enviando...' : 'Enviar Examen'}
+                </Button>
+              ) : (
+                <Button onClick={nextQuestion}>
+                  Siguiente →
+                </Button>
+              )}
+            </div>
+          </div>
+
+          {/* Question Navigator */}
+          <div className="mt-6 bg-white rounded-lg shadow-sm p-6">
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">
+              Navegación rápida:
+            </h3>
+            <div className="grid grid-cols-10 gap-2">
+              {questions.map((q, index) => {
+                const { answers } = useExamStore.getState();
+                const isAnswered = !!answers[q.id];
+                const isCurrent = index === currentQuestion;
+
+                return (
+                  <button
+                    key={q.id}
+                    onClick={() => useExamStore.getState().goToQuestion(index)}
+                    className={cn(
+                      'w-10 h-10 rounded-md border-2 font-medium text-sm transition-all',
+                      isCurrent && 'border-blue-600 bg-blue-50',
+                      !isCurrent && isAnswered && 'border-green-500 bg-green-50',
+                      !isCurrent && !isAnswered && 'border-gray-300 hover:border-gray-400'
+                    )}
+                  >
+                    {index + 1}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
+      </ErrorBoundary>
     </div>
   );
 }
