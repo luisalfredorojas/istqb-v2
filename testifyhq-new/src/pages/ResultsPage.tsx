@@ -119,10 +119,13 @@ export function ResultsPage() {
               )}>
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      <span className="text-gray-500 mr-2">{index + 1}.</span>
-                      {q.question_text}
-                    </h3>
+                      <div className="flex gap-2">
+                        <span className="text-gray-500 font-semibold">{index + 1}.</span>
+                        <div 
+                          className="text-lg font-semibold text-gray-900 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
+                          dangerouslySetInnerHTML={{ __html: q.question_text || '' }}
+                        />
+                      </div>
                     <span className={cn(
                       "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide",
                       isCorrect ? "bg-green-100 text-green-700" : 
