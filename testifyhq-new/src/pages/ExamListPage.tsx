@@ -1,30 +1,25 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useExams } from '@/hooks/useExams';
 
 export function ExamListPage() {
-  // Mock data - will be replaced with Supabase data later
-  const exams = [
-    {
-      id: 1,
-      title: 'ISTQB Foundation Level',
-      description: 'Certificación base en testing de software',
-      category: 'ISTQB',
-      difficulty: 'Foundation',
-      duration: 60,
-      totalQuestions: 40,
-      passingScore: 65,
-    },
-    {
-      id: 2,
-      title: 'ISTQB Advanced Level',
-      description: 'Certificación avanzada en testing',
-      category: 'ISTQB',
-      difficulty: 'Advanced',
-      duration: 90,
-      totalQuestions: 60,
-      passingScore: 70,
-    },
-  ];
+  const { data: exams, isLoading, error } = useExams();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-12 text-center">
+        <p className="text-red-500">Error al cargar los exámenes. Por favor intenta más tarde.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -38,7 +33,7 @@ export function ExamListPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {exams.map((exam) => (
+        {exams?.map((exam) => (
           <Link key={exam.id} to={`/exam/${exam.id}`}>
             <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader>
@@ -67,7 +62,7 @@ export function ExamListPage() {
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>{exam.duration} minutos</span>
+                    <span>{exam.duration_minutes} minutos</span>
                   </div>
                   <div className="flex items-center">
                     <svg
@@ -83,7 +78,7 @@ export function ExamListPage() {
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    <span>{exam.totalQuestions} preguntas</span>
+                    <span>{exam.total_questions} preguntas</span>
                   </div>
                   <div className="flex items-center">
                     <svg
@@ -99,7 +94,7 @@ export function ExamListPage() {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Puntaje mínimo: {exam.passingScore}%</span>
+                    <span>Puntaje mínimo: {exam.passing_score}%</span>
                   </div>
                 </div>
               </CardContent>
