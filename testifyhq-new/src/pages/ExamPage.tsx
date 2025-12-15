@@ -9,6 +9,7 @@ import { useQuestions } from '@/hooks/useQuestions';
 import { useExamAttempts } from '@/hooks/useExamAttempts';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export function ExamPage() {
   const { id } = useParams();
@@ -142,13 +143,16 @@ export function ExamPage() {
           <ProgressBar />
         </div>
 
+
         {/* Question Card */}
         <div className="mb-6">
           {questions[currentQuestion] ? (
-            <QuestionCard
-              question={questions[currentQuestion]}
-              questionNumber={currentQuestion + 1}
-            />
+            <ErrorBoundary>
+              <QuestionCard
+                question={questions[currentQuestion]}
+                questionNumber={currentQuestion + 1}
+              />
+            </ErrorBoundary>
           ) : (
             <div className="p-4 text-center text-red-500">
               Error: Pregunta no encontrada (Índice: {currentQuestion})
