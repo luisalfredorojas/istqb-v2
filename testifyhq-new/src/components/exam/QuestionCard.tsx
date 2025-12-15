@@ -41,9 +41,10 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
         {/* Question Text/Image */}
         <div className="space-y-4">
           {question.question_text && (
-            <p className="text-lg text-gray-800 leading-relaxed">
-              {question.question_text}
-            </p>
+            <div 
+              className="text-lg text-gray-800 leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
+              dangerouslySetInnerHTML={{ __html: question.question_text }}
+            />
           )}
           {question.question_image_url && (
             <img
