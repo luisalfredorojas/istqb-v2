@@ -12,6 +12,20 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
   const { answers, setAnswer } = useExamStore();
   const selectedAnswer = answers[question.id];
 
+  // Robust options handling
+  let options: any[] = [];
+  const rawOptions = question.options as any;
+  
+  if (Array.isArray(rawOptions)) {
+    options = rawOptions;
+  } else if (typeof rawOptions === 'string') {
+    try {
+      options = JSON.parse(rawOptions);
+    } catch (e) {
+      console.error('Error parsing options:', e);
+    }
+  }
+
   const handleSelectAnswer = (optionId: string) => {
     setAnswer(question.id, optionId);
   };
@@ -46,8 +60,8 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
             Selecciona una respuesta:
           </p>
           <div className="space-y-2">
-            {Array.isArray(question.options) ? (
-              question.options.map((option) => (
+            {options.length > 0 ? (
+              options.map((option) => (
                 <button
                   key={option.id}
                   onClick={() => handleSelectAnswer(option.id)}
@@ -87,7 +101,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
                 </button>
               ))
             ) : (
-              <div className="text-red-500">Error: Opciones no válidas</div>
+              <div className="text-red-500">Error: Opciones no válidas (Raw: {JSON.stringify(question.options)})</div>
             )}
           </div>
         </div>
