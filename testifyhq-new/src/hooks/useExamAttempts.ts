@@ -9,7 +9,7 @@ export function useExamAttempts() {
     mutationFn: async (attempt: Omit<ExamAttempt, 'id' | 'created_at'>) => {
       const { data, error } = await supabase
         .from('user_exam_attempts')
-        .insert(attempt as any)
+        .upsert(attempt as any)
         .select()
         .single();
 
