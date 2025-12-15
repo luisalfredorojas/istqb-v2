@@ -48,9 +48,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
           )}
           {question.question_image_url && (
             <img
-              src={question.question_image_url.startsWith('http') 
-                ? question.question_image_url 
-                : `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/exam-images/${question.question_image_url}`}
+              src={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/exam-images/${question.question_image_url.split('/').pop()}`}
               alt={question.question_image_alt || 'Imagen de la pregunta'}
               className="max-w-full h-auto rounded-lg border border-gray-200"
               onError={(e) => console.error('Error loading image:', e.currentTarget.src)}
