@@ -177,7 +177,7 @@ export function ExamPage() {
               {currentQuestion === questions.length - 1 ? (
                 <Button 
                   onClick={handleSubmit} 
-                  className="bg-success-500 hover:bg-green-600"
+                  className="bg-green-600 hover:bg-green-700 text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Enviando...' : 'Enviar Examen'}

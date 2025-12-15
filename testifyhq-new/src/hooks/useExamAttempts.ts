@@ -8,7 +8,7 @@ export function useExamAttempts() {
   const saveAttempt = useMutation({
     mutationFn: async (attempt: Omit<ExamAttempt, 'id' | 'created_at'>) => {
       const { data, error } = await supabase
-        .from('exam_attempts')
+        .from('user_exam_attempts')
         .insert(attempt as any)
         .select()
         .single();
@@ -33,7 +33,7 @@ export function useUserAttempts(userId: string | undefined) {
       if (!userId) return [];
       
       const { data, error } = await supabase
-        .from('exam_attempts')
+        .from('user_exam_attempts')
         .select(`
           *,
           exams (
@@ -59,7 +59,7 @@ export function useAttempt(attemptId: string | null) {
       if (!attemptId) return null;
       
       const { data, error } = await supabase
-        .from('exam_attempts')
+        .from('user_exam_attempts')
         .select('*')
         .eq('id', attemptId)
         .single();
