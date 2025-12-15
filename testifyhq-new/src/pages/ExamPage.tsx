@@ -17,6 +17,12 @@ export function ExamPage() {
   
   const { data: questions, isLoading, error } = useQuestions(examId);
   
+  useEffect(() => {
+    if (questions) {
+      console.log('Loaded questions:', questions);
+    }
+  }, [questions]);
+  
   const { user } = useAuth();
   const { saveAttempt } = useExamAttempts();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -138,10 +144,16 @@ export function ExamPage() {
 
         {/* Question Card */}
         <div className="mb-6">
-          <QuestionCard
-            question={questions[currentQuestion]}
-            questionNumber={currentQuestion + 1}
-          />
+          {questions[currentQuestion] ? (
+            <QuestionCard
+              question={questions[currentQuestion]}
+              questionNumber={currentQuestion + 1}
+            />
+          ) : (
+            <div className="p-4 text-center text-red-500">
+              Error: Pregunta no encontrada (Índice: {currentQuestion})
+            </div>
+          )}
         </div>
 
         {/* Navigation Buttons */}
