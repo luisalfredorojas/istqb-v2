@@ -11,6 +11,7 @@ import { ExamListPage } from './pages/ExamListPage';
 import { ExamPage } from './pages/ExamPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { PricingPage } from './pages/PricingPage';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
   return (
@@ -25,7 +26,13 @@ function App() {
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/exams" element={<ProtectedRoute><ExamListPage /></ProtectedRoute>} />
-            <Route path="/exam/:id" element={<ProtectedRoute><ExamPage /></ProtectedRoute>} />
+            <Route path="/exam/:id" element={
+              <ProtectedRoute>
+                <ErrorBoundary>
+                  <ExamPage />
+                </ErrorBoundary>
+              </ProtectedRoute>
+            } />
             <Route path="/results/:id" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />
           </Routes>
