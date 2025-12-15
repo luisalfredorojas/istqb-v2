@@ -3,9 +3,8 @@ import examA from '@/data/exams/foundation-level-exam-a.json';
 import examB from '@/data/exams/foundation-level-exam-b.json';
 import examC from '@/data/exams/foundation-level-exam-c.json';
 import examD from '@/data/exams/foundation-level-exam-d.json';
-import examAdvanced from '@/data/exams/advanced-level-test-analyst.json';
 
-const examsToMigrate = [examA, examB, examC, examD, examAdvanced];
+const examsToMigrate = [examA, examB, examC, examD];
 
 export const migrateExams = async () => {
   console.log('Starting migration...');
@@ -16,7 +15,7 @@ export const migrateExams = async () => {
     try {
       // 1. Prepare Exam Data
       // Handle array wrapper if present (some files might be [ { ... } ])
-      const data = Array.isArray(examData) ? examData[0] : examData;
+      const data: any = Array.isArray(examData) ? examData[0] : examData;
       
       const title = data.titulo || data.title;
       const description = data.descripcion || data.description || 'Sin descripción';
