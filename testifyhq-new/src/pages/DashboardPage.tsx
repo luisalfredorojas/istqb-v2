@@ -69,9 +69,10 @@ export function DashboardPage() {
             ) : attempts && attempts.length > 0 ? (
               <div className="space-y-4">
                 {attempts.slice(0, 5).map((attempt: any) => (
-                  <div
+                  <Link
                     key={attempt.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                    to={`/results/${attempt.exam_id}?attemptId=${attempt.id}`}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                   >
                     <div>
                       <h3 className="font-medium text-gray-900">
@@ -89,7 +90,7 @@ export function DashboardPage() {
                         {attempt.passed ? '✓ Aprobado' : '✗ Reprobado'}
                       </span>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (

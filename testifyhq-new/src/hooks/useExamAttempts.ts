@@ -51,3 +51,22 @@ export function useUserAttempts(userId: string | undefined) {
     enabled: !!userId,
   });
 }
+
+export function useAttempt(attemptId: string | null) {
+  return useQuery({
+    queryKey: ['attempt', attemptId],
+    queryFn: async () => {
+      if (!attemptId) return null;
+      
+      const { data, error } = await supabase
+        .from('exam_attempts')
+        .select('*')
+        .eq('id', attemptId)
+        .single();
+
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!attemptId,
+  });
+}

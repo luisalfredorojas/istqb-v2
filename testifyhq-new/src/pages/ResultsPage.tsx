@@ -1,27 +1,35 @@
 import { useEffect } from 'react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import { useNavigate, Link, useParams, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
+import { useAttempt } from '@/hooks/useExamAttempts';
 import { cn } from '@/lib/utils';
 
 export function ResultsPage() {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const attemptId = searchParams.get('attemptId');
   const navigate = useNavigate();
   const examId = parseInt(id || '1', 10);
-  const { answers, examCompleted, resetExam } = useExamStore();
   
-  // Fetch questions to compare answers
-  const { data: questions, isLoading } = useQuestions(examId);
+  const { answers: storeAnswers, examCompleted, resetExam } = useExamStore();
+  
+  // Fetch questions
+  const { data: questions, isLoading: isLoadingQuestions } = useQuestions(examId);
+  
+  // Fetch attempt if provided
+  const { data: attempt, isLoading: isLoadingAttempt } = useAttempt(attemptId);
 
   useEffect(() => {
-    if (!examCompleted) {
+    // Only redirect if NOT viewing a past attempt AND exam not completed in store
+    if (!attemptId && !examCompleted) {
       navigate('/dashboard');
     }
-  }, [examCompleted, navigate]);
+  }, [examCompleted, navigate, attemptId]);
 
-  if (isLoading || !questions) {
+  if (isLoadingQuestions || (attemptId && isLoadingAttempt)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
@@ -29,7 +37,13 @@ export function ResultsPage() {
     );
   }
 
-  // Calculate results
+  if (!questions) return null;
+
+  // Determine source of truth (DB attempt or Local store)
+  const attemptData = attempt as any;
+  const answers = attemptData ? (attemptData.answers as Record<string, string>) : storeAnswers;
+  
+  // Calculate results (or use from attempt)
   const totalQuestions = questions.length;
   let correctCount = 0;
 
@@ -39,8 +53,8 @@ export function ResultsPage() {
     }
   });
 
-  const score = Math.round((correctCount / totalQuestions) * 100);
-  const isPassed = score >= 65; // ISTQB pass mark is usually 65%
+  const score = attemptData ? (attemptData.score || 0) : Math.round((correctCount / totalQuestions) * 100);
+  const isPassed = score >= 65;
 
   const handleRetry = () => {
     resetExam();
