@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { QuestionCard } from '@/components/exam/QuestionCard';
 import { Timer } from '@/components/exam/Timer';
@@ -7,57 +7,9 @@ import { ProgressBar } from '@/components/exam/ProgressBar';
 import { useExamStore } from '@/stores/examStore';
 import { cn } from '@/lib/utils';
 import type { Question } from '@/types';
-
-// Mock data - will be replaced with real data from Supabase
-const mockQuestions: Question[] = [
-  {
-    id: '1',
-    exam_id: 1,
-    question_type: 'text',
-    question_text: '¿Cuál es el objetivo principal del testing de software?',
-    question_image_url: null,
-    question_image_alt: null,
-    options: [
-      { id: 'a', type: 'text', content: 'Demostrar que el software no tiene defectos' },
-      { id: 'b', type: 'text', content: 'Encontrar tantos defectos como sea posible' },
-      { id: 'c', type: 'text', content: 'Ganar confianza en el nivel de calidad' },
-      { id: 'd', type: 'text', content: 'Prevenir defectos mediante revisiones' },
-    ],
-    correct_answer: 'c',
-    explanation: 'El objetivo principal es ganar confianza en la calidad del software.',
-    explanation_image_url: null,
-    difficulty: 'easy',
-    tags: ['fundamentos', 'testing'],
-    order_index: 1,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-  {
-    id: '2',
-    exam_id: 1,
-    question_type: 'text',
-    question_text: '¿Qué es el testing de caja negra?',
-    question_image_url: null,
-    question_image_alt: null,
-    options: [
-      { id: 'a', type: 'text', content: 'Testing basado en la estructura interna del código' },
-      { id: 'b', type: 'text', content: 'Testing basado en especificaciones funcionales' },
-      { id: 'c', type: 'text', content: 'Testing realizado por el equipo de desarrollo' },
-      { id: 'd', type: 'text', content: 'Testing automatizado únicamente' },
-    ],
-    correct_answer: 'b',
-    explanation: 'El testing de caja negra se basa en las especificaciones sin conocer la implementación interna.',
-    explanation_image_url: null,
-    difficulty: 'easy',
-    tags: ['técnicas', 'caja-negra'],
-    order_index: 2,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-];
+import { mockQuestions } from '@/data/mockQuestions';
 
 export function ExamPage() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [questions] = useState<Question[]>(mockQuestions);
   
@@ -69,7 +21,6 @@ export function ExamPage() {
     nextQuestion,
     previousQuestion,
     submitExam,
-    resetExam,
   } = useExamStore();
 
   useEffect(() => {
@@ -80,17 +31,16 @@ export function ExamPage() {
 
     // Cleanup on unmount
     return () => {
-      if (!examCompleted) {
-        resetExam();
+      const state = useExamStore.getState();
+      if (!state.examCompleted) {
+        state.resetExam();
       }
     };
   }, []);
 
   const handleSubmit = () => {
-    if (confirm('¿Estás seguro de enviar el examen?')) {
-      submitExam();
-      navigate('/results/mock-result-id');
-    }
+    submitExam();
+    navigate('/results/1');
   };
 
   if (questions.length === 0) {

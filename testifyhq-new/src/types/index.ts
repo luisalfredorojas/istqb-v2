@@ -24,6 +24,8 @@ export interface Question {
   difficulty: 'easy' | 'medium' | 'hard' | null;
   tags: string[] | null;
   order_index: number | null;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface Exam {
