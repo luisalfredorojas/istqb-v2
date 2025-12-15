@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { QuestionCard } from '@/components/exam/QuestionCard';
@@ -6,6 +6,8 @@ import { Timer } from '@/components/exam/Timer';
 import { ProgressBar } from '@/components/exam/ProgressBar';
 import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
+import { useExamAttempts } from '@/hooks/useExamAttempts';
+import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
 
 export function ExamPage() {
@@ -15,6 +17,10 @@ export function ExamPage() {
   
   const { data: questions, isLoading, error } = useQuestions(examId);
   
+  const { user } = useAuth();
+  const { saveAttempt } = useExamAttempts();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const {
     currentQuestion,
     examStarted,
@@ -23,6 +29,8 @@ export function ExamPage() {
     nextQuestion,
     previousQuestion,
     submitExam,
+    answers,
+    timeRemaining,
   } = useExamStore();
 
   useEffect(() => {
@@ -40,9 +48,44 @@ export function ExamPage() {
     };
   }, [questions, examStarted, examCompleted]);
 
-  const handleSubmit = () => {
-    submitExam();
-    navigate(`/results/${examId}`);
+  const handleSubmit = async () => {
+    if (!user || !questions) return;
+    
+    setIsSubmitting(true);
+    try {
+      // Calculate results
+      let correctCount = 0;
+      questions.forEach((q) => {
+        if (answers[q.id] === q.correct_answer) {
+          correctCount++;
+        }
+      });
+      
+      const score = Math.round((correctCount / questions.length) * 100);
+      const passed = score >= 65;
+      const timeSpent = (60 * 60) - timeRemaining; // 60 mins * 60 secs - remaining
+
+      // Save to DB
+      await saveAttempt.mutateAsync({
+        user_id: user.id,
+        exam_id: examId,
+        answers,
+        score,
+        percentage: score, // Using score as percentage
+        passed,
+        started_at: new Date(Date.now() - timeSpent * 1000).toISOString(), // Approximate start time
+        completed_at: new Date().toISOString(),
+        time_spent_seconds: timeSpent,
+      });
+
+      submitExam();
+      navigate(`/results/${examId}`);
+    } catch (error) {
+      console.error('Error saving exam:', error);
+      alert('Hubo un error al guardar tu examen. Por favor intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isLoading) {
@@ -113,8 +156,12 @@ export function ExamPage() {
 
           <div className="flex gap-3">
             {currentQuestion === questions.length - 1 ? (
-              <Button onClick={handleSubmit} className="bg-success-500 hover:bg-green-600">
-                Enviar Examen
+              <Button 
+                onClick={handleSubmit} 
+                className="bg-success-500 hover:bg-green-600"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Enviando...' : 'Enviar Examen'}
               </Button>
             ) : (
               <Button onClick={nextQuestion}>

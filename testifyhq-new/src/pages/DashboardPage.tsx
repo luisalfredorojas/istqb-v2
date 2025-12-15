@@ -1,28 +1,29 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/useAuth';
+import { useUserAttempts } from '@/hooks/useExamAttempts';
 
 export function DashboardPage() {
-  // Mock user data
-  const user = {
-    name: 'Usuario Demo',
-    email: 'demo@testifyhq.com',
-    subscription: 'free',
-  };
+  const { user } = useAuth();
+  const { data: attemptsData, isLoading } = useUserAttempts(user?.id);
+  const attempts = attemptsData as any[] | undefined;
 
-  // Mock stats
+  // Calculate stats
+  const totalExams = attempts?.length || 0;
+  const averageScore = totalExams > 0 
+    ? Math.round(attempts!.reduce((acc: number, curr: any) => acc + (curr.score || 0), 0) / totalExams)
+    : 0;
+  
+  // Calculate total time (in hours)
+  const totalTimeSeconds = attempts?.reduce((acc: number, curr: any) => acc + (curr.time_spent_seconds || 0), 0) || 0;
+  const totalTimeHours = (totalTimeSeconds / 3600).toFixed(1);
+
   const stats = [
-    { label: 'Exámenes completados', value: '12', icon: '📝' },
-    { label: 'Promedio de puntaje', value: '78%', icon: '📊' },
-    { label: 'Tiempo total estudiado', value: '8.5h', icon: '⏱️' },
-    { label: 'Racha actual', value: '5 días', icon: '🔥' },
-  ];
-
-  // Mock recent exams
-  const recentExams = [
-    { id: 1, title: 'ISTQB Foundation', score: 85, date: '15 Dic 2025', passed: true },
-    { id: 2, title: 'ISTQB Foundation', score: 72, date: '10 Dic 2025', passed: true },
-    { id: 3, title: 'ISTQB Advanced', score: 58, date: '5 Dic 2025', passed: false },
+    { label: 'Exámenes completados', value: totalExams.toString(), icon: '📝' },
+    { label: 'Promedio de puntaje', value: `${averageScore}%`, icon: '📊' },
+    { label: 'Tiempo total estudiado', value: `${totalTimeHours}h`, icon: '⏱️' },
+    { label: 'Racha actual', value: '1 día', icon: '🔥' }, // Placeholder for streak
   ];
 
   return (
@@ -30,7 +31,7 @@ export function DashboardPage() {
       {/* Welcome Section */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          Bienvenido, {user.name}
+          Hola, {user?.email?.split('@')[0]}
         </h1>
         <p className="text-gray-600 mt-2">
           Continúa tu progreso y alcanza tus metas
@@ -63,27 +64,40 @@ export function DashboardPage() {
             <CardDescription>Tus últimos intentos de examen</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {recentExams.map((exam) => (
-                <div
-                  key={exam.id}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
-                >
-                  <div>
-                    <h3 className="font-medium text-gray-900">{exam.title}</h3>
-                    <p className="text-sm text-gray-600">{exam.date}</p>
+            {isLoading ? (
+              <div className="text-center py-8">Cargando actividad...</div>
+            ) : attempts && attempts.length > 0 ? (
+              <div className="space-y-4">
+                {attempts.slice(0, 5).map((attempt: any) => (
+                  <div
+                    key={attempt.id}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                  >
+                    <div>
+                      <h3 className="font-medium text-gray-900">
+                        {attempt.exams?.title || 'Examen'}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {new Date(attempt.completed_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className={`text-lg font-bold ${attempt.passed ? 'text-success-500' : 'text-error-500'}`}>
+                        {attempt.score}%
+                      </p>
+                      <span className={`text-xs ${attempt.passed ? 'text-success-500' : 'text-error-500'}`}>
+                        {attempt.passed ? '✓ Aprobado' : '✗ Reprobado'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <p className={`text-lg font-bold ${exam.passed ? 'text-success-500' : 'text-error-500'}`}>
-                      {exam.score}%
-                    </p>
-                    <span className={`text-xs ${exam.passed ? 'text-success-500' : 'text-error-500'}`}>
-                      {exam.passed ? '✓ Aprobado' : '✗ Reprobado'}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                No has realizado ningún examen aún.
+              </div>
+            )}
+            
             <Link to="/exams" className="block mt-4">
               <Button variant="outline" className="w-full">
                 Ver todos los resultados
