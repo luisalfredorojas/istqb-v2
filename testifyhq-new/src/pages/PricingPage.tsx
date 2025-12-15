@@ -1,20 +1,29 @@
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/hooks/useAuth';
 
 export function PricingPage() {
+  const { user } = useAuth();
+  const [isPayphoneReady, setIsPayphoneReady] = useState(false);
+
   const handlePayment = () => {
-    // TODO: Initialize Payphone payment
-    console.log('Payment clicked');
-    
+    if (!user) {
+      alert('Por favor inicia sesión para continuar.');
+      return;
+    }
+
     // Generate unique transaction ID
     const clientTransactionId = `TESTIFYHQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     
     // Initialize Payphone Box (requires Payphone script loaded)
-    if (typeof window.PPaymentButtonBox !== 'undefined') {
-      new window.PPaymentButtonBox({
+    if (typeof (window as any).PPaymentButtonBox !== 'undefined') {
+      setIsPayphoneReady(true);
+      new (window as any).PPaymentButtonBox({
         token: import.meta.env.VITE_PAYPHONE_TOKEN,
         clientTransactionId: clientTransactionId,
-        amount: 899, // $8.99 USD
+        amount: 899, // $8.99 USD (Payphone uses cents)
         amountWithoutTax: 899,
         amountWithTax: 0,
         tax: 0,
@@ -24,11 +33,27 @@ export function PricingPage() {
         storeId: import.meta.env.VITE_PAYPHONE_STORE_ID,
         reference: 'Acceso Premium TestifyHQ',
         backgroundColor: '#2563eb',
-        onPayment: (response: any) => {
+        onPayment: async (response: any) => {
           console.log('Payment response:', response);
           if (response?.transactionStatus === 'Approved') {
-            alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-            window.location.href = '/dashboard';
+            try {
+              // Update user subscription in database
+              const { error } = await (supabase
+                .from('users') as any)
+                .update({ 
+                  subscription_tier: 'premium',
+                  subscription_expires_at: null 
+                })
+                .eq('id', user.id);
+
+              if (error) throw error;
+
+              alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
+              window.location.href = '/dashboard';
+            } catch (err) {
+              console.error('Error updating subscription:', err);
+              alert('El pago fue procesado pero hubo un error activando tu cuenta. Por favor contáctanos con tu comprobante.');
+            }
           }
         },
         onCancel: () => {
@@ -112,12 +137,14 @@ export function PricingPage() {
             <div id="payphone-button-container" className="mb-4"></div>
 
             {/* Fallback Button */}
-            <Button 
-              onClick={handlePayment}
-              className="w-full h-14 text-lg bg-primary-600 hover:bg-primary-700"
-            >
-              Comprar Acceso Premium
-            </Button>
+            {!isPayphoneReady && (
+              <Button 
+                onClick={handlePayment}
+                className="w-full h-14 text-lg bg-blue-600 hover:bg-blue-700"
+              >
+                Comprar Acceso Premium
+              </Button>
+            )}
 
             <p className="text-center text-sm text-gray-500 mt-4">
               Pago seguro procesado por Payphone
