@@ -11,7 +11,7 @@ export function PricingPage() {
     
     // Initialize Payphone Box (requires Payphone script loaded)
     if (typeof window.PPaymentButtonBox !== 'undefined') {
-      const ppb = new window.PPaymentButtonBox({
+      new window.PPaymentButtonBox({
         token: import.meta.env.VITE_PAYPHONE_TOKEN,
         clientTransactionId: clientTransactionId,
         amount: 899, // $8.99 USD
