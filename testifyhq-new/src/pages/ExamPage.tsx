@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { QuestionCard } from '@/components/exam/QuestionCard';
 import { Timer } from '@/components/exam/Timer';
 import { ProgressBar } from '@/components/exam/ProgressBar';
 import { useExamStore } from '@/stores/examStore';
+import { useQuestions } from '@/hooks/useQuestions';
 import { cn } from '@/lib/utils';
-import type { Question } from '@/types';
-import { mockQuestions } from '@/data/mockQuestions';
 
 export function ExamPage() {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [questions] = useState<Question[]>(mockQuestions);
+  const examId = parseInt(id || '1', 10);
+  
+  const { data: questions, isLoading, error } = useQuestions(examId);
   
   const {
     currentQuestion,
@@ -24,8 +26,8 @@ export function ExamPage() {
   } = useExamStore();
 
   useEffect(() => {
-    // Start exam when component mounts
-    if (!examStarted && !examCompleted && questions.length > 0) {
+    // Start exam when questions are loaded
+    if (questions && questions.length > 0 && !examStarted && !examCompleted) {
       startExam(questions.length, 60); // 60 minutes
     }
 
@@ -36,17 +38,43 @@ export function ExamPage() {
         state.resetExam();
       }
     };
-  }, []);
+  }, [questions, examStarted, examCompleted]);
 
   const handleSubmit = () => {
     submitExam();
-    navigate('/results/1');
+    navigate(`/results/${examId}`);
   };
 
-  if (questions.length === 0) {
+  if (isLoading) {
     return (
-      <div className="container mx-auto px-4 py-12">
-        <p>Cargando examen...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Cargando examen...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center max-w-md px-4">
+          <div className="text-error-500 text-5xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Error al cargar el examen</h2>
+          <p className="text-gray-600 mb-6">No pudimos cargar las preguntas. Por favor intenta nuevamente.</p>
+          <Button onClick={() => window.location.reload()}>Reintentar</Button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!questions || questions.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <p className="text-gray-600">No hay preguntas disponibles para este examen.</p>
+        </div>
       </div>
     );
   }

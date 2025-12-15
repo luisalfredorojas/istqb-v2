@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExamStore } from '@/stores/examStore';
-import { mockQuestions } from '@/data/mockQuestions';
+import { useQuestions } from '@/hooks/useQuestions';
 import { cn } from '@/lib/utils';
 
 export function ResultsPage() {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const examId = parseInt(id || '1', 10);
   const { answers, examCompleted, resetExam } = useExamStore();
+  
+  // Fetch questions to compare answers
+  const { data: questions, isLoading } = useQuestions(examId);
 
   useEffect(() => {
     if (!examCompleted) {
@@ -16,11 +21,19 @@ export function ResultsPage() {
     }
   }, [examCompleted, navigate]);
 
+  if (isLoading || !questions) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
   // Calculate results
-  const totalQuestions = mockQuestions.length;
+  const totalQuestions = questions.length;
   let correctCount = 0;
 
-  mockQuestions.forEach((q) => {
+  questions.forEach((q) => {
     if (answers[q.id] === q.correct_answer) {
       correctCount++;
     }
@@ -80,7 +93,7 @@ export function ResultsPage() {
         {/* Detailed Review */}
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Revisión Detallada</h2>
         <div className="space-y-6">
-          {mockQuestions.map((q, index) => {
+          {questions.map((q, index) => {
             const userAnswer = answers[q.id];
             const isCorrect = userAnswer === q.correct_answer;
             const isSkipped = !userAnswer;
