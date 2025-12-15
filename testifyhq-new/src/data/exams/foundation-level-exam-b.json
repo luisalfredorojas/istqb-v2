@@ -1,0 +1,620 @@
+{
+  "empresa": "istqb",
+  "titulo": "ISTQB® Certified Tester Syllabus Foundation Level v4.0 Exam B",
+  "descripcion": "Exam based in ISTQB® Certified Tester Syllabus Foundation Level v4.0 syllabus",
+  "minimo_aprobacion": 26,
+  "retroalimentacion": [
+    { "umbral": 90, "mensaje": "¡Excelente! Nivel muy alto de preparación." },
+    { "umbral": 75, "mensaje": "Muy bien, estás en camino de aprobar." },
+    {
+      "umbral": 65,
+      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+    },
+    { "umbral": 0, "mensaje": "Recomendamos seguir estudiando." }
+  ],
+  "examen": [
+    {
+      "numero": 1,
+      "pregunta": "Which of the following is an example of why testing is necessary?",
+      "opciones": [
+        "a) Dynamic testing increases quality by causing test objects to fail in ways that could never be achieved by the users",
+        "b) Static testing is used by developers to identify failures in their code earlier than can be achieved through dynamic testing",
+        "c) Static analysis provides evidence to customers that the elements of the system that provide no outputs are fit for release",
+        "d) Reviews increase the quality of requirements specifications and lead to fewer changes being needed in derived work products"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "Las revisiones mejoran la calidad de los requisitos y reducen cambios posteriores; es una razón clara de por qué probar (y revisar) es necesario.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 2,
+      "pregunta": "Which of the following statements about quality assurance (QA) and/or quality control (QC) is correct?",
+      "opciones": [
+        "a) QA is performed as part of testing",
+        "b) Testing is performed as part of QC",
+        "c) Testing is another term for QC",
+        "d) Testing is performed as part of QA"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "La prueba pertenece al control de calidad (QC). QA define procesos; QC (incluyendo pruebas) verifica productos.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 3,
+      "pregunta": "One of the ‘principles of testing’ states that exhaustive testing is impossible. Which of the following is an example of addressing this principle in practice?",
+      "opciones": [
+        "a) Creating test cases that cover every possible specified output",
+        "b) Documenting all possible test input variations and prioritizing these based on importance",
+        "c) Starting testing as early as possible with reviews and other static testing approaches",
+        "d) Using equivalence partitioning and boundary value analysis to generate test cases"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "Usar particiones de equivalencia y valores límite reduce combinaciones a un conjunto representativo cuando el exhaustivo es imposible.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 4,
+      "pregunta": "Which test activity involves working with test data requirements, test conditions, test environment requirements and test cases?",
+      "opciones": [
+        "a) Test design",
+        "b) Test execution",
+        "c) Test analysis",
+        "d) Test implementation"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "En diseño de pruebas se derivan casos, datos de prueba y requisitos del entorno a partir de las condiciones.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 5,
+      "pregunta": "Which of the following is MOST likely to impact how testing is performed for a given test object?",
+      "opciones": [
+        "a) The average level of experience of the organization’s marketing team",
+        "b) The knowledge of users that a new system is being developed for them",
+        "c) The number of years’ experience of the members of the test team",
+        "d) The end user’s organizational structure for a commercial music streaming application"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "La estructura organizativa del usuario final afecta escenarios de uso, riesgos y, por tanto, el enfoque de pruebas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 6,
+      "pregunta": "Which of the following statements is a CORRECT example of the value of traceability?",
+      "opciones": [
+        "a) Traceability between the mitigated risks and test cases that passed provides a means of determining the level of residual risk",
+        "b) Traceability between user requirements and test results provides a means of measuring project progress against business goals",
+        "c) Traceability between testers and test cases that failed provides a means of determining the skill level of the testers",
+        "d) Traceability between the identified risks and written test conditions provides a means of determining which risks are worth testing"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Trazar requisitos a resultados de prueba permite medir avance contra objetivos del negocio (cobertura y estado).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 7,
+      "pregunta": "Which of the following is MOST likely to be an example of a tester using a generic skill when testing?",
+      "opciones": [
+        "a) The tester’s deep knowledge of a variety of computer games meant that they got on well with one of the developers who was also into gaming",
+        "b) The tester was a former pilot and was better able to understand the acceptance criteria for the helicopter control system",
+        "c) The tester previously worked as a programmer and used their skills in this area to better communicate with the business analysts",
+        "d) The tester was very careful not to make mistakes when they methodically generated test cases prior to starting their exploratory testing session"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "La meticulosidad/metodicidad es una habilidad genérica de testing; las otras son dominio o técnicas específicas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 8,
+      "pregunta": "Which of the following is an advantage of the whole-team approach?",
+      "opciones": [
+        "a) It allows team members to take on any role at any time",
+        "b) It only needs a single team to support the complete development project",
+        "c) It embeds business representatives alongside developers in the same team",
+        "d) It generates a team synergy that benefits the entire project"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "La colaboración estrecha de todas las partes crea sinergia y acelera aprendizaje, feedback y calidad.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 9,
+      "pregunta": "Which of the following statements about the chosen software development lifecycle is CORRECT?",
+      "opciones": [
+        "a) If agile software development is used, automation of system tests replaces the need for regression testing",
+        "b) If a sequential development model is used, then the dynamic testing is typically restricted to later in the lifecycle",
+        "c) If an iterative development model is used, then component testing is typically performed manually by developers",
+        "d) If an incremental development model is used, then static testing is done in early increments and dynamic testing in later increments"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "En modelos secuenciales la prueba dinámica suele concentrarse en fases tardías; las demás afirmaciones son incorrectas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 10,
+      "pregunta": "Which of the following is a good testing practice that applies to all software development lifecycles?",
+      "opciones": [
+        "a) Testers should review work products as part of the next development phase",
+        "b) Testers should review work products as soon as drafts are available",
+        "c) Testers should review work products before test analysis and test design begin",
+        "d) Testers should review work products immediately after they are published"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Revisar lo antes posible (con borradores) aplica a cualquier SDLC y apoya el enfoque shift-left.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 11,
+      "pregunta": "Which of the following is an example of a test-first approach to development?",
+      "opciones": [
+        "a) Test-Driven Development",
+        "b) Coverage-Driven Development",
+        "c) Quality-Driven Development",
+        "d) Feature-Driven Development"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "TDD es el enfoque de desarrollo guiado por pruebas (escribir pruebas antes del código).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 12,
+      "pregunta": "Which of the following statements about DevOps is CORRECT?",
+      "opciones": [
+        "a) To speed up releases, continuous integration is used to encourage developers to submit code quickly without the need to complete component testing",
+        "b) To be able to update and release systems on a more frequent basis, many automated regression tests are required to reduce the risk of regression",
+        "c) To treat both developers and operations equally, the testers will allocate more effort to release testing by operations using a shift-right approach",
+        "d) To create increased synergy between testers, developers and operations, the testing must become fully automated with no manual testing"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Entregas frecuentes requieren suites sólidas de regresión automatizada para mitigar riesgos.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 13,
+      "pregunta": "Which of the following is MOST likely to be performed as part of system testing?",
+      "opciones": [
+        "a) Security testing of a credit management system by an independent test team",
+        "b) Testing the interface of a currency exchange system with an external banking system",
+        "c) Beta testing of a remote learning system by courseware developers",
+        "d) Testing interactions between the user interface and database of a human resources system"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "Las pruebas de seguridad a nivel de sistema por un equipo independiente son típicas de system testing.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 14,
+      "pregunta": "Which of the following statements is CORRECT?",
+      "opciones": [
+        "a) Regression tests increase in number as the project progresses, whereas the number of confirmation tests decreases as the project progresses",
+        "b) Regression tests are created and run when the test object is fixed, whereas confirmation tests are run whenever the test object is enhanced",
+        "c) Regression testing is concerned with checking that the operational environment remains unchanged, whereas confirmation testing is concerned with testing changes to the test object",
+        "d) Regression testing is concerned with adverse effects in unchanged code, whereas confirmation testing is concerned with testing changed code"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "La confirmación verifica el arreglo en el código cambiado; la regresión busca efectos adversos en lo no cambiado.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 15,
+      "pregunta": "Which of the following is an example of a defect that can be found by static testing but NOT by dynamic testing?",
+      "opciones": [
+        "a) Lack of usability provided through the user interface",
+        "b) Code with no path that reaches it",
+        "c) Poor response times for most of the expected users",
+        "d) Required features that are not implemented in the code"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "El código muerto (sin camino ejecutable) se detecta con análisis estático; ejecutar pruebas no lo revela.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 16,
+      "pregunta": "Which of the following is a benefit of early and frequent stakeholder feedback?",
+      "opciones": [
+        "a) Managers are aware of which developers are less productive",
+        "b) It allows project managers to prioritize their stakeholder interactions",
+        "c) It facilitates early communication of potential quality issues",
+        "d) End users better understand why the delivery of the work product is delayed"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "El feedback temprano facilita comunicar y tratar potenciales problemas de calidad antes de que escalen.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 17,
+      "pregunta": "Given the following task descriptions:<p style='margin-left:40px'><br>1. The quality characteristics to be evaluated and the exit criteria are selected<br>2. Everyone has access to the work product<br>3. Anomalies are identified in the work product<br>4. Anomalies are discussed</p>\n\n<br>And the following review activities\n\n<p style='margin-left:40px'><br>A. Individual review\n<br>B. Review initiation\n<br>C. Planning\n<br>D. Communication and analysis\n\n</p><br>Which of the following BEST matches the task descriptions and activities?",
+      "opciones": [
+        "a) 1B, 2C, 3D, 4A",
+        "b) 1B, 2D, 3C, 4A",
+        "c) 1C, 2A, 3B, 4D",
+        "d) 1C, 2B, 3A, 4D"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "1→Planificación (C), 2→Inicio de la revisión (B), 3→Revisión individual (A), 4→Comunicación y análisis (D).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 18,
+      "pregunta": "Given the following roles in reviews:<p style='margin-left:40px'><br>1. Scribe<br>2. Review leader<br>3. Facilitator<br>4. Manager\n\n</p>And the following responsibilities in reviews:<p style='margin-left:40px'><br>A. Ensures the effective running of review meetings and the setting up a safe review environment<br>B. Records review information, such as decisions and new anomalies found during the review meeting<br>C. Decides what is to be reviewed and provides resources, such as staff and time for the review<br>D. Takes overall responsibility for the review such as organizing when and where the review will take place</p>Which of the following BEST matches the roles and responsibilities?",
+      "opciones": [
+        "a) 1A, 2B, 3D, 4C",
+        "b) 1A, 2C, 3B, 4D",
+        "c) 1B, 2D, 3A, 4C",
+        "d) 1B, 2D, 3C, 4A"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "Scribe→B (registra), Review leader→D (responsable general), Facilitator→A (conduce eficazmente), Manager→C (decide qué se revisa y provee recursos).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 19,
+      "pregunta": "Which of the following statements BEST describes the difference between decision table testing and branch testing?",
+      "opciones": [
+        "a) In decision table testing, the test cases are derived from the decision statements in the code. In branch testing, the test cases are derived from knowledge of the control flow of the test object.",
+        "b) In decision table testing, the test cases are derived from the specification that describes the business logic. In branch testing the test cases are based on anticipation of potential defects in the source code.",
+        "c) In decision table testing, the test cases are derived from knowledge of the control flow of the test object. In branch testing, test cases are derived from the specification that describes the business logic.",
+        "d) In decision table testing, the test cases are independent of how the software is implemented. In branch testing, test cases can be created only after the design or implementation of the code."
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "Las tablas de decisión se derivan de la lógica de negocio (caja negra, independientes de la implementación); la prueba de ramas es caja blanca y depende del diseño/implementación.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 20,
+      "pregunta": "Customers of the TestWash car wash chain have cards with a record of the number of washes they have bought so far. The initial value is 0. After entering the car wash, the system increases the number on the card by one. This value represents the number of the current wash. Based on this number the system decides what discount the customer is entitled to.<br><br>For every tenth wash the system gives a 10% discount, and for every twentieth wash, the system gives a further 40% discount (i.e., a 50% discount in total).<br><br>Which of the following sets of input data (understood as the numbers of the current wash) achieves the highest equivalence partition coverage?",
+      "opciones": [
+        "a) 19, 20, 30",
+        "b) 11, 12, 20",
+        "c) 1, 10, 50",
+        "d) 10, 29, 30, 31"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "Tres particiones: sin descuento (no múltiplos de 10), 10% (múltiplos de 10 no de 20) y 50% (múltiplos de 20). 19→sin, 20→50%, 30→10%.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 21,
+      "pregunta": "You are testing a form that verifies the correctness of the length of the password given as input. The form accepts a password with the correct length and rejects a password that is too short or too long. The password length is correct if it has between 6 and 12 characters inclusive. Otherwise, it is considered incorrect.<br><br>At first, the form is empty (password length = 0). You apply boundary value analysis to the “password length” variable.<br><br>Your set of test cases achieves 100% 2-value boundary value coverage. The team decided that due to the high risk of this component, test cases should be added to ensure 100% 3-value boundary value coverage.<br><br>Which additional password lengths should be tested to achieve this?",
+      "opciones": [
+        "a) 4, 5, 13, 14",
+        "b) 7, 11",
+        "c) 1, 5, 13",
+        "d) 1, 4, 7, 11, 14"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Para 2-valor se suelen cubrir 5,6 y 12,13. Para 3-valor se añaden los valores inmediatamente dentro: 7 y 11.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 22,
+      "pregunta": "",
+      "opciones": [
+        "a) 40%",
+        "b) 60%",
+        "c) 80%",
+        "d) 100%"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Se cubren reglas 2 (TC3, TC4), 4 (TC1, TC2) y 5 (TC5): 3 de 5 reglas → 60%.",
+      "imageUrl": "../images/foundation-level/qustion22b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 23,
+      "pregunta": "",
+      "opciones": [
+        "a) Add, Remove, Add, Add, Add",
+        "b) Add, Add, Add, Add, Remove, Remove",
+        "c) Add, Add, Add, Remove, Remove",
+        "d) Add, Add, Add, Remove, Add"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "La secuencia c cubre transiciones válidas 0→1, 1→2, 2→3, 3→2 y 2→1; maximiza cobertura sin intentar una operación inválida.",
+      "imageUrl": "../images/foundation-level/question23b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 24,
+      "pregunta": "You run two test cases, T1 and T2, on the same code. Test T1 achieved 40% statement coverage and test T2 achieved 65% statement coverage.<br><br>Which of the following sentences must be necessarily true?",
+      "opciones": [
+        "a) The test suite composed of tests T1 and T2 achieves 105% statement coverage",
+        "b) There exists at least one statement that must have been executed by both T1 and T2",
+        "c) At least 5% of the statements in the code that was tested are non-executable",
+        "d) The test suite composed of tests T1 and T2 achieves full branch coverage"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "40% + 65% > 100%, por lo que necesariamente hay solapamiento de sentencias ejecutadas por ambos tests.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 25,
+      "pregunta": "Let the branch coverage metric be defined as BCov = (X / Y) * 100%.<br><br>What do X and Y represent in this formula?",
+      "opciones": [
+        "a) X = number of decision outcomes exercised by the test cases; Y = total number of decision outcomes in the code",
+        "b) X = number of conditional branches exercised by the test cases; Y = total number of branches in the code",
+        "c) X = number of branches exercised by the test cases; Y = total number of branches in the code",
+        "d) X = number of conditional branches exercised by the test cases; Y = total number of decision outcomes in the code"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "Cobertura de ramas/decisiones mide resultados de decisión ejercitados sobre el total de resultados posibles.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 26,
+      "pregunta": "Which TWO of the following statements provide the BEST rationale for using exploratory testing?",
+      "opciones": [
+        "a) Testers have not been allocated enough time for test design and test execution",
+        "b) The existing test strategy requires that testers use formal, black-box test techniques",
+        "c) The specification is written in a formal language that can be processed by a tool",
+        "d) Testers are the members of an agile team and have good programming skills",
+        "e) Testers are experienced in the business domain and have good analytical skills"
+      ],
+      "respuesta_correcta": [0, 4],
+      "numero_respuestas": "TWO",
+      "explicacion": "La exploratoria encaja cuando hay poco tiempo y cuando los testers aportan experiencia del dominio y fuertes habilidades analíticas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 27,
+      "pregunta": "Which of the following BEST fits as an element of the checklist used in checklist-based testing?",
+      "opciones": [
+        "a) “The developer made an error when implementing the code”",
+        "b) “The achieved statement coverage exceeds 85%”",
+        "c) “The program works correctly regarding functional and non-functional requirements”",
+        "d) “The error messages are written in language that the user can understand”"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "Los ítems de checklist son verificables y concretos; la claridad de los mensajes de error es un buen ejemplo.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 28,
+      "pregunta": "",
+      "opciones": [
+        "a) Rule-oriented",
+        "b) Scenario-oriented",
+        "c) Product-oriented",
+        "d) Process-oriented"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Está en formato Given/When/Then, propio de criterios de aceptación orientados a escenarios (BDD).",
+      "imageUrl": "../images/foundation-level/question28b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 29,
+      "pregunta": "",
+      "opciones": [
+        "a) Input: the customer logs into their account on the website and clicks the “see order history” button; Expected result: the system shows a list of all the customer’s previous orders, including the date, order number, and total cost",
+        "b) Input: the customer clicks on an order from the order list; Expected result: the system displays the individual items purchased, along with their prices and quantities",
+        "c) Input: the customer clicks “Sort ascending” button on the order history screen; Expected result: the system shows the order history sorted by order number in ascending order",
+        "d) Input: an unregistered customer registers as a new customer with a valid e-mail address that does not already exist in the customer database; Expected result: the system accepts the registration and creates the account"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "La historia trata de ver órdenes de un cliente registrado; el caso de registro de nuevos clientes no es pertinente.",
+      "imageUrl": "../images/foundation-level/question29b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 30,
+      "pregunta": "Your team follows the process that uses the DevOps delivery pipeline. The first three steps of this process are:<p style='margin-left:40px'><br>(1) Code development\n\n(2) Submit code into a version control system and merge it into the 'test' branch\n\n(3) Perform component testing for the submitted code</p>Which of the following is BEST suited to be the entry criterion for step (2) of this pipeline?",
+      "opciones": [
+        "a) Static analysis returns no high severity warnings for the submitted code",
+        "b) System version control reports no conflicts when merging code into the 'test', branch",
+        "c) Component tests are compiled and ready to be executed",
+        "d) Statement coverage is at least 80%"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "Antes de integrar/merger, un criterio de entrada razonable es no tener alertas graves de análisis estático en el código.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 31,
+      "pregunta": "",
+       "opciones": [
+        "a) $40,000",
+        "b) $80,000",
+        "c) $81,250",
+        "d) $82,500"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "Promedio de ratios: (0.05+0.1083+0.1167+0.12)/4 ≈ 0.09875; 0.09875×800,000 ≈ $79,000 → opción más cercana: $80,000.",
+      "imageUrl": "../images/foundation-level/question31b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 32,
+      "pregunta": "",
+      "opciones": [
+        "a) TC3",
+        "b) TC1",
+        "c) TC7",
+        "d) TC2"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "Orden óptimo por prioridad y dependencias: TC2 (SEARCH B) → TC4 (VIEW B) → TC6 (ADD B) → TC3 (VIEW A). El cuarto es TC3.",
+      "imageUrl": "../images/foundation-level/question32b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 33,
+      "pregunta": "According to the testing quadrants model, which of the following falls into quadrant Q1 ('technology facing' and 'support' the team')?",
+      "opciones": [
+        "a) Usability testing",
+        "b) Functional testing",
+        "c) User acceptance testing",
+        "d) Component integration testing"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "Q1 es ‘technology-facing’ y ‘support the team’: unit/component y también component integration tests.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 34,
+      "pregunta": "Given the following risks:<p style='margin-left:40px'><br>1. Ineffective loop implementation causes long system responses<br>2. Consumers change their preferences<br>3. Flooding of the server room<br>4. Patients above a certain age receive inaccurate reports</p><br>\n\nAnd the following mitigation activities:<p style='margin-left:40px'><br>A. Risk acceptance<br>B. Testing for performance efficiency<br>C. Using boundary value analysis as the test technique<br>D. Risk transfer</p><br>Which of the following BEST matches the risks with the mitigation activities?",
+      "opciones": [
+        "a) 1C, 2D, 3A, 4B",
+        "b) 1B, 2D, 3A, 4C",
+        "c) 1B, 2A, 3D, 4C",
+        "d) 1C, 2A, 3D, 4B"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "1→B (rendimiento), 2→A (aceptación de riesgo de mercado), 3→D (transferencia vía seguro), 4→C (BVA en el umbral de edad).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 35,
+      "pregunta": "Which of the following is a product quality metric?",
+      "opciones": [
+        "a) Mean time to failure",
+        "b) Number of defects found",
+        "c) Requirements coverage",
+        "d) Defect detection percentage"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "MTTF mide la calidad/confiabilidad del producto; las otras son métricas de proceso o de pruebas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 36,
+      "pregunta": "You are a member of a test team located in North America, developing a product for a client located in Europe. The team is agile and follows the DevOps approach and uses a continuous integration/continuous delivery pipeline.<br>Which of the following is the LEAST effective way to communicate test progress to the customer?",
+      "opciones": [
+        "a) Face-to-face",
+        "b) Dashboards",
+        "c) Email",
+        "d) Video conferencing"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "La comunicación presencial es poco práctica/efectiva por distancia y huso horario; tableros, email y videoconf. son más adecuados.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 37,
+      "pregunta": "Which of the following BEST describes an example of how configuration management (CM) supports testing?",
+      "opciones": [
+        "a) Having the version number of the environment, the CM tool can retrieve the version numbers of libraries, stubs and drivers used in that environment",
+        "b) Having a record of the values of the inputs, the CM tool can execute the test cases for these configurations and calculate the coverage",
+        "c) Having data about the date of purchase of a software license, the CM tool automatically generates information about the fact that the product license is coming to an end",
+        "d) Having the version number of the test case, the CM tool can automatically generate test data for this test case"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "CM permite rastrear versiones exactas de entorno, librerías, stubs/drivers, asegurando reproducibilidad de pruebas.",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 38,
+      "pregunta": "",
+      "opciones": [
+        "a) The system fails to sort several sets of numbers. Reference: TC3, TC4, TC5.",
+        "b) The system seems to disregard duplicates while sorting. Reference: TC3, TC4, TC5.",
+        "c) The system fails to sort negative numbers. Reference: TC4, TC5.",
+        "d) TC3, TC4 and TC5 have defects (duplicate input data) and should be corrected."
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "La salida elimina duplicados (TC3, TC4, TC5), por eso fallan; el problema no es ordenar ni números negativos.",
+      "imageUrl": "../images/foundation-level/question38b.png",
+      "ytURL": ""
+    },
+    {
+      "numero": 39,
+      "pregunta": "Given the following descriptions:<p style='margin-left:40px'><br>1. Support workflow tracking<br>2. Facilitate communication<br>3. Virtual machines<br>4. Support reviews</p><br>And the following test tool categories:<p style='margin-left:40px'><br>A. Static testing tools<br>B. Tools supporting scalability and deployment standardization<br>C. DevOps tools<br>D. Collaboration tools</p><br>Which of the following BEST matches the descriptions and categories?",
+      "opciones": [
+        "a) 1A, 2B, 3C, 4D",
+        "b) 1B, 2D, 3C, 4A",
+        "c) 1C, 2D, 3B, 4A",
+        "d) 1D, 2C, 3A, 4B"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "1→C (DevOps: flujos/pipelines), 2→D (colaboración), 3→B (VMs para estandarización/despliegue), 4→A (herramientas de revisión estática).",
+      "imageUrl": "",
+      "ytURL": ""
+    },
+    {
+      "numero": 40,
+      "pregunta": "Which of the following is MOST likely to be a benefit of test automation?",
+      "opciones": [
+        "a) It provides coverage measures that are too complicated for humans to derive",
+        "b) It shares responsibility for the testing with the tool vendor",
+        "c) It removes the need for critical thinking when analyzing test results",
+        "d) It generates test cases from an analysis of the program code"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "La automatización facilita recolectar métricas (p. ej., cobertura) de forma rápida y consistente; no sustituye el juicio crítico ni transfiere responsabilidad.",
+      "imageUrl": "",
+      "ytURL": ""
+    }
+  ]
+
+
+}

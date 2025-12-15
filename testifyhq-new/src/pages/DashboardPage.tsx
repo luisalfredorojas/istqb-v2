@@ -38,6 +38,21 @@ export function DashboardPage() {
         </p>
       </div>
 
+      {/* Admin Section (Temporary) */}
+      <div className="mb-8 p-4 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-purple-900">Zona Administrativa</h3>
+          <p className="text-sm text-purple-700">Utilidad para migrar exámenes desde JSON</p>
+        </div>
+        <Button 
+          onClick={() => import('@/utils/migrateExams').then(m => m.migrateExams())}
+          variant="outline"
+          className="bg-white border-purple-300 text-purple-700 hover:bg-purple-50"
+        >
+          🚀 Migrar Exámenes
+        </Button>
+      </div>
+
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
