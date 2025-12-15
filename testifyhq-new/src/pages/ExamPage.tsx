@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { QuestionCard } from '@/components/exam/QuestionCard';
@@ -12,20 +12,12 @@ import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export function ExamPage() {
-  console.log('ExamPage: Rendering...');
-  
   const { id } = useParams();
   const navigate = useNavigate();
   const examId = parseInt(id || '1', 10);
   
   const { data: questions, isLoading, error } = useQuestions(examId);
-  console.log('ExamPage: Questions loaded:', questions?.length);
-
-  useEffect(() => {
-    if (questions) {
-      console.log('Loaded questions:', questions);
-    }
-  }, [questions]);
+  const initialized = useRef(false);
   
   const { user } = useAuth();
   const { saveAttempt } = useExamAttempts();
@@ -42,22 +34,31 @@ export function ExamPage() {
     answers,
     timeRemaining,
   } = useExamStore();
-  console.log('ExamPage: Store state:', { currentQuestion, examStarted, totalQuestions: questions?.length });
 
   useEffect(() => {
     // Start exam when questions are loaded
-    if (questions && questions.length > 0 && !examStarted && !examCompleted) {
+    if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted) {
+      console.log('Starting exam...');
       startExam(questions.length, 60); // 60 minutes
+      initialized.current = true;
     }
 
     // Cleanup on unmount
+    return () => {
+      // Only reset if we're actually unmounting the page, not just re-rendering
+      // But we can't easily distinguish. 
+      // For now, let's trust the store state.
+    };
+  }, [questions, examStarted, startExam]);
+
+  useEffect(() => {
     return () => {
       const state = useExamStore.getState();
       if (!state.examCompleted) {
         state.resetExam();
       }
     };
-  }, [questions, examStarted, examCompleted]);
+  }, []);
 
   const handleSubmit = async () => {
     if (!user || !questions) return;
@@ -196,7 +197,6 @@ export function ExamPage() {
             </h3>
             <div className="grid grid-cols-10 gap-2">
               {questions.map((q, index) => {
-                const { answers } = useExamStore.getState();
                 const isAnswered = !!answers[q.id];
                 const isCurrent = index === currentQuestion;
 
@@ -204,6 +204,7 @@ export function ExamPage() {
                   <button
                     key={q.id}
                     onClick={() => useExamStore.getState().goToQuestion(index)}
+                    disabled={examCompleted}
                     className={cn(
                       'w-10 h-10 rounded-md border-2 font-medium text-sm transition-all',
                       isCurrent && 'border-blue-600 bg-blue-50',
