@@ -63,6 +63,15 @@ CREATE POLICY "Questions are viewable by everyone"
   ON questions FOR SELECT 
   USING (true);
 
+-- Allow authenticated users to insert (for migration)
+CREATE POLICY "Authenticated users can insert exams" 
+  ON exams FOR INSERT 
+  WITH CHECK (auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can insert questions" 
+  ON questions FOR INSERT 
+  WITH CHECK (auth.role() = 'authenticated');
+
 -- Policies for Attempts (Users can see/create their own)
 CREATE POLICY "Users can view own attempts" 
   ON exam_attempts FOR SELECT 
