@@ -1,10 +1,27 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
-import { authHelpers } from '@/lib/supabase';
+import { authHelpers, supabase } from '@/lib/supabase';
 
 export function Header() {
   const { user } = useAuth();
+  const [isPremium, setIsPremium] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      supabase
+        .from('users')
+        .select('subscription_tier')
+        .eq('id', user.id)
+        .single()
+        .then(({ data }) => {
+          if ((data as any)?.subscription_tier === 'premium') {
+            setIsPremium(true);
+          }
+        });
+    }
+  }, [user]);
 
   const handleLogout = async () => {
     await authHelpers.signOut();
@@ -28,12 +45,14 @@ export function Header() {
           >
             Exámenes
           </Link>
-          <Link
-            to="/pricing"
-            className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            Planes
-          </Link>
+          {!isPremium && (
+            <Link
+              to="/pricing"
+              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              Planes
+            </Link>
+          )}
           {user && (
             <Link
               to="/dashboard"
