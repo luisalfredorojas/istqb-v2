@@ -10,61 +10,66 @@ export function PricingPage() {
 
 
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handlePayment = () => {
     if (!user) {
       alert('Por favor inicia sesión para continuar.');
       return;
     }
 
-    // Generate unique transaction ID
-    const clientTransactionId = `TESTIFYHQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
-    // Initialize Payphone Box (requires Payphone script loaded)
-    if (typeof (window as any).PPaymentButtonBox !== 'undefined') {
+    setIsModalOpen(true);
+
+    // Initialize Payphone only once
+    if (!isPayphoneReady && typeof (window as any).PPaymentButtonBox !== 'undefined') {
+      // Generate unique transaction ID
+      const clientTransactionId = `TESTIFYHQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      
       setIsPayphoneReady(true);
-      new (window as any).PPaymentButtonBox({
-        token: import.meta.env.VITE_PAYPHONE_TOKEN,
-        clientTransactionId: clientTransactionId,
-        amount: 899, // $8.99 USD (Payphone uses cents)
-        amountWithoutTax: 899,
-        amountWithTax: 0,
-        tax: 0,
-        service: 0,
-        tip: 0,
-        currency: 'USD',
-        storeId: import.meta.env.VITE_PAYPHONE_STORE_ID,
-        reference: 'Acceso Premium TestifyHQ',
-        backgroundColor: '#2563eb',
-        onPayment: async (response: any) => {
-          console.log('Payment response:', response);
-          if (response?.transactionStatus === 'Approved') {
-            try {
-              // Update user subscription in database
-              const { error } = await (supabase
-                .from('users') as any)
-                .update({ 
-                  subscription_tier: 'premium',
-                  subscription_expires_at: null 
-                })
-                .eq('id', user.id);
+      
+      // Small timeout to ensure modal DOM is ready if we were using conditional rendering
+      // But we will use CSS hiding, so it should be fine.
+      setTimeout(() => {
+        new (window as any).PPaymentButtonBox({
+          token: import.meta.env.VITE_PAYPHONE_TOKEN,
+          clientTransactionId: clientTransactionId,
+          amount: 899,
+          amountWithoutTax: 899,
+          amountWithTax: 0,
+          tax: 0,
+          service: 0,
+          tip: 0,
+          currency: 'USD',
+          storeId: import.meta.env.VITE_PAYPHONE_STORE_ID,
+          reference: 'Acceso Premium TestifyHQ',
+          backgroundColor: '#2563eb',
+          onPayment: async (response: any) => {
+            console.log('Payment response:', response);
+            if (response?.transactionStatus === 'Approved') {
+              try {
+                const { error } = await (supabase
+                  .from('users') as any)
+                  .update({ 
+                    subscription_tier: 'premium',
+                    subscription_expires_at: null 
+                  })
+                  .eq('id', user.id);
 
-              if (error) throw error;
+                if (error) throw error;
 
-              alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-              window.location.href = '/dashboard';
-            } catch (err) {
-              console.error('Error updating subscription:', err);
-              alert('El pago fue procesado pero hubo un error activando tu cuenta. Por favor contáctanos con tu comprobante.');
+                alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
+                window.location.href = '/dashboard';
+              } catch (err) {
+                console.error('Error updating subscription:', err);
+                alert('El pago fue procesado pero hubo un error activando tu cuenta. Por favor contáctanos.');
+              }
             }
+          },
+          onCancel: () => {
+            console.log('Payment cancelled');
           }
-        },
-        onCancel: () => {
-          console.log('Payment cancelled');
-        }
-      }).render('payphone-button-container');
-    } else {
-      console.error('Payphone script not loaded');
-      alert('Error: Sistema de pago no disponible. Intenta recargar la página.');
+        }).render('payphone-button-container');
+      }, 100);
     }
   };
 
@@ -81,6 +86,30 @@ export function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white py-20 px-4">
+      {/* Payment Modal */}
+      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity ${isModalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative transform transition-transform duration-300 scale-100">
+          <button 
+            onClick={() => setIsModalOpen(false)}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          >
+            ✕
+          </button>
+          
+          <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+            Completar Pago Seguro
+          </h3>
+          
+          <div id="payphone-button-container" className="min-h-[300px] flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
+            {/* Payphone button renders here */}
+          </div>
+          
+          <p className="text-center text-xs text-gray-400 mt-4">
+            Transacción encriptada y segura
+          </p>
+        </div>
+      </div>
+
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
