@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
@@ -11,6 +11,24 @@ export function PricingPage() {
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Dynamically load Payphone CSS only when modal is open to prevent style conflicts
+  useEffect(() => {
+    let link: HTMLLinkElement | null = null;
+
+    if (isModalOpen) {
+      link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css';
+      document.head.appendChild(link);
+    }
+
+    return () => {
+      if (link && document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+    };
+  }, [isModalOpen]);
 
   const handlePayment = () => {
     if (!user) {
