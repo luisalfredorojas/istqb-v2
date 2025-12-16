@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
@@ -6,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth';
 
 export function PricingPage() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [isPayphoneReady, setIsPayphoneReady] = useState(false);
 
 
@@ -76,7 +78,7 @@ export function PricingPage() {
                 if (error) throw error;
 
                 alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-                window.location.href = '/dashboard';
+                navigate('/dashboard');
               } catch (err) {
                 console.error('Error updating subscription:', err);
                 alert('El pago fue procesado pero hubo un error activando tu cuenta. Por favor contáctanos.');
