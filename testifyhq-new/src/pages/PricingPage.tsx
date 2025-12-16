@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
@@ -8,15 +8,7 @@ export function PricingPage() {
   const { user } = useAuth();
   const [isPayphoneReady, setIsPayphoneReady] = useState(false);
 
-  useEffect(() => {
-    // Dynamically load Payphone script if not present
-    if (typeof (window as any).PPaymentButtonBox === 'undefined') {
-      const script = document.createElement('script');
-      script.src = "https://pay.payphonetodoesposible.com/api/button/js/payment-button-box.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
+
 
   const handlePayment = () => {
     if (!user) {
