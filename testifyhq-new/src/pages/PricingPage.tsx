@@ -67,21 +67,30 @@ export function PricingPage() {
             console.log('Payment response:', response);
             if (response?.transactionStatus === 'Approved') {
               try {
-                const { error } = await (supabase
+                console.log('Attempting to update subscription for user:', user.id);
+                const { data, error } = await (supabase
                   .from('users') as any)
                   .update({ 
                     subscription_tier: 'premium',
                     subscription_expires_at: null 
                   })
-                  .eq('id', user.id);
+                  .eq('id', user.id)
+                  .select();
+
+                console.log('Update result:', { data, error });
 
                 if (error) throw error;
+                
+                // If no rows updated, it's likely an RLS issue
+                if (!data || data.length === 0) {
+                  throw new Error('No rows updated. Check RLS policies.');
+                }
 
                 alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
                 navigate('/dashboard');
-              } catch (err) {
+              } catch (err: any) {
                 console.error('Error updating subscription:', err);
-                alert('El pago fue procesado pero hubo un error activando tu cuenta. Por favor contáctanos.');
+                alert(`Error activando suscripción: ${err.message || err}. Contáctanos.`);
               }
             }
           },
