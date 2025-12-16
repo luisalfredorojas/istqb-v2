@@ -88,10 +88,10 @@ export function PricingPage() {
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white py-20 px-4">
       {/* Payment Modal */}
       <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity ${isModalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative transform transition-transform duration-300 scale-100">
+        <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative transform transition-transform duration-300 scale-100 max-h-[90vh] overflow-y-auto">
           <button 
             onClick={() => setIsModalOpen(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
           >
             ✕
           </button>
