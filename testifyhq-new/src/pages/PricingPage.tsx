@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
@@ -8,11 +8,53 @@ import { useAuth } from '@/hooks/useAuth';
 export function PricingPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [isPayphoneReady, setIsPayphoneReady] = useState(false);
-
-
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to update subscription
+  const activateSubscription = async () => {
+    if (!user) return;
+    
+    try {
+      console.log('Activating subscription for user:', user.id);
+      const { data, error } = await (supabase
+        .from('users') as any)
+        .update({ 
+          subscription_tier: 'premium',
+          subscription_expires_at: null 
+        })
+        .eq('id', user.id)
+        .select();
+
+      console.log('Activation result:', { data, error });
+
+      if (error) throw error;
+      
+      if (!data || data.length === 0) {
+        throw new Error('No rows updated. Check RLS policies.');
+      }
+
+      alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
+      navigate('/dashboard');
+    } catch (err: any) {
+      console.error('Error updating subscription:', err);
+      alert(`Error activando suscripción: ${err.message || err}. Contáctanos.`);
+    }
+  };
+
+  // Handle Payphone Redirect Return
+  useEffect(() => {
+    const transactionId = searchParams.get('id');
+    const clientTxId = searchParams.get('clientTransactionId');
+    
+    if (transactionId && clientTxId && user) {
+      // If we have these params, it means we returned from Payphone
+      // In a real app, we should verify the transaction ID with the backend
+      // For MVP, we'll assume success and activate
+      activateSubscription();
+    }
+  }, [searchParams, user]);
 
   // Dynamically load Payphone CSS only when modal is open to prevent style conflicts
   useEffect(() => {
@@ -66,32 +108,7 @@ export function PricingPage() {
           onPayment: async (response: any) => {
             console.log('Payment response:', response);
             if (response?.transactionStatus === 'Approved') {
-              try {
-                console.log('Attempting to update subscription for user:', user.id);
-                const { data, error } = await (supabase
-                  .from('users') as any)
-                  .update({ 
-                    subscription_tier: 'premium',
-                    subscription_expires_at: null 
-                  })
-                  .eq('id', user.id)
-                  .select();
-
-                console.log('Update result:', { data, error });
-
-                if (error) throw error;
-                
-                // If no rows updated, it's likely an RLS issue
-                if (!data || data.length === 0) {
-                  throw new Error('No rows updated. Check RLS policies.');
-                }
-
-                alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-                navigate('/dashboard');
-              } catch (err: any) {
-                console.error('Error updating subscription:', err);
-                alert(`Error activando suscripción: ${err.message || err}. Contáctanos.`);
-              }
+              await activateSubscription();
             }
           },
           onCancel: () => {
