@@ -51,7 +51,7 @@ serve(async (req) => {
     // Verify transaction with Payphone API
     console.log('Verifying transaction:', { transactionId, clientTransactionId })
     
-    const confirmResponse = await fetch(`${payphoneApiUrl}/api/button/v2/confirm`, {
+    const confirmResponse = await fetch(`${payphoneApiUrl}/api/button/V2/Confirm`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${payphoneToken}`,
