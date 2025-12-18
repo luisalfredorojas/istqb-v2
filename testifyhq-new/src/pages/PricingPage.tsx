@@ -11,35 +11,45 @@ export function PricingPage() {
   const [searchParams] = useSearchParams();
   const [isPayphoneReady, setIsPayphoneReady] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
 
-  // Function to update subscription
-  const activateSubscription = async () => {
+  // Function to verify payment and activate subscription
+  const activateSubscription = async (transactionId: string, clientTransactionId: string) => {
     if (!user) return;
     
+    setIsVerifying(true);
+    
     try {
-      console.log('Activating subscription for user:', user.id);
-      const { data, error } = await (supabase
-        .from('users') as any)
-        .update({ 
-          subscription_tier: 'premium',
-          subscription_expires_at: null 
-        })
-        .eq('id', user.id)
-        .select();
-
-      console.log('Activation result:', { data, error });
-
-      if (error) throw error;
+      console.log('Verifying payment:', { transactionId, clientTransactionId });
       
-      if (!data || data.length === 0) {
-        throw new Error('No rows updated. Check RLS policies.');
+      // Get auth session token
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('No active session');
       }
 
-      alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-      navigate('/dashboard');
+      // Call Edge Function to verify payment
+      const { data: supabaseData } = await supabase.functions.invoke('verify-payment', {
+        body: {
+          transactionId,
+          clientTransactionId,
+        },
+      });
+
+      console.log('Verification result:', supabaseData);
+
+      if (supabaseData?.success) {
+        alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
+        navigate('/dashboard');
+      } else {
+        const message = supabaseData?.message || 'El pago no pudo ser verificado';
+        alert(`⚠️ ${message}. Por favor contáctanos con tu comprobante.`);
+      }
     } catch (err: any) {
-      console.error('Error updating subscription:', err);
-      alert(`Error activando suscripción: ${err.message || err}. Contáctanos.`);
+      console.error('Error verifying payment:', err);
+      alert(`Error verificando pago: ${err.message || err}. Por favor contáctanos.`);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -48,13 +58,12 @@ export function PricingPage() {
     const transactionId = searchParams.get('id');
     const clientTxId = searchParams.get('clientTransactionId');
     
-    if (transactionId && clientTxId && user) {
+    if (transactionId && clientTxId && user && !isVerifying) {
       // If we have these params, it means we returned from Payphone
-      // In a real app, we should verify the transaction ID with the backend
-      // For MVP, we'll assume success and activate
-      activateSubscription();
+      // Verify with backend before activating
+      activateSubscription(transactionId, clientTxId);
     }
-  }, [searchParams, user]);
+  }, [searchParams, user, isVerifying]);
 
   // Dynamically load Payphone CSS only when modal is open to prevent style conflicts
   useEffect(() => {
@@ -108,7 +117,15 @@ export function PricingPage() {
           onPayment: async (response: any) => {
             console.log('Payment response:', response);
             if (response?.transactionStatus === 'Approved') {
-              await activateSubscription();
+              // Extract transaction IDs from response
+              const txId = response?.transactionId || response?.id;
+              const clientTxId = response?.clientTransactionId;
+              
+              if (txId && clientTxId) {
+                await activateSubscription(txId, clientTxId);
+              } else {
+                alert('⚠️ Pago procesado pero faltan datos. Contáctanos con tu comprobante.');
+              }
             }
           },
           onCancel: () => {
