@@ -113,7 +113,8 @@ export function PricingPage() {
           currency: 'USD',
           storeId: import.meta.env.VITE_PAYPHONE_STORE_ID,
           reference: 'Acceso Premium TestifyHQ',
-          backgroundColor: '#2563eb',
+          lang: 'es',
+          defaultMethod: 'card',
           onPayment: async (response: any) => {
             console.log('Payment response:', response);
             if (response?.transactionStatus === 'Approved') {
