@@ -59,11 +59,15 @@ export function PricingPage() {
     const clientTxId = searchParams.get('clientTransactionId');
     
     if (transactionId && clientTxId && user && !isVerifying) {
+      // Remove params from URL to prevent re-triggering
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+      
       // If we have these params, it means we returned from Payphone
       // Verify with backend before activating
       activateSubscription(transactionId, clientTxId);
     }
-  }, [searchParams, user, isVerifying]);
+  }, [searchParams, user]);
 
   // Dynamically load Payphone CSS only when modal is open to prevent style conflicts
   useEffect(() => {
