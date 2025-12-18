@@ -119,23 +119,7 @@ export function PricingPage() {
           reference: 'Acceso Premium TestifyHQ',
           lang: 'es',
           defaultMethod: 'card',
-          onPayment: async (response: any) => {
-            console.log('Payment response:', response);
-            if (response?.transactionStatus === 'Approved') {
-              // Extract transaction IDs from response
-              const txId = response?.transactionId || response?.id;
-              const clientTxId = response?.clientTransactionId;
-              
-              if (txId && clientTxId) {
-                await activateSubscription(txId, clientTxId);
-              } else {
-                alert('⚠️ Pago procesado pero faltan datos. Contáctanos con tu comprobante.');
-              }
-            }
-          },
-          onCancel: () => {
-            console.log('Payment cancelled');
-          }
+          // Note: onPayment removed - Payphone handles redirect automatically
         }).render('payphone-button-container');
       }, 100);
     }
