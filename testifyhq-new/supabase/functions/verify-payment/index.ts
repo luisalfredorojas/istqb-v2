@@ -73,7 +73,7 @@ serve(async (req) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: transactionId,
+          id: parseInt(transactionId, 10), // Convert to integer as required by Payphone API
           clientTxId: clientTransactionId,
         }),
       })
