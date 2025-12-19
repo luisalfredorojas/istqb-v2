@@ -97,8 +97,9 @@ export function PricingPage() {
 
     // Initialize Payphone only once
     if (!isPayphoneReady && typeof (window as any).PPaymentButtonBox !== 'undefined') {
-      // Generate unique transaction ID
-      const clientTransactionId = `TESTIFYHQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      // Generate unique transaction ID with userId for webhook processing
+      // Format: TESTIFYHQ-{userId}-{timestamp}-{random}
+      const clientTransactionId = `TESTIFYHQ-${user.id}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
       
       setIsPayphoneReady(true);
       
