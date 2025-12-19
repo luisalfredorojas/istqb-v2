@@ -108,8 +108,8 @@ export function PricingPage() {
         new (window as any).PPaymentButtonBox({
           token: import.meta.env.VITE_PAYPHONE_TOKEN,
           clientTransactionId: clientTransactionId,
-          amount: 150, // $1.50 in cents
-          amountWithoutTax: 150,
+          amount: 899, // $8.99 in cents
+          amountWithoutTax: 899,
           amountWithTax: 0,
           tax: 0,
           service: 0,
