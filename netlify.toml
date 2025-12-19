@@ -5,3 +5,11 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Headers for Payphone integration
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
