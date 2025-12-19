@@ -1,7 +1,7 @@
 [build]
   base = "testifyhq-new"
   command = "npm run build"
-  publish = "testifyhq-new/dist"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
