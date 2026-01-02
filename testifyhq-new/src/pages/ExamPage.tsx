@@ -8,6 +8,7 @@ import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useExamAttempts } from '@/hooks/useExamAttempts';
 import { useAuth } from '@/hooks/useAuth';
+import { useDailyAttempts } from '@/hooks/useDailyAttempts';
 import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
@@ -21,7 +22,9 @@ export function ExamPage() {
   
   const { user } = useAuth();
   const { saveAttempt } = useExamAttempts();
+  const { data: dailyAttemptsData } = useDailyAttempts(user?.id);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasCheckedAttempts, setHasCheckedAttempts] = useState(false);
   
   const {
     currentQuestion,
@@ -35,22 +38,16 @@ export function ExamPage() {
     timeRemaining,
   } = useExamStore();
 
+  // Reset exam when component mounts
   useEffect(() => {
-    // Start exam when questions are loaded
-    if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted) {
-      console.log('Starting exam...');
-      startExam(questions.length, 60); // 60 minutes
-      initialized.current = true;
+    // Always reset when entering exam page
+    const state = useExamStore.getState();
+    if (!state.examStarted || state.examCompleted) {
+      state.resetExam();
     }
+  }, []);
 
-    // Cleanup on unmount
-    return () => {
-      // Only reset if we're actually unmounting the page, not just re-rendering
-      // But we can't easily distinguish. 
-      // For now, let's trust the store state.
-    };
-  }, [questions, examStarted, startExam]);
-
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       const state = useExamStore.getState();
@@ -59,6 +56,32 @@ export function ExamPage() {
       }
     };
   }, []);
+
+  // Validate daily attempts before starting exam
+  useEffect(() => {
+    if (!questions || !dailyAttemptsData || hasCheckedAttempts) return;
+
+    // Check if user can take exam
+    if (!dailyAttemptsData.canTakeExam) {
+      alert(
+        `Has alcanzado el límite de ${dailyAttemptsData.todayAttempts} intentos diarios.\n\n` +
+        'Actualiza a Premium para acceso ilimitado o vuelve mañana.'
+      );
+      navigate('/pricing');
+      return;
+    }
+
+    setHasCheckedAttempts(true);
+  }, [questions, dailyAttemptsData, hasCheckedAttempts, navigate]);
+
+  // Start exam when validated and ready
+  useEffect(() => {
+    if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted && hasCheckedAttempts) {
+      console.log('Starting exam...');
+      startExam(questions.length, 60); // 60 minutes
+      initialized.current = true;
+    }
+  }, [questions, examStarted, examCompleted, hasCheckedAttempts, startExam]);
 
   const handleSubmit = async () => {
     if (!user || !questions) return;

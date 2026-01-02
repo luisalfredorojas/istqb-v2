@@ -17,9 +17,12 @@ export interface PayphoneConfig {
   currency: string;
   storeId: string;
   reference: string;
-  backgroundColor: string;
-  onPayment: (response: PayphoneResponse) => void;
-  onCancel: () => void;
+  responseUrl?: string; // Optional: URL to redirect after payment
+  backgroundColor?: string; // Optional
+  lang?: string; // Optional: language (es, en)
+  defaultMethod?: string; // Optional: card, transfer, etc
+  onPayment?: (response: PayphoneResponse) => void; // Optional
+  onCancel?: () => void; // Optional
 }
 
 export interface PayphoneResponse {

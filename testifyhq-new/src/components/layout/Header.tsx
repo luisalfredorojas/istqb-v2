@@ -65,14 +65,14 @@ export function Header() {
 
         <div className="flex items-center space-x-4">
           {user ? (
-            <>
+              <>
               <div className="hidden md:flex items-center gap-3">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
-                    {user.email?.charAt(0).toUpperCase()}
+                    {(user.user_metadata?.display_name || user.email)?.charAt(0).toUpperCase()}
                   </div>
                   <span className="text-sm text-gray-700">
-                    {user.email?.split('@')[0]}
+                    {user.user_metadata?.display_name || user.email?.split('@')[0]}
                   </span>
                 </div>
               </div>

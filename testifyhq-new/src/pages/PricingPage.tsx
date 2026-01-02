@@ -1,129 +1,50 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/hooks/useAuth';
 
 export function PricingPage() {
   const { user } = useAuth();
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const [isPayphoneReady, setIsPayphoneReady] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isVerifying, setIsVerifying] = useState(false);
 
-  // Function to verify payment and activate subscription
-  const activateSubscription = async (transactionId: string, clientTransactionId: string) => {
-    if (!user) return;
-    
-    setIsVerifying(true);
-    
-    try {
-      console.log('Verifying payment:', { transactionId, clientTransactionId });
-      
-      // Get auth session token
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        throw new Error('No active session');
-      }
-
-      // Call Edge Function to verify payment
-      const { data: supabaseData } = await supabase.functions.invoke('verify-payment', {
-        body: {
-          transactionId,
-          clientTransactionId,
-        },
-      });
-
-      console.log('Verification result:', supabaseData);
-
-      if (supabaseData?.success) {
-        alert('✅ ¡Pago exitoso! Tu cuenta Premium ha sido activada.');
-        navigate('/dashboard');
-      } else {
-        const message = supabaseData?.message || 'El pago no pudo ser verificado';
-        alert(`⚠️ ${message}. Por favor contáctanos con tu comprobante.`);
-      }
-    } catch (err: any) {
-      console.error('Error verifying payment:', err);
-      alert(`Error verificando pago: ${err.message || err}. Por favor contáctanos.`);
-    } finally {
-      setIsVerifying(false);
-    }
-  };
-
-  // Handle Payphone Redirect Return
-  useEffect(() => {
-    const transactionId = searchParams.get('id');
-    const clientTxId = searchParams.get('clientTransactionId');
-    
-    if (transactionId && clientTxId && user && !isVerifying) {
-      // Remove params from URL to prevent re-triggering
-      const newUrl = window.location.pathname;
-      window.history.replaceState({}, '', newUrl);
-      
-      // If we have these params, it means we returned from Payphone
-      // Verify with backend before activating
-      activateSubscription(transactionId, clientTxId);
-    }
-  }, [searchParams, user]);
-
-  // Dynamically load Payphone CSS only when modal is open to prevent style conflicts
-  useEffect(() => {
-    let link: HTMLLinkElement | null = null;
-
-    if (isModalOpen) {
-      link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css';
-      document.head.appendChild(link);
-    }
-
-    return () => {
-      if (link && document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
-    };
-  }, [isModalOpen]);
-
-  const handlePayment = () => {
+  const handle2CheckoutPayment = () => {
     if (!user) {
       alert('Por favor inicia sesión para continuar.');
       return;
     }
 
-    setIsModalOpen(true);
+    // 2Checkout Sandbox/Production configuration
+    const merchantCode = import.meta.env.VITE_2CO_MERCHANT_CODE;
+    const productCode = import.meta.env.VITE_2CO_SELLABLE_PRODUCT_CODE;
+    const sandbox = import.meta.env.VITE_2CO_SANDBOX === 'true';
+    
+    // Base URL - sandbox vs production
+    const baseUrl = sandbox 
+      ? 'https://sandbox.2checkout.com/checkout/buy'
+      : 'https://secure.2checkout.com/checkout/buy';
 
-    // Initialize Payphone only once
-    if (!isPayphoneReady && typeof (window as any).PPaymentButtonBox !== 'undefined') {
-      // Generate unique transaction ID with userId for webhook processing
-      // Format: TESTIFYHQ-{userId}-{timestamp}-{random}
-      const clientTransactionId = `TESTIFYHQ-${user.id}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-      
-      setIsPayphoneReady(true);
-      
-      // Small timeout to ensure modal DOM is ready if we were using conditional rendering
-      // But we will use CSS hiding, so it should be fine.
-      setTimeout(() => {
-        new (window as any).PPaymentButtonBox({
-          token: import.meta.env.VITE_PAYPHONE_TOKEN,
-          clientTransactionId: clientTransactionId,
-          amount: 899, // $8.99 in cents
-          amountWithoutTax: 899,
-          amountWithTax: 0,
-          tax: 0,
-          service: 0,
-          tip: 0,
-          currency: 'USD',
-          storeId: import.meta.env.VITE_PAYPHONE_STORE_ID,
-          reference: 'Acceso Premium TestifyHQ',
-          lang: 'es',
-          defaultMethod: 'card',
-          // Note: onPayment removed - Payphone handles redirect automatically
-        }).render('payphone-button-container');
-      }, 100);
-    }
+    // Build payment URL with parameters
+    const params = new URLSearchParams({
+      'merchant': merchantCode || '',
+      'prod': productCode || '',
+      'qty': '1',
+      'return-url': `${window.location.origin}/payment-success`,
+      'return-type': 'redirect',
+      'tangible': '0', // Digital product
+      'x-cust-email': user.email || '',
+      'x-cust-id': user.id, // For webhook identification
+      'CUSTOM_USER_ID': user.id, // Also send as custom field for webhook
+    });
+
+    const paymentUrl = `${baseUrl}?${params.toString()}`;
+    
+    console.log('Redirecting to 2Checkout:', {
+      merchantCode,
+      productCode,
+      sandbox,
+      userId: user.id,
+    });
+
+    // Redirect to 2Checkout hosted payment page
+    window.location.href = paymentUrl;
   };
 
   const features = [
@@ -139,38 +60,14 @@ export function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white py-20 px-4">
-      {/* Payment Modal */}
-      <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity ${isModalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative transform transition-transform duration-300 scale-100 max-h-[90vh] overflow-y-auto">
-          <button 
-            onClick={() => setIsModalOpen(false)}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
-          >
-            ✕
-          </button>
-          
-          <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
-            Completar Pago Seguro
-          </h3>
-          
-          <div id="payphone-button-container" className="min-h-[300px] flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100">
-            {/* Payphone button renders here */}
-          </div>
-          
-          <p className="text-center text-xs text-gray-400 mt-4">
-            Transacción encriptada y segura
-          </p>
-        </div>
-      </div>
-
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Acceso Premium de por Vida
+            Acceso Premium Mensual
           </h1>
           <p className="text-xl text-gray-600">
-            Un solo pago. Acceso ilimitado para siempre.
+            Suscripción mensual. Cancela cuando quieras.
           </p>
         </div>
 
@@ -178,19 +75,19 @@ export function PricingPage() {
         <Card className="max-w-2xl mx-auto shadow-2xl">
           <CardHeader className="text-center pb-8 pt-8">
             <div className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4">
-              OFERTA ESPECIAL
+              SUSCRIPCIÓN MENSUAL
             </div>
             <CardTitle className="text-3xl mb-2">Plan Premium</CardTitle>
             <CardDescription className="text-lg">
-              Pago único - Sin renovaciones
+              Acceso completo e ilimitado
             </CardDescription>
             
             <div className="mt-6">
               <div className="flex items-center justify-center gap-2">
-                <span className="text-5xl font-bold text-gray-900">$8.99</span>
+                <span className="text-5xl font-bold text-gray-900">$9.99</span>
                 <span className="text-2xl text-gray-500">USD</span>
               </div>
-              <p className="text-sm text-gray-500 mt-2">Un solo pago</p>
+              <p className="text-sm text-gray-500 mt-2">Por mes</p>
             </div>
           </CardHeader>
 
@@ -217,30 +114,25 @@ export function PricingPage() {
               ))}
             </div>
 
-            {/* Payment Button Container */}
-            <div id="payphone-button-container" className="mb-4"></div>
-
-            {/* Fallback Button */}
-            {!isPayphoneReady && (
-              <Button 
-                onClick={handlePayment}
-                className="w-full h-14 text-lg bg-blue-600 hover:bg-blue-700"
-              >
-                Comprar Acceso Premium
-              </Button>
-            )}
+            {/* 2Checkout Payment Button */}
+            <Button 
+              onClick={handle2CheckoutPayment}
+              className="w-full h-14 text-lg bg-blue-600 hover:bg-blue-700"
+            >
+              Actualizar a Premium
+            </Button>
 
             <p className="text-center text-sm text-gray-500 mt-4">
-              Pago seguro procesado por Payphone
+              Pago seguro procesado por 2Checkout
             </p>
 
             {/* Guarantee */}
             <div className="mt-8 p-4 bg-gray-50 rounded-lg text-center">
               <p className="text-sm text-gray-700">
-                ✓ Garantía de devolución de dinero de 30 días
+                ✓ Pago seguro y encriptado
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                Si no estás satisfecho, te devolvemos tu dinero sin preguntas
+                Puedes cancelar tu suscripción en cualquier momento
               </p>
             </div>
           </CardContent>
@@ -258,8 +150,8 @@ export function PricingPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <span className="text-error-500">✗</span>
-                  <span className="text-gray-600">1 intento por examen al día</span>
+                  <span className="text-orange-500">⚠</span>
+                  <span className="text-gray-600">2 intentos totales por día</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-success-500">✓</span>
@@ -267,7 +159,7 @@ export function PricingPage() {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-error-500">✗</span>
-                  <span className="text-gray-600">Explicaciones limitadas</span>
+                  <span className="text-gray-600">Explicaciones limit adas</span>
                 </div>
               </CardContent>
             </Card>

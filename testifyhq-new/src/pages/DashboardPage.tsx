@@ -3,12 +3,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserAttempts } from '@/hooks/useExamAttempts';
+import { useDailyAttempts } from '@/hooks/useDailyAttempts';
+import { AttemptCounter } from '@/components/exam/AttemptCounter';
 import { supabase } from '@/lib/supabase';
 import { useState, useEffect } from 'react';
 
 export function DashboardPage() {
   const { user } = useAuth();
   const { data: attemptsData, isLoading } = useUserAttempts(user?.id);
+  const { data: dailyAttemptsData, isLoading: isLoadingAttempts } = useDailyAttempts(user?.id);
   const attempts = attemptsData as any[] | undefined;
   const [isPremium, setIsPremium] = useState(false);
 
@@ -60,6 +63,17 @@ export function DashboardPage() {
           Continúa tu progreso y alcanza tus metas
         </p>
       </div>
+
+      {/* Daily Attempts Counter */}
+      {!isLoadingAttempts && dailyAttemptsData && (
+        <div className="mb-8">
+          <AttemptCounter 
+            remaining={dailyAttemptsData.remaining}
+            todayAttempts={dailyAttemptsData.todayAttempts}
+            isPremium={dailyAttemptsData.isPremium}
+          />
+        </div>
+      )}
 
       {/* Admin Section (Temporary) */}
       <div className="mb-8 p-4 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-between">
