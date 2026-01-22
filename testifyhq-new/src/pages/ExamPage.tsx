@@ -8,7 +8,8 @@ import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useExamAttempts } from '@/hooks/useExamAttempts';
 import { useAuth } from '@/hooks/useAuth';
-import { useDailyAttempts } from '@/hooks/useDailyAttempts';
+import { useDonationPrompt } from '@/hooks/useDonationPrompt';
+import { DonationModal } from '@/components/donation/DonationModal';
 import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 
@@ -22,9 +23,9 @@ export function ExamPage() {
   
   const { user } = useAuth();
   const { saveAttempt } = useExamAttempts();
-  const { data: dailyAttemptsData } = useDailyAttempts(user?.id);
+  const { shouldShowPrompt, incrementExamCount, dismissPrompt } = useDonationPrompt();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hasCheckedAttempts, setHasCheckedAttempts] = useState(false);
+  const [showDonationModal, setShowDonationModal] = useState(false);
   
   const {
     currentQuestion,
@@ -57,31 +58,14 @@ export function ExamPage() {
     };
   }, []);
 
-  // Validate daily attempts before starting exam
+  // Start exam when ready - no restrictions, all users have unlimited access
   useEffect(() => {
-    if (!questions || !dailyAttemptsData || hasCheckedAttempts) return;
-
-    // Check if user can take exam
-    if (!dailyAttemptsData.canTakeExam) {
-      alert(
-        `Has alcanzado el límite de ${dailyAttemptsData.todayAttempts} intentos diarios.\n\n` +
-        'Actualiza a Premium para acceso ilimitado o vuelve mañana.'
-      );
-      navigate('/pricing');
-      return;
-    }
-
-    setHasCheckedAttempts(true);
-  }, [questions, dailyAttemptsData, hasCheckedAttempts, navigate]);
-
-  // Start exam when validated and ready
-  useEffect(() => {
-    if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted && hasCheckedAttempts) {
+    if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted) {
       console.log('Starting exam...');
       startExam(questions.length, 60); // 60 minutes
       initialized.current = true;
     }
-  }, [questions, examStarted, examCompleted, hasCheckedAttempts, startExam]);
+  }, [questions, examStarted, examCompleted, startExam]);
 
   const handleSubmit = async () => {
     if (!user || !questions) return;
@@ -114,7 +98,16 @@ export function ExamPage() {
       });
 
       submitExam();
-      navigate(`/results/${examId}`);
+      
+      // Incrementar contador de exámenes para mostrar modal de donación
+      incrementExamCount();
+      
+      // Verificar si debe mostrar modal de donación
+      if (shouldShowPrompt) {
+        setShowDonationModal(true);
+      } else {
+        navigate(`/results/${examId}`);
+      }
     } catch (error) {
       console.error('Error saving exam:', error);
       alert('Hubo un error al guardar tu examen. Por favor intenta de nuevo.');
@@ -243,6 +236,16 @@ export function ExamPage() {
           </div>
         </div>
       </ErrorBoundary>
+
+      {/* Modal de Donación */}
+      <DonationModal
+        isOpen={showDonationModal}
+        onClose={() => {
+          dismissPrompt();
+          setShowDonationModal(false);
+          navigate(`/results/${examId}`);
+        }}
+      />
     </div>
   );
 }

@@ -51,44 +51,42 @@ serve(async (req) => {
     // Verify transaction with Payphone API
     console.log('Verifying transaction:', { transactionId, clientTransactionId })
     
-    // DEV MODE: Skip actual Payphone verification for testing
-    // TODO: Remove this in production
-    const isDevelopment = payphoneApiUrl.includes('localhost') || Deno.env.get('DEV_MODE') === 'true'
-    
-    let confirmData: PayphoneConfirmResponse
-    
-    if (isDevelopment) {
-      console.log('DEV MODE: Bypassing Payphone API verification')
-      confirmData = {
-        transactionStatus: 3, // Approved
-        transactionId: transactionId,
-        clientTransactionId: clientTransactionId,
-        amount: 899,
-      } as PayphoneConfirmResponse
-    } else {
-      const confirmResponse = await fetch(`${payphoneApiUrl}/api/button/V2/Confirm`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${payphoneToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id: parseInt(transactionId, 10), // Convert to integer as required by Payphone API
-          clientTxId: clientTransactionId,
-        }),
+    const confirmResponse = await fetch(`${payphoneApiUrl}/api/button/V2/Confirm`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${payphoneToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: parseInt(transactionId, 10), // Convert to integer as required by Payphone API
+        clientTxId: clientTransactionId,
+      }),
+    })
+
+    if (!confirmResponse.ok) {
+      const errorText = await confirmResponse.text()
+      console.error('Payphone API error:', {
+        status: confirmResponse.status,
+        statusText: confirmResponse.statusText,
+        response: errorText,
+        transactionId,
+        clientTransactionId,
       })
-
-      if (!confirmResponse.ok) {
-        console.error('Payphone API error:', confirmResponse.status, await confirmResponse.text())
-        return new Response(
-          JSON.stringify({ error: 'Payment verification failed' }),
-          { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        )
-      }
-
-      confirmData = await confirmResponse.json()
-      console.log('Payphone response:', confirmData)
+      return new Response(
+        JSON.stringify({ 
+          error: 'Payment verification failed',
+          details: 'Could not verify payment with Payphone API',
+        }),
+        { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
     }
+
+    const confirmData: PayphoneConfirmResponse = await confirmResponse.json()
+    console.log('Payphone verification successful:', {
+      transactionId: confirmData.transactionId,
+      status: confirmData.transactionStatus,
+      amount: confirmData.amount,
+    })
 
     // Check if transaction was approved (status 3 = approved)
     if (confirmData.transactionStatus !== 3) {

@@ -38,9 +38,24 @@ serve(async (req) => {
       )
     }
 
-    // TODO: Validate webhook signature/secret
-    // const webhookSecret = Deno.env.get('PAYPHONE_WEBHOOK_SECRET')
-    // Implement signature validation here
+    // SECURITY: Validate webhook signature/secret
+    // TODO: Implement signature validation when Payphone provides documentation
+    // Expected implementation:
+    // 1. Get signature from header: const signature = req.headers.get('X-Payphone-Signature')
+    // 2. Get webhook secret: const webhookSecret = Deno.env.get('PAYPHONE_WEBHOOK_SECRET')
+    // 3. Compute expected signature: const expected = computeHMAC(payload, webhookSecret)
+    // 4. Compare: if (signature !== expected) return 401
+    // 
+    // Without signature validation, this endpoint is vulnerable to spoofed webhook calls
+    // Until implemented, ensure this URL is not publicly documented
+    
+    console.log('Processing webhook for transaction:', {
+      transactionId: payload.id,
+      clientTxId: payload.clientTransactionId,
+      status: payload.transactionStatus,
+      amount: payload.amount,
+      timestamp: new Date().toISOString(),
+    })
 
     // Create Supabase client with service role (bypasses RLS)
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
@@ -59,7 +74,32 @@ serve(async (req) => {
       )
     }
 
-    console.log('Extracted user ID:', userId)
+    console.log('Extracted user ID (partial or full):', userId)
+
+    // Resolve full user ID if we only have a partial ID (8 characters from new format)
+    let fullUserId = userId
+    
+    if (userId.length === 8) {
+      // New format - we only have first 8 chars, need to find the full UUID
+      console.log('Resolving partial user ID to full UUID...')
+      
+      const { data: users, error: userLookupError } = await supabase
+        .from('users')
+        .select('id')
+        .ilike('id', `${userId}%`) // Find user ID starting with these 8 characters
+        .limit(1)
+      
+      if (userLookupError || !users || users.length === 0) {
+        console.error('Could not resolve user ID:', userLookupError)
+        return new Response(
+          JSON.stringify({ error: 'User not found for transaction' }),
+          { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+      
+      fullUserId = users[0].id
+      console.log('Resolved to full user ID:', fullUserId)
+    }
 
     // Determine status
     const status = payload.transactionStatus === 3 ? 'approved' : 
@@ -69,7 +109,7 @@ serve(async (req) => {
     const { data: paymentData, error: paymentError } = await supabase
       .from('payment_history')
       .upsert({
-        user_id: userId,
+        user_id: fullUserId,
         transaction_id: payload.id.toString(),
         client_transaction_id: payload.clientTransactionId,
         amount: payload.amount || 899, // Default to $8.99 if not provided
@@ -94,7 +134,7 @@ serve(async (req) => {
 
     // If payment is approved, activate premium subscription
     if (status === 'approved') {
-      console.log('Payment approved, activating premium for user:', userId)
+      console.log('Payment approved, activating premium for user:', fullUserId)
       
       const { data: userData, error: updateError } = await supabase
         .from('users')
@@ -102,7 +142,7 @@ serve(async (req) => {
           subscription_tier: 'premium',
           subscription_expires_at: null, // Lifetime access
         })
-        .eq('id', userId)
+        .eq('id', fullUserId)
         .select()
 
       if (updateError) {
@@ -137,14 +177,27 @@ serve(async (req) => {
 
 /**
  * Extract user ID from clientTransactionId
- * Format: TESTIFYHQ-{userId}-{timestamp}-{random}
+ * Supports both formats:
+ * - New: TFY-{userId8}-{timestamp36}-{random4} (only first 8 chars of UUID)
+ * - Old: TESTIFYHQ-{userId}-{timestamp}-{random} (full UUID)
  */
 function extractUserIdFromClientTxId(clientTxId: string): string | null {
   try {
     const parts = clientTxId.split('-')
-    if (parts.length >= 2 && parts[0] === 'TESTIFYHQ') {
-      return parts[1] // User ID is the second part
+    
+    // New format: TFY-{userId8}-...
+    if (parts.length >= 2 && parts[0] === 'TFY') {
+      // Return the 8-char user ID portion (second part)
+      // Note: This is only the first 8 characters of the full UUID
+      // We'll need to query the database using a LIKE pattern
+      return parts[1]
     }
+    
+    // Old format: TESTIFYHQ-{fullUserId}-...
+    if (parts.length >= 2 && parts[0] === 'TESTIFYHQ') {
+      return parts[1] // Full user ID
+    }
+    
     return null
   } catch (error) {
     console.error('Error extracting user ID:', error)

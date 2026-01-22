@@ -3,32 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserAttempts } from '@/hooks/useExamAttempts';
-import { useDailyAttempts } from '@/hooks/useDailyAttempts';
 import { AttemptCounter } from '@/components/exam/AttemptCounter';
-import { supabase } from '@/lib/supabase';
-import { useState, useEffect } from 'react';
 
 export function DashboardPage() {
   const { user } = useAuth();
   const { data: attemptsData, isLoading } = useUserAttempts(user?.id);
-  const { data: dailyAttemptsData, isLoading: isLoadingAttempts } = useDailyAttempts(user?.id);
   const attempts = attemptsData as any[] | undefined;
-  const [isPremium, setIsPremium] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      supabase
-        .from('users')
-        .select('subscription_tier')
-        .eq('id', user.id)
-        .single()
-        .then(({ data }) => {
-          if ((data as any)?.subscription_tier === 'premium') {
-            setIsPremium(true);
-          }
-        });
-    }
-  }, [user]);
 
   // Calculate stats
   const totalExams = attempts?.length || 0;
@@ -51,29 +31,18 @@ export function DashboardPage() {
     <div className="container mx-auto px-4 py-8">
       {/* Welcome Section */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+        <h1 className="text-3xl font-bold text-gray-900">
           Hola, {user?.email?.split('@')[0]}
-          {isPremium && (
-            <span className="px-3 py-1 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-sm font-bold rounded-full shadow-sm">
-              PREMIUM
-            </span>
-          )}
         </h1>
         <p className="text-gray-600 mt-2">
           Continúa tu progreso y alcanza tus metas
         </p>
       </div>
 
-      {/* Daily Attempts Counter */}
-      {!isLoadingAttempts && dailyAttemptsData && (
-        <div className="mb-8">
-          <AttemptCounter 
-            remaining={dailyAttemptsData.remaining}
-            todayAttempts={dailyAttemptsData.todayAttempts}
-            isPremium={dailyAttemptsData.isPremium}
-          />
-        </div>
-      )}
+      {/* Free Access Counter */}
+      <div className="mb-8">
+        <AttemptCounter />
+      </div>
 
       {/* Admin Section (Temporary) */}
       <div className="mb-8 p-4 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-between">
@@ -170,21 +139,15 @@ export function DashboardPage() {
                 Comenzar Examen
               </Button>
             </Link>
-            <Link to="/profile">
+            <Link to="/donate">
               <Button variant="outline" className="w-full">
-                Ver Perfil
+                ❤️ Apoyar el Proyecto
               </Button>
             </Link>
-            {!isPremium && (
-              <Link to="/pricing">
-                <Button variant="outline" className="w-full">
-                  Mejorar a Premium
-                </Button>
-              </Link>
-            )}
           </CardContent>
         </Card>
       </div>
     </div>
   );
 }
+

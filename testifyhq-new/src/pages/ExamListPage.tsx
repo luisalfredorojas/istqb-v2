@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExams } from '@/hooks/useExams';
-import { useAuth } from '@/hooks/useAuth';
-import { useDailyAttempts } from '@/hooks/useDailyAttempts';
 import { AttemptCounter } from '@/components/exam/AttemptCounter';
 
 export function ExamListPage() {
-  const { user } = useAuth();
   const { data: exams, isLoading, error } = useExams();
-  const { data: dailyAttemptsData, isLoading: isLoadingAttempts } = useDailyAttempts(user?.id);
 
   if (isLoading) {
     return (
@@ -37,16 +33,10 @@ export function ExamListPage() {
         </p>
       </div>
 
-      {/* Daily Attempts Counter */}
-      {!isLoadingAttempts && dailyAttemptsData && (
-        <div className="mb-8">
-          <AttemptCounter 
-            remaining={dailyAttemptsData.remaining}
-            todayAttempts={dailyAttemptsData.todayAttempts}
-            isPremium={dailyAttemptsData.isPremium}
-          />
-        </div>
-      )}
+      {/* Free Access Counter */}
+      <div className="mb-8">
+        <AttemptCounter />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {exams?.map((exam) => (
