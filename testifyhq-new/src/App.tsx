@@ -15,6 +15,7 @@ import { ExamListPage } from './pages/ExamListPage';
 import { ExamPage } from './pages/ExamPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { PricingPage } from './pages/PricingPage';
+import { ExamManagementPage } from './pages/admin/ExamManagementPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
             <Route path="/donate" element={<PricingPage />} />
-            <Route path="/pricing" element={<PricingPage />} /> {/* Redirect for backwards compatibility */}
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/exams" element={<ProtectedRoute><ExamListPage /></ProtectedRoute>} />
             <Route path="/exam/:id" element={
               <ProtectedRoute>
@@ -42,6 +43,8 @@ function App() {
               </ProtectedRoute>
             } />
             <Route path="/results/:id" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
+            {/* Admin Routes */}
+            <Route path="/admin/exams" element={<ProtectedRoute><ExamManagementPage /></ProtectedRoute>} />
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />
           </Routes>
         </Layout>
@@ -51,4 +54,3 @@ function App() {
 }
 
 export default App;
-

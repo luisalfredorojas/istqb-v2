@@ -64,8 +64,7 @@ CREATE TABLE IF NOT EXISTS users (
   email TEXT NOT NULL,
   display_name TEXT,
   photo_url TEXT,
-  subscription_tier TEXT DEFAULT 'free' CHECK (subscription_tier IN ('free', 'premium', 'enterprise')),
-  subscription_expires_at TIMESTAMP WITH TIME ZONE,
+  role TEXT DEFAULT 'user' CHECK (role IN ('admin', 'user')),
   firebase_uid TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   last_login TIMESTAMP WITH TIME ZONE,
@@ -110,6 +109,27 @@ CREATE POLICY "Allow all inserts for exams"
   ON exams FOR INSERT 
   WITH CHECK (true);
 
+-- Políticas para UPDATE y DELETE de EXAMS (solo admins)
+CREATE POLICY "Admins can update exams"
+  ON exams FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+CREATE POLICY "Admins can delete exams"
+  ON exams FOR DELETE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
 -- Políticas para QUESTIONS (lectura pública)
 CREATE POLICY "Questions are viewable by everyone" 
   ON questions FOR SELECT 
@@ -118,6 +138,27 @@ CREATE POLICY "Questions are viewable by everyone"
 CREATE POLICY "Allow all inserts for questions" 
   ON questions FOR INSERT 
   WITH CHECK (true);
+
+-- Políticas para UPDATE y DELETE de QUESTIONS (solo admins)
+CREATE POLICY "Admins can update questions"
+  ON questions FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+CREATE POLICY "Admins can delete questions"
+  ON questions FOR DELETE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
 
 -- Políticas para USERS
 CREATE POLICY "Users can view own profile" 
@@ -133,8 +174,8 @@ CREATE POLICY "Users can update own profile (limited)"
   USING (auth.uid() = id)
   WITH CHECK (
     auth.uid() = id AND 
-    -- Prevenir que usuarios cambien su subscription_tier
-    (subscription_tier IS NULL OR subscription_tier = (SELECT subscription_tier FROM users WHERE id = auth.uid()))
+    -- Prevenir que usuarios cambien su role manualmente
+    (role IS NULL OR role = (SELECT role FROM users WHERE id = auth.uid()))
   );
 
 -- Políticas para USER_EXAM_ATTEMPTS
@@ -162,13 +203,14 @@ Este trigger crea automáticamente un registro en `users` cuando alguien se regi
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
-  INSERT INTO public.users (id, email, display_name, subscription_tier)
+  INSERT INTO public.users (id, email, display_name, role)
   VALUES (
     NEW.id,
     NEW.email,
     COALESCE(NEW.raw_user_meta_data->>'display_name', split_part(NEW.email, '@', 1)),
-    'free'
-  );
+    'user'
+  )
+  ON CONFLICT (id) DO NOTHING;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
@@ -351,4 +393,74 @@ En **Supabase Dashboard > Authentication > URL Configuration**:
 - [ ] Crear archivo `_redirects`
 - [ ] Desplegar en Netlify
 - [ ] Migrar exámenes desde el Dashboard
+- [ ] **Asignar rol admin a tu usuario** (ver abajo)
 
+---
+
+## Hacer un Usuario Admin
+
+Después de registrarte, ejecuta este query en el SQL Editor de Supabase:
+
+```sql
+-- Reemplaza con tu email
+UPDATE users SET role = 'admin' WHERE email = 'TU_EMAIL@ejemplo.com';
+```
+
+### Para proyectos existentes (migrar de subscription_tier a role):
+
+```sql
+-- 1. Agregar columna role si no existe
+ALTER TABLE users ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'user' CHECK (role IN ('admin', 'user'));
+
+-- 2. Eliminar columnas obsoletas (opcional)
+ALTER TABLE users DROP COLUMN IF EXISTS subscription_tier;
+ALTER TABLE users DROP COLUMN IF EXISTS subscription_expires_at;
+
+-- 3. Hacer admin a un usuario específico
+UPDATE users SET role = 'admin' WHERE email = 'TU_EMAIL@ejemplo.com';
+
+-- 4. Agregar políticas RLS para UPDATE y DELETE (EXAMS)
+CREATE POLICY "Admins can update exams"
+  ON exams FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+CREATE POLICY "Admins can delete exams"
+  ON exams FOR DELETE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+-- 5. Agregar políticas RLS para UPDATE y DELETE (QUESTIONS)
+CREATE POLICY "Admins can update questions"
+  ON questions FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+CREATE POLICY "Admins can delete questions"
+  ON questions FOR DELETE
+  USING (
+    EXISTS (
+      SELECT 1 FROM users 
+      WHERE users.id = auth.uid() 
+      AND users.role = 'admin'
+    )
+  );
+
+-- 6. Agregar columna para video de explicación (NUEVO)
+ALTER TABLE questions ADD COLUMN IF NOT EXISTS explanation_video_url TEXT DEFAULT NULL;
+```

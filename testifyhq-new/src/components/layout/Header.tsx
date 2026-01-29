@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
+import { useUserRole } from '@/hooks/useUserRole';
 import { authHelpers } from '@/lib/supabase';
 
 export function Header() {
   const { user } = useAuth();
+  const { data: roleData } = useUserRole(user?.id);
 
   const handleLogout = async () => {
     await authHelpers.signOut();
@@ -28,18 +30,28 @@ export function Header() {
           >
             Exámenes
           </Link>
-          <Link
-            to="/donate"
-            className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            ❤️ Donar
-          </Link>
+          {user && (
+            <Link
+              to="/donate"
+              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              Contribuye
+            </Link>
+          )}
           {user && (
             <Link
               to="/dashboard"
               className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
             >
               Dashboard
+            </Link>
+          )}
+          {roleData?.isAdmin && (
+            <Link
+              to="/admin/exams"
+              className="text-sm font-medium text-purple-600 hover:text-purple-700 transition-colors"
+            >
+              ⚙️ Admin
             </Link>
           )}
         </nav>
@@ -77,4 +89,3 @@ export function Header() {
     </header>
   );
 }
-

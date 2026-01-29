@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Heart, Coffee, Sparkles, Check } from 'lucide-react';
+import { Coffee, Sparkles, Check } from 'lucide-react';
 
 export function PricingPage() {
   // URL placeholder para PayPal - actualizar con la URL real
@@ -24,19 +24,19 @@ export function PricingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-20 px-4">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full mb-6">
-            <Heart className="w-10 h-10 text-white fill-white" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-6">
+            <Sparkles className="w-10 h-10 text-white fill-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Apoya a TestifyHQ
+            Contribuye a TestifyHQ
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             TestifyHQ es <strong>100% gratuito</strong> para todos. 
-            Tu donación nos ayuda a mantener y mejorar la plataforma.
+            Tu contribución nos ayuda a mantener y mejorar la plataforma.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export function PricingPage() {
         <Card className="max-w-2xl mx-auto shadow-2xl mb-12">
           <CardHeader className="text-center pb-8 pt-8">
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
-              DONACIÓN VOLUNTARIA
+              CONTRIBUCIÓN VOLUNTARIA
             </div>
             <CardTitle className="text-3xl mb-2">Contribuye al Proyecto</CardTitle>
             <CardDescription className="text-lg">
@@ -73,10 +73,10 @@ export function PricingPage() {
             <div className="border rounded-lg p-6 mb-8">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <Coffee className="w-5 h-5 text-amber-600" />
-                ¿Por qué donar?
+                ¿Por qué contribuir?
               </h3>
               <p className="text-gray-600 mb-4">
-                Tu donación nos ayuda a:
+                Tu contribución nos ayuda a:
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li>• Mantener los servidores funcionando</li>
@@ -89,14 +89,13 @@ export function PricingPage() {
             {/* Donate Button */}
             <Button 
               onClick={handleDonate}
-              className="w-full h-14 text-lg bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600"
+              className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
             >
-              <Heart className="w-5 h-5 mr-2" />
-              Donar con PayPal
+              Contribuir con PayPal
             </Button>
 
             <p className="text-center text-sm text-gray-500 mt-4">
-              Serás redirigido a PayPal para completar tu donación de forma segura
+              Serás redirigido a PayPal para completar tu contribución de forma segura
             </p>
           </CardContent>
         </Card>
@@ -104,7 +103,7 @@ export function PricingPage() {
         {/* Thank You Message */}
         <div className="text-center">
           <p className="text-gray-600 mb-2">
-            ¿Ya has donado? ¡Muchas gracias por tu apoyo! 💜
+            ¿Ya has contribuido? ¡Muchas gracias por tu apoyo!
           </p>
           <p className="text-sm text-gray-500">
             Si tienes preguntas, escríbenos a support@testifyhq.com

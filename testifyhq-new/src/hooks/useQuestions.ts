@@ -8,7 +8,10 @@ export function useQuestions(examId: number) {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('questions')
-        .select('*')
+        .select(`
+          *,
+          explanation_video_url
+        `)
         .eq('exam_id', examId)
         .order('order_index', { ascending: true });
 

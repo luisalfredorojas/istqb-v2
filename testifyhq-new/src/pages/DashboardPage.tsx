@@ -3,11 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserAttempts } from '@/hooks/useExamAttempts';
-import { AttemptCounter } from '@/components/exam/AttemptCounter';
+import { useUserRole } from '@/hooks/useUserRole';
 
 export function DashboardPage() {
   const { user } = useAuth();
   const { data: attemptsData, isLoading } = useUserAttempts(user?.id);
+  const { data: roleData } = useUserRole(user?.id);
   const attempts = attemptsData as any[] | undefined;
 
   // Calculate stats
@@ -24,7 +25,7 @@ export function DashboardPage() {
     { label: 'Exámenes completados', value: totalExams.toString(), icon: '📝' },
     { label: 'Promedio de puntaje', value: `${averageScore}%`, icon: '📊' },
     { label: 'Tiempo total estudiado', value: `${totalTimeHours}h`, icon: '⏱️' },
-    { label: 'Racha actual', value: '1 día', icon: '🔥' }, // Placeholder for streak
+    { label: 'Racha actual', value: '1 día', icon: '🔥' },
   ];
 
   return (
@@ -39,25 +40,23 @@ export function DashboardPage() {
         </p>
       </div>
 
-      {/* Free Access Counter */}
-      <div className="mb-8">
-        <AttemptCounter />
-      </div>
-
-      {/* Admin Section (Temporary) */}
-      <div className="mb-8 p-4 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-between">
-        <div>
-          <h3 className="font-bold text-purple-900">Zona Administrativa</h3>
-          <p className="text-sm text-purple-700">Utilidad para migrar exámenes desde JSON</p>
+      {/* Admin Section - Only for admins */}
+      {roleData?.isAdmin && (
+        <div className="mb-8 p-4 bg-purple-50 border border-purple-200 rounded-lg flex items-center justify-between">
+          <div>
+            <h3 className="font-bold text-purple-900">Zona Administrativa</h3>
+            <p className="text-sm text-purple-700">Gestiona exámenes y contenido de la plataforma</p>
+          </div>
+          <Link to="/admin/exams">
+            <Button 
+              variant="outline"
+              className="bg-white border-purple-300 text-purple-700 hover:bg-purple-50"
+            >
+              ⚙️ Gestionar Exámenes
+            </Button>
+          </Link>
         </div>
-        <Button 
-          onClick={() => import('@/utils/migrateExams').then(m => m.migrateExams())}
-          variant="outline"
-          className="bg-white border-purple-300 text-purple-700 hover:bg-purple-50"
-        >
-          🚀 Migrar Exámenes
-        </Button>
-      </div>
+      )}
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -150,4 +149,3 @@ export function DashboardPage() {
     </div>
   );
 }
-

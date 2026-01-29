@@ -16,6 +16,15 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   },
 });
 
+// Untyped client for admin operations where types may not match
+export const supabaseAdmin = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+  },
+});
+
 // Auth helpers
 export const authHelpers = {
   async loginWithEmail(email: string, password: string) {

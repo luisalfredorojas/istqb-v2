@@ -15,8 +15,7 @@ export interface Database {
           email: string
           display_name: string | null
           photo_url: string | null
-          subscription_tier: 'free' | 'premium' | 'enterprise'
-          subscription_expires_at: string | null
+          role: 'admin' | 'user'
           firebase_uid: string | null
           created_at: string
           last_login: string | null
@@ -27,8 +26,7 @@ export interface Database {
           email: string
           display_name?: string | null
           photo_url?: string | null
-          subscription_tier?: 'free' | 'premium' | 'enterprise'
-          subscription_expires_at?: string | null
+          role?: 'admin' | 'user'
           firebase_uid?: string | null
           created_at?: string
           last_login?: string | null
@@ -39,8 +37,7 @@ export interface Database {
           email?: string
           display_name?: string | null
           photo_url?: string | null
-          subscription_tier?: 'free' | 'premium' | 'enterprise'
-          subscription_expires_at?: string | null
+          role?: 'admin' | 'user'
           firebase_uid?: string | null
           created_at?: string
           last_login?: string | null
@@ -100,6 +97,7 @@ export interface Database {
           correct_answer: string
           explanation: string | null
           explanation_image_url: string | null
+          explanation_video_url: string | null
           difficulty: 'easy' | 'medium' | 'hard' | null
           tags: string[] | null
           order_index: number | null
@@ -115,8 +113,9 @@ export interface Database {
           question_image_alt?: string | null
           options: Json
           correct_answer: string
-          explanation?: string | null
-          explanation_image_url?: string | null
+          explanation: string | null
+          explanation_image_url: string | null
+          explanation_video_url: string | null
           difficulty?: 'easy' | 'medium' | 'hard' | null
           tags?: string[] | null
           order_index?: number | null
@@ -134,6 +133,7 @@ export interface Database {
           correct_answer?: string
           explanation?: string | null
           explanation_image_url?: string | null
+          explanation_video_url?: string | null
           difficulty?: 'easy' | 'medium' | 'hard' | null
           tags?: string[] | null
           order_index?: number | null

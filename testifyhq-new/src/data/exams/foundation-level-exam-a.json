@@ -27,6 +27,7 @@
     "respuesta_correcta": 2,
     "numero_respuestas": "ONE",
     "explicacion": "El objetivo de prueba válido es reducir el riesgo y aumentar la confianza en la calidad; no se puede demostrar ausencia total de defectos ni exhaustividad absoluta.",
+    "video_explicacion": "https://www.youtube.com/shorts/UukU1m5Zelg",
     "imageUrl": ""
   },
   {
@@ -41,7 +42,9 @@
     "respuesta_correcta": [0, 2],
     "numero_respuestas": "TWO",
     "explicacion": "Involucrar testers a lo largo del SDLC detecta defectos temprano (a) y la colaboración con usuarios mejora la calidad de los reportes de defectos (c).",
-    "imageUrl": ""
+    "imageUrl": "",
+    "video_explicacion": "https://youtube.com/shorts/PRoO1bSLKJo"
+
   },
   {
     "numero": 3,

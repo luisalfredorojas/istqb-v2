@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Youtube } from 'lucide-react';
 import { useExamStore } from '@/stores/examStore';
 import type { Question } from '@/types';
 import { cn } from '@/lib/utils';
@@ -107,6 +108,30 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
             )}
           </div>
         </div>
+
+        {/* Video Suggestion */}
+        {question.explanation_video_url && (
+          <div className="mt-8 pt-6 border-t border-gray-100 animate-in fade-in duration-500">
+            <div className="bg-blue-50 border border-blue-100 rounded-lg p-4">
+              <h3 className="flex items-center gap-2 text-sm font-semibold text-blue-900 mb-2">
+                <Youtube className="w-4 h-4 text-red-600" />
+                ¿Necesitas ayuda con esta pregunta?
+              </h3>
+              <p className="text-sm text-blue-800 mb-3">
+                Mira este video corto donde explico este concepto a detalle:
+              </p>
+              <a 
+                href={question.explanation_video_url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-blue-200 rounded-md text-sm font-medium text-blue-700 hover:bg-blue-50 hover:text-blue-800 transition-colors shadow-sm group"
+              >
+                <Youtube className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
+                Ver explicación en YouTube
+              </a>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
