@@ -22,6 +22,7 @@ export const mockQuestions: Question[] = [
     order_index: 1,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    explanation_video_url: null,
   },
   {
     id: '2',
@@ -44,6 +45,7 @@ export const mockQuestions: Question[] = [
     order_index: 2,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    explanation_video_url: null,
   },
   {
     id: '3',
@@ -66,6 +68,7 @@ export const mockQuestions: Question[] = [
     order_index: 3,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    explanation_video_url: null,
   },
   {
     id: '4',
@@ -88,6 +91,7 @@ export const mockQuestions: Question[] = [
     order_index: 4,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    explanation_video_url: null,
   },
   {
     id: '5',
@@ -110,5 +114,6 @@ export const mockQuestions: Question[] = [
     order_index: 5,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    explanation_video_url: null,
   }
 ];

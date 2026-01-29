@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin as supabase } from '@/lib/supabase';
 
 interface MigrationResult {
   success: number;
@@ -31,7 +31,7 @@ export const migrateExamsFromFiles = async (files: FileList): Promise<MigrationR
       const title = data.titulo || data.title;
       const description = data.descripcion || data.description || 'Sin descripción';
       const category = 'ISTQB'; // Default
-      const difficulty = title.toLowerCase().includes('advanced') ? 'Advanced' : 'Foundation';
+      const difficulty = title.toLowerCase().includes('advanced') ? 'advanced' : 'foundation';
       const totalQuestions = data.examen ? data.examen.length : 0;
       const passingScoreRaw = data.minimo_aprobacion || Math.ceil(totalQuestions * 0.65);
       const passingScorePercent = Math.round((passingScoreRaw / totalQuestions) * 100);
@@ -64,7 +64,7 @@ export const migrateExamsFromFiles = async (files: FileList): Promise<MigrationR
              description,
              category,
              difficulty,
-             duration_minutes: difficulty === 'Advanced' ? 120 : 60,
+             duration_minutes: difficulty === 'advanced' ? 120 : 60,
              passing_score: passingScorePercent,
              total_questions: totalQuestions,
              is_active: true
@@ -103,7 +103,7 @@ export const migrateExamsFromFiles = async (files: FileList): Promise<MigrationR
               description,
               category,
               difficulty,
-              duration_minutes: difficulty === 'Advanced' ? 120 : 60,
+              duration_minutes: difficulty === 'advanced' ? 120 : 60,
               passing_score: passingScorePercent,
               total_questions: totalQuestions,
               is_active: true
