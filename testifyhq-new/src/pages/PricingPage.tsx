@@ -1,27 +1,20 @@
+import { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Coffee, Sparkles, Check } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+
 
 export function PricingPage() {
-  // URL placeholder para PayPal - actualizar con la URL real
-  const paypalDonateUrl = import.meta.env.VITE_PAYPAL_DONATE_URL || '#';
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://donorbox.org/widget.js';
+    script.setAttribute('paypalExpress', 'false');
+    script.async = true;
+    document.body.appendChild(script);
 
-  const handleDonate = () => {
-    if (paypalDonateUrl && paypalDonateUrl !== '#') {
-      window.open(paypalDonateUrl, '_blank');
-    } else {
-      alert('El botón de donación estará disponible próximamente. ¡Gracias por tu interés en apoyarnos!');
-    }
-  };
-
-  const benefits = [
-    'Acceso ilimitado a todos los exámenes',
-    'Práctica sin restricciones de tiempo',
-    'Explicaciones detalladas de respuestas',
-    'Seguimiento completo de progreso',
-    'Exámenes actualizados constantemente',
-    'Soporte de la comunidad',
-  ];
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-20 px-4">
@@ -35,8 +28,7 @@ export function PricingPage() {
             Contribuye a TestifyHQ
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            TestifyHQ es <strong>100% gratuito</strong> para todos. 
-            Tu contribución nos ayuda a mantener y mejorar la plataforma.
+            TestifyHQ es <strong>100% gratuito</strong>.
           </p>
         </div>
 
@@ -46,71 +38,39 @@ export function PricingPage() {
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
               CONTRIBUCIÓN VOLUNTARIA
             </div>
-            <CardTitle className="text-3xl mb-2">Contribuye al Proyecto</CardTitle>
+            <CardTitle className="text-3xl mb-2">Apóyanos</CardTitle>
             <CardDescription className="text-lg">
-              Cualquier monto es apreciado
+              Si la plataforma te ha sido útil, considera hacer una donación.
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="pb-8">
-            {/* Benefits */}
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-yellow-500" />
-                Lo que obtienes GRATIS:
-              </h3>
-              <div className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Why Donate */}
-            <div className="border rounded-lg p-6 mb-8">
-              <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Coffee className="w-5 h-5 text-amber-600" />
-                ¿Por qué contribuir?
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Tu contribución nos ayuda a:
-              </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Mantener los servidores funcionando</li>
-                <li>• Agregar nuevos exámenes y preguntas</li>
-                <li>• Mejorar la experiencia de usuario</li>
-                <li>• Mantener la plataforma gratuita para todos</li>
-              </ul>
-            </div>
-
-            {/* Donate Button */}
-            <Button 
-              onClick={handleDonate}
-              className="w-full h-14 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-            >
-              Contribuir con PayPal
-            </Button>
-
-            <p className="text-center text-sm text-gray-500 mt-4">
-              Serás redirigido a PayPal para completar tu contribución de forma segura
-            </p>
+          <CardContent className="pb-8 flex justify-center">
+            <iframe
+              src="https://donorbox.org/embed/colabora-con-nosotros-905182?amount=5"
+              name="donorbox"
+              allow="payment"
+              seamless
+              frameBorder="0"
+              scrolling="no"
+              height="900px"
+              width="100%"
+              style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none' }} 
+            />
           </CardContent>
         </Card>
 
         {/* Thank You Message */}
         <div className="text-center">
           <p className="text-gray-600 mb-2">
-            ¿Ya has contribuido? ¡Muchas gracias por tu apoyo!
+            ¡Muchas gracias por tu apoyo!
           </p>
           <p className="text-sm text-gray-500">
-            Si tienes preguntas, escríbenos a support@testifyhq.com
+            Si tienes dudas, escríbenos a support@testifyhq.com
           </p>
         </div>
       </div>
     </div>
   );
 }
+
 
