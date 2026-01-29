@@ -45,17 +45,19 @@ export function PricingPage() {
           </CardHeader>
 
           <CardContent className="pb-8 flex flex-col items-center gap-8">
-            <iframe
-              src="https://donorbox.org/embed/colabora-con-nosotros-905182?amount=5"
-              name="donorbox"
-              allow="payment"
-              seamless
-              frameBorder="0"
-              scrolling="no"
-              height="900px"
-              width="100%"
-              style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none' }} 
-            />
+            <div className="w-full flex justify-center">
+              <iframe
+                src="https://donorbox.org/embed/colabora-con-nosotros-905182?amount=5"
+                name="donorbox"
+                allow="payment"
+                seamless
+                frameBorder="0"
+                scrolling="no"
+                height="900px"
+                width="100%"
+                style={{ maxWidth: '500px', minWidth: '250px', maxHeight: 'none' }} 
+              />
+            </div>
             
             <div className="w-full flex justify-center">
               <iframe 
