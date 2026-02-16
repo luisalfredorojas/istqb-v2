@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExams } from '@/hooks/useExams';
-import { AttemptCounter } from '@/components/exam/AttemptCounter';
 
 export function ExamListPage() {
   const { data: exams, isLoading, error } = useExams();
@@ -31,11 +30,6 @@ export function ExamListPage() {
         <p className="text-lg text-gray-600">
           Selecciona un examen para comenzar a practicar
         </p>
-      </div>
-
-      {/* Free Access Counter */}
-      <div className="mb-8">
-        <AttemptCounter />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
