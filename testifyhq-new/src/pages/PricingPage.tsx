@@ -17,25 +17,32 @@ export function PricingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-20 px-4">
+    <div className="min-h-screen bg-bg py-20 px-4 transition-colors"
+      style={{
+        background: `
+          radial-gradient(ellipse 80% 50% at 50% 0%, var(--primary-soft) 0%, transparent 50%),
+          var(--bg)
+        `,
+      }}
+    >
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full mb-6">
             <Sparkles className="w-10 h-10 text-white fill-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-ds-text mb-4">
             Contribuye a TestifyHQ
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            TestifyHQ es <strong>100% gratuito</strong>.
+          <p className="text-xl text-muted max-w-2xl mx-auto">
+            TestifyHQ es <strong className="text-ds-text">100% gratuito</strong>.
           </p>
         </div>
 
         {/* Donation Card */}
         <Card className="max-w-2xl mx-auto shadow-2xl mb-12">
           <CardHeader className="text-center pb-8 pt-8">
-            <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-2 bg-success-soft text-success rounded-full text-sm font-semibold mb-4">
               CONTRIBUCIÓN VOLUNTARIA
             </div>
             <CardTitle className="text-3xl mb-2">Apóyanos</CardTitle>
@@ -77,10 +84,10 @@ export function PricingPage() {
 
         {/* Thank You Message */}
         <div className="text-center">
-          <p className="text-gray-600 mb-2">
+          <p className="text-muted mb-2">
             ¡Muchas gracias por tu apoyo!
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted">
             Si tienes dudas, escríbenos a support@testifyhq.com
           </p>
         </div>
@@ -88,5 +95,3 @@ export function PricingPage() {
     </div>
   );
 }
-
-

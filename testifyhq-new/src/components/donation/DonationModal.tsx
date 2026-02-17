@@ -13,15 +13,8 @@ interface DonationModalProps {
 export function DonationModal({ isOpen, onClose }: DonationModalProps) {
   if (!isOpen) return null;
 
-  // URL placeholder para PayPal - actualizar con la URL real
-  const paypalDonateUrl = import.meta.env.VITE_PAYPAL_DONATE_URL || '#';
-
   const handleDonate = () => {
-    if (paypalDonateUrl && paypalDonateUrl !== '#') {
-      window.open(paypalDonateUrl, '_blank');
-    } else {
-      alert('El botón de donación estará disponible próximamente. ¡Gracias por tu interés en apoyarnos!');
-    }
+    window.open('/contribuye', '_self');
     onClose();
   };
 
@@ -34,13 +27,13 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-in fade-in zoom-in duration-300">
+      <div className="relative bg-surface border border-ds-border rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-in fade-in zoom-in duration-300 transition-colors">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-surface-alt transition-colors"
         >
-          <X className="w-5 h-5 text-gray-500" />
+          <X className="w-5 h-5 text-muted" />
         </button>
 
         {/* Header con gradiente */}
@@ -58,15 +51,15 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
 
         {/* Content */}
         <div className="px-6 py-6">
-          <p className="text-gray-600 text-center mb-6">
-            TestifyHQ es <strong>100% gratuito</strong> para todos. Si esta plataforma te ha sido útil 
+          <p className="text-muted text-center mb-6">
+            TestifyHQ es <strong className="text-ds-text">100% gratuito</strong> para todos. Si esta plataforma te ha sido útil 
             en tu preparación para la certificación ISTQB, considera apoyarnos con una donación voluntaria.
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+          <div className="bg-surface-alt rounded-lg p-4 mb-6">
             <div className="flex items-start gap-3">
-              <Coffee className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-              <p className="text-sm text-gray-600">
+              <Coffee className="w-5 h-5 text-warning mt-0.5 flex-shrink-0" />
+              <p className="text-sm text-muted">
                 Tu donación nos ayuda a mantener los servidores funcionando, 
                 agregar nuevas preguntas y mejorar la plataforma para todos.
               </p>
@@ -77,15 +70,15 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
           <div className="space-y-3">
             <Button 
               onClick={handleDonate}
-              className="w-full h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold"
+              className="w-full h-12"
             >
               <Heart className="w-4 h-4 mr-2" />
-              Donar con PayPal
+              Contribuir
             </Button>
             
             <button
               onClick={onClose}
-              className="w-full py-3 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+              className="w-full py-3 text-sm text-muted hover:text-ds-text transition-colors"
             >
               Quizás más tarde
             </button>
@@ -94,7 +87,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
 
         {/* Footer */}
         <div className="px-6 pb-6">
-          <p className="text-xs text-center text-gray-400">
+          <p className="text-xs text-center text-muted">
             Cualquier monto es apreciado. ¡Gracias por tu generosidad! 💜
           </p>
         </div>
