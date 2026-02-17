@@ -58,7 +58,7 @@ export function LoginPage() {
 
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 bg-gray-50">
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 bg-bg transition-colors">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
@@ -88,18 +88,18 @@ export function LoginPage() {
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+              <span className="w-full border-t border-ds-border" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-gray-500">O continúa con email</span>
+              <span className="bg-surface px-2 text-muted">O continúa con email</span>
             </div>
           </div>
 
           {/* Email/Password Form */}
           <form onSubmit={handleEmailLogin} className="space-y-4">
             {error && (
-              <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600">{error}</p>
+              <div className="p-3 bg-danger-soft border border-danger/20 rounded-[8px]">
+                <p className="text-sm text-danger">{error}</p>
               </div>
             )}
 
@@ -129,7 +129,7 @@ export function LoginPage() {
             <div className="flex items-center justify-end">
               <Link 
                 to="/forgot-password" 
-                className="text-sm text-primary-600 hover:underline"
+                className="text-sm text-primary hover:underline"
               >
                 ¿Olvidaste tu contraseña?
               </Link>
@@ -145,21 +145,21 @@ export function LoginPage() {
           </form>
 
           {/* Sign Up Link */}
-          <div className="text-center text-sm text-gray-600 pt-4">
+          <div className="text-center text-sm text-muted pt-4">
             ¿No tienes una cuenta?{' '}
-            <Link to="/signup" className="text-primary-600 hover:underline font-medium">
+            <Link to="/signup" className="text-primary hover:underline font-medium">
               Regístrate gratis
             </Link>
           </div>
 
           {/* Terms */}
-          <div className="text-center text-sm text-gray-600 mt-6 pt-6 border-t">
+          <div className="text-center text-sm text-muted mt-6 pt-6 border-t border-ds-border">
             Al continuar, aceptas nuestros{' '}
-            <Link to="/terms" className="text-primary-600 hover:underline">
+            <Link to="/terms" className="text-primary hover:underline">
               Términos de servicio
             </Link>
             {' '}y{' '}
-            <Link to="/privacy" className="text-primary-600 hover:underline">
+            <Link to="/privacy" className="text-primary hover:underline">
               Política de privacidad
             </Link>
           </div>

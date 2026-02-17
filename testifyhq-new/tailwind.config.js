@@ -7,28 +7,41 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
       colors: {
+        // Semantic tokens that switch with dark mode
+        bg: 'var(--bg)',
+        surface: 'var(--surface)',
+        'surface-alt': 'var(--surface-alt)',
+        'ds-border': 'var(--border)',
+        'ds-border-hover': 'var(--border-hover)',
+        'ds-text': 'var(--text)',
+        muted: 'var(--muted)',
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          DEFAULT: 'var(--primary)',
+          hover: 'var(--primary-hover)',
+          soft: 'var(--primary-soft)',
+          'soft-border': 'var(--primary-soft-border)',
         },
         success: {
-          500: '#10b981',
+          DEFAULT: 'var(--success)',
+          soft: 'var(--success-soft)',
         },
         warning: {
-          500: '#f59e0b',
+          DEFAULT: 'var(--warning)',
+          soft: 'var(--warning-soft)',
         },
-        error: {
-          500: '#ef4444',
+        danger: {
+          DEFAULT: 'var(--danger)',
+          soft: 'var(--danger-soft)',
         },
+      },
+      borderRadius: {
+        sm: '8px',
+        md: '12px',
+        full: '9999px',
       },
     },
   },

@@ -1,16 +1,18 @@
+import { useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
-export function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-bg text-ds-text transition-colors">
       <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
+      <main className="flex-1">
+        {children}
+      </main>
+      {!isHomePage && <Footer />}
     </div>
   );
 }

@@ -119,7 +119,7 @@ export function SignUpPage() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 bg-gray-50">
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 bg-bg transition-colors">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
@@ -148,17 +148,17 @@ export function SignUpPage() {
           </Button>
 
           {errors.general && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-sm text-red-600">{errors.general}</p>
+            <div className="p-3 bg-danger-soft border border-danger/20 rounded-[8px]">
+              <p className="text-sm text-danger">{errors.general}</p>
             </div>
           )}
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+              <span className="w-full border-t border-ds-border" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-gray-500">O regístrate con email</span>
+              <span className="bg-surface px-2 text-muted">O regístrate con email</span>
             </div>
           </div>
 
@@ -175,10 +175,10 @@ export function SignUpPage() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   disabled={loading}
-                  className={errors.firstName ? 'border-red-500' : ''}
+                  className={errors.firstName ? 'border-danger' : ''}
                 />
                 {errors.firstName && (
-                  <p className="text-sm text-red-500">{errors.firstName}</p>
+                  <p className="text-sm text-danger">{errors.firstName}</p>
                 )}
               </div>
 
@@ -192,10 +192,10 @@ export function SignUpPage() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   disabled={loading}
-                  className={errors.lastName ? 'border-red-500' : ''}
+                  className={errors.lastName ? 'border-danger' : ''}
                 />
                 {errors.lastName && (
-                  <p className="text-sm text-red-500">{errors.lastName}</p>
+                  <p className="text-sm text-danger">{errors.lastName}</p>
                 )}
               </div>
             </div>
@@ -210,10 +210,10 @@ export function SignUpPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
-                className={errors.email ? 'border-red-500' : ''}
+                className={errors.email ? 'border-danger' : ''}
               />
               {errors.email && (
-                <p className="text-sm text-red-500">{errors.email}</p>
+                <p className="text-sm text-danger">{errors.email}</p>
               )}
             </div>
 
@@ -229,9 +229,9 @@ export function SignUpPage() {
                 autoComplete="new-password"
               />
               {errors.password && (
-                <p className="text-sm text-red-500">{errors.password}</p>
+                <p className="text-sm text-danger">{errors.password}</p>
               )}
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-muted">
                 Debe contener al menos 6 caracteres, letras y números
               </p>
             </div>
@@ -247,7 +247,7 @@ export function SignUpPage() {
                 autoComplete="new-password"
               />
               {errors.confirmPassword && (
-                <p className="text-sm text-red-500">{errors.confirmPassword}</p>
+                <p className="text-sm text-danger">{errors.confirmPassword}</p>
               )}
             </div>
 
@@ -268,9 +268,9 @@ export function SignUpPage() {
             </Button>
 
             {/* Sign In Link */}
-            <div className="text-center text-sm text-gray-600">
+            <div className="text-center text-sm text-muted">
               ¿Ya tienes una cuenta?{' '}
-              <Link to="/login" className="text-primary-600 hover:underline font-medium">
+              <Link to="/login" className="text-primary hover:underline font-medium">
                 Inicia sesión
               </Link>
             </div>

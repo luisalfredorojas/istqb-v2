@@ -8,17 +8,22 @@ export function ProgressBar() {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between text-sm">
-        <span className="font-medium text-gray-700">
+        <span className="font-medium text-ds-text">
           Pregunta {currentQuestion + 1} de {totalQuestions}
         </span>
-        <span className="text-gray-600">
+        <span className="text-muted">
           {answeredCount} / {totalQuestions} respondidas
         </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
+      <div className="w-full bg-ds-border rounded-full h-2">
         <div
-          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+          className="bg-primary h-2 rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`Progreso del examen: ${Math.round(progress)}%`}
         />
       </div>
     </div>

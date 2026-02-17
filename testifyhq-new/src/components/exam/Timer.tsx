@@ -5,30 +5,26 @@ export function Timer() {
   const { formattedTime, isLowTime, isCriticalTime } = useTimer();
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" aria-label={`Tiempo restante: ${formattedTime}`}>
       <svg
         className={cn(
           'w-5 h-5',
-          isCriticalTime && 'text-error-500 animate-pulse',
-          isLowTime && !isCriticalTime && 'text-warning-500'
+          isCriticalTime && 'text-danger animate-pulse',
+          isLowTime && !isCriticalTime && 'text-warning',
+          !isLowTime && !isCriticalTime && 'text-muted'
         )}
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
       <span
         className={cn(
-          'text-lg font-semibold',
-          isCriticalTime && 'text-error-500',
-          isLowTime && !isCriticalTime && 'text-warning-500',
-          !isLowTime && !isCriticalTime && 'text-gray-700'
+          'text-lg font-semibold tabular-nums',
+          isCriticalTime && 'text-danger',
+          isLowTime && !isCriticalTime && 'text-warning',
+          !isLowTime && !isCriticalTime && 'text-muted'
         )}
       >
         {formattedTime}

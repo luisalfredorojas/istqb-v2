@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './lib/queryClient';
+import { ThemeProvider } from './hooks/useTheme';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { HomePage } from './pages/HomePage';
@@ -20,6 +21,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
   return (
+    <ThemeProvider>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Layout>
@@ -50,6 +52,7 @@ function App() {
         </Layout>
       </BrowserRouter>
     </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 
