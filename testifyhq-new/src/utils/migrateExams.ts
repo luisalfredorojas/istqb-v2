@@ -1,10 +1,11 @@
 import { supabaseAdmin as supabase } from '@/lib/supabase';
 import examA from '@/data/exams/foundation-level-exam-a.json';
+import examAExtra from '@/data/exams/foundation-level-exam-a-extra.json';
 import examB from '@/data/exams/foundation-level-exam-b.json';
 import examC from '@/data/exams/foundation-level-exam-c.json';
 import examD from '@/data/exams/foundation-level-exam-d.json';
 
-const examsToMigrate = [examA, examB, examC, examD];
+const examsToMigrate = [examA, examAExtra, examB, examC, examD];
 
 export const migrateExams = async () => {
   console.log('Starting migration...');
@@ -20,7 +21,7 @@ export const migrateExams = async () => {
       const title = data.titulo || data.title;
       const description = data.descripcion || data.description || 'Sin descripción';
       const category = 'ISTQB'; // Default
-      const difficulty = title.toLowerCase().includes('advanced') ? 'advanced' : 'foundation';
+      const difficulty = title.toLowerCase().includes('advanced') ? 'Advanced' : 'Foundation';
       const totalQuestions = data.examen ? data.examen.length : 0;
       const passingScoreRaw = data.minimo_aprobacion || Math.ceil(totalQuestions * 0.65);
       const passingScorePercent = Math.round((passingScoreRaw / totalQuestions) * 100);

@@ -34,7 +34,12 @@ export function ExamListPage() {
               <Card className="h-full hover:border-primary transition-colors cursor-pointer">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="px-3 py-1 bg-primary-soft text-primary text-xs font-semibold rounded-full">{exam.category}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 bg-primary-soft text-primary text-xs font-semibold rounded-full">{exam.category}</span>
+                      {exam.title.toLowerCase().includes('extra') && (
+                        <span className="px-3 py-1 bg-emerald-500/15 text-emerald-400 text-xs font-semibold rounded-full">Extra</span>
+                      )}
+                    </div>
                     <span className="text-xs font-medium text-muted">{exam.difficulty}</span>
                   </div>
                   <CardTitle>{exam.title}</CardTitle>

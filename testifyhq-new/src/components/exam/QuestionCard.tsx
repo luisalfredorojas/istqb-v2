@@ -34,20 +34,56 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-4">
-          {question.question_text && (
-            <div
-              className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
-              dangerouslySetInnerHTML={{ __html: question.question_text }}
-            />
-          )}
-          {question.question_image_url && (
-            <img
-              src={`${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/exam-images/foundation-level/${question.question_image_url.split('/').pop()}`}
-              alt={question.question_image_alt || 'Imagen de la pregunta'}
-              className="max-w-full h-auto rounded-[8px] border border-ds-border"
-              onError={(e) => console.error('Error loading image:', e.currentTarget.src)}
-            />
-          )}
+          {question.question_text && (() => {
+            const rawUrl = question.question_image_url;
+            const imageUrl = rawUrl
+              ? rawUrl.startsWith('/images/') || rawUrl.startsWith('http')
+                ? rawUrl
+                : `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/exam-images/foundation-level/${rawUrl.split('/').pop()}`
+              : null;
+            const hasPlaceholder = question.question_text.includes('<!--IMAGE-->');
+
+            if (hasPlaceholder && imageUrl) {
+              const [before, after] = question.question_text.split('<!--IMAGE-->');
+              return (
+                <>
+                  <div
+                    className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                    dangerouslySetInnerHTML={{ __html: before }}
+                  />
+                  <img
+                    src={imageUrl}
+                    alt={question.question_image_alt || 'Imagen de la pregunta'}
+                    className="max-w-full h-auto rounded-[8px] border border-ds-border"
+                    onError={(e) => console.error('Error loading image:', e.currentTarget.src)}
+                  />
+                  {after && (
+                    <div
+                      className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                      dangerouslySetInnerHTML={{ __html: after }}
+                    />
+                  )}
+                </>
+              );
+            }
+
+            return (
+              <>
+                <div
+                  className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                  dangerouslySetInnerHTML={{ __html: question.question_text }}
+                />
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt={question.question_image_alt || 'Imagen de la pregunta'}
+                    className="max-w-full h-auto rounded-[8px] border border-ds-border"
+                    onError={(e) => console.error('Error loading image:', e.currentTarget.src)}
+                  />
+                )}
+              </>
+            );
+          })()}
         </div>
 
         <div className="space-y-3">

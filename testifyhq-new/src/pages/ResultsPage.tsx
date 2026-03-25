@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link, useParams, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +6,7 @@ import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useAttempt } from '@/hooks/useExamAttempts';
 import { cn } from '@/lib/utils';
+import { ChevronDown } from 'lucide-react';
 
 export function ResultsPage() {
   const { id } = useParams();
@@ -75,34 +76,63 @@ export function ResultsPage() {
         </Card>
 
         <h2 className="text-xl font-bold text-ds-text mb-6">Revisión Detallada</h2>
-        <div className="space-y-6">
-          {questions.map((q, index) => {
-            const userAnswer = answers[q.id];
-            const isCorrect = userAnswer === q.correct_answer;
-            const isSkipped = !userAnswer;
+        <ReviewList questions={questions} answers={answers} />
+      </div>
+    </div>
+  );
+}
 
-            return (
-              <Card key={q.id} className={cn("border-l-4", isCorrect ? "border-l-success" : "border-l-danger")}>
-                <CardHeader className="pb-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex gap-2">
-                      <span className="text-muted font-semibold">{index + 1}.</span>
-                      <div className="text-base font-semibold text-ds-text [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
-                        dangerouslySetInnerHTML={{ __html: q.question_text || '' }}
-                      />
-                    </div>
-                    <span className={cn(
-                      "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide whitespace-nowrap",
-                      isCorrect ? "bg-success-soft text-success" :
-                      isSkipped ? "bg-surface-alt text-muted" : "bg-danger-soft text-danger"
-                    )}>
-                      {isCorrect ? "Correcta" : isSkipped ? "Omitida" : "Incorrecta"}
-                    </span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 mt-2">
-                    {q.options.map((opt) => {
+function ReviewList({ questions, answers }: { questions: any[]; answers: Record<string, string> }) {
+  const [openId, setOpenId] = useState<string | null>(null);
+
+  const toggle = (id: string) => setOpenId(prev => prev === id ? null : id);
+
+  return (
+    <div className="space-y-3">
+      {questions.map((q, index) => {
+        const userAnswer = answers[q.id];
+        const isCorrect = userAnswer === q.correct_answer;
+        const isSkipped = !userAnswer;
+        const isOpen = openId === q.id;
+
+        return (
+          <Card key={q.id} className={cn("border-l-4 overflow-hidden", isCorrect ? "border-l-success" : "border-l-danger")}>
+            <button
+              onClick={() => toggle(q.id)}
+              className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 hover:bg-surface-alt/50 transition-colors"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="text-muted font-semibold flex-shrink-0">{index + 1}.</span>
+                <span className="text-sm text-ds-text truncate">
+                  {(q.question_text || '').replace(/<[^>]*>/g, '').slice(0, 80)}
+                  {(q.question_text || '').replace(/<[^>]*>/g, '').length > 80 ? '...' : ''}
+                </span>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <span className={cn(
+                  "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide whitespace-nowrap",
+                  isCorrect ? "bg-success-soft text-success" :
+                  isSkipped ? "bg-surface-alt text-muted" : "bg-danger-soft text-danger"
+                )}>
+                  {isCorrect ? "Correcta" : isSkipped ? "Omitida" : "Incorrecta"}
+                </span>
+                <ChevronDown className={cn(
+                  "w-5 h-5 text-muted transition-transform duration-200",
+                  isOpen && "rotate-180"
+                )} />
+              </div>
+            </button>
+
+            {isOpen && (
+              <CardContent className="pt-0 pb-6 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="border-t border-ds-border pt-4 space-y-4">
+                  <div
+                    className="text-sm text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                    dangerouslySetInnerHTML={{ __html: q.question_text || '' }}
+                  />
+
+                  <div className="space-y-2">
+                    {q.options.map((opt: any) => {
                       const isSelected = userAnswer === opt.id;
                       const isTheCorrectAnswer = q.correct_answer === opt.id;
                       return (
@@ -130,16 +160,19 @@ export function ResultsPage() {
                       );
                     })}
                   </div>
-                  <div className="mt-4 p-4 bg-primary-soft rounded-[8px] border border-primary-soft-border">
-                    <p className="text-sm text-primary font-medium mb-1">Explicación:</p>
-                    <p className="text-sm text-ds-text">{q.explanation}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
+
+                  {q.explanation && (
+                    <div className="p-4 bg-primary-soft rounded-[8px] border border-primary-soft-border">
+                      <p className="text-sm text-primary font-medium mb-1">Explicación:</p>
+                      <p className="text-sm text-ds-text">{q.explanation}</p>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            )}
+          </Card>
+        );
+      })}
     </div>
   );
 }
