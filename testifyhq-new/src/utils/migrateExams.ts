@@ -86,7 +86,7 @@ export const migrateExams = async () => {
             description,
             category,
             difficulty,
-            duration_minutes: difficulty === 'advanced' ? 120 : 60,
+            duration_minutes: difficulty === 'Advanced' ? 120 : 60,
             passing_score: passingScorePercent,
             total_questions: totalQuestions,
             is_active: true
