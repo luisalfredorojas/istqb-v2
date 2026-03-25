@@ -47,15 +47,13 @@ export const migrateExams = async () => {
         // Update existing exam
         console.log(`Updating existing exam: ${title} (ID: ${(existingExam as any).id})`);
         
-        // Update exam metadata
+        // Update exam metadata (skip difficulty to avoid constraint issues)
         const { error: updateError } = await supabase
           .from('exams')
           .update({
              title,
              description,
              category,
-             difficulty,
-             duration_minutes: difficulty === 'advanced' ? 120 : 60,
              passing_score: passingScorePercent,
              total_questions: totalQuestions,
              is_active: true
