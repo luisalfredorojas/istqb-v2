@@ -23,7 +23,7 @@
         "respuesta_correcta": 2,
         "numero_respuestas": "ONE",
         "explicacion": "c) Es correcto. Las pruebas encuentran defectos y fallos, lo que reduce el nivel de riesgo y al mismo tiempo genera mayor confianza en el nivel de calidad del objeto de prueba. a) Es incorrecto: es imposible probar que no existen defectos. b) Es incorrecto: el principio de pruebas número 7 indica que las pruebas no pueden garantizar la ausencia de fallos en producción. d) Es incorrecto: es imposible probar todas las combinaciones de entradas.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/UukU1m5Zelg",
         "imageUrl": ""
       },
       {
@@ -38,7 +38,7 @@
         "respuesta_correcta": 0,
         "numero_respuestas": "ONE",
         "explicacion": "a) Es correcto. Los testers involucrados desde el comienzo del SDLC aumentan la comprensión de las decisiones de diseño y permiten detectar defectos de forma temprana. b) Es incorrecto: los testers deben colaborar activamente con los desarrolladores, no evitar el contacto. c) Es incorrecto: los usuarios finales generalmente no participan en pruebas de bajo nivel como integración de componentes. d) Es incorrecto: la certificación no garantiza automáticamente un mejor diseño de casos de prueba.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/PRoO1bSLKJo",
         "imageUrl": ""
       },
       {
@@ -53,7 +53,7 @@
         "respuesta_correcta": 0,
         "numero_respuestas": "ONE",
         "explicacion": "a) Es correcto. Este principio establece que si los mismos tests se repiten una y otra vez, eventualmente dejan de encontrar nuevos defectos. El software y el entorno cambian, por lo que los tests necesitan actualizarse. b) Es incorrecto: este principio trata sobre la creencia errónea de que encontrar y corregir muchos defectos garantiza el éxito del sistema. c) Es incorrecto: este principio indica que un número pequeño de componentes suele contener la mayoría de los defectos. d) Es incorrecto: este principio indica que probar todas las combinaciones posibles es inviable.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/4_cVFq6vu2Y",
         "imageUrl": ""
       },
       {
@@ -68,7 +68,7 @@
         "respuesta_correcta": 1,
         "numero_respuestas": "ONE",
         "explicacion": "b) Es correcto. Esta es una actividad de definición de condiciones de prueba, que forma parte del análisis de pruebas. a) Es incorrecto: estimar el esfuerzo es parte de la planificación de pruebas. c) Es incorrecto: utilizar técnicas de prueba para derivar ítems de cobertura es diseño de pruebas. d) Es incorrecto: reportar defectos durante la ejecución dinámica de pruebas es parte de la ejecución de pruebas.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/FOR0UYQg6ds",
         "imageUrl": ""
       },
       {
@@ -83,7 +83,7 @@
         "respuesta_correcta": 1,
         "numero_respuestas": "ONE",
         "explicacion": "i. Verdadero. El modelo de ciclo de vida del software (SDLC) influye significativamente en el enfoque de pruebas. ii. Falso. El número de defectos de proyectos anteriores puede tener cierta influencia, pero no es tan significativa como i, iii y iv. iii. Verdadero. Los riesgos de producto identificados son uno de los factores más importantes que determinan el enfoque de pruebas. iv. Verdadero. Los nuevos requisitos regulatorios son factores importantes que obligan a adoptar ciertos enfoques formales de pruebas. v. Falso. La configuración del entorno de pruebas no tiene una influencia significativa en el enfoque general de pruebas.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/IJK1AlTr0ZA",
         "imageUrl": ""
       },
       {
@@ -99,7 +99,7 @@
         "respuesta_correcta": [0, 4],
         "numero_respuestas": "TWO",
         "explicacion": "a) Es correcto. Configurar los entornos de prueba es una tarea realizada principalmente por los testers. e) Es correcto. Analizar la base de pruebas es una tarea técnica realizada como parte del análisis de pruebas, por lo que corresponde principalmente al rol de tester. b) Es incorrecto: el backlog del producto es construido y mantenido por el Product Owner. c) Es incorrecto: diseñar soluciones para nuevos requisitos es tarea del equipo de desarrollo. d) Es incorrecto: crear el plan de pruebas es un rol de gestión (test manager), no exclusivo del rol de tester.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/-Q7PODBpB_A",
         "imageUrl": ""
       },
       {
@@ -114,7 +114,7 @@
         "respuesta_correcta": 1,
         "numero_respuestas": "ONE",
         "explicacion": "i. Verdadero. Tener conocimiento del dominio es una habilidad esencial para un tester. ii. Falso. Crear la visión del producto es responsabilidad del analista de negocio junto con el representante de negocio, no del tester. iii. Verdadero. Ser buen jugador de equipo es una habilidad interpersonal muy importante para un tester. iv. Falso. Planificar y organizar el trabajo del equipo es tarea del test manager o del equipo completo en entornos ágiles. v. Verdadero. El pensamiento crítico es una de las habilidades más importantes de los testers, ya que les permite cuestionar supuestos y encontrar defectos.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/Z1W3zEuUaIo",
         "imageUrl": ""
       },
       {
@@ -129,7 +129,7 @@
         "respuesta_correcta": 3,
         "numero_respuestas": "ONE",
         "explicacion": "d) Es correcto. Los testers trabajan estrechamente con los representantes del negocio para asegurar que se alcancen los niveles de calidad deseados, incluyendo el apoyo y la colaboración para crear pruebas de aceptación adecuadas. a) Es incorrecto: el enfoque de automatización lo definen los testers con ayuda de desarrolladores, no los representantes del negocio. b) Es incorrecto: la estrategia de pruebas se decide en colaboración con el equipo completo, no solo con representantes del negocio. c) Es incorrecto: testers, desarrolladores y representantes del negocio son todos parte del enfoque de equipo completo.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/XD9obQcWBns",
         "imageUrl": ""
       },
       {
@@ -144,7 +144,7 @@
         "respuesta_correcta": 3,
         "numero_respuestas": "ONE",
         "explicacion": "d) Es correcto. Esta regla aplica para todos los modelos de SDLC: secuenciales (como el modelo en cascada), incrementales e iterativos. En cualquier modelo de desarrollo, cada actividad de desarrollo tiene una actividad de prueba correspondiente que debe llevarse a cabo.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/Yf1W4dM8Iio",
         "imageUrl": ""
       },
       {
@@ -159,7 +159,7 @@
         "respuesta_correcta": 2,
         "numero_respuestas": "ONE",
         "explicacion": "c) Es correcto. En ATDD, las pruebas se crean a partir de criterios de aceptación como parte del proceso de diseño para guiar el desarrollo del software relacionado. a) Es incorrecto: el formato given/when/then se usa más comúnmente en BDD (Behavior-Driven Development), no en ATDD. b) Es incorrecto: esa descripción corresponde a TDD (Test-Driven Development), que se centra en pruebas de componente orientadas al código. d) Es incorrecto: esa descripción corresponde a BDD, que se basa en el comportamiento deseado del software.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/49ksCHJKLvI",
         "imageUrl": ""
       },
       {
@@ -174,7 +174,7 @@
         "respuesta_correcta": 3,
         "numero_respuestas": "ONE",
         "explicacion": "d) Es correcto. Los scripts de prueba deben estar bajo gestión de configuración, por lo que no tiene sentido crearlos antes de establecer dicho proceso. Esto no representa un desplazamiento hacia la izquierda, sino una mala práctica. a) Es incorrecto: revisar los requisitos de usuario antes de que sean aceptados formalmente sí es un ejemplo de shift-left. b) Es incorrecto: escribir una prueba de componente antes de escribir el código correspondiente (TDD) sí es un ejemplo de shift-left. c) Es incorrecto: ejecutar pruebas no funcionales de rendimiento de forma temprana, durante las pruebas de componente, sí es un ejemplo de shift-left.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/DygM691TN0U",
         "imageUrl": ""
       },
       {
@@ -189,7 +189,7 @@
         "respuesta_correcta": 2,
         "numero_respuestas": "ONE",
         "explicacion": "c) Es correcto. Las retrospectivas realizadas regularmente, cuando se implementan las acciones de seguimiento apropiadas, son fundamentales para la mejora continua del desarrollo y las pruebas. a) Es incorrecto: las retrospectivas son útiles para identificar oportunidades de mejora de procesos; su popularidad tiene poca importancia para los clientes. b) Es incorrecto: las retrospectivas no buscan recopilar feedback sobre el producto, sino sobre el proceso de desarrollo y pruebas. d) Es incorrecto: coraje y respeto son valores de Extreme Programming (XP), no están directamente relacionados con las retrospectivas.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/spkwXM7oVGM",
         "imageUrl": ""
       },
       {
@@ -204,7 +204,7 @@
         "respuesta_correcta": 0,
         "numero_respuestas": "ONE",
         "explicacion": "La correspondencia correcta es: 1-D, 2-B, 3-A, 4-C. Los fallos en el comportamiento del sistema que se desvían de las necesidades del negocio del usuario corresponden a las pruebas de aceptación (1-D). Los fallos en la comunicación entre componentes se detectan durante las pruebas de integración de componentes (2-B). Los fallos en la lógica del código se encuentran durante las pruebas de componente (3-A). Las reglas de negocio no implementadas correctamente son la base de prueba para las pruebas de sistema (4-C).",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/0h7EDCcypFc",
         "imageUrl": ""
       },
       {
@@ -219,7 +219,7 @@
         "respuesta_correcta": 1,
         "numero_respuestas": "ONE",
         "explicacion": "Como TC1 y TC3 fallaron en la Ejecución 1 (pruebas (1) y (3)), las pruebas (4) y (6) son pruebas de confirmación. Como TC2 y TC3 fallaron en la Ejecución 2 (pruebas (5) y (6)), las pruebas (8) y (9) también son pruebas de confirmación. TC2 pasó en la Ejecución 1 (prueba (2)), por lo que la prueba (5) en la Ejecución 2 es una prueba de regresión, ya que no había fallado antes. TC1 pasó en la Ejecución 2 (prueba (4)), por lo que la prueba (7) en la Ejecución 3 es también una prueba de regresión. Por lo tanto, solo las pruebas (5) y (7) son pruebas de regresión.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/JD71rxwavTQ",
         "imageUrl": ""
       },
       {
@@ -234,7 +234,7 @@
         "respuesta_correcta": 0,
         "numero_respuestas": "ONE",
         "explicacion": "a) Es correcto (es la respuesta que NO es un beneficio). La gestión de defectos no es menos costosa cuando se detectan defectos tarde en el SDLC; al contrario, encontrar y corregir defectos más tarde en el ciclo de vida es más costoso, no menos. Esta afirmación contradice el beneficio real de las pruebas estáticas. b) Es incorrecto (sí es un beneficio): corregir defectos encontrados durante las pruebas estáticas es generalmente mucho menos costoso que corregirlos en pruebas dinámicas. c) Es incorrecto (sí es un beneficio): las pruebas estáticas pueden encontrar defectos de codificación que podrían no haberse encontrado solo con pruebas dinámicas. d) Es incorrecto (sí es un beneficio): detectar brechas e inconsistencias en los requisitos es una ventaja clave de las pruebas estáticas.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/2IEDf4YCih4",
         "imageUrl": ""
       },
       {
@@ -249,7 +249,7 @@
         "respuesta_correcta": 3,
         "numero_respuestas": "ONE",
         "explicacion": "d) Es correcto. El feedback temprano y frecuente puede prevenir malentendidos sobre los requisitos, ya que permite aclarar dudas y corregir interpretaciones erróneas antes de que se conviertan en defectos costosos. a) Es incorrecto: el feedback puede mejorar el proceso, pero no necesita ser temprano ni frecuente para mejorar proyectos futuros; las retrospectivas cumplen mejor ese propósito. b) Es incorrecto: el feedback temprano no se usa para forzar a los clientes a priorizar requisitos según riesgos. c) Es incorrecto: no existe una forma estándar recomendada de medir la calidad de los cambios a través del feedback.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/zsbZA3tIC28",
         "imageUrl": ""
       },
       {
@@ -264,7 +264,7 @@
         "respuesta_correcta": 1,
         "numero_respuestas": "ONE",
         "explicacion": "Analizando los atributos: El rol de escriba está especificado para walkthroughs, revisiones técnicas e inspecciones; por lo tanto no puede ser una revisión informal. El propósito de evaluar la calidad es uno de los objetivos más importantes del walkthrough. La reunión dirigida por el autor no está permitida en las inspecciones y típicamente no se realiza en las revisiones técnicas, pero sí es característica del walkthrough. La preparación individual puede darse en todos los tipos de revisión. Todos los tipos pueden producir un reporte de revisión. Por lo tanto, el tipo que mejor encaja con todos estos atributos es el walkthrough.",
-        "video_explicacion": "",
+        "video_explicacion": "https://www.youtube.com/shorts/9mfgjONotYo",
         "imageUrl": ""
       },
       {
