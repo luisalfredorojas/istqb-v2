@@ -1,621 +1,659 @@
-{
-  "empresa": "istqb",
-  "titulo": "ISTQB® Certified Tester Syllabus Foundation Level v4.0 Exam D",
-  "descripcion": "Banco de preguntas ISTQB® CTFL v4.0 – Examen de práctica (Set D, v1.6). 40 preguntas de opción múltiple extraídas de las páginas 6–21;",
-  "minimo_aprobacion": 26,
-  "retroalimentacion": [
-    { "umbral": 90, "mensaje": "¡Excelente! Nivel muy alto de preparación." },
-    { "umbral": 75, "mensaje": "Muy bien, estás en camino de aprobar." },
-    {
-      "umbral": 65,
-      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
-    },
-    { "umbral": 0, "mensaje": "Recomendamos seguir estudiando." }
-  ],
-  "examen": [
+[
   {
-    "numero": 1,
-    "pregunta": "Which of the following is a typical test objective?",
-    "opciones": [
-      "a) Finding and fixing defects in the test object",
-      "b) Maintaining effective communications with developers",
-      "c) Validating that legal requirements have been met",
-      "d) Building confidence in the quality of the test object"
+    "empresa": "istqb",
+    "titulo": "ISTQB® Certified Tester Foundation Level v4.0 - Exam D",
+    "descripcion": "Sample Exam set D - Compatible with Syllabus version 4.0 (Version 1.5, May 2025). 40 preguntas de opción múltiple extraídas del PDF oficial de ISTQB.",
+    "minimo_aprobacion": 26,
+    "retroalimentacion": [
+      { "umbral": 90, "mensaje": "¡Excelente! Nivel muy alto de preparación." },
+      { "umbral": 75, "mensaje": "Muy bien, estás en camino de aprobar." },
+      { "umbral": 65, "mensaje": "Suficiente para aprobar, pero puedes mejorar." },
+      { "umbral": 0, "mensaje": "Recomendamos seguir estudiando." }
     ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "Un objetivo típico de las pruebas es aumentar la confianza en la calidad del producto al reducir riesgos mediante la detección de defectos. Las pruebas no se encargan de arreglarlos (eso es depuración).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 2,
-    "pregunta": "A designer documents a design for a user interface that does not suitably address disabled users because the designer is tired. The programmer implements the user interface in line with the design but as they are working under severe time pressure, they do not include suitable exception handling in their program code for bonus calculations. When the operational system is used, complaints are made by some disabled users about the interface and the company is subsequently fined by the relevant regulatory authority. No one notices that bonus calculations are sometimes incorrect.<br><br>Which of the following statements is CORRECT?",
-    "opciones": [
-      "a) The miscalculation of bonuses is a defect that occasionally occurs",
-      "b) The fine received for failing to address some disabled users is a failure",
-      "c) The programmer working under severe time pressure is a root cause",
-      "d) The design of the user interface includes a designer error"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "Un error de diseñador (mistake) en el diseño de UI genera un defecto de especificación. La multa es una consecuencia de negocio, y la mala”cálculo en ejecución” es un fallo (failure), no el defecto en sí. La presión de tiempo es un factor causal, pero el enunciado identifica explícitamente un error del diseñador.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 3,
-    "pregunta": "Test conditions are being used by testers to generate test cases and execute tests. Even though the test conditions remain the same, the test cases are varied each time. Which of the following ‘principles of testing’ is being addressed through the variation of test cases?",
-    "opciones": [
-      "a) Tests wear out",
-      "b) Absence-of-defects fallacy",
-      "c) Early testing saves time and money",
-      "d) Defects cluster together"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "El principio “los tests se desgastan” indica que repetir exactamente los mismos casos pierde efectividad; variarlos incrementa la probabilidad de encontrar nuevos defectos.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 4,
-    "pregunta": "Given the following test tasks:<p style='margin-left:40px'><br>1. Derive test cases from test conditions<br>2. Identify reusable testware<br>3. Organize test cases into test procedures<br>4. Evaluate the test basis and the test object</p><br>And the following test activities:<p style='margin-left:40px'><br>A. Test analysis<br>B. Test design<br>C. Test implementation<br>D. Test completion</p><br>Which of the following BEST matches the tasks with the activities?",
-    "opciones": [
-      "a) 1B, 2A, 3D, 4C",
-      "b) 1B, 2D, 3C, 4A",
-      "c) 1C, 2A, 3B, 4D",
-      "d) 1C, 2D, 3A, 4B"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "1→B (diseño deriva casos), 2→D (en cierre se identifica testware reutilizable), 3→C (implementación organiza en procedimientos), 4→A (análisis evalúa la base y el objeto de prueba).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 5,
-    "pregunta": "Given the following testware:<p style='margin-left:40px'><br>i. Test completion report<br>ii. Data held in a database used for test inputs and expected results<br>iii. The list of elements needed to build the test environment<br>iv. Documented sequences of test cases in execution order<br>v. Test cases</p><br>Which of the following BEST shows the testware produced as a result of performing test implementation?",
-    "opciones": [
-      "a) ii, iv",
-      "b) iii, v",
-      "c) i, ii, v",
-      "d) i, iii, iv"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "La implementación concreta datos de prueba y define procedimientos (secuencias de ejecución): ii y iv.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 6,
-    "pregunta": "Which of the following is MOST likely to describe a task performed by someone in a test management role?",
-    "opciones": [
-      "a) Evaluate the test basis and the test object",
-      "b) Define test environment requirements",
-      "c) Assess testability of the test object",
-      "d) Create the test completion report"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "El informe de cierre (test completion report) es típicamente responsabilidad de la gestión de pruebas.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 7,
-    "pregunta": "Which of the following is an advantage of the whole team approach?",
-    "opciones": [
-      "a) Improved communication between team members",
-      "b) Decreased individual accountability for quality",
-      "c) Faster deployment of deliverables to the end users",
-      "d) Reduced collaboration with external business users"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "El enfoque de equipo completo mejora la comunicación y colaboración entre los miembros del equipo.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 8,
-    "pregunta": "Given the following benefits and drawbacks of the independence of testing:<p style='margin-left:40px'><br>i. The testers work in a different location from the developers<br>ii. Testers question the assumptions programmers make while writing code<br>iii. A confrontational dynamic has been established between testers and developers<br>iv. Developers have convinced themselves that testers are mostly accountable for quality<br>v. Testers have different biases than those held by the developers</p><br>Which are MOST likely to be considered benefits?",
-    "opciones": [
-      "a) i, iv",
-      "b) ii, v",
-      "c) i, iii, iv",
-      "d) ii, iii, v"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "Cuestionar supuestos (ii) y aportar sesgos distintos (v) son beneficios típicos de la independencia. Los otros elementos son inconvenientes.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 9,
-    "pregunta": "Which of the following is a good testing practice that applies to all software development lifecycles?",
-    "opciones": [
-      "a) Each test level has specific and distinct test objectives",
-      "b) Test implementation and execution for a given test level should start during the corresponding development phase",
-      "c) Testers should start test design as soon as drafts of the relevant work products become available",
-      "d) Every dynamic testing activity has a corresponding static testing activity"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Revisar y diseñar pruebas tan pronto haya borradores reduce costos y previene defectos (shift-left).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 10,
-    "pregunta": "Which of the following is an example of a test-first approach to development?",
-    "opciones": [
-      "a) Behavior-Driven Development",
-      "b) Test Level Driven Development",
-      "c) Function-Driven Development",
-      "d) Performance-Driven Development"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "BDD es un enfoque test-first (criterios de aceptación/escenarios guían el desarrollo).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 11,
-    "pregunta": "Which of the following is MOST likely to be a challenge encountered when implementing DevOps?",
-    "opciones": [
-      "a) Making sure that non-functional quality characteristics are not overlooked",
-      "b) Managing continuously changing test environments",
-      "c) The need for more manual testers with suitable experience",
-      "d) Setting up the test automation as part of the delivery pipeline"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "En DevOps los entornos cambian con frecuencia; gestionarlos y mantenerlos consistentes es un reto clave.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 12,
-    "pregunta": "Which of the following BEST describes retrospectives?",
-    "opciones": [
-      "a) Retrospectives allow team members to identify other team members who did not fully contribute to achieving quality as required by the whole team approach",
-      "b) Retrospectives give testers an opportunity to identify activities that were successful so that these are retained when potential improvements are made in the future",
-      "c) Retrospectives are where agile team members are allowed to voice their concerns about management and customers in a blameless environment",
-      "d) Retrospectives give agile team members a forum where they focus on discussing the plan and technical decisions for the next iteration"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "El objetivo es aprender: qué funcionó y qué mejorar, para conservar prácticas efectivas en el futuro.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 13,
-    "pregunta": "Which of the following tests is MOST likely to be performed as part of functional testing?",
-    "opciones": [
-      "a) The test checks that the sort function puts the elements of the list or array in ascending order",
-      "b) The test checks whether the sort function completes sorting within one second of starting",
-      "c) The test checks how easily the sort function can be changed from sorting ascending to sorting descending",
-      "d) The test checks that the sort function still functions correctly when moved from a 32-bit to a 64-bit architecture"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "Verificar el resultado funcional (lista ordenada) es prueba funcional; las otras son no funcionales o de portabilidad/mantenibilidad.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 14,
-    "pregunta": "Which of the following is MOST likely to be a trigger that leads to maintenance testing of a currency exchange system?",
-    "opciones": [
-      "a) The developers reported that changing the currency exchange system was difficult and the testers decided to check if this was true",
-      "b) The refund option of the currency exchange system was removed as it did not always repay the correct amount to customers",
-      "c) The agile team has started developing a user story that adds a new customer loyalty feature to the currency exchange system",
-      "d) The language support option of the currency exchange system was used to enable both English and local language currency transactions"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Agregar una nueva funcionalidad (cambio) dispara pruebas de mantenimiento (p. ej., regresión y pruebas del cambio).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 15,
-    "pregunta": "Which of the following CANNOT be examined by static testing?",
-    "opciones": [
-      "a) Contract",
-      "b) Test plan",
-      "c) Encrypted code",
-      "d) Test charter"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "El código cifrado no es analizable útilmente por técnicas estáticas; los demás son artefactos revisables.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 16,
-    "pregunta": "Which of the following statements about the value of static testing is CORRECT?",
-    "opciones": [
-      "a) The defect types found by static testing are different from the defect types that can be found by dynamic testing",
-      "b) Dynamic testing can detect the defect types that can be found by static testing plus some additional defect types",
-      "c) Dynamic testing can identify some of the defects that can be found by static testing but not all of them",
-      "d) Static testing can identify the defect types that can be found by dynamic testing as well as some extra defect types"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "La estática y la dinámica encuentran tipos de defectos distintos y complementarios (p. ej., estándares/consistencia vs. fallos en ejecución).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 17,
-    "pregunta": "Given the following descriptions of review activities:<p style='margin-left:40px'><br>1. Detected anomalies are deliberated upon, and determinations are reached regarding their status, ownership, and any further steps needed<br>2. Defects are recorded, and any needed updates are addressed prior to the acceptance of the work product<br>3. Reviewers employ techniques to come up with suggestions and questions about the work product and to spot anomalies<br>4. The objective of the review and its schedule are established to ensure a focused and efficient review<br>5. Participants are provided with access to the item being reviewed>/p><br>Which of the following is the CORRECT sequence in the review process of the activities that correspond to the descriptions?",
-    "opciones": [
-      "a) 4 – 3 – 5 – 2 – 1",
-      "b) 4 – 5 – 3 – 1 – 2",
-      "c) 5 – 4 – 1 – 3 – 2",
-      "d) 5 – 4 – 3 – 2 – 1"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "Orden típico: planificación del objetivo y agenda (4) → iniciar y dar acceso al artefacto (5) → preparación individual (3) → reunión/análisis y acuerdos (1) → retrabajo y seguimiento (2).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 18,
-    "pregunta": "Which participant in the review process is responsible for ensuring that the review meetings run effectively and that everyone at the meetings can voice their opinions freely?",
-    "opciones": [
-      "a) Manager",
-      "b) Moderator",
-      "c) Chairperson",
-      "d) Review Leader"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "El moderador/facilitador asegura la eficacia de la reunión y un ambiente seguro para opinar.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 19,
-    "pregunta": "",
-    "opciones": [
-      "a) White-box test techniques",
-      "b) Black-box test techniques",
-      "c) Experience-based test techniques",
-      "d) Risk-based test techniques"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "El requisito se prueba mejor con técnicas de caja negra (p. ej., particiones/valores límite respecto a $100).",
-    "imageUrl": "../images/foundation-level/question19d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 20,
-    "pregunta": "",
-    "opciones": [
-      "a) BY = 2001, CY = 2065",
-      "b) BY = 1900, CY = 1965",
-      "c) BY = 1965, CY = 1900",
-      "d) BY = 2011, CY = 2029",
-      "e) BY = 2000, CY = 2000"
-    ],
-    "respuesta_correcta": [1, 4],
-    "numero_respuestas": "TWO",
-    "explicacion": "Faltan particiones válidas de ‘estudiante’ (D∈[0,18)) y ‘pensionista’ (D≥65). e) da D=0 (estudiante) y b) da D=65 (pensionista).",
-    "imageUrl": "../images/foundation-level/question20d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 21,
-    "pregunta": "You are testing a temperature control system for a horticultural cold storage facility. The system receives the temperature (in full degrees Celsius) as the input. If the temperature is between 0 and 2 degrees inclusive, the system displays the message “temperature OK”. For lower temperatures, the system displays the message 'temperature too low' and for higher temperatures it displays the message 'temperature too high'.<br><br>Using two-value boundary value analysis, which of the following sets of test inputs provides the highest level of boundary value coverage?",
-    "opciones": [
-      "a) -1, 3",
-      "b) 0, 2",
-      "c) -1, 0, 2, 3",
-      "d) -2, 0, 2, 4"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Se prueban ambos límites con su adyacente: (-1,0) y (2,3), cubriendo las transiciones a ‘OK’ y fuera de rango.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 22,
-    "pregunta": "",
-    "opciones": [
-      "a) 66-year-old, unregistered man with no experience; expected result: category B",
-      "b) 55-year-old, unregistered woman with 2 years of experience; expected result: category A",
-      "c) 19-year-old, registered woman with 5 years of experience; expected result: category D",
-      "d) No additional test case can increase the already achieved decision table coverage"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "Las reglas cubiertas son R2, R3, R6 y R7. El caso (a) cubre R4 (>65, NO registrado) que falta; (b) repite R2 y (c) repite R6.",
-    "imageUrl": "../images/foundation-level/question22d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 23,
-    "pregunta": "",
-    "opciones": [
-      "a) NotAvailable, Available, ChangeRoom, NotAvailable, Cancel",
-      "b) Available, ChangeRoom, NotAvailable, Available, Pay",
-      "c) Available, ChangeRoom, Available, ChangeRoom, NotAvailable",
-      "d) NotAvailable, Cancel, ChangeRoom, Available, Pay"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "La secuencia (a) cubre S1→S3 (NotAvailable), S3→S2 (Available) y S2→S4 (ChangeRoom) antes de finalizar, maximizando transiciones válidas.",
-    "imageUrl": "../images/foundation-level/question23d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 24,
-    "pregunta": "Your test suite S for a program P achieves 100% statement coverage. It consists of three test cases, each of which achieves 50% statement coverage.<br><br>Which of the following statements is CORRECT?",
-    "opciones": [
-      "a) Executing S will cause all possible failures in P",
-      "b) S achieves 100% branch coverage for P",
-      "c) Every executable statement in P containing a defect has been run at least once during the execution of S",
-      "d) After removing one test case from S, the remaining two test cases will still achieve 100% statement coverage"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "100% de cobertura de sentencias implica que todas las instrucciones ejecutables se han ejecutado al menos una vez (aunque no garantiza revelar todos los fallos).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 25,
-    "pregunta": "Why does white-box testing facilitate defect detection even when the software specification is vague, outdated or incomplete?",
-    "opciones": [
-      "a) Test cases are designed based on the structure of the test object rather than the specification",
-      "b) For each white-box test technique the coverage can be well-defined and easily measured",
-      "c) White-box test techniques are very well designed to detect omissions in the requirements",
-      "d) White-box test techniques can be used in both static testing and dynamic testing"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "Las pruebas de caja blanca se basan en la estructura del código; no dependen de una especificación precisa para diseñar casos eficaces.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 26,
-    "pregunta": "Which of the following is NOT anticipated by the tester while applying error guessing?",
-    "opciones": [
-      "a) The developer misunderstood the formula in the user story for calculating the interest",
-      "b) The developer wrote “FA = A*(1+IR^N)” instead of “FA = A*(1+IR)^N” in the source code",
-      "c) The developer missed the seminar on new compound interest rate legislation",
-      "d) The accuracy of the interest calculated by the system is not precise enough"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "‘Error guessing’ se centra en errores típicos de requisitos/código o uso; no en asistir o no a un seminario (c), que es un factor externo de formación.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 27,
-    "pregunta": "Which of the following is true about exploratory testing?",
-    "opciones": [
-      "a) Test cases are designed before the exploratory testing session starts",
-      "b) The tester can perform test execution, but cannot perform test design",
-      "c) Exploratory testing results are good predictors of the number of remaining defects",
-      "d) During exploratory testing the tester may use black-box test techniques"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "En exploratoria el tester diseña y ejecuta en sesión, apoyándose en técnicas de caja negra cuando conviene.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 28,
-    "pregunta": "Which collaborative user story writing practice enables the team to achieve a collective understanding of what needs to be delivered?",
-    "opciones": [
-      "a) Planning poker, so that a team can achieve consensus on the effort needed to implement a user story",
-      "b) Reviews, so that a team can detect inconsistencies and contradictions in a user story",
-      "c) Iteration planning, so that user stories with the highest business value for a customer can be prioritized for implementation",
-      "d) Conversation, so that team members can understand how the software will be used"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "La ‘conversación’ (3C: Card, Conversation, Confirmation) alinea a todo el equipo en el entendimiento compartido de la historia.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 29,
-    "pregunta": "",
-    "opciones": [
-      "a) Enter webpage and set filter to show prices between $90 and $100. Expected result: results show product A only. Set maximum price to $110. Expected result: results now include both products A and B",
-      "b) Enter webpage. Expected result: the default minimum and maximum prices are $100 and $110 respectively. Add product C to stock, with price $120. Refresh the client’s webpage. Expected result: the default maximum price changes to $120",
-      "c) Enter webpage and set filter to show prices between $90 and $115. Expected result: results show both products A and B. Change currency from USD to EUR. Expected result: the filter range changes correctly to EUR values, according to the current exchange rate",
-      "d) Enter webpage with three different browsers: Edge, Chrome and Opera. In each browser set filter between $90 and $110. Expected result: results include both products A and B and the results layout is the same in all three browsers"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "La opción (a) valida rango mínimo/máximo y actualización dinámica de resultados, respetando la precondición dada.",
-    "imageUrl": "../images/foundation-level/question29d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 30,
-    "pregunta": "Which of the following BEST define EXIT criteria in a testing project?",
-    "opciones": [
-      "a) Budget is approved",
-      "b) Budget runs out",
-      "c) Test basis is available",
-      "d) Test cases achieved at least 80% statement coverage",
-      "e) All test analysts are ISTQB certified at the Foundation Level"
-    ],
-    "respuesta_correcta": [1, 3],
-    "numero_respuestas": "TWO",
-    "explicacion": "Como criterio formal de salida se pueden fijar umbrales de cobertura (p. ej., ≥80%). En la práctica, el agotamiento de presupuesto también puede forzar la salida, aunque no sea lo ideal. Los otros son criterios de entrada o de recursos.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 31,
-    "pregunta": "",
-    "opciones": [
-      "a) 14 hours",
-      "b) 3.5 hours",
-      "c) 16 hours",
-      "d) 12 hours"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "PERT por caso: (1 + 4×3 + 8)/6 = 3.5 h. Para 4 casos: 3.5×4 = 14 horas.",
-    "imageUrl": "../images/foundation-level/question31d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 32,
-    "pregunta": "",
-    "opciones": [
-      "a) TC1",
-      "b) TC2",
-      "c) TC3",
-      "d) TC4"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "Con ‘additional coverage’, tras ejecutar TC1 (cubre más requisitos), los que aportan menos nuevos ítems se dejan para el final; TC4 añade menos cobertura y debe ir último.",
-    "imageUrl": "../images/foundation-level/question32d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 33,
-    "pregunta": "How can the testing quadrants be beneficial for testing?",
-    "opciones": [
-      "a) They help in test planning by dividing the test process into four phases, corresponding to the four basic test levels: component, integration, system, and acceptance testing",
-      "b) They help in assessing the high-level coverage (e.g., requirements coverage) based on low-level coverage (e.g., code coverage)",
-      "c) They help non-technical stakeholders to understand the different test types and that some test types are more relevant to certain test levels than others",
-      "d) They help agile teams to develop a communication strategy based on classifying people according to four basic psychological types, and on modelling the relations between them"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Los cuadrantes ayudan a explicar tipos de prueba y su propósito (negocio/tecnología; soporte/critican el producto) a todos los interesados.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 34,
-    "pregunta": "For a given risk, its risk level is $1,000 and its risk likelihood is estimated as 50%.<br><br>What is the risk impact?",
-    "opciones": [
-      "a) $500",
-      "b) $2,000",
-      "c) $50,000",
-      "d) $200"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "Nivel de riesgo = Probabilidad × Impacto. Por tanto, Impacto = 1000 / 0.5 = $2,000.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 35,
-    "pregunta": "Which of the following are product risks?",
-    "opciones": [
-      "a) Scope creep",
-      "b) Poor architecture",
-      "c) Cost-cutting",
-      "d) Poor tool support",
-      "e) Too long response time"
-    ],
-    "respuesta_correcta": [1, 4],
-    "numero_respuestas": "TWO",
-    "explicacion": "Riesgos del producto: mala arquitectura y tiempos de respuesta largos (calidad del sistema). Los otros son riesgos de proyecto/proceso.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 36,
-    "pregunta": "Which of the following is NOT a valid purpose for a test report?",
-    "opciones": [
-      "a) Tracking test progress and identifying areas that require further attention",
-      "b) Providing information on the tests executed, their results, and defects found",
-      "c) Providing information about each defect, such as the steps to reproduce it",
-      "d) Providing information on testing planned for the next period"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Los detalles por defecto (pasos para reproducir) pertenecen a informes de defectos, no al informe de pruebas.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 37,
-    "pregunta": "The user reported a software failure. An engineer from the support team asked the user for the software version number where the failure was observed. Based on the version number, the team reassembled all the files that made up the release. This later allowed a developer to perform analysis, find the defect, and fix it.<br><br>Which of the following enabled the above activity to be performed by the team?",
-    "opciones": [
-      "a) Risk management",
-      "b) Test monitoring and control",
-      "c) Whole team approach",
-      "d) Configuration management"
-    ],
-    "respuesta_correcta": 3,
-    "numero_respuestas": "ONE",
-    "explicacion": "La gestión de la configuración permite identificar y reconstruir exactamente la versión liberada (archivos/componentes).",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 38,
-    "pregunta": "",
-    "opciones": [
-      "a) Adding information about which users and which books the failure affects to the “Description” section",
-      "b) Filling in the missing value for the “Priority” field",
-      "c) Adding memory dumps and database snapshots taken after each step described in the “Steps to Reproduce” section to the “Attachments” section.",
-      "d) Repeating the same test case for different environments and writing defect reports for each of them separately"
-    ],
-    "respuesta_correcta": 0,
-    "numero_respuestas": "ONE",
-    "explicacion": "Datos concretos (usuarios/libros afectados) hacen el problema reproducible de inmediato; prioridad o volcados masivos no aportan tanto aquí.",
-    "imageUrl": "../images/foundation-level/question38d.png",
-    "ytURL": ""
-  },
-  {
-    "numero": 39,
-    "pregunta": "Given the following test tool categories:<p style='margin-left:40px'><br>i. Collaboration tools<br>ii. DevOps tools<br>iii. Management tools<br>iv. Non-functional testing tools <br>v. Test design and implementation tools</p><br><br>Tools from which of the categories are MOST likely to facilitate test execution?",
-    "opciones": [
-      "a) i, v",
-      "b) ii, iv",
-      "c) i, iii, v",
-      "d) ii, iii, iv"
-    ],
-    "respuesta_correcta": 1,
-    "numero_respuestas": "ONE",
-    "explicacion": "Herramientas DevOps (pipelines/CI-CD) y de pruebas no funcionales (drivers/generadores/cargadores) facilitan directamente la ejecución.",
-    "imageUrl": "",
-    "ytURL": ""
-  },
-  {
-    "numero": 40,
-    "pregunta": "Which of the following is MOST likely to be a risk of test automation?",
-    "opciones": [
-      "a) The detection of additional high-severity defects",
-      "b) Providing measures that are too complicated for humans to derive",
-      "c) Incompatibility with the development platform",
-      "d) Substantially reduced test execution times"
-    ],
-    "respuesta_correcta": 2,
-    "numero_respuestas": "ONE",
-    "explicacion": "Un riesgo común es la incompatibilidad de herramientas con la plataforma/tecnología del sistema bajo prueba.",
-    "imageUrl": "",
-    "ytURL": ""
+    "examen": [
+      {
+        "numero": 1,
+        "pregunta": "Which of the following is a typical test objective?",
+        "opciones": [
+          "a) Finding and fixing defects in the test object",
+          "b) Maintaining effective communications with developers",
+          "c) Validating that legal requirements have been met",
+          "d) Building confidence in the quality of the test object"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. Generar confianza en la calidad del objeto de prueba es un objetivo típico de las pruebas, logrado al ejecutar pruebas que pasan satisfactoriamente. a) Es incorrecto: aunque identificar defectos es un objetivo de las pruebas, corregirlos no es una actividad de pruebas (eso es depuración). b) Es incorrecto: mantener comunicación efectiva con los desarrolladores es útil pero no es un objetivo primario de las pruebas. c) Es incorrecto: verificar que se han cumplido requisitos legales es una forma de verificación, no de validación.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 2,
+        "pregunta": "A designer documents a design for a user interface that does not suitably address disabled users because the designer is tired. The programmer implements the user interface in line with the design but as they are working under severe time pressure, they do not include suitable exception handling in their program code for bonus calculations. When the operational system is used, complaints are made by some disabled users about the interface and the company is subsequently fined by the relevant regulatory authority. No one notices that bonus calculations are sometimes incorrect.<br><br>Which of the following statements is CORRECT?",
+        "opciones": [
+          "a) The miscalculation of bonuses is a defect that occasionally occurs",
+          "b) The fine received for failing to address some disabled users is a failure",
+          "c) The programmer working under severe time pressure is a root cause",
+          "d) The design of the user interface includes a designer error"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. El error es cometido por el programador y este error es causado por trabajar bajo severa presión de tiempo, lo cual es la causa raíz del defecto subsecuente. a) Es incorrecto: el cálculo incorrecto de bonos es un fallo del sistema, no un defecto. b) Es incorrecto: el sistema no soportar adecuadamente a usuarios con discapacidad es un fallo, pero la multa en sí no es un fallo (parece ser el funcionamiento correcto del sistema regulatorio). d) Es incorrecto: el mal diseño de la interfaz de usuario es un defecto de diseño causado por el error del diseñador; por lo tanto, el diseño incluye un defecto de diseño, no un error del diseñador.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 3,
+        "pregunta": "Test conditions are being used by testers to generate test cases and execute tests. Even though the test conditions remain the same, the test cases are varied each time. Which of the following 'principles of testing' is being addressed through the variation of test cases?",
+        "opciones": [
+          "a) Tests wear out",
+          "b) Absence-of-defects fallacy",
+          "c) Early testing saves time and money",
+          "d) Defects cluster together"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. El principio de 'las pruebas se desgastan' se refiere a que repetir pruebas idénticas en código sin cambios es poco probable que descubra nuevos defectos, por lo que modificar las pruebas puede ser esencial. Al usar condiciones de prueba para generar nuevas pruebas cada vez, se reduce el riesgo de desgaste. b) Es incorrecto: la 'falacia de ausencia de defectos' se refiere a asegurar que las necesidades del usuario se satisfagan incluso si se hacen muchas pruebas sin encontrar defectos. c) Es incorrecto: 'las pruebas tempranas ahorran tiempo y dinero' se refiere a corregir defectos tempranamente para prevenir defectos subsecuentes. d) Es incorrecto: 'los defectos se agrupan' se refiere a la distribución de defectos que típicamente sigue una distribución de Pareto.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 4,
+        "pregunta": "Given the following test tasks:<br><br><ol type=\"i\"><li>Derive test cases from test conditions</li><li>Identify reusable testware</li><li>Organize test cases into test procedures</li><li>Evaluate the test basis and the test object</li></ol><br>And the following test activities:<br><br>A. Test analysis<br>B. Test design<br>C. Test implementation<br>D. Test completion<br><br>Which of the following BEST matches the tasks with the activities?",
+        "opciones": [
+          "a) 1B, 2A, 3D, 4C",
+          "b) 1B, 2D, 3C, 4A",
+          "c) 1C, 2A, 3B, 4D",
+          "d) 1C, 2D, 3A, 4B"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. La correspondencia correcta es: 1B (derivar casos de prueba a partir de condiciones es diseño de pruebas), 2D (identificar testware reutilizable es completamiento de pruebas), 3C (organizar casos de prueba en procedimientos es implementación de pruebas), 4A (evaluar la base de pruebas y el objeto de prueba es análisis de pruebas).",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 5,
+        "pregunta": "Given the following testware:<br><br><ol type=\"i\"><li>Test completion report</li><li>Data held in a database used for test inputs and expected results</li><li>The list of elements needed to build the test environment</li><li>Documented sequences of test cases in execution order</li><li>Test cases</li></ol><br>Which of the following BEST shows the testware produced as a result of performing test implementation?",
+        "opciones": [
+          "a) ii, iv",
+          "b) iii, v",
+          "c) i, ii, v",
+          "d) i, iii, iv"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Los ítems ii (datos de prueba en base de datos) y iv (secuencias documentadas de casos de prueba, es decir, procedimientos de prueba) son producidos durante la implementación de pruebas. i (informe de completamiento) es salida del completamiento de pruebas. iii (lista de elementos del entorno de pruebas) es salida del diseño de pruebas. v (casos de prueba) es salida del diseño de pruebas.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 6,
+        "pregunta": "Which of the following is MOST likely to describe a task performed by someone in a test management role?",
+        "opciones": [
+          "a) Evaluate the test basis and the test object",
+          "b) Define test environment requirements",
+          "c) Assess testability of the test object",
+          "d) Create the test completion report"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. El rol de gestión de pruebas involucra principalmente actividades de planificación, monitoreo, control y completamiento de pruebas. Crear el informe de completamiento de pruebas es la salida principal del completamiento de pruebas, y por lo tanto es una tarea del rol de gestión. a) Es incorrecto: evaluar la base de pruebas es parte del análisis de pruebas, tarea del rol técnico de tester. b) Es incorrecto: definir requisitos del entorno de pruebas es parte del diseño de pruebas, tarea del rol técnico. c) Es incorrecto: evaluar la testabilidad es parte del análisis de pruebas, tarea del rol técnico.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 7,
+        "pregunta": "Which of the following is an advantage of the whole team approach?",
+        "opciones": [
+          "a) Improved communication between team members",
+          "b) Decreased individual accountability for quality",
+          "c) Faster deployment of deliverables to the end users",
+          "d) Reduced collaboration with external business users"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. El enfoque de equipo completo promueve una comunicación robusta y la colaboración entre los miembros del equipo. b) Es incorrecto: aunque se prioriza la responsabilidad colectiva por la calidad, cada miembro individual sigue siendo igualmente responsable. c) Es incorrecto: el enfoque trata sobre cómo trabaja el equipo junto, no necesariamente resulta en un despliegue más rápido. d) Es incorrecto: al usar este enfoque, los testers trabajan con representantes del negocio para crear pruebas de aceptación; no se reduce la colaboración con usuarios externos.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 8,
+        "pregunta": "Given the following benefits and drawbacks of the independence of testing:<br><br><ol type=\"i\"><li>The testers work in a different location from the developers</li><li>Testers question the assumptions programmers make while writing code</li><li>A confrontational dynamic has been established between testers and developers</li><li>Developers have convinced themselves that testers are mostly accountable for quality</li><li>Testers have different biases than those held by the developers</li></ol><br>Which are MOST likely to be considered benefits?",
+        "opciones": [
+          "a) i, iv",
+          "b) ii, v",
+          "c) i, iii, iv",
+          "d) ii, iii, v"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. ii y v son beneficios. ii: Los testers cuestionan las suposiciones que hacen los programadores, lo cual es un beneficio ya que diferentes perspectivas técnicas ayudan a encontrar más defectos. v: Los testers tienen sesgos diferentes a los de los desarrolladores, lo cual es el beneficio principal de la independencia de pruebas. i es una desventaja (aislamiento). iii es una desventaja (relación adversarial). iv es una desventaja (los desarrolladores se sienten menos responsables de la calidad).",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Fundamentos de Pruebas"
+      },
+      {
+        "numero": 9,
+        "pregunta": "Which of the following is a good testing practice that applies to all software development lifecycles?",
+        "opciones": [
+          "a) Each test level has specific and distinct test objectives",
+          "b) Test implementation and execution for a given test level should start during the corresponding development phase",
+          "c) Testers should start test design as soon as drafts of the relevant work products become available",
+          "d) Every dynamic testing activity has a corresponding static testing activity"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Cada nivel de prueba tiene objetivos específicos y distintos, ya que en cada nivel se prueba un tipo diferente de objeto de prueba y los objetivos superpuestos llevarían a duplicación innecesaria. b) Es incorrecto: el análisis y diseño de pruebas deben comenzar durante la fase correspondiente, pero la implementación y ejecución generalmente comienzan más tarde. c) Es incorrecto: el diseño de pruebas debe basarse en una base de pruebas acordada, no en borradores tempranos, para evitar desperdicio de esfuerzo. d) Es incorrecto: existen actividades de pruebas estáticas (como el análisis estático) para las cuales no hay una actividad dinámica correspondiente obvia.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 10,
+        "pregunta": "Which of the following is an example of a test-first approach to development?",
+        "opciones": [
+          "a) Behavior-Driven Development",
+          "b) Test Level Driven Development",
+          "c) Function-Driven Development",
+          "d) Performance-Driven Development"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. El Desarrollo Guiado por Comportamiento (BDD) es un ejemplo bien conocido de un enfoque de desarrollo que prioriza las pruebas (test-first). b) Es incorrecto: Test Level Driven Development no es un ejemplo correcto de enfoque test-first. c) Es incorrecto: Function-Driven Development no es un ejemplo correcto de enfoque test-first. d) Es incorrecto: Performance-Driven Development no es un ejemplo correcto de enfoque test-first.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 11,
+        "pregunta": "Which of the following is MOST likely to be a challenge encountered when implementing DevOps?",
+        "opciones": [
+          "a) Making sure that non-functional quality characteristics are not overlooked",
+          "b) Managing continuously changing test environments",
+          "c) The need for more manual testers with suitable experience",
+          "d) Setting up the test automation as part of the delivery pipeline"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. La implementación de DevOps puede plantear varios riesgos y desafíos, incluyendo la necesidad de definir y configurar el pipeline de entrega, introducir y mantener herramientas de CI/CD, y establecer y mantener la automatización de pruebas. a) Es incorrecto: DevOps generalmente aumenta la visibilidad de características de calidad no funcionales. b) Es incorrecto: los procesos automatizados como CI/CD facilitan entornos de prueba estables. c) Es incorrecto: DevOps generalmente reduce la necesidad de pruebas manuales gracias a la automatización.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 12,
+        "pregunta": "Which of the following BEST describes retrospectives?",
+        "opciones": [
+          "a) Retrospectives allow team members to identify other team members who did not fully contribute to achieving quality as required by the whole team approach",
+          "b) Retrospectives give testers an opportunity to identify activities that were successful so that these are retained when potential improvements are made in the future",
+          "c) Retrospectives are where agile team members are allowed to voice their concerns about management and customers in a blameless environment",
+          "d) Retrospectives give agile team members a forum where they focus on discussing the plan and technical decisions for the next iteration"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Durante la retrospectiva, el grupo discute qué aspectos del proyecto fueron exitosos y deben mantenerse, así como áreas que podrían mejorarse y cómo hacerlo. a) Es incorrecto: señalar a individuos que no contribuyeron completamente no fomenta el trabajo en equipo ni la colaboración. c) Es incorrecto: las retrospectivas no son una oportunidad para criticar a la gerencia y los clientes; se enfocan en la efectividad y eficiencia del proceso. d) Es incorrecto: las retrospectivas se realizan al final de una iteración para discutir problemas de calidad, no para planificar o tomar decisiones técnicas de la siguiente iteración.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 13,
+        "pregunta": "Which of the following tests is MOST likely to be performed as part of functional testing?",
+        "opciones": [
+          "a) The test checks that the sort function puts the elements of the list or array in ascending order",
+          "b) The test checks whether the sort function completes sorting within one second of starting",
+          "c) The test checks how easily the sort function can be changed from sorting ascending to sorting descending",
+          "d) The test checks that the sort function still functions correctly when moved from a 32-bit to a 64-bit architecture"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Verificar que la función de ordenamiento coloca los elementos en orden ascendente es evaluar la corrección funcional, lo cual es parte de las pruebas funcionales. b) Es incorrecto: evaluar si completa en un segundo es prueba de eficiencia de rendimiento (no funcional). c) Es incorrecto: evaluar la facilidad de modificación es prueba de mantenibilidad (no funcional). d) Es incorrecto: verificar que funciona correctamente al cambiar de arquitectura 32-bit a 64-bit es prueba de portabilidad (no funcional).",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 14,
+        "pregunta": "Which of the following is MOST likely to be a trigger that leads to maintenance testing of a currency exchange system?",
+        "opciones": [
+          "a) The developers reported that changing the currency exchange system was difficult and the testers decided to check if this was true",
+          "b) The refund option of the currency exchange system was removed as it did not always repay the correct amount to customers",
+          "c) The agile team has started developing a user story that adds a new customer loyalty feature to the currency exchange system",
+          "d) The language support option of the currency exchange system was used to enable both English and local language currency transactions"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Una modificación del sistema (como una corrección o mejora) es un ejemplo de desencadenante para pruebas de mantenimiento. La eliminación de la opción de reembolso fue una corrección que conduciría a pruebas de mantenimiento. a) Es incorrecto: verificar la facilidad de cambio sería pruebas de mantenibilidad, no pruebas de mantenimiento. c) Es incorrecto: desarrollar una nueva funcionalidad resulta en pruebas de la nueva característica y regresión, no pruebas de mantenimiento. d) Es incorrecto: reconfigurar el soporte de idioma no es una modificación del sistema ni un cambio en el entorno operativo.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas a lo largo del SDLC"
+      },
+      {
+        "numero": 15,
+        "pregunta": "Which of the following CANNOT be examined by static testing?",
+        "opciones": [
+          "a) Contract",
+          "b) Test plan",
+          "c) Encrypted code",
+          "d) Test charter"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. La mayoría de los productos de trabajo pueden ser examinados mediante pruebas estáticas; sin embargo, no es adecuada para productos de trabajo demasiado complejos para la interpretación humana y que no deberían ser analizados por herramientas. El código cifrado es demasiado complejo para los humanos y si está correctamente cifrado, no será analizable por la mayoría de las herramientas. a) Es incorrecto: un contrato es interpretable por humanos y puede ser revisado. b) Es incorrecto: un plan de pruebas puede ser revisado. d) Es incorrecto: un test charter puede ser revisado.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas Estáticas"
+      },
+      {
+        "numero": 16,
+        "pregunta": "Which of the following statements about the value of static testing is CORRECT?",
+        "opciones": [
+          "a) The defect types found by static testing are different from the defect types that can be found by dynamic testing",
+          "b) Dynamic testing can detect the defect types that can be found by static testing plus some additional defect types",
+          "c) Dynamic testing can identify some of the defects that can be found by static testing but not all of them",
+          "d) Static testing can identify the defect types that can be found by dynamic testing as well as some extra defect types"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Algunos tipos de defectos solo pueden ser detectados por pruebas estáticas (como código inalcanzable, patrones de diseño no implementados como se deseaba, defectos en productos no ejecutables). Algunos defectos pueden ser encontrados tanto por pruebas estáticas como dinámicas. Y algunos tipos de defectos solo pueden ser detectados por pruebas dinámicas (como problemas de rendimiento o memoria). Por lo tanto, las pruebas dinámicas pueden identificar algunos de los defectos que encuentra la prueba estática, pero no todos.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas Estáticas"
+      },
+      {
+        "numero": 17,
+        "pregunta": "Given the following descriptions of review activities:<br><br><ol type=\"i\"><li>Detected anomalies are deliberated upon, and determinations are reached regarding their status, ownership, and any further steps needed</li><li>Defects are recorded, and any needed updates are addressed prior to the acceptance of the work product</li><li>Reviewers employ techniques to come up with suggestions and questions about the work product and to spot anomalies</li><li>The objective of the review and its schedule are established to ensure a focused and efficient review</li><li>Participants are provided with access to the item being reviewed</li></ol><br>Which of the following is the CORRECT sequence in the review process of the activities that correspond to the descriptions?",
+        "opciones": [
+          "a) 4–3–5–2–1",
+          "b) 4–5–3–1–2",
+          "c) 5–4–1–3–2",
+          "d) 5–4–3–2–1"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Las cinco descripciones corresponden a las siguientes actividades del proceso de revisión: 1=Comunicación y análisis, 2=Corrección y reporte, 3=Revisión individual, 4=Planificación, 5=Inicio de la revisión. El proceso genérico de revisión según ISO/IEC 20246 sigue este orden: Planificación (4) → Inicio de la revisión (5) → Revisión individual (3) → Comunicación y análisis (1) → Corrección y reporte (2). La secuencia correcta es 4–5–3–1–2.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas Estáticas"
+      },
+      {
+        "numero": 18,
+        "pregunta": "Which participant in the review process is responsible for ensuring that the review meetings run effectively and that everyone at the meetings can voice their opinions freely?",
+        "opciones": [
+          "a) Manager",
+          "b) Moderator",
+          "c) Chairperson",
+          "d) Review Leader"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. El moderador (o facilitador) es responsable de asegurar que las reuniones de revisión se desarrollen eficazmente, incluyendo la gestión del tiempo, la mediación de discusiones y la creación de un ambiente seguro donde todos puedan expresar sus opiniones libremente. a) Es incorrecto: el gerente decide qué necesita ser revisado y asigna recursos. c) Es incorrecto: el chairperson no es un rol reconocido en las revisiones. d) Es incorrecto: el líder de revisión supervisa el proceso de revisión, como seleccionar miembros del equipo de revisión y programar reuniones.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Pruebas Estáticas"
+      },
+      {
+        "numero": 19,
+        "pregunta": "You perform system testing of an e-commerce web application and are provided with the following requirement:<br><br>REQ 05-017. If the total cost of purchases exceeds $100, the customer gets a 5% discount on subsequent purchases. Otherwise, the customer does not receive a discount.<br><br>Which test techniques will be MOST helpful in designing test cases based on this requirement?",
+        "opciones": [
+          "a) White-box test techniques",
+          "b) Black-box test techniques",
+          "c) Experience-based test techniques",
+          "d) Risk-based test techniques"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. El documento es un requisito que especifica el comportamiento deseado del objeto de prueba. Por lo tanto, las técnicas más adecuadas son las técnicas de caja negra (como Análisis de Valores Límite o Tablas de Decisión). a) Es incorrecto: el documento no se refiere a la estructura interna del objeto de prueba. c) Es incorrecto: aunque las técnicas basadas en experiencia podrían usarse, las técnicas de caja negra son más adecuadas para una regla de negocio precisa con límites claros. d) Es incorrecto: las técnicas basadas en riesgo no son un tipo reconocido de técnica de prueba.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 20,
+        "pregunta": "The system for selling cinema tickets calculates the discount type based on the client's birth year (BY) and on the current year (CY) as follows:<br><br>Let D be the difference between CY and BY, that is, D = CY – BY<br><br><ul><li>If D &lt; 0 then print the error message \"birth year cannot be greater than current year\"</li><li>If 0 ≤ D &lt; 18 then apply the student discount</li><li>If 18 ≤ D &lt; 65 then apply no discount</li><li>If D ≥ 65 then apply the pensioner discount</li></ul><br>Your test suite already contains two test cases:<br><ul><li>BY = 1990, CY = 2020, expected result: no discount</li><li>BY = 2030, CY = 2029, expected result: print the error message</li></ul><br>Which of the following test data sets should be added to achieve full valid equivalence partitioning coverage for the discount type?",
+        "opciones": [
+          "a) BY = 2001, CY = 2065",
+          "b) BY = 1900, CY = 1965",
+          "c) BY = 1965, CY = 1900",
+          "d) BY = 2011, CY = 2029",
+          "e) BY = 2000, CY = 2000"
+        ],
+        "respuesta_correcta": [1, 4],
+        "numero_respuestas": "TWO",
+        "explicacion": "Hay dos particiones de equivalencia que aún no están cubiertas: \"descuento de estudiante\" y \"descuento de pensionista\". b) Es correcto. CY – BY = 65, estos datos corresponden a la partición \"descuento de pensionista\" que no está cubierta. e) Es correcto. CY – BY = 0, estos datos corresponden a la partición \"descuento de estudiante\" que no está cubierta. a) Es incorrecto: CY – BY = 64, corresponde a la partición \"sin descuento\" ya cubierta. c) Es incorrecto: CY – BY = –65, corresponde a la partición \"mensaje de error\" ya cubierta. d) Es incorrecto: CY – BY = 18, corresponde a la partición \"sin descuento\" ya cubierta.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 21,
+        "pregunta": "You are testing a temperature control system for a horticultural cold storage facility. The system receives the temperature (in full degrees Celsius) as the input. If the temperature is between 0 and 2 degrees inclusive, the system displays the message \"temperature OK\". For lower temperatures, the system displays the message \"temperature too low\" and for higher temperatures it displays the message \"temperature too high\".<br><br>Using two-value boundary value analysis, which of the following sets of test inputs provides the highest level of boundary value coverage?",
+        "opciones": [
+          "a) –1, 3",
+          "b) 0, 2",
+          "c) –1, 0, 2, 3",
+          "d) –2, 0, 2, 4"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Hay tres particiones de equivalencia: {…, –2, –1}, {0, 1, 2}, {3, 4, …}. Para BVA de dos valores, todos los valores límite de todas las particiones deben cubrirse. Los valores límite son –1 (para la partición \"temperatura demasiado baja\"), 0, 2 (para la partición \"temperatura OK\") y 3 (para la partición \"temperatura demasiado alta\"). La opción c) {–1, 0, 2, 3} cubre los 4 valores límite. a) cubre solo 2 de 4. b) cubre solo 2 de 4. d) incluye –2 y 4 que no son valores límite en BVA de dos valores.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 22,
+        "pregunta": "You are designing test cases based on the following decision table.<br><br><table style=\"border-collapse: collapse; width: 100%;\"><tr style=\"border-bottom: 2px solid currentColor;\"><th style=\"padding: 8px; text-align: left;\"></th><th style=\"padding: 8px; text-align: center;\">R1</th><th style=\"padding: 8px; text-align: center;\">R2</th><th style=\"padding: 8px; text-align: center;\">R3</th><th style=\"padding: 8px; text-align: center;\">R4</th><th style=\"padding: 8px; text-align: center;\">R5</th><th style=\"padding: 8px; text-align: center;\">R6</th><th style=\"padding: 8px; text-align: center;\">R7</th></tr><tr><td style=\"padding: 8px;\">C1: Age</td><td style=\"padding: 8px; text-align: center;\">0-18</td><td style=\"padding: 8px; text-align: center;\">19-65</td><td style=\"padding: 8px; text-align: center;\">19-65</td><td style=\"padding: 8px; text-align: center;\">&gt;65</td><td style=\"padding: 8px; text-align: center;\">0-18</td><td style=\"padding: 8px; text-align: center;\">19-65</td><td style=\"padding: 8px; text-align: center;\">&gt;65</td></tr><tr><td style=\"padding: 8px;\">C2: Experience</td><td style=\"padding: 8px; text-align: center;\">-</td><td style=\"padding: 8px; text-align: center;\">0-4</td><td style=\"padding: 8px; text-align: center;\">&gt;4</td><td style=\"padding: 8px; text-align: center;\">-</td><td style=\"padding: 8px; text-align: center;\">-</td><td style=\"padding: 8px; text-align: center;\">-</td><td style=\"padding: 8px; text-align: center;\">-</td></tr><tr><td style=\"padding: 8px;\">C3: Registered?</td><td style=\"padding: 8px; text-align: center;\">NO</td><td style=\"padding: 8px; text-align: center;\">NO</td><td style=\"padding: 8px; text-align: center;\">NO</td><td style=\"padding: 8px; text-align: center;\">NO</td><td style=\"padding: 8px; text-align: center;\">YES</td><td style=\"padding: 8px; text-align: center;\">YES</td><td style=\"padding: 8px; text-align: center;\">YES</td></tr><tr style=\"border-top: 2px solid currentColor;\"><td style=\"padding: 8px;\">Category</td><td style=\"padding: 8px; text-align: center;\">A</td><td style=\"padding: 8px; text-align: center;\">A</td><td style=\"padding: 8px; text-align: center;\">B</td><td style=\"padding: 8px; text-align: center;\">B</td><td style=\"padding: 8px; text-align: center;\">B</td><td style=\"padding: 8px; text-align: center;\">D</td><td style=\"padding: 8px; text-align: center;\">C</td></tr></table><br>So far you have designed the following test cases:<br><ul><li>TC1: 19-year-old, unregistered man with no experience; expected result: category A</li><li>TC2: 65-year-old, unregistered woman with 5 years of experience; expected result: category B</li><li>TC3: 66-year-old, registered man with no experience; expected result: category C</li><li>TC4: 65-year-old, registered woman with 4 years of experience; expected result: category D</li></ul><br>Which of the following test cases, when added to the existing set of test cases, will increase the decision table coverage?",
+        "opciones": [
+          "a) 66-year-old, unregistered man with no experience; expected result: category B",
+          "b) 55-year-old, unregistered woman with 2 years of experience; expected result: category A",
+          "c) 19-year-old, registered woman with 5 years of experience; expected result: category D",
+          "d) No additional test case can increase the already achieved decision table coverage"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Los casos de prueba TC1, TC2, TC3 y TC4 cubren respectivamente las reglas R2, R3, R7 y R6. Las condiciones \"66 años\", \"no registrado\" y \"sin experiencia\" coinciden con la regla R4, que no está cubierta por los casos existentes, por lo que agregar este caso aumentará la cobertura. b) Es incorrecto: \"55 años\", \"no registrada\" y \"2 años de experiencia\" coincide con R2, ya cubierta por TC1. c) Es incorrecto: \"19 años\", \"registrada\" y \"5 años de experiencia\" coincide con R6, ya cubierta por TC4. d) Es incorrecto: los casos existentes cubren solo 4 de 7 columnas; las reglas R1, R4 y R5 aún no están cubiertas.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 23,
+        "pregunta": "You are applying state transition testing to the hotel room reservation system modeled by the following state transition table, with 4 states and 5 different events:<br><br><table style=\"border-collapse: collapse; width: 100%;\"><tr style=\"border-bottom: 2px solid currentColor;\"><th style=\"padding: 8px; text-align: left;\">State</th><th style=\"padding: 8px; text-align: center;\">Available</th><th style=\"padding: 8px; text-align: center;\">NotAvailable</th><th style=\"padding: 8px; text-align: center;\">ChangeRoom</th><th style=\"padding: 8px; text-align: center;\">Cancel</th><th style=\"padding: 8px; text-align: center;\">Pay</th></tr><tr><td style=\"padding: 8px;\">S1: Requesting</td><td style=\"padding: 8px; text-align: center;\">S2</td><td style=\"padding: 8px; text-align: center;\">S3</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td></tr><tr><td style=\"padding: 8px;\">S2: Confirmed</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">S1</td><td style=\"padding: 8px; text-align: center;\">S4</td><td style=\"padding: 8px; text-align: center;\">S4</td></tr><tr><td style=\"padding: 8px;\">S3: Waiting list</td><td style=\"padding: 8px; text-align: center;\">S2</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">S4</td><td style=\"padding: 8px; text-align: center;\"></td></tr><tr><td style=\"padding: 8px;\">S4: End</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td></tr></table><br>Assuming all test cases start in the 'Requesting' state, which of the following test cases, represented as sequences of events, achieves the highest valid transitions coverage?",
+        "opciones": [
+          "a) NotAvailable, Available, ChangeRoom, NotAvailable, Cancel",
+          "b) Available, ChangeRoom, NotAvailable, Available, Pay",
+          "c) Available, ChangeRoom, Available, ChangeRoom, NotAvailable",
+          "d) NotAvailable, Cancel, ChangeRoom, Available, Pay"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Esta secuencia de cinco eventos cubre 5 transiciones diferentes: Available (S1→S2), ChangeRoom (S2→S1), NotAvailable (S1→S3), Available (S3→S2), Pay (S2→S4). Cubre 5 de 7 transiciones válidas y logra la mayor cobertura. a) Cubre 4 transiciones (ambos eventos NotAvailable corresponden a la misma transición S1→S3). c) Cubre solo 3 transiciones diferentes (ambos Available son S1→S2, ambos ChangeRoom son S2→S1). d) No es un caso de prueba factible porque después de Cancel el sistema termina en el estado End y no se pueden ejecutar más transiciones válidas.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 24,
+        "pregunta": "Your test suite S for a program P achieves 100% statement coverage. It consists of three test cases, each of which achieves 50% statement coverage.<br><br>Which of the following statements is CORRECT?",
+        "opciones": [
+          "a) Executing S will cause all possible failures in P",
+          "b) S achieves 100% branch coverage for P",
+          "c) Every executable statement in P containing a defect has been run at least once during the execution of S",
+          "d) After removing one test case from S, the remaining two test cases will still achieve 100% statement coverage"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. 100% de cobertura de sentencias significa que cada sentencia ejecutable fue ejecutada al menos una vez. a) Es incorrecto: una sentencia con un defecto, al ser ejecutada, no necesariamente causa un fallo (por ejemplo, x := y / z solo falla cuando z = 0). b) Es incorrecto: 100% de cobertura de sentencias no garantiza 100% de cobertura de ramas. d) Es incorrecto: el caso de prueba eliminado puede proporcionar cobertura de sentencias que no son cubiertas por los otros dos.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 25,
+        "pregunta": "Why does white-box testing facilitate defect detection even when the software specification is vague, outdated or incomplete?",
+        "opciones": [
+          "a) Test cases are designed based on the structure of the test object rather than the specification",
+          "b) For each white-box test technique the coverage can be well-defined and easily measured",
+          "c) White-box test techniques are very well designed to detect omissions in the requirements",
+          "d) White-box test techniques can be used in both static testing and dynamic testing"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Una fortaleza fundamental de las técnicas de caja blanca es que toda la implementación del software se tiene en cuenta durante las pruebas, lo cual facilita la detección de defectos incluso cuando la especificación es vaga, desactualizada o incompleta. Puede encontrar defectos como funcionalidades extra añadidas al código que no deberían estar ahí. b) Es incorrecto: el hecho de que la cobertura pueda definirse con precisión no es la razón correcta. c) Es incorrecto: si el software no implementa uno o más requisitos, las pruebas de caja blanca difícilmente detectarán esas omisiones. d) Es incorrecto: aunque es cierto, no hay conexión entre esta capacidad y la detección de defectos con especificaciones pobres.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 26,
+        "pregunta": "Which of the following is NOT anticipated by the tester while applying error guessing?",
+        "opciones": [
+          "a) The developer misunderstood the formula in the user story for calculating the interest",
+          "b) The developer wrote \"FA = A*(1+IR^N)\" instead of \"FA = A*(1+IR)^N\" in the source code",
+          "c) The developer missed the seminar on new compound interest rate legislation",
+          "d) The accuracy of the interest calculated by the system is not precise enough"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Esta es una posible causa raíz de un defecto, que no es un error, defecto ni fallo, y es difícil de anticipar para el tester. La adivinación de errores se trata de anticipar errores, defectos y fallos basándose en el conocimiento del tester. a) Es incorrecto: este es un ejemplo de anticipar el error del desarrollador. b) Es incorrecto: este es un ejemplo de anticipar el defecto. d) Es incorrecto: este es un ejemplo de anticipar un fallo, posiblemente basado en experiencia con sistemas previos del mismo dominio.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 27,
+        "pregunta": "Which of the following is true about exploratory testing?",
+        "opciones": [
+          "a) Test cases are designed before the exploratory testing session starts",
+          "b) The tester can perform test execution, but cannot perform test design",
+          "c) Exploratory testing results are good predictors of the number of remaining defects",
+          "d) During exploratory testing the tester may use black-box test techniques"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. Durante las pruebas exploratorias, los testers pueden usar cualquier técnica de prueba que encuentren útil, incluyendo técnicas de caja negra. a) Es incorrecto: en las pruebas exploratorias, los casos de prueba usualmente se crean durante la sesión, junto con el análisis, implementación y ejecución. b) Es incorrecto: en las pruebas exploratorias, las pruebas se diseñan, ejecutan y evalúan simultáneamente mientras el tester aprende sobre el objeto de prueba. c) Es incorrecto: los resultados de las pruebas exploratorias dependen fuertemente de la experiencia del tester y no son buenos predictores confiables del número de defectos restantes.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 28,
+        "pregunta": "Which collaborative user story writing practice enables the team to achieve a collective understanding of what needs to be delivered?",
+        "opciones": [
+          "a) Planning poker, so that a team can achieve consensus on the effort needed to implement a user story",
+          "b) Reviews, so that a team can detect inconsistencies and contradictions in a user story",
+          "c) Iteration planning, so that user stories with the highest business value for a customer can be prioritized for implementation",
+          "d) Conversation, so that team members can understand how the software will be used"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. La conversación explica cómo se usará el software y a menudo permite al equipo definir criterios de aceptación significativos, obteniendo así una visión compartida de lo que debe entregarse. a) Es incorrecto: el planning poker estima el esfuerzo para una historia de usuario ya escrita, no ayuda a entender qué debe entregarse. b) Es incorrecto: las revisiones no son una práctica colaborativa de escritura de historias de usuario. c) Es incorrecto: la planificación de iteración es una práctica de proyecto para planificar el trabajo, no para entender qué debe entregarse.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 29,
+        "pregunta": "You have just started designing test cases for the following user story.<br><br><em>As a customer, I want to be able to filter search results by price range, so that I can find products within my budget more easily.</em><br><br>Acceptance criteria:<br><ol type=\"i\"><li>The filter should work for all versions of the application from version 3.0 upwards</li><li>The filter should allow the customer to set a price range with a minimum and a maximum price</li><li>The search results should update dynamically as the customer adjusts the price range filter</li></ol><br>In all test cases the precondition is as follows: there are only two products available, products A and B. Product A costs $100 and product B costs $110.<br><br>Which of the following is the BEST example of a test case for this user story?",
+        "opciones": [
+          "a) Enter webpage and set filter to show prices between $90 and $100. Expected result: results show product A only. Set maximum price to $110. Expected result: results now include both products A and B",
+          "b) Enter webpage. Expected result: the default minimum and maximum prices are $100 and $110 respectively. Add product C to stock, with price $120. Refresh the client's webpage. Expected result: the default maximum price changes to $120",
+          "c) Enter webpage and set filter to show prices between $90 and $115. Expected result: results show both products A and B. Change currency from USD to EUR. Expected result: the filter range changes correctly to EUR values, according to the current exchange rate",
+          "d) Enter webpage with three different browsers: Edge, Chrome and Opera. In each browser set filter between $90 and $110. Expected result: results include both products A and B and the results layout is the same in all three browsers"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Este caso de prueba está relacionado con los criterios de aceptación 2 y 3, porque verificamos si podemos establecer un rango de precios (criterio 2) y si los resultados se actualizan dinámicamente al ajustar el filtro (criterio 3). b) Es incorrecto: no está relacionado con ninguno de los criterios de aceptación; verifica si el filtro establece dinámicamente precios predeterminados. c) Es incorrecto: verifica la función de cambio de moneda, que no se discute en esta historia de usuario. d) Es incorrecto: verifica la compatibilidad con diferentes navegadores, que no se discute en esta historia de usuario.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Técnicas de Prueba"
+      },
+      {
+        "numero": 30,
+        "pregunta": "Which of the following BEST define EXIT criteria in a testing project?",
+        "opciones": [
+          "a) Budget is approved",
+          "b) Budget runs out",
+          "c) Test basis is available",
+          "d) Test cases achieved at least 80% statement coverage",
+          "e) All test analysts are ISTQB certified at the Foundation Level"
+        ],
+        "respuesta_correcta": [1, 3],
+        "numero_respuestas": "TWO",
+        "explicacion": "b) Es correcto. Quedarse sin presupuesto puede considerarse un criterio de salida válido. d) Es correcto. La cobertura es una medida de exhaustividad, por lo que es un criterio de salida típico. a) Es incorrecto: la aprobación del presupuesto es un ejemplo de criterio de entrada. c) Es incorrecto: la disponibilidad de la base de pruebas es un ejemplo de criterio de entrada. e) Es incorrecto: este es un ejemplo de criterio de entrada que se verificaría antes de que comience el proyecto.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 31,
+        "pregunta": "The team wants to estimate the time needed for one tester to execute four test cases for a software component. The team has gathered the following measures of the effort used to execute a single test case:<br><br><ul><li>Best-case scenario: 1 hour</li><li>Worst-case scenario: 8 hours</li><li>Most likely scenario: 3 hours</li></ul><br>Given that the three-point estimation technique is being used, what is the final estimate of the time needed to execute all four test cases?",
+        "opciones": [
+          "a) 14 hours",
+          "b) 3.5 hours",
+          "c) 16 hours",
+          "d) 12 hours"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Usando la técnica de estimación de tres puntos, la estimación final (E) se calcula como: E = (a + 4*m + b) / 6, donde a es la estimación más optimista, m es la más probable y b es la más pesimista. E = (1h + 4*3h + 8h) / 6 = (1 + 12 + 8) / 6 = 21/6 = 3.5 horas por caso de prueba. Para 4 casos de prueba: 3.5h × 4 = 14 horas.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 32,
+        "pregunta": "The table shows the traceability matrix from test cases to requirements. \"X\" means that a given test case covers the corresponding requirement.<br><br><table style=\"border-collapse: collapse; width: 100%;\"><tr style=\"border-bottom: 2px solid currentColor;\"><th style=\"padding: 8px; text-align: left;\"></th><th style=\"padding: 8px; text-align: center;\">Req1</th><th style=\"padding: 8px; text-align: center;\">Req2</th><th style=\"padding: 8px; text-align: center;\">Req3</th><th style=\"padding: 8px; text-align: center;\">Req4</th><th style=\"padding: 8px; text-align: center;\">Req5</th><th style=\"padding: 8px; text-align: center;\">Req6</th><th style=\"padding: 8px; text-align: center;\">Req7</th></tr><tr><td style=\"padding: 8px;\">TC1</td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td></tr><tr><td style=\"padding: 8px;\">TC2</td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td></tr><tr><td style=\"padding: 8px;\">TC3</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td></tr><tr><td style=\"padding: 8px;\">TC4</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td><td style=\"padding: 8px; text-align: center;\">X</td><td style=\"padding: 8px; text-align: center;\"></td></tr></table><br>You want to prioritize the test cases following the additional coverage prioritization technique.<br>You execute all four test cases.<br><br>Which test case should be executed as the LAST one?",
+        "opciones": [
+          "a) TC1",
+          "b) TC2",
+          "c) TC3",
+          "d) TC4"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Siguiendo la técnica de priorización por cobertura adicional: TC1 logra la mayor cobertura inicial (4 de 7 requisitos: Req1, Req3, Req4, Req7), así que se ejecuta primero. Quedan Req2, Req5 y Req6 sin cubrir. TC3 cubre 2 de estos 3 (Req5 y Req6), así que se ejecuta segundo. Queda solo Req2, que es cubierto por TC4, así que se ejecuta tercero. TC2 es el último en ejecutarse porque todos los requisitos que cubre ya están cubiertos.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 33,
+        "pregunta": "How can the testing quadrants be beneficial for testing?",
+        "opciones": [
+          "a) They help in test planning by dividing the test process into four phases, corresponding to the four basic test levels: component, integration, system, and acceptance testing",
+          "b) They help in assessing the high-level coverage (e.g., requirements coverage) based on low-level coverage (e.g., code coverage)",
+          "c) They help non-technical stakeholders to understand the different test types and that some test types are more relevant to certain test levels than others",
+          "d) They help agile teams to develop a communication strategy based on classifying people according to four basic psychological types, and on modelling the relations between them"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Los cuadrantes de prueba permiten a los gerentes y otros stakeholders entender las relaciones entre tipos de prueba, las actividades que apoyan (soporte al equipo o crítica del producto) y el punto de vista en el que se enfocan (orientado al negocio o a la tecnología). a) Es incorrecto: los cuadrantes no describen relaciones entre niveles de prueba. b) Es incorrecto: los cuadrantes no ayudan a evaluar ningún tipo de cobertura. d) Es incorrecto: los cuadrantes no son un modelo psicológico.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 34,
+        "pregunta": "For a given risk, its risk level is $1,000 and its risk likelihood is estimated as 50%.<br><br>What is the risk impact?",
+        "opciones": [
+          "a) $500",
+          "b) $2,000",
+          "c) $50,000",
+          "d) $200"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. En el enfoque cuantitativo de evaluación de riesgos, el nivel de riesgo se calcula como: Nivel de riesgo = Probabilidad × Impacto. Por lo tanto, Impacto = Nivel de riesgo / Probabilidad = $1,000 / 0.5 = $2,000.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 35,
+        "pregunta": "Which of the following are product risks?",
+        "opciones": [
+          "a) Scope creep",
+          "b) Poor architecture",
+          "c) Cost-cutting",
+          "d) Poor tool support",
+          "e) Too long response time"
+        ],
+        "respuesta_correcta": [1, 4],
+        "numero_respuestas": "TWO",
+        "explicacion": "b) Es correcto. La mala arquitectura es un ejemplo de riesgo de producto ya que se refiere a una característica del producto. e) Es correcto. Un tiempo de respuesta demasiado largo es un ejemplo de riesgo de producto ya que se refiere a una característica del producto. a) Es incorrecto: el scope creep es un riesgo de proyecto relacionado con problemas técnicos. c) Es incorrecto: los recortes de costos son un riesgo de proyecto relacionado con problemas organizacionales. d) Es incorrecto: el soporte deficiente de herramientas es un riesgo de proyecto relacionado con problemas técnicos.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 36,
+        "pregunta": "Which of the following is NOT a valid purpose for a test report?",
+        "opciones": [
+          "a) Tracking test progress and identifying areas that require further attention",
+          "b) Providing information on the tests executed, their results, and defects found",
+          "c) Providing information about each defect, such as the steps to reproduce it",
+          "d) Providing information on testing planned for the next period"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Proporcionar información sobre cada defecto, como los pasos para reproducirlo, es el propósito de un informe de defectos, no de un informe de pruebas. a) Es incorrecto: hacer seguimiento del progreso de las pruebas e identificar áreas que requieren atención es un propósito del informe de pruebas. b) Es incorrecto: proporcionar información sobre las pruebas ejecutadas, resultados y defectos encontrados es un propósito del informe de pruebas. d) Es incorrecto: proporcionar información sobre las pruebas planificadas para el siguiente período es un propósito del informe de pruebas.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 37,
+        "pregunta": "The user reported a software failure. An engineer from the support team asked the user for the software version number where the failure was observed. Based on the version number, the team reassembled all the files that made up the release. This later allowed a developer to perform analysis, find the defect, and fix it.<br><br>Which of the following enabled the above activity to be performed by the team?",
+        "opciones": [
+          "a) Risk management",
+          "b) Test monitoring and control",
+          "c) Whole team approach",
+          "d) Configuration management"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Es correcto. La gestión de configuración proporciona una disciplina para identificar, controlar y rastrear productos de trabajo. Mantiene un registro de los ítems de configuración modificados cuando se crea una nueva línea base, y permite revertir a una línea base anterior para reproducir resultados de pruebas previos. a) Es incorrecto: la gestión de riesgos trata con riesgos, no con ítems de configuración. b) Es incorrecto: el monitoreo y control de pruebas se ocupa de recopilar información sobre las pruebas y proporcionar acciones correctivas, no de gestionar ítems de configuración. c) Es incorrecto: el enfoque de equipo completo se enfoca en temas relacionados con el equipo, no en ítems de configuración.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 38,
+        "pregunta": "Consider the following defect report for a Book Lending System.<br><br><table style=\"border-collapse: collapse; width: 100%;\"><tr><td style=\"padding: 8px;\"><strong>Defect ID:</strong> 001</td><td style=\"padding: 8px;\"><strong>Title:</strong> Unable to Return a Book</td></tr><tr><td style=\"padding: 8px;\"><strong>Severity:</strong> High</td><td style=\"padding: 8px;\"><strong>Priority:</strong> |</td></tr><tr><td style=\"padding: 8px;\" colspan=\"2\"><strong>Environment:</strong> Windows 10, Google Chrome</td></tr></table><br><strong>Description:</strong> When attempting to return a book using the Book Return feature, the system does not register the return and the book remains checked out to the user.<br><br><strong>Steps to Reproduce:</strong><br><ol type=\"i\"><li>Login to the Book Lending System as a user who has checked out a book.</li><li>Click on the \"Book Return\" button for the book that has been checked out.</li><li>System does not register the return and the book remains checked out.</li></ol><br><strong>Expected Result:</strong> The book should be returned and no longer appear as checked out to the user.<br><strong>Actual Result:</strong> The book remains checked out to the user and is not registered as returned in the system.<br><strong>Attachments:</strong> [empty list]<br><br>Which of the following is MOST likely to help the developer reproduce the failure quickly?",
+        "opciones": [
+          "a) Adding information about which users and which books the failure affects to the \"Description\" section",
+          "b) Filling in the missing value for the \"Priority\" field",
+          "c) Adding memory dumps and database snapshots taken after each step described in the \"Steps to Reproduce\" section to the \"Attachments\" section",
+          "d) Repeating the same test case for different environments and writing defect reports for each of them separately"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Es correcto. Agregar información sobre qué usuarios y qué libros afecta el fallo permite al desarrollador usar los mismos datos de entrada, haciendo más probable que pueda reproducir el fallo rápidamente e identificar el defecto. b) Es incorrecto: agregar el valor de prioridad no ayudará a reproducir el defecto. c) Es incorrecto: aunque parte de esta información puede ser útil, agregar volcados de memoria y snapshots de base de datos después de cada paso sería excesivo y haría el informe menos legible. d) Es incorrecto: la pregunta era sobre ayudar al desarrollador a reproducir el fallo para una configuración de entorno específica.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Gestión de Pruebas"
+      },
+      {
+        "numero": 39,
+        "pregunta": "Given the following test tool categories:<br><br><ol type=\"i\"><li>Collaboration tools</li><li>DevOps tools</li><li>Management tools</li><li>Non-functional testing tools</li><li>Test design and implementation tools</li></ol><br>Tools from which of the categories are MOST likely to facilitate test execution?",
+        "opciones": [
+          "a) i, v",
+          "b) ii, iv",
+          "c) i, iii, v",
+          "d) ii, iii, iv"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Es correcto. Tanto las herramientas DevOps (ii) como las herramientas de pruebas no funcionales (iv) facilitan la ejecución de pruebas. Las herramientas DevOps apoyan el pipeline de entrega y CI/CD que incluyen la ejecución de pruebas. Las herramientas no funcionales permiten realizar pruebas que son difíciles o imposibles de realizar manualmente, incluyendo la ejecución de pruebas. i (colaboración) facilita la comunicación, no la ejecución. iii (gestión) facilitan la gestión del proceso, no la ejecución. v (diseño e implementación) facilitan la generación de testware, no la ejecución.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Herramientas de Prueba"
+      },
+      {
+        "numero": 40,
+        "pregunta": "Which of the following is MOST likely to be a risk of test automation?",
+        "opciones": [
+          "a) The detection of additional high-severity defects",
+          "b) Providing measures that are too complicated for humans to derive",
+          "c) Incompatibility with the development platform",
+          "d) Substantially reduced test execution times"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Es correcto. Si la automatización de pruebas es incompatible con la plataforma de desarrollo, no será posible integrarlas y, por ejemplo, pasar entradas de prueba al objeto de prueba y recibir resultados. a) Es incorrecto: la detección de defectos adicionales de alta severidad sería un beneficio, no un riesgo. b) Es incorrecto: proporcionar medidas demasiado complicadas para que los humanos las deriven normalmente se considera un beneficio. d) Es incorrecto: la reducción sustancial de los tiempos de ejecución de pruebas normalmente se considera un beneficio.",
+        "video_explicacion": "",
+        "imageUrl": "",
+        "categoria": "Herramientas de Prueba"
+      }
+    ]
   }
 ]
-
-}
