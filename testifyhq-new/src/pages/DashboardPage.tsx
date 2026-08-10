@@ -4,11 +4,13 @@ import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserAttempts } from '@/hooks/useExamAttempts';
 import { useUserRole } from '@/hooks/useUserRole';
+import { useSubscription } from '@/hooks/useSubscription';
 
 export function DashboardPage() {
   const { user } = useAuth();
   const { data: attemptsData, isLoading } = useUserAttempts(user?.id);
   const { data: roleData } = useUserRole(user?.id);
+  const { data: subscription } = useSubscription();
   const attempts = attemptsData as any[] | undefined;
 
   const totalExams = attempts?.length || 0;
@@ -104,7 +106,9 @@ export function DashboardPage() {
             <CardHeader><CardTitle>Acciones Rápidas</CardTitle></CardHeader>
             <CardContent className="space-y-3">
               <Link to="/exams"><Button className="w-full">Comenzar Examen</Button></Link>
-              <Link to="/donate"><Button variant="outline" className="w-full">❤️ Apoyar el Proyecto</Button></Link>
+              {!subscription?.isPremium && (
+                <Link to="/pricing"><Button variant="outline" className="w-full">⭐ Hazte Premium</Button></Link>
+              )}
             </CardContent>
           </Card>
         </div>

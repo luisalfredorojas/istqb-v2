@@ -32,14 +32,12 @@ export function Header() {
           >
             Exámenes
           </Link>
-          {user && (
-            <Link
-              to="/donate"
-              className="text-sm font-medium text-muted hover:text-primary transition-colors"
-            >
-              Contribuye
-            </Link>
-          )}
+          <Link
+            to="/pricing"
+            className="text-sm font-medium text-primary hover:opacity-80 transition-colors"
+          >
+            Premium
+          </Link>
           {user && (
             <Link
               to="/dashboard"

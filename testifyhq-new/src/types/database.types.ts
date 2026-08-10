@@ -20,6 +20,22 @@ export interface Database {
           created_at: string
           last_login: string | null
           preferences: Json
+          subscription_tier: 'free' | 'premium'
+          subscription_status:
+            | 'active'
+            | 'trialing'
+            | 'past_due'
+            | 'paused'
+            | 'cancelled'
+            | 'expired'
+            | null
+          subscription_provider: string | null
+          provider_customer_id: string | null
+          provider_subscription_id: string | null
+          subscription_plan: 'monthly' | 'yearly' | 'lifetime' | null
+          subscription_current_period_end: string | null
+          is_lifetime: boolean
+          subscription_updated_at: string | null
         }
         Insert: {
           id: string
@@ -31,6 +47,22 @@ export interface Database {
           created_at?: string
           last_login?: string | null
           preferences?: Json
+          subscription_tier?: 'free' | 'premium'
+          subscription_status?:
+            | 'active'
+            | 'trialing'
+            | 'past_due'
+            | 'paused'
+            | 'cancelled'
+            | 'expired'
+            | null
+          subscription_provider?: string | null
+          provider_customer_id?: string | null
+          provider_subscription_id?: string | null
+          subscription_plan?: 'monthly' | 'yearly' | 'lifetime' | null
+          subscription_current_period_end?: string | null
+          is_lifetime?: boolean
+          subscription_updated_at?: string | null
         }
         Update: {
           id?: string
@@ -42,6 +74,22 @@ export interface Database {
           created_at?: string
           last_login?: string | null
           preferences?: Json
+          subscription_tier?: 'free' | 'premium'
+          subscription_status?:
+            | 'active'
+            | 'trialing'
+            | 'past_due'
+            | 'paused'
+            | 'cancelled'
+            | 'expired'
+            | null
+          subscription_provider?: string | null
+          provider_customer_id?: string | null
+          provider_subscription_id?: string | null
+          subscription_plan?: 'monthly' | 'yearly' | 'lifetime' | null
+          subscription_current_period_end?: string | null
+          is_lifetime?: boolean
+          subscription_updated_at?: string | null
         }
       }
       exams: {
@@ -55,6 +103,7 @@ export interface Database {
           passing_score: number
           total_questions: number
           is_active: boolean
+          is_free: boolean
           created_at: string
           updated_at: string
         }
@@ -68,6 +117,7 @@ export interface Database {
           passing_score: number
           total_questions: number
           is_active?: boolean
+          is_free?: boolean
           created_at?: string
           updated_at?: string
         }
@@ -81,6 +131,7 @@ export interface Database {
           passing_score?: number
           total_questions?: number
           is_active?: boolean
+          is_free?: boolean
           created_at?: string
           updated_at?: string
         }
@@ -192,41 +243,47 @@ export interface Database {
         Row: {
           id: string
           user_id: string
-          plan_type: 'monthly' | 'yearly'
-          amount: number
+          plan_type: 'monthly' | 'yearly' | 'lifetime'
+          amount: number | null
           currency: string
-          status: 'pending' | 'completed' | 'failed' | 'cancelled'
-          payment_provider: string
-          payphone_transaction_id: string | null
+          status: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
+          provider: string
+          provider_checkout_id: string | null
+          provider_order_id: string | null
+          provider_subscription_id: string | null
+          metadata: Json | null
           created_at: string
           completed_at: string | null
-          metadata: Json | null
         }
         Insert: {
           id?: string
           user_id: string
-          plan_type: 'monthly' | 'yearly'
-          amount: number
+          plan_type: 'monthly' | 'yearly' | 'lifetime'
+          amount?: number | null
           currency?: string
-          status?: 'pending' | 'completed' | 'failed' | 'cancelled'
-          payment_provider?: string
-          payphone_transaction_id?: string | null
+          status?: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
+          provider?: string
+          provider_checkout_id?: string | null
+          provider_order_id?: string | null
+          provider_subscription_id?: string | null
+          metadata?: Json | null
           created_at?: string
           completed_at?: string | null
-          metadata?: Json | null
         }
         Update: {
           id?: string
           user_id?: string
-          plan_type?: 'monthly' | 'yearly'
-          amount?: number
+          plan_type?: 'monthly' | 'yearly' | 'lifetime'
+          amount?: number | null
           currency?: string
-          status?: 'pending' | 'completed' | 'failed' | 'cancelled'
-          payment_provider?: string
-          payphone_transaction_id?: string | null
+          status?: 'pending' | 'completed' | 'failed' | 'cancelled' | 'refunded'
+          provider?: string
+          provider_checkout_id?: string | null
+          provider_order_id?: string | null
+          provider_subscription_id?: string | null
+          metadata?: Json | null
           created_at?: string
           completed_at?: string | null
-          metadata?: Json | null
         }
       }
     }

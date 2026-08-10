@@ -16,6 +16,7 @@ import { ExamListPage } from './pages/ExamListPage';
 import { ExamPage } from './pages/ExamPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { PricingPage } from './pages/PricingPage';
+import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
 import { ExamManagementPage } from './pages/admin/ExamManagementPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
@@ -34,8 +35,8 @@ function App() {
             <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-            <Route path="/donate" element={<PricingPage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/payment/success" element={<ProtectedRoute><PaymentSuccessPage /></ProtectedRoute>} />
             <Route path="/exams" element={<ProtectedRoute><ExamListPage /></ProtectedRoute>} />
             <Route path="/exam/:id" element={
               <ProtectedRoute>

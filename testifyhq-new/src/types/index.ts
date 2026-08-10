@@ -39,6 +39,7 @@ export interface Exam {
   passing_score: number;
   total_questions: number;
   is_active: boolean;
+  is_free: boolean;
 }
 
 export interface ExamAttempt {
