@@ -60,7 +60,8 @@ Deno.serve(async (req) => {
     const storeId = Deno.env.get("LEMONSQUEEZY_STORE_ID");
     const apiKey = Deno.env.get("LEMONSQUEEZY_API_KEY");
     const variantId = variantIdFor(plan);
-    const appUrl = Deno.env.get("APP_URL") ?? "";
+    // Quita barras finales para no generar URLs con doble barra (//).
+    const appUrl = (Deno.env.get("APP_URL") ?? "").replace(/\/+$/, "");
 
     if (!storeId || !apiKey || !variantId) {
       console.error("Faltan secrets de Lemon Squeezy", {
@@ -106,7 +107,7 @@ Deno.serve(async (req) => {
             },
           },
           product_options: {
-            redirect_url: `${appUrl}/payment/success`,
+            redirect_url: `${appUrl}/dashboard`,
             enabled_variants: [Number(variantId)],
           },
           checkout_options: {

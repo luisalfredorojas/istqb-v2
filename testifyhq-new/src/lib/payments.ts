@@ -52,7 +52,20 @@ export async function createCheckout(plan: PlanId): Promise<string> {
   );
 
   if (error) {
-    throw new Error(error.message || 'No se pudo iniciar el pago');
+    // supabase-js oculta el cuerpo real en un error genérico; lo extraemos
+    // de error.context (la Response) para ver el motivo concreto.
+    let detail = error.message || 'No se pudo iniciar el pago';
+    try {
+      const ctx = (error as { context?: Response }).context;
+      if (ctx && typeof ctx.json === 'function') {
+        const body = await ctx.json();
+        if (body?.error) detail = body.error;
+      }
+    } catch {
+      // Sin cuerpo JSON: nos quedamos con el mensaje genérico.
+    }
+    console.error('create-checkout error:', detail);
+    throw new Error(detail);
   }
   if (!data?.url) {
     throw new Error('La pasarela no devolvió una URL de pago');

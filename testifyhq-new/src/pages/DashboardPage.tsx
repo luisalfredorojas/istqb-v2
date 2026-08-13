@@ -106,7 +106,7 @@ export function DashboardPage() {
             <CardHeader><CardTitle>Acciones Rápidas</CardTitle></CardHeader>
             <CardContent className="space-y-3">
               <Link to="/exams"><Button className="w-full">Comenzar Examen</Button></Link>
-              {!subscription?.isPremium && (
+              {!subscription?.isPremium && !roleData?.isAdmin && (
                 <Link to="/pricing"><Button variant="outline" className="w-full">⭐ Hazte Premium</Button></Link>
               )}
             </CardContent>

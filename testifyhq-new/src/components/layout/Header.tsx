@@ -1,14 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserRole } from '@/hooks/useUserRole';
+import { useSubscription } from '@/hooks/useSubscription';
 import { useTheme } from '@/hooks/useTheme';
 import { authHelpers } from '@/lib/supabase';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const { user } = useAuth();
   const { data: roleData } = useUserRole(user?.id);
+  const { data: subscription } = useSubscription();
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
+
+  // Acceso completo = suscripción premium o administrador.
+  const hasFullAccess = (subscription?.isPremium ?? false) || (roleData?.isAdmin ?? false);
+
+  // Resalta el enlace cuya sección coincide con la ruta actual.
+  const navClass = (active: boolean) =>
+    cn(
+      'text-sm font-medium transition-colors',
+      active ? 'text-primary' : 'text-muted hover:text-primary'
+    );
 
   const handleLogout = async () => {
     await authHelpers.signOut();
@@ -26,31 +40,21 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <Link
-            to="/exams"
-            className="text-sm font-medium text-muted hover:text-primary transition-colors"
-          >
+          <Link to="/exams" className={navClass(pathname.startsWith('/exam'))}>
             Exámenes
           </Link>
-          <Link
-            to="/pricing"
-            className="text-sm font-medium text-primary hover:opacity-80 transition-colors"
-          >
-            Premium
-          </Link>
+          {!hasFullAccess && (
+            <Link to="/pricing" className={navClass(pathname === '/pricing')}>
+              Premium
+            </Link>
+          )}
           {user && (
-            <Link
-              to="/dashboard"
-              className="text-sm font-medium text-muted hover:text-primary transition-colors"
-            >
+            <Link to="/dashboard" className={navClass(pathname === '/dashboard')}>
               Dashboard
             </Link>
           )}
           {roleData?.isAdmin && (
-            <Link
-              to="/admin/exams"
-              className="text-sm font-medium text-muted hover:text-primary transition-colors"
-            >
+            <Link to="/admin/exams" className={navClass(pathname.startsWith('/admin'))}>
               ⚙️ Admin
             </Link>
           )}

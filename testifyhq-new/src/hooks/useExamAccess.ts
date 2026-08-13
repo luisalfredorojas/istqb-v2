@@ -1,5 +1,6 @@
 import { useAuth } from '@/hooks/useAuth';
 import { useSubscription } from '@/hooks/useSubscription';
+import { useUserRole } from '@/hooks/useUserRole';
 import { useUserAttempts } from '@/hooks/useExamAttempts';
 import type { Exam } from '@/types';
 
@@ -30,9 +31,12 @@ export interface ExamAccess {
 export function useExamAccess(): ExamAccess {
   const { user } = useAuth();
   const { data: subscription, isLoading: subLoading } = useSubscription();
+  const { data: roleData, isLoading: roleLoading } = useUserRole(user?.id);
   const { data: attempts, isLoading: attemptsLoading } = useUserAttempts(user?.id);
 
-  const isPremium = subscription?.isPremium ?? false;
+  // Los administradores tienen acceso completo (igual que en el servidor,
+  // donde is_admin() salta el gating de RLS y del trigger).
+  const isPremium = (subscription?.isPremium ?? false) || (roleData?.isAdmin ?? false);
 
   // Cuenta solo simulacros finalizados.
   const attemptsUsed = Array.isArray(attempts)
@@ -52,7 +56,7 @@ export function useExamAccess(): ExamAccess {
 
   return {
     isPremium,
-    isLoading: subLoading || attemptsLoading,
+    isLoading: subLoading || roleLoading || attemptsLoading,
     attemptsUsed,
     freeAttemptsRemaining,
     canStart,
