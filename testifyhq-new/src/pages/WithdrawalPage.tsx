@@ -73,17 +73,20 @@ export function WithdrawalPage() {
         submitted_at: new Date().toISOString(),
       };
 
+      const payload = {
+        user_id: user?.id ?? null,
+        full_name: content.full_name,
+        email: content.email,
+        order_reference: content.order_reference,
+        message: content.message,
+        content_snapshot: content,
+      };
+
       const { data, error: insertError } = await supabase
         .from('withdrawal_requests')
-        // @ts-expect-error - el tipado generado no incluye aún esta tabla
-        .insert({
-          user_id: user?.id ?? null,
-          full_name: content.full_name,
-          email: content.email,
-          order_reference: content.order_reference,
-          message: content.message,
-          content_snapshot: content,
-        })
+        // El tipado de escrituras de supabase-js varía entre versiones menores;
+        // el cast mantiene el build estable sin depender de la versión exacta.
+        .insert(payload as never)
         .select('id, acknowledged_at')
         .single();
 

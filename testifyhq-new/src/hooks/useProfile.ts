@@ -54,8 +54,9 @@ export function useUpdateProfile() {
     mutationFn: async (values: { displayName: string }) => {
       const { error } = await supabase
         .from('users')
-        // @ts-expect-error - el tipado genérico de supabase-js infiere never aquí
-        .update({ display_name: values.displayName })
+        // Ver nota en WithdrawalPage: el tipado de escrituras cambia entre
+        // versiones menores de supabase-js; el cast evita romper el build.
+        .update({ display_name: values.displayName } as never)
         .eq('id', user!.id);
 
       if (error) throw error;

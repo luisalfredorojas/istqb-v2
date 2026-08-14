@@ -286,6 +286,44 @@ export interface Database {
           completed_at?: string | null
         }
       }
+      withdrawal_requests: {
+        Row: {
+          id: string
+          user_id: string | null
+          full_name: string
+          email: string
+          order_reference: string | null
+          message: string | null
+          acknowledged_at: string
+          content_snapshot: Json | null
+          status: 'received' | 'processing' | 'completed' | 'rejected'
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id?: string | null
+          full_name: string
+          email: string
+          order_reference?: string | null
+          message?: string | null
+          acknowledged_at?: string
+          content_snapshot?: Json | null
+          status?: 'received' | 'processing' | 'completed' | 'rejected'
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string | null
+          full_name?: string
+          email?: string
+          order_reference?: string | null
+          message?: string | null
+          acknowledged_at?: string
+          content_snapshot?: Json | null
+          status?: 'received' | 'processing' | 'completed' | 'rejected'
+          created_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
