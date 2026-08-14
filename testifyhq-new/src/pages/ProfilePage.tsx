@@ -13,6 +13,7 @@ import { Label } from '@/components/ui/label';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile, useUpdateProfile } from '@/hooks/useProfile';
 import { useSubscription } from '@/hooks/useSubscription';
+import { useUserRole } from '@/hooks/useUserRole';
 import { cancelSubscription, getCustomerPortalUrl } from '@/lib/payments';
 import { exportUserData, deleteAccount } from '@/lib/gdpr';
 import { authHelpers } from '@/lib/supabase';
@@ -50,6 +51,7 @@ export function ProfilePage() {
   const queryClient = useQueryClient();
   const { data: profile, isLoading } = useProfile();
   const { data: subscription } = useSubscription();
+  const { data: roleData } = useUserRole(user?.id);
   const updateProfile = useUpdateProfile();
 
   const [displayName, setDisplayName] = useState('');
@@ -165,7 +167,10 @@ export function ProfilePage() {
     );
   }
 
+  // El acceso completo puede venir de una suscripción o del rol de admin.
+  // Se muestran por separado para que el estado real quede claro.
   const isPremium = subscription?.isPremium ?? false;
+  const isAdmin = roleData?.isAdmin ?? false;
   const isCancelled = subscription?.status === 'cancelled';
   const canCancel = isPremium && !subscription?.isLifetime && !isCancelled;
 
@@ -258,6 +263,20 @@ export function ProfilePage() {
             <CardDescription>Estado de tu plan y facturación</CardDescription>
           </CardHeader>
           <CardContent className="space-y-5">
+            {/* El acceso de administrador es independiente de la suscripción */}
+            {isAdmin && (
+              <div className="flex items-start gap-3 p-4 rounded-[8px] bg-primary-soft">
+                <Crown className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-ds-text">Acceso de administrador</p>
+                  <p className="text-sm text-muted">
+                    Tienes acceso completo a todos los exámenes por tu rol, sin
+                    necesidad de suscripción.
+                  </p>
+                </div>
+              </div>
+            )}
+
             {isPremium ? (
               <>
                 <div className="flex items-start gap-3 p-4 rounded-[8px] bg-success-soft">
@@ -382,16 +401,22 @@ export function ProfilePage() {
               </>
             ) : (
               <div className="text-center py-4">
-                <p className="text-ds-text font-medium mb-1">Plan gratuito</p>
-                <p className="text-sm text-muted mb-5">
-                  Solo el Examen A, con un máximo de 2 simulacros.
+                <p className="text-ds-text font-medium mb-1">
+                  {isAdmin ? 'Sin suscripción activa' : 'Plan gratuito'}
                 </p>
-                <Link to="/pricing">
-                  <Button>
-                    <Crown className="w-4 h-4 mr-2" />
-                    Hazte Premium
-                  </Button>
-                </Link>
+                <p className="text-sm text-muted mb-5">
+                  {isAdmin
+                    ? 'No tienes ninguna suscripción contratada. Tu acceso proviene del rol de administrador.'
+                    : 'Solo el Examen A, con un máximo de 2 simulacros.'}
+                </p>
+                {!isAdmin && (
+                  <Link to="/pricing">
+                    <Button>
+                      <Crown className="w-4 h-4 mr-2" />
+                      Hazte Premium
+                    </Button>
+                  </Link>
+                )}
               </div>
             )}
 
