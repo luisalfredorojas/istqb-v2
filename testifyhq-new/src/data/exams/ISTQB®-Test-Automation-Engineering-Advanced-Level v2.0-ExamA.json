@@ -1,0 +1,646 @@
+{
+  "empresa": "istqb",
+  "titulo": "ISTQB® Test Automation Engineering Advanced Level v2.0 - Exam A",
+  "descripcion": "Sample Exam set A - Compatible with Syllabus version 2.0",
+  "minimo_aprobacion": 26,
+  "retroalimentacion": [
+    {
+      "umbral": 90,
+      "mensaje": "¡Excelente! Nivel muy alto de preparación."
+    },
+    {
+      "umbral": 75,
+      "mensaje": "Muy bien, estás en camino de aprobar."
+    },
+    {
+      "umbral": 65,
+      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+    },
+    {
+      "umbral": 0,
+      "mensaje": "Recomendamos seguir estudiando."
+    }
+  ],
+  "examen": [
+    {
+      "numero": 1,
+      "pregunta": "<p>Which of the following is a limitation of test automation?</p>",
+      "opciones": [
+        "a) Only usability tests can be automated effectively",
+        "b) Test automation can be executed only after system testing is done",
+        "c) Test automation can only check results that can be verified visually",
+        "d) Test automation can only check results that can be verified by code"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Como indica el syllabus: «Test automation can only check test results that can be verified by an automated test oracle». Esto es una limitación y significa que los resultados de los scripts automatizados los verifica la máquina, que está programada para hacerlo (código). a) Es incorrecto: la automatización de pruebas puede realizarse antes y después de las pruebas de sistema. b) Es incorrecto: se refiere a una limitación inexistente. c) Es incorrecto: la automatización de pruebas no se limita a comprobar solo los resultados que pueden verificarse visualmente.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 2,
+      "pregunta": "<p>Which of the following is true about test automation and the SDLC?</p>",
+      "opciones": [
+        "a) In Agile software development automated tests focus more on acceptance tests than on component tests",
+        "b) In Agile software development automated tests focus more on component tests than on acceptance tests",
+        "c) In the V-model automated test execution must be performed after manual test execution",
+        "d) In the V-model implementation of test automation is performed throughout the whole software development cycle"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. En desarrollo ágil, las pruebas de componente automatizadas tienen mayor volumen que las pruebas de aceptación automatizadas. a) Es incorrecto: en desarrollo ágil, las pruebas de componente automatizadas tienen mayor volumen que las de aceptación. c) Es incorrecto: no existe tal regla en el modelo en V. d) Es incorrecto: en el modelo en V la planificación de pruebas, incluida la planificación de la automatización, se realiza en la fase temprana del ciclo de vida del desarrollo de software.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 3,
+      "pregunta": "<p>Which one of the following factors is NOT necessary to consider when selecting suitable test tools?</p>",
+      "opciones": [
+        "a) SUT architecture",
+        "b) Actual composition and experience of the test team",
+        "c) Licensing and support of the test tool",
+        "d) Quality of the SUT requirements"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La calidad de los requisitos del SUT no está directamente relacionada con la selección de la herramienta en sí. a) Es incorrecto: la arquitectura del SUT sí debe considerarse. b) Es incorrecto: la composición real y la experiencia del equipo de pruebas sí deben evaluarse. c) Es incorrecto: es necesario conocer el licenciamiento y el soporte de la herramienta.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 4,
+      "pregunta": "<p>When a system is designed for testability, one of the characteristics is that the test automation framework (TAF) can access interfaces to perform actions on the system. What is this characteristic called?</p>",
+      "opciones": [
+        "a) Observability",
+        "b) Controllability",
+        "c) Maintainability",
+        "d) Interoperability"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Ver el capítulo 2.1.1 del syllabus. a) Es incorrecto: la observabilidad (observability) consiste en dar visibilidad interna del sistema. c) Es incorrecto: la mantenibilidad es una característica de calidad. d) Es incorrecto: la interoperabilidad también es una característica de calidad. (Syllabus 2.1.1)",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 5,
+      "pregunta": "<p>What type of test automation is mainly performed in the Preproduction environment?</p>",
+      "opciones": [
+        "a) Component testing",
+        "b) Performance efficiency testing and user acceptance testing",
+        "c) Static analysis",
+        "d) Component Integration testing"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Es necesario realizar pruebas de eficiencia de desempeño y pruebas de aceptación de usuario en un entorno de preproducción para probar escenarios del mundo real. a) Es incorrecto: las pruebas de componente se realizan en un entorno de build y desarrollo. c) Es incorrecto: el análisis estático normalmente se hace en el entorno de desarrollo. d) Es incorrecto: las pruebas de integración de componentes se hacen en el entorno de desarrollo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 6,
+      "pregunta": "<p>In which environment is a fully automated test suite typically executed against a release candidate for the first time?</p>",
+      "opciones": [
+        "a) Preproduction/staging environment",
+        "b) Build environment",
+        "c) Production/operational environment",
+        "d) Integration/test environment"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las suites robustas de pruebas de interfaz de usuario (UI) y de interfaz de programación de aplicaciones (API) se ejecutan típicamente contra sistemas totalmente integrados. a) Es incorrecto: las pruebas en entorno de preproducción o staging tienen menos foco en aspectos funcionales. b) Es incorrecto: un entorno de build no está preparado para una ejecución de pruebas más robusta. c) Es incorrecto: las suites funcionales completas no suelen ejecutarse contra productos en producción.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 7,
+      "pregunta": "<p>You are working for an IT company which is developing a built-in Android-based car multimedia system. The software contains several components working together. Developers are following the test-driven development approach. After the development of the software, it is delivered to another IT company which integrates the software with the hardware elements and sells them together to car manufacturers.</p><p>Which of the following should be considered during capturing the test automation requirements by the IT company you are working for?</p>",
+      "opciones": [
+        "a) Is it important for the test automation approach to support component testing?",
+        "b) Should the test automation approach support beta testing?",
+        "c) Is it important for the test automation approach to support the testing of the software in as many different types of cars as possible?",
+        "d) Which tester roles should be supported by the test automation approach?",
+        "e) Is it important for the test automation approach to support the mobile application store approval?"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Las pruebas de componente las realiza la empresa de TI que desarrolla el software. d) Es correcto. Las pruebas de componente automatizadas son diseñadas y ejecutadas por los desarrolladores. b) Es incorrecto: no se realizan pruebas beta. c) Es incorrecto: la prueba en tantos tipos de coches como sea posible la realiza la empresa integradora. e) Es incorrecto: el soporte al enfoque de automatización para la aprobación en la tienda de aplicaciones móviles no se realiza.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 8,
+      "pregunta": "<p>You are evaluating test automation tools. The following is a list of findings for one of the tools that were evaluated against the selection requirements:</p><ul><li>The tool has a very informative dashboard which shows all the relevant test information about the SUT.</li><li>The tool includes a test logging component which logs all the necessary information that follows test execution and to troubleshoot problems found during the tests.</li><li>The tool includes a customizable test reporting component.</li><li>During the proof of concept, the tool performed very slowly against the SUT, compared to the other tools that were evaluated.</li><li>The current test environment is valid according to the release notes of the tool which means it fulfills the hardware and software requirements.</li></ul><p>What should be your next step regarding the selection of this tool?</p>",
+      "opciones": [
+        "a) Acquire more hardware resources for the SUT to decrease the performance degradation",
+        "b) Turn off test logging to improve performance of the tool",
+        "c) Recommend not selecting this tool",
+        "d) Plan to migrate the SUT to another hardware/software environment where there is a possibility for the elimination of the tool overhead"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. La herramienta no cumple los requisitos de selección. a) Es incorrecto: el entorno de pruebas es válido según las notas de versión. b) Es incorrecto: el componente de registro (logging) es esencial para el diagnóstico de problemas. d) Es incorrecto: migrar el SUT es completamente erróneo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 9,
+      "pregunta": "<p>Match the list of tasks in the Test Automation Architecture Capabilities below with its correct role name below.</p><ul><li>1. Mapping the abstract test cases to concrete test cases suitable for execution.</li><li>2. Implementation of test cases and/or test suites.</li><li>3. Test logging with detailed information about the test steps and actions.</li><li>4. Mechanism for connecting to the SUT via protocols, and services.</li></ul><ul><li>A. Test Definition</li><li>B. Test Adaptation</li><li>C. Test Generation</li><li>D. Test Execution</li></ul>",
+      "opciones": [
+        "a) 1D, 2A, 3C, 4B",
+        "b) 1C, 2A, 3B, 4D",
+        "c) 1A, 2B, 3D, 4C",
+        "d) 1C, 2A, 3D, 4B"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. 1-C Test Generation: mapear los casos de prueba abstractos a casos de prueba concretos aptos para su ejecución; aquí las herramientas de pruebas basadas en modelos apoyan el diseño automatizado de casos de prueba a partir de un modelo de prueba. 2-A Test Definition: implementación de casos y/o suites de prueba; esta capa soporta la definición e implementación de casos y/o suites de prueba. 3-D Test Execution: registro de pruebas con información detallada sobre los pasos y acciones; esta capa proporciona una herramienta de ejecución para lanzar automáticamente las pruebas seleccionadas y un componente de logging y de reporte. 4-B Test Adaptation: mecanismo para conectarse al SUT mediante protocolos y servicios; esta capa proporciona la funcionalidad para adaptar las pruebas automatizadas a los distintos componentes o interfaces del SUT, ofreciendo distintos adaptadores para el mecanismo de integración. a), b) y c) son incorrectas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 10,
+      "pregunta": "<p>As a Test Automation engineer You have encountered a problem during initial implementation of the test automation solution (TAS). The output from the system tests could not be translated back to the automated test cases to determine the test results.</p><p>Which option may have MOST LIKELY been a cause of the problem?</p>",
+      "opciones": [
+        "a) The test tool libraries were NOT designed to be updated upon each SUT version release.",
+        "b) The integration to the SUT system under test was NOT setup via APIs.",
+        "c) The SUT-Specific adaptors for the selected tool were NOT implemented.",
+        "d) The SUT and the test management tool were NOT compatible."
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Los adaptadores son necesarios para la traducción de los resultados de las pruebas. a) Es incorrecto: el problema se detectó en la implementación inicial y aún no se habían introducido actualizaciones. b) Es incorrecto: el método de integración utilizado no importa, sea vía API u otro mecanismo. d) Es incorrecto: la pregunta no menciona incompatibilidad con la herramienta de gestión de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 11,
+      "pregunta": "<p>You are working in an Android development team and have been maintaining a test automation framework. An additional development team has formed to build a new application. Your project manager asks you to build a test automation framework for this newly formed team. At first, you identify the components that could be reused in building that new framework, then start implementing the additional libraries based on the new application.</p><p>In which layer do you configure the connection to the new app?</p>",
+      "opciones": [
+        "a) Core libraries layer",
+        "b) Test scripts layer",
+        "c) Feature files layer",
+        "d) Business logic layer"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La capa de lógica de negocio se utiliza para configurar el TAF de modo que se ejecute contra el SUT. a) Es incorrecto: las librerías core deben ser genéricas e independientes de la aplicación. b) Es incorrecto: la capa de scripts de prueba solo debe contener scripts de prueba y ninguna configuración. c) Es incorrecto: los feature files contienen escenarios escritos en lenguaje Gherkin.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 12,
+      "pregunta": "<p>You are working on a test automation project that is used to automate GUI testing of a web-based public transport service. The project has a limited timescale. There are manual test cases which can be automated first. One of the goals is to implement test cases directly into the automated test scripts.</p><p>Which technique or approach should be used for automating test cases to meet the goals?</p>",
+      "opciones": [
+        "a) Using the keyword-driven test technique",
+        "b) Using the behavior-driven development approach",
+        "c) Using the capture/playback test automation approach",
+        "d) Using the data-driven test automation technique"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. La automatización mediante capture/playback es fácil de poner en marcha. a) Es incorrecto: la técnica dirigida por palabras clave es demasiado compleja para esta solución. b) Es incorrecto: el desarrollo dirigido por comportamiento es demasiado complejo y no es necesario. d) Es incorrecto: la automatización dirigida por datos es demasiado compleja y no es necesaria.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 13,
+      "pregunta": "<p>You join a company where manual testing is mature, but test automation has been abandoned for a while now. The testers have generated a massive amount of test data and are typically using 10 to 20 variations per scenario. After your initial review, you see that the TAF (Test Automation Framework) can easily be fixed, but the test cases need to be completely revamped.</p><p>Which of the following test automation approaches should you choose to achieve great results quickly?</p>",
+      "opciones": [
+        "a) Data-driven testing",
+        "b) Behavior-driven development",
+        "c) Capture/playback",
+        "d) Acceptance test-driven development"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Los datos de prueba ya están disponibles y pueden reutilizarse para aumentar el número de casos de prueba. b) Es incorrecto: el desarrollo dirigido por comportamiento requiere la participación de representantes del negocio y, en este caso, no se menciona explícitamente si el negocio está involucrado. c) Es incorrecto: capture/playback sería una solución lenta y costosa, mientras que los datos de prueba ya existen. d) Es incorrecto: el desarrollo dirigido por pruebas de aceptación no es un enfoque de automatización.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 14,
+      "pregunta": "<p>You are working on a test automation project that is used to automate GUI testing of an e-commerce site. The site contains a digital assistant which helps users to set up their accounts, their name, billing address, shipping address, and security credentials. Currently, the development of the software is in a phase where usability testers check the digital assistant and give recommendations on necessary changes. This is done iteratively; the developers modify the graphical user interface (GUI), and the usability testers check the modifications, and do usability testing again.</p><p>Which design pattern is the best implemented in this case?</p>",
+      "opciones": [
+        "a) Implement the page object pattern and store all the user actions associated with the GUI elements in the relevant page models",
+        "b) Implement the flow model pattern, store all the web elements in the relevant page models, and store all the user actions associated with the GUI elements in the relevant flow models",
+        "c) Implement the facade design pattern and provide interfaces for the GUI elements to hide the used internal locator mechanism",
+        "d) Implement the singleton design pattern and create a single piece of code to handle the locating of elements"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. El patrón flow model combina el uso de page models y flow models, almacenando la estructura y la lógica de la aplicación en ficheros de clase con propósitos distintos, y se utiliza típicamente cuando la estructura del SUT cambia con frecuencia. a) Es incorrecto: almacenar las acciones de usuario en los ficheros de clase del page model no permite una reutilización y mantenibilidad sencillas de flujos de usuario complejos. c) Es incorrecto: las fachadas proporcionan una interfaz simplificada a un cuerpo de código mayor. d) Es incorrecto: el patrón singleton no resuelve el problema en este caso.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 15,
+      "pregunta": "<p>The senior management wants to implement a TAS in your organization and asks you to lead this initiative. You have been given directions to start a pilot project.</p><p>Which of the following statements best describes the objective of this pilot project?</p><ul><li>i. Document the SUT parts which have not been documented during the development</li><li>ii. Identify the metrics and the measurement methods to monitor the SUT in the production environment</li><li>iii. Analyze defects found during the testing of the TAS</li><li>iv. Evaluate licensing options and corporation rules</li><li>v. Select the most suitable commercial off-the-shelf or open-source tool</li></ul>",
+      "opciones": [
+        "a) i, ii and iii are valid objectives of the pilot project",
+        "b) ii and iv are valid objectives of the pilot project",
+        "c) i, ii and v are valid objectives of the pilot project",
+        "d) iv and v are valid objectives of the pilot project"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. iv y v son objetivos válidos del proyecto piloto. a) Es incorrecto: i, ii y iii no son objetivos válidos del proyecto piloto. b) Es incorrecto: ii no es un objetivo válido del proyecto piloto. c) Es incorrecto: i y ii no son objetivos válidos del proyecto piloto.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 16,
+      "pregunta": "<p>You are tasked with implementing a Test Automation Solution (TAS) for functional suitability tests that must be executed automatically after each daily build. The TAS needs to integrate seamlessly with the existing CI/CD pipeline and provide quick feedback on the software's quality. However, you've identified several potential risks that could impact the successful deployment and operation of the TAS.</p><p>As the test automation engineer, you need to analyze the deployment risks associated with implementing the TAS and determine the BEST mitigation strategies for each risk. Your goal is to ensure a smooth integration of the TAS into the existing development process while maintaining the quality and reliability of the testing process.</p><p>Which of the following BEST matches the deployment risks with their appropriate mitigation strategies?</p><ul><li>1. Test execution not triggered by the build</li><li>2. Only the full test suite can be executed</li><li>3. Test data unavailable when starting the test</li><li>4. Difficulty in troubleshooting failed tests</li></ul><ul><li>A. Log detailed information during test execution</li><li>B. Integrate test automation into the CI/CD pipeline</li><li>C. Use third-party tools to generate test data</li><li>D. Utilize test harnesses and test fixtures</li></ul>",
+      "opciones": [
+        "a) 1-B, 2-A, 3-D, 4-C",
+        "b) 1-A, 2-B, 3-C, 4-D",
+        "c) 1-B, 2-D, 3-C, 4-A",
+        "d) 1-D, 2-B, 3-C, 4-A"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. 1-B: integrar la automatización de pruebas en el pipeline CI/CD asegura que la ejecución de pruebas se dispare con el build. 2-D: los test harnesses y los test fixtures permiten una ejecución de pruebas más flexible, no limitada a lanzar la suite completa. 3-C: las herramientas de terceros pueden ayudar a generar datos de prueba cuando no están disponibles fácilmente. 4-A: el registro detallado durante la ejecución de las pruebas facilita el diagnóstico de las pruebas fallidas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 17,
+      "pregunta": "<p>Which one of the following is an important factor to improve code maintainability?</p>",
+      "opciones": [
+        "a) Define generic functions with all the necessary parameters",
+        "b) Let developers uniquely name code variables",
+        "c) Use static analyzers to keep the code clean",
+        "d) Hardcode values to easily understand their meaning"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. El uso de analizadores estáticos mejora la mantenibilidad del código. a) Es incorrecto: esta respuesta no mejora la mantenibilidad del código. b) Es incorrecto: nombrar las variables de forma única no mejora la mantenibilidad del código. d) Es incorrecto: codificar los valores de forma fija (hardcode) no mejora la mantenibilidad del código.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 18,
+      "pregunta": "<p>What is the most effective way to reduce the maintenance time for test automation code?</p>",
+      "opciones": [
+        "a) Keep the code outside of a version control system",
+        "b) Embed static data directly within the test scripts for easier access",
+        "c) Apply design patterns in your test automation framework",
+        "d) Regularly rewrite test scripts from scratch instead of reusing existing components"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Estructurar el código de automatización usando patrones de diseño mejora la reutilización y la escalabilidad, reduciendo el tiempo necesario para el mantenimiento. a) Es incorrecto: mantener el código fuera de un sistema de control de versiones dificulta a los ingenieros de automatización (TAE) gestionar, seguir y colaborar sobre el código de forma efectiva. b) Es incorrecto: incrustar datos fijos en los scripts no es recomendable, ya que los vuelve inflexibles y difíciles de mantener cuando se requieren cambios. d) Es incorrecto: reescribir regularmente los scripts desde cero es ineficiente y genera trabajo innecesario; reutilizar componentes existentes es más efectivo para reducir el tiempo de mantenimiento.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 19,
+      "pregunta": "<p>There is an IT company which develops an often-changing financial software product using the Agile software development model. The development, the integration and the deployment processes are highly automated. There is a CI/CD pipeline currently established. You are working on a TAS. The goal is to create a TAS which can be used for as many test automation purposes as possible.</p><p>Which of the following options are valid purposes for test automation in this case?</p>",
+      "opciones": [
+        "a) Run a regression test suite every night",
+        "b) Execute a build of a component",
+        "c) Run a static code analysis",
+        "d) Execute an automated performance efficiency test in the CI/CD pipeline",
+        "e) Package and deploy the application as part of the deployment phase"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Las pruebas de regresión son necesarias y pueden incorporarse al pipeline CI/CD. d) Es correcto. Las pruebas de eficiencia de desempeño pueden automatizarse. b) Es incorrecto: ejecutar un build no es una tarea de automatización de pruebas. c) Es incorrecto: el análisis estático de código no es una tarea de automatización de pruebas. e) Es incorrecto: empaquetar y desplegar no son tareas de automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 20,
+      "pregunta": "<p>Which statement is correct?</p>",
+      "opciones": [
+        "a) Tests are not executed as part of the deployment phase",
+        "b) Tests are not executed as a separate pipeline, triggered by the successful deployment",
+        "c) Test cases do not act as a quality gate when different automated test suites will run on each deployment",
+        "d) Pipelines are not recommended for regression testing due to the extensive scope and size of these tests"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. No es una afirmación correcta, puesto que las pruebas no actúan como puertas de calidad para el despliegue. a) Es incorrecto: las pruebas sí se ejecutan durante el despliegue. b) Es incorrecto: las pruebas sí se disparan para ejecutarse tras un despliegue exitoso. d) Es incorrecto: los pipelines son una solución excelente para pruebas periódicas, como las de regresión, y el tamaño de estas pruebas no afecta a su efectividad.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 21,
+      "pregunta": "<p>How is configuration management used in test automation?</p>",
+      "opciones": [
+        "a) It enables the management of test data and test environment configurations",
+        "b) The SUT configuration can be stored and easily removed",
+        "c) It enables management of user rights for accessing test automation",
+        "d) Test automation results can easily be analyzed"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Los datos de prueba y las configuraciones del entorno de pruebas pueden estar bajo gestión de la configuración. b) Es incorrecto: la configuración del SUT puede estar bajo gestión de la configuración, pero no está relacionada con la automatización de pruebas. c) Es incorrecto: la gestión de derechos de usuario no está relacionada con la gestión de la configuración. d) Es incorrecto: la gestión de la configuración no da soporte al análisis de los resultados de la automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 22,
+      "pregunta": "<p>Which item below is NOT part of the test environment configuration?</p>",
+      "opciones": [
+        "a) Uniform resource locators (URLs)",
+        "b) Credentials",
+        "c) Test data",
+        "d) Common core library"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La configuración del entorno de pruebas forma parte de la librería core común, y no al revés. a) Es incorrecto: las URL forman parte de la configuración del entorno de pruebas. b) Es incorrecto: las credenciales forman parte de la configuración del entorno de pruebas. c) Es incorrecto: los datos de prueba forman parte de la configuración del entorno de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 23,
+      "pregunta": "<p>How does contract testing NOT contribute to API test automation dependencies in an infrastructure?</p>",
+      "opciones": [
+        "a) Ensures that APIs adhere to predefined contracts for communication",
+        "b) Can be used to test the communication of microservices",
+        "c) Validates the compatibility of two separate systems",
+        "d) Verifies whether a system satisfies its contractual requirements"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las pruebas de contrato no tienen relación con los requisitos contractuales. a) Es incorrecto: las pruebas de contrato aseguran que las API sigan acuerdos de comunicación predefinidos, lo que ayuda a gestionar las dependencias de API. b) Es incorrecto: las pruebas de contrato pueden usarse para probar la comunicación entre microservicios. c) Es incorrecto: las pruebas de contrato pueden validar la compatibilidad de dos sistemas separados.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 24,
+      "pregunta": "<p>You are on a project where the teams are working on breaking down an old monolithic web service into several microservices. Which of the following documents can assist you in identifying dependencies and developing your Test Automation Solution (TAS) for API testing?</p><ul><li>i. Application programming interface (API) specification</li><li>ii. System architecture diagram</li><li>iii. Test strategy</li><li>iv. Release notes</li></ul>",
+      "opciones": [
+        "a) i, ii, and iv",
+        "b) i and ii",
+        "c) ii, iii, and iv",
+        "d) i"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. La especificación de la API aporta detalles sobre los endpoints, y el diagrama de arquitectura del sistema muestra las relaciones entre los distintos componentes. a) Es incorrecto: las notas de versión no ayudan a conocer las conexiones y los detalles de la API. c) Es incorrecto: la estrategia de pruebas y las notas de versión no aportan información específica sobre las dependencias de API necesarias para construir un TAS. d) Es incorrecto: la especificación de la API por sí sola no es suficiente; también se necesita el diagrama de arquitectura del sistema para entender las relaciones entre los distintos servicios.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 25,
+      "pregunta": "<p>You are working on a test automation project that is used to automate GUI testing of an online web shop. The web shop contains a wizard which helps users to set up their accounts, their name, billing address, shipping address, and security credentials. During the test automation, the steps of the wizard are recorded first. Screenshots are taken and stored during these steps. We consider these as the baseline. The baseline was then rerun with no change to the SUT and all tests passed.</p><p>After the developers submit a change to the wizard, the recorded test scripts are played back, and the screenshots of each step are compared with the baseline screenshots. During a playback, all test cases failed, even though the visible content seems unchanged.</p><p>What could be the cause?</p>",
+      "opciones": [
+        "a) An internally used technical session ID is also recorded, which changes during the playback. This should be substituted with variables to avoid failures.",
+        "b) Screenshots are not correctly associated with the test steps, leading to comparisons being made in the wrong order.",
+        "c) The failure occurred because relying solely on screenshot comparisons led to inaccurate results.",
+        "d) The date in the GUI header is different from the date when it was recorded. This date field should be excluded from the comparison",
+        "e) Screenshots were captured in low resolution, causing details to be blurred, making the comparison unreliable."
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Los identificadores de sesión cambian en cada sesión, provocando diferencias en las capturas de pantalla aunque el contenido parezca el mismo. d) Es correcto. Los elementos dinámicos, como las fechas en la GUI, pueden causar falsos negativos y deben excluirse de las comparaciones. b) Es incorrecto: el orden no es relevante, ya que fallan todas las capturas, lo que no ocurriría si el problema fuera solo de orden. c) Es incorrecto: esto no explica por qué fallan todas las comparaciones cuando el contenido parece inalterado. e) Es incorrecto: los cambios de zoom del navegador difícilmente causarían todos los fallos si el contenido parece idéntico al ojo humano.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 26,
+      "pregunta": "<p>You are working on a project where you are responsible to extend the current TAF that is used for web service testing, with additional test logging capabilities. The TAF uses a third-party tool to create file logs and an HTML report to quickly visualize the test results. In the test implementation, various dynamic values are used to generate the actual test data, and the SUT, a web service without a UI, connects to multiple legacy test systems. Unfortunately, the tests are very unstable, and you need to add meaningful information to the test logging to better analyze the reasons for the failures.</p><p>What additional information should not be included in the test logging to make it more useful and why?</p>",
+      "opciones": [
+        "a) Timestamps should be included in the test logs to see if the failure connects to a given legacy system outage",
+        "b) Screenshots should be included to see actual request-response pairs",
+        "c) Randomly generated values should be logged to allow for analysis of the actual results occured during test executions",
+        "d) In case of assertion failures meaningful information like actual results versus expected results should be logged instead of stack traces"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. El SUT es un servicio web sin interfaz de usuario, por lo que las capturas de pantalla son irrelevantes. Registrar los datos de petición y respuesta es más útil para analizar las interacciones con el servicio web. a) Es incorrecto: las marcas de tiempo ayudan a ver cuándo hay problemas y si están relacionados con una caída de un servicio legado que afecta a la funcionalidad del SUT. c) Es incorrecto: los valores generados aleatoriamente no quedarían visibles para una investigación posterior. d) Es incorrecto: los mensajes de aserción enfocados pueden ayudar a la investigación de los fallos.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 27,
+      "pregunta": "<p>During the design phase of a performance critical software product, management decides to create a TAS to do load testing on the software to measure its performance. The product contains different architectural components, including a browser-based front end, microservices implemented in the back end, and a relational database. It is important to measure all individual transactions in the entire architectural stack.</p><p>How can you automatically provide this information from the test automation software?</p>",
+      "opciones": [
+        "a) You cannot. This information has to be gathered manually at the end of every transaction",
+        "b) The test automation engineer (TAE) can record the timing information during the execution of all transactions",
+        "c) Trace IDs should be populated across the software components and measured time values should be associated with these IDs to correlate the performance data.",
+        "d) Third-party tools should be inserted into the different layers of the architecture and these agents should log the collected data into a database"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. El Trace ID es la forma adecuada de asociar los datos de rendimiento entre los distintos componentes arquitectónicos, permitiendo un análisis de rendimiento a nivel de todo el sistema. a) Es incorrecto: la recogida manual de datos es demasiado lenta y propensa a errores; la automatización es esencial. b) Es incorrecto: esto no explica cómo pueden correlacionarse los datos entre los distintos componentes. d) Es incorrecto: las herramientas de terceros pueden recoger datos, pero no proporcionan la correlación necesaria para un análisis completo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 28,
+      "pregunta": "<p>As a test automation engineer, you are tasked with demonstrating to management whether the test success rate is improving over a series of test runs.</p><p>What is the right approach to fulfill this requirement?</p>",
+      "opciones": [
+        "a) Compare the test results with the expected results",
+        "b) Use traffic light indicators to show test execution progress",
+        "c) Detailed test reports with percentages of test completion",
+        "d) Implement an analysis feature that compares previous test results and highlights trends"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Esta es la implementación adecuada: la funcionalidad de análisis es capaz de comparar la tasa de éxito de ciclos de ejecución anteriores con la más reciente y representarla en un análisis de tendencia. a) Es incorrecto: la comparación de los resultados obtenidos con los esperados solo da la tasa de éxito/fallo de una única ejecución. b) Es incorrecto: los semáforos solo muestran el resumen del progreso de la ejecución y la finalización de los casos de prueba dentro de un único ciclo de ejecución. c) Es incorrecto: los informes detallados con porcentajes de finalización solo muestran el resultado de la ejecución y la finalización de los casos de prueba dentro de un único ciclo de ejecución.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 29,
+      "pregunta": "<p>Your team has developed a Test Automation Solution (TAS) for a computer-aided design (CAD) software program. This software has several different versions in production and has been ported to different languages and platforms. Manual testers have been using the TAS on their local computers with different language settings, versions, and platforms. Before proceeding with further automated testing, you need to verify the test automation environment.</p><p>What is an important consideration when verifying the environment for this TAS?</p>",
+      "opciones": [
+        "a) Establish a central repository to verify that all testers are using the same version of the capture/playback tool and can access it correctly",
+        "b) Create and document a procedure to verify the proper installation of the CAD software on each tester's machine",
+        "c) Set up a central test environment where the CAD software is installed and verify that automation scripts can interact with it from each local computer",
+        "d) Use configuration management to verify the consistency of test data and scripts across different environments"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Esta opción se centra en verificar que todos los testers puedan acceder y utilizar la misma versión de la herramienta de capture/playback, lo cual es crucial para asegurar la consistencia del entorno de automatización de pruebas. b) Es incorrecto: aunque documentar los procedimientos de instalación es importante, no trata específicamente sobre la verificación del entorno de automatización de pruebas. c) Es incorrecto: este enfoque no aborda la necesidad de entornos diferentes tal como especifica el escenario. d) Es incorrecto: aunque la gestión de la configuración es importante, esta opción no aborda específicamente la verificación del entorno de automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 30,
+      "pregunta": "<p>You work in a software development team that requires testing to occur in many different test environments. Your manager has expressed that the team is spending a significant amount of time overcoming false-positive results because the test automation solution (TAS) is not configured correctly when using it in a new test environment. Additionally, there appear to be version differences when comparing the TAS in each test environment. Even new test environments sometimes are set up with very old TAS components.</p><p>Which TWO options would help address this situation?</p>",
+      "opciones": [
+        "a) Create an automated installation script for the tools and configurations that make up the TAS",
+        "b) Limit the TAS to only be used in the most important test environments",
+        "c) Utilize a repository to store the TAS that is accessible to all test environments",
+        "d) Leverage manual testing to verify that the TAS has been configured properly in all test environments",
+        "e) Due to time constraints skip the implementation of components tests for the TAS"
+      ],
+      "respuesta_correcta": [
+        0,
+        2
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Los scripts automatizados de instalación y configuración aseguran consistencia y repetibilidad durante la puesta en marcha del TAS. c) Es correcto. Los repositorios pueden usarse para verificar versiones consistentes del TAS en todos los entornos de prueba. b) Es incorrecto: el TAS debe diseñarse para ser portable a múltiples entornos de prueba. d) Es incorrecto: las pruebas manuales no son una solución escalable. e) Es incorrecto: al omitir las pruebas de componente, podrían quedar sin detectar problemas potenciales.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 31,
+      "pregunta": "<p>You are about to verify an automated test suite. During the verification process you have found that some test scripts pass one time and fail at another, therefore not providing reliable test results.</p><p>What should you do to verify the validity of your test scripts?</p>",
+      "opciones": [
+        "a) This is due to the parallel execution of the test scripts; synchronization would solve the problem",
+        "b) Re-execute the automated test suite and analyze the test results again",
+        "c) Remove the test scripts from the automated test suite and analyze them separately",
+        "d) This happens because several test scripts are using the same test data, so the separation of test data for each test script would resolve the problem"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Esta debería ser la primera tarea en este caso. a) Es incorrecto: el problema debe analizarse en detalle, ya que la causa raíz aún no se conoce. b) Es incorrecto: esta respuesta no propone ninguna solución. d) Es incorrecto: el problema debe analizarse en detalle, ya que la causa raíz aún no se conoce.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 32,
+      "pregunta": "<p>You have a test suite containing 25 automated tests that verify the login functionality of an application’s home page. The test suite is executed at the end of each two-week sprint cycle for regression test purposes. You notice that two test cases out of the 25 may sometimes cause a race condition in the application or receive a random error.</p><p>What action should you take for these two test cases?</p>",
+      "opciones": [
+        "a) Take no action because sometimes they execute successfully",
+        "b) Reduce the amount of test cases in the test suite from 25 to 15 and see if the test suite passes with the smaller amount",
+        "c) Remove the two test cases from the active test suite and analyze them separately to find the root cause",
+        "d) Replace the two test cases with ones that pass repeatedly so that the test suite still has 25 automated test cases"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Permite que la suite siga usándose para obtener resultados repetibles, dando tiempo a diagnosticar los casos de prueba problemáticos, que volverán a añadirse a la suite una vez corregidos. a) Es incorrecto: el objetivo es tener pruebas repetibles que den resultados consistentes. b) Es incorrecto: eliminar cobertura no es una buena respuesta a la situación. d) Es incorrecto: esto no aborda los errores aleatorios que está experimentando la aplicación.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 33,
+      "pregunta": "<p>You are working on a project to automate a regression test suite. When the regression test suite was executed manually last time, all the tests passed. But when you execute them via the test automation solution (TAS), you find there are some failed tests.</p><p>What should you do to handle this situation?</p>",
+      "opciones": [
+        "a) Analyze log files to identify the root cause of the problem",
+        "b) Eliminate these test cases from the automated test suite, so the remaining tests can pass",
+        "c) Open a defect for the SUT as the failed tests are indicating an SUT problem",
+        "d) This is normal because automated tests behave differently than manual tests"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. El análisis de los ficheros de log puede identificar la causa raíz del problema. b) Es incorrecto: este proceso no ayudará a resolver el problema original. c) Es incorrecto: estas pruebas no indican directamente un problema en el SUT; primero deben analizarse. d) Es incorrecto: la afirmación es falsa.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 34,
+      "pregunta": "<p>You are preparing to execute a test automation suite for a security-critical application which has to fulfill the highest security requirements.</p><p>Which approach should you follow to verify the test automation code?</p>",
+      "opciones": [
+        "a) Search the test longs for possible credential data",
+        "b) Eliminate test cases using sensitive test data",
+        "c) Execute the test suite slowly and methodically to check if there are any security vulnerabilities",
+        "d) Use a static analysis tool to identify security vulnerabilities"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las herramientas de análisis estático dan soporte a la identificación de vulnerabilidades de seguridad. a) Es incorrecto: los logs de prueba pueden no contener datos de credenciales presentes en el código de automatización. b) Es incorrecto: no tiene sentido eliminar casos de prueba, ya que afectará a la cobertura de código. c) Es incorrecto: una ejecución más lenta de las pruebas no revela necesariamente vulnerabilidades de seguridad.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 35,
+      "pregunta": "<p>You are working on a test automation project that is used to automate graphical user interface (GUI) testing of an online web shop. The web shop contains a wizard which helps users set up their accounts: their names, billing address, shipping address and security credentials. Currently, the development of the software is in a phase when usability testers check the wizard and give recommendations about the necessary changes. This is done iteratively; the developers modify the GUI, the usability testers check the modifications and repeat the usability testing. The test automation is mainly focusing on maintenance testing. In these UI-based test cases, data also includes UI locator values. An existing problem is that developers often change the internal identifiers of UI elements, so maintaining tests requires a lot of effort.</p><p>Which of the following could be an important opportunity for improvement?</p>",
+      "opciones": [
+        "a) Apply schema validation, which checks if mandatory response elements are present on the GUI",
+        "b) Improve test logging to include information about UI elements and their locators to easily identify the broken test cases",
+        "c) Create a test histogram, which enables the TAEs to identify and select test cases that are fragile",
+        "d) Use an artificial intelligence (AI) algorithm - which is based on machine learning and image recognition - to identify the new selectors and use self-healing to fix the test cases"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Usar un algoritmo basado en IA da soporte a la identificación de localizadores rotos y a la auto-reparación (self-healing) de los casos de prueba. a) Es incorrecto: la validación de esquema puede aplicarse en pruebas de API, no en pruebas de GUI. b) Es incorrecto: este es un proceso manual y lento. c) Es incorrecto: un histograma de pruebas permite identificar casos de prueba frágiles, pero no resuelve el problema de fondo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 36,
+      "pregunta": "<p>Your organization maintains a regression test suite of over 1000 automated test cases that has been extremely reliable over the years. Recently the development team has decided to modernize their technology stack and are currently refactoring how their front end operates. You notice that the application is far more API-driven than the previous version and this has an impact on how UI elements render. You anticipate this is going to impact the success rate of 75% of your automated test cases.</p><p>What data analysis approaches should you use to determine how to fix your impacted automated test cases?</p>",
+      "opciones": [
+        "a) Run the test cases several times in a CI/CD pipeline, perform visual report analysis, and draw conclusions from a test histogram",
+        "b) Use AI algorithms and API schema validation tools",
+        "c) Recreate automated test cases to replace the ones that are not working properly and will execute on the new application",
+        "d) Avoid automating certain test cases after analyzing exception logs, screenshots, and error messages"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Los algoritmos de IA pueden usarse para auto-reparar los casos de prueba frente a cambios en los valores de los localizadores de UI, y las herramientas de validación de esquema pueden usarse para evaluar rápidamente las actualizaciones del esquema de la API. a) Es incorrecto: analizar histogramas de 1000 casos de prueba llevaría mucho tiempo; además, ya podemos anticipar el impacto sobre los casos de prueba sin generar datos de histograma. c) Es incorrecto: recrear el 75% del test harness no es viable cuando hay otras opciones disponibles. d) Es incorrecto: aunque los logs, las capturas de pantalla y los mensajes de error son fuentes de datos válidas que conviene revisar, eliminar casos de prueba no es una estrategia viable.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 37,
+      "pregunta": "<p>You are working on an automated regression test suite that takes too long a time to execute, and its execution does not finish overnight. The test environment is only available for regression testing during the night. Running multiple suites in parallel is not an option, as the target system is expensive and exists only as a single instance. What should be your next steps to ensure the test suite execution finishes overnight?</p>",
+      "opciones": [
+        "a) Split the test suite into multiple parts, executing the parts on different nights of the week",
+        "b) Isolate test result verification from the test execution and start the verification process after the test execution during morning hours",
+        "c) Rewrite the tests using the keyword-driven technique as that will be executed faster",
+        "d) Remove some tests from the test suite to reduce overall execution time",
+        "e) Remove any duplicate tests from the test suite"
+      ],
+      "respuesta_correcta": [
+        0,
+        4
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Dividir la suite de pruebas ayuda a asegurar que la ejecución termine durante la noche. e) Es correcto. Eliminar duplicidades puede reducir el tiempo de ejecución. b) Es incorrecto: la verificación de los resultados no puede aislarse del proceso de ejecución de las pruebas. c) Es incorrecto: no se afirma con carácter general que la técnica dirigida por palabras clave se ejecute más rápido. d) Es incorrecto: reduciría el alcance a una regresión de alto nivel, lo que a largo plazo podría derivar en defectos que se propaguen a producción.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 38,
+      "pregunta": "<p>As a TAE, you are evaluating new versions of core libraries.</p><p>Which is the correct order that can help you achieve these results?</p>",
+      "opciones": [
+        "a) Create adoption plan; determine impact; update dependencies; perform pilot",
+        "b) Perform pilot; determine impact; create adoption plan; update dependencies",
+        "c) Update dependencies; determine impact; perform pilot; create adoption plan",
+        "d) Determine impact; update dependencies; create adoption plan; perform pilot"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Este es el orden correcto de las actividades. a) Es incorrecto: el plan de adopción debe elaborarse después de determinar el impacto. c) Es incorrecto: la actualización de las dependencias debe realizarse después de crear el plan de adopción. d) Es incorrecto: determinar el impacto debe realizarse después de ejecutar un piloto.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 39,
+      "pregunta": "<p>You have been performing a quality review of a TAS to optimize the interaction of controls within the GUI. The GUI includes several types of controls (e.g., dropdown list, checkbox, text field). There are also separate functions in the test scripts which act upon the different types of GUI controls to gather information and to set them (e.g., visible/not visible, enabled/not enabled). Which of the following steps should you consider to increase the efficiency of the TAS?</p>",
+      "opciones": [
+        "a) Separate the testing of the controls based on their types into different test suites",
+        "b) Research if there is a test automation tool which can replace the current solution",
+        "c) Check if there are any functions that can work with several types of controls, and consolidate the test scripts using these functions",
+        "d) Use the new operating system functions in the test scripts to handle the GUI controls"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Consolidar los scripts de prueba es una mejora en este caso. a) Es incorrecto: separar la prueba de los controles debería implementarse dentro de las librerías core. b) Es incorrecto: no es una mejora directa. d) Es incorrecto: no es una mejora directa.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 40,
+      "pregunta": "<p>As a test automation engineer, you have automated the performance test of a customer management system. In order to effectively test the performance of this system, you need to create diverse test data that includes customers with varying profiles based on different input criteria.</p><p>What is the best way to implement such a solution?</p>",
+      "opciones": [
+        "a) Employ a test automation tool to invoke a web service API that creates new user accounts and populates their profiles with the specified data.",
+        "b) Register these users manually via the GUI, so the GUI functionality can also be tested",
+        "c) Use the production database during the test as it has the real volume and type of data",
+        "d) Implement a test automation script to anonymize customer data before using it during the performance test"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Ofrece una solución automatizada y rápida al problema. b) Es incorrecto: esto no es un TAS. c) Es incorrecto: usar directamente una base de datos de producción como origen de los datos de prueba conlleva un riesgo alto. d) Es incorrecto: la anonimización de los datos de prueba es importante, pero queda fuera del alcance de esta solución.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    }
+  ]
+}
