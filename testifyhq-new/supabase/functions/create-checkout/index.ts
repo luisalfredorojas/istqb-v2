@@ -15,7 +15,7 @@
 //  - APP_URL              (para el redirect tras el pago)
 //  - SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (inyectados por Supabase)
 
-import { createClient } from "supabase";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders, jsonResponse } from "../_shared/cors.ts";
 import { isPlanId, PLANS, variantIdFor } from "../_shared/plans.ts";
 

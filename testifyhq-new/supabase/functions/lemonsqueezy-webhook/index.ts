@@ -17,7 +17,7 @@
 //  - LEMONSQUEEZY_VARIANT_LIFETIME (opcional, para clasificar pagos únicos)
 //  - SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (inyectados por Supabase)
 
-import { createClient } from "supabase";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 // --- Verificación de firma (HMAC-SHA256 sobre el body crudo) -----------
 function toHex(buf: ArrayBuffer): string {
@@ -119,6 +119,17 @@ Deno.serve(async (req) => {
     { auth: { persistSession: false } },
   );
 
+  // Actualiza (si existe) la fila de payment_orders asociada al checkout.
+  // Es un closure para no tener que tipar el cliente como parámetro: el tipo
+  // que devuelve createClient no es estable entre versiones de supabase-js.
+  const markOrder = async (fields: Record<string, unknown>): Promise<void> => {
+    if (!orderId) return;
+    await admin
+      .from("payment_orders")
+      .update({ ...fields, completed_at: new Date().toISOString() } as never)
+      .eq("id", orderId);
+  };
+
   // Sin user_id no podemos vincular el evento a una cuenta.
   if (!userId) {
     console.warn("Webhook sin custom_data.user_id", { eventName });
@@ -153,7 +164,7 @@ Deno.serve(async (req) => {
             })
             .eq("id", userId);
 
-          await markOrder(admin, orderId, {
+          await markOrder({
             status: "completed",
             provider_order_id: resourceId,
           });
@@ -191,7 +202,7 @@ Deno.serve(async (req) => {
           })
           .eq("id", userId);
 
-        await markOrder(admin, orderId, {
+        await markOrder({
           status: "completed",
           provider_subscription_id: resourceId,
         });
@@ -265,16 +276,3 @@ Deno.serve(async (req) => {
 
   return new Response("OK", { status: 200 });
 });
-
-// Actualiza (si existe) la fila de payment_orders asociada al checkout.
-async function markOrder(
-  admin: ReturnType<typeof createClient>,
-  orderId: string | undefined,
-  fields: Record<string, unknown>,
-): Promise<void> {
-  if (!orderId) return;
-  await admin
-    .from("payment_orders")
-    .update({ ...fields, completed_at: new Date().toISOString() })
-    .eq("id", orderId);
-}

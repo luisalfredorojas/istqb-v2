@@ -9,7 +9,7 @@
 // NULL no es posible por FK, así que se eliminan en cascada); la
 // facturación fiscal la conserva Lemon Squeezy como vendedor legal.
 
-import { createClient } from "supabase";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders, jsonResponse } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {

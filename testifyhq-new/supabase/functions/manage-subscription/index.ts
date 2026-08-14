@@ -10,7 +10,7 @@
 //
 // Secrets: LEMONSQUEEZY_API_KEY (+ SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)
 
-import { createClient } from "supabase";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders, jsonResponse } from "../_shared/cors.ts";
 
 const LS_API = "https://api.lemonsqueezy.com/v1/subscriptions";
