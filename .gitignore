@@ -27,3 +27,10 @@ firebase-debug.log
 # OS
 .DS_Store
 Thumbs.db
+
+# Material fuente de ISTQB (PDFs oficiales con copyright): se usan en local
+# para extraer preguntas, pero no deben redistribuirse en el repositorio.
+testifyhq-new/a/
+testifyhq-new/b/
+testifyhq-new/c/
+testifyhq-new/d/
