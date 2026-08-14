@@ -1,4 +1,4 @@
-import { supabaseAdmin as supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 import examA from '@/data/exams/foundation-level-exam-a.json';
 import examAExtra from '@/data/exams/foundation-level-exam-a-extra.json';
 import examB from '@/data/exams/foundation-level-exam-b.json';
@@ -57,7 +57,7 @@ export const migrateExams = async () => {
              passing_score: passingScorePercent,
              total_questions: totalQuestions,
              is_active: true
-          })
+          } as never)
           .eq('id', (existingExam as any).id);
           
          if (updateError) {

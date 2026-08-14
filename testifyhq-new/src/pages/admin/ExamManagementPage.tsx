@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserRole } from '@/hooks/useUserRole';
-import { supabaseAdmin } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { migrateExamsFromFiles } from '@/utils/migrateExamsFromFiles';
 import type { Exam } from '@/types';
 
@@ -71,7 +71,7 @@ export function ExamManagementPage() {
 
   const loadExams = async () => {
     setLoading(true);
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await supabase
       .from('exams')
       .select('*')
       .order('id', { ascending: true });
@@ -114,7 +114,7 @@ export function ExamManagementPage() {
     if (!deletingExamId) return;
     
     console.log('[confirmDelete] User confirmed, deleting exam ID:', deletingExamId);
-    const { error } = await supabaseAdmin
+    const { error } = await supabase
       .from('exams')
       .delete()
       .eq('id', deletingExamId);
@@ -186,17 +186,17 @@ export function ExamManagementPage() {
     try {
       if (editingExam) {
         // Update
-        const { error } = await supabaseAdmin
+        const { error } = await supabase
           .from('exams')
-          .update(formData)
+          .update(formData as never)
           .eq('id', editingExam.id);
 
         if (error) throw error;
       } else {
         // Create
-        const { error } = await supabaseAdmin
+        const { error } = await supabase
           .from('exams')
-          .insert(formData);
+          .insert(formData as never);
 
         if (error) throw error;
       }

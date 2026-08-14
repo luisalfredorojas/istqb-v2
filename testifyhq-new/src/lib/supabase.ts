@@ -16,14 +16,17 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   },
 });
 
-// Admin client for migrations - uses service role key to bypass RLS
-const supabaseServiceRoleKey = import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey || supabaseAnonKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
-});
+/**
+ * NUNCA uses la clave service_role en el cliente.
+ *
+ * Vite incrusta cualquier variable VITE_* en el bundle público, así que una
+ * service_role aquí queda expuesta a cualquiera que abra el JavaScript, y
+ * permite saltarse por completo el RLS.
+ *
+ * Las operaciones de administración usan el cliente normal `supabase`: las
+ * políticas "Admins manage exams/questions" autorizan al administrador por
+ * su sesión. Lo que requiera service_role va en una Edge Function.
+ */
 
 // Auth helpers
 export const authHelpers = {

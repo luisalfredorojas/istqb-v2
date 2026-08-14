@@ -1,4 +1,4 @@
-import { supabaseAdmin as supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 interface MigrationResult {
   success: number;
@@ -68,7 +68,7 @@ export const migrateExamsFromFiles = async (files: FileList): Promise<MigrationR
              passing_score: passingScorePercent,
              total_questions: totalQuestions,
              is_active: true
-          })
+          } as never)
           .eq('id', (existingExam as any).id);
           
          if (updateError) {
