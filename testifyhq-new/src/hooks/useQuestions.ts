@@ -19,7 +19,9 @@ export function useQuestions(examId: number) {
         throw error;
       }
 
-      return data as Question[];
+      // `options` viaja como JSONB, así que la base lo tipa como `Json`
+      // genérico; la forma real es QuestionOption[].
+      return data as unknown as Question[];
     },
     staleTime: 1000 * 60 * 60, // Cache for 1 hour
     refetchOnWindowFocus: false,

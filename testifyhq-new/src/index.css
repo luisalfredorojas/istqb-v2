@@ -98,3 +98,54 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }
+
+/* =====================================================================
+   Enunciados de pregunta (HTML inyectado desde la base de datos)
+   =====================================================================
+   El preflight de Tailwind deja `list-style: none` en ol/ul, así que sin
+   estas reglas un <ol> se muestra SIN numeración. Eso rompe las preguntas
+   cuyas opciones referencian los ítems ("i, ii, iv are advantages"): sin
+   los números, la pregunta no se puede responder.
+
+   Nota: no se puede distinguir type="i" de type="I" con selectores de
+   atributo (en HTML el valor se compara sin distinguir mayúsculas, y el
+   modificador `s` no está disponible en todos los motores). El contenido
+   actual solo usa minúsculas, que es lo que se mapea aquí. Para números
+   romanos en mayúscula, escribe la etiqueta literal en el texto.
+   ===================================================================== */
+.question-html ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.question-html ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+}
+
+.question-html ol[type='i'] {
+  list-style-type: lower-roman;
+}
+
+.question-html ol[type='a'] {
+  list-style-type: lower-alpha;
+}
+
+.question-html li {
+  margin-bottom: 0.25rem;
+}
+
+.question-html table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-html th,
+.question-html td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+}
+
+.question-html th {
+  background: var(--surface);
+}

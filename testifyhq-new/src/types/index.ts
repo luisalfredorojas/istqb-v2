@@ -34,7 +34,7 @@ export interface Exam {
   title: string;
   description: string | null;
   category: string;
-  difficulty: 'foundation' | 'advanced' | 'expert' | null;
+  difficulty: 'Foundation' | 'Advanced' | 'Expert' | null;
   duration_minutes: number;
   passing_score: number;
   total_questions: number;

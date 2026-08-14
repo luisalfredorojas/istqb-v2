@@ -11,6 +11,7 @@ import { useExamAttempts } from '@/hooks/useExamAttempts';
 import { useExamAccess } from '@/hooks/useExamAccess';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
+import { countCorrect } from '@/lib/answers';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Lock, Crown } from 'lucide-react';
 
@@ -59,8 +60,7 @@ export function ExamPage() {
     if (!user || !questions) return;
     setIsSubmitting(true);
     try {
-      let correctCount = 0;
-      questions.forEach((q) => { if (answers[q.id] === q.correct_answer) correctCount++; });
+      const correctCount = countCorrect(questions, answers);
       const score = Math.round((correctCount / questions.length) * 100);
       const passed = score >= 65;
       const timeSpent = (60 * 60) - timeRemaining;

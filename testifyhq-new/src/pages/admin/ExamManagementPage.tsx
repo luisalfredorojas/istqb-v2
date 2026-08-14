@@ -151,8 +151,8 @@ export function ExamManagementPage() {
       // Show detailed results
       const message = [
         '📊 Resumen de Migración:',
-        `✅ Exitosos: ${result.success}`,
-        `⚠️ Duplicados omitidos: ${result.duplicates}`,
+        `✅ Creados: ${result.created}`,
+        `🔄 Actualizados: ${result.updated}`,
         `❌ Errores: ${result.errors}`,
         '',
         '📋 Detalles:',
@@ -163,7 +163,7 @@ export function ExamManagementPage() {
       console.log('[handleFileChange] Migration completed:', result);
 
       // Reload exams list
-      if (result.success > 0) {
+      if (result.created > 0 || result.updated > 0) {
         loadExams();
       }
     } catch (error) {
@@ -255,32 +255,13 @@ export function ExamManagementPage() {
           
 
           
-          {/* Dropdown for Migration Options */}
-          <div className="relative group">
-            <Button
-              variant="outline"
-              disabled={migrating}
-            >
-              {migrating ? '⏳ Migrando...' : '🚀 Migrar desde JSON ▾'}
-            </Button>
-            
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-100 hidden group-hover:block z-50">
-               <div className="py-1">
-                 <button
-                   onClick={handleMigrateClick}
-                   className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                 >
-                   📤 Subir archivo(s) JSON
-                 </button>
-                 <button
-                   onClick={() => import('@/utils/migrateExams').then(m => m.migrateExams())}
-                   className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                 >
-                   🔄 Migrar locales (Legacy)
-                 </button>
-               </div>
-            </div>
-          </div>
+          <Button
+            variant="outline"
+            onClick={handleMigrateClick}
+            disabled={migrating}
+          >
+            {migrating ? '⏳ Migrando...' : '📤 Subir examen(es) JSON'}
+          </Button>
           <Button onClick={handleCreate}>
             + Nuevo Examen
           </Button>

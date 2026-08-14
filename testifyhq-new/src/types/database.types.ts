@@ -91,6 +91,7 @@ export interface Database {
           is_lifetime?: boolean
           subscription_updated_at?: string | null
         }
+        Relationships: []
       }
       exams: {
         Row: {
@@ -98,7 +99,7 @@ export interface Database {
           title: string
           description: string | null
           category: string
-          difficulty: 'foundation' | 'advanced' | 'expert' | null
+          difficulty: 'Foundation' | 'Advanced' | 'Expert' | null
           duration_minutes: number
           passing_score: number
           total_questions: number
@@ -112,7 +113,7 @@ export interface Database {
           title: string
           description?: string | null
           category: string
-          difficulty?: 'foundation' | 'advanced' | 'expert' | null
+          difficulty?: 'Foundation' | 'Advanced' | 'Expert' | null
           duration_minutes: number
           passing_score: number
           total_questions: number
@@ -126,7 +127,7 @@ export interface Database {
           title?: string
           description?: string | null
           category?: string
-          difficulty?: 'foundation' | 'advanced' | 'expert' | null
+          difficulty?: 'Foundation' | 'Advanced' | 'Expert' | null
           duration_minutes?: number
           passing_score?: number
           total_questions?: number
@@ -135,6 +136,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+        Relationships: []
       }
       questions: {
         Row: {
@@ -191,6 +193,7 @@ export interface Database {
           created_at?: string
           updated_at?: string
         }
+        Relationships: []
       }
       user_exam_attempts: {
         Row: {
@@ -238,6 +241,7 @@ export interface Database {
           user_agent?: string | null
           created_at?: string
         }
+        Relationships: []
       }
       payment_orders: {
         Row: {
@@ -285,6 +289,7 @@ export interface Database {
           created_at?: string
           completed_at?: string | null
         }
+        Relationships: []
       }
       withdrawal_requests: {
         Row: {
@@ -323,15 +328,25 @@ export interface Database {
           status?: 'received' | 'processing' | 'completed' | 'rejected'
           created_at?: string
         }
+        Relationships: []
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      import_exam: {
+        Args: {
+          p_exam: Json
+          p_questions: Json
+        }
+        Returns: Json
+      }
     }
     Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
       [_ in never]: never
     }
   }

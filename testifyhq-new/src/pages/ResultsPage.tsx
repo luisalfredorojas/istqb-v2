@@ -6,6 +6,7 @@ import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useAttempt } from '@/hooks/useExamAttempts';
 import { cn } from '@/lib/utils';
+import { answerIncludes, countCorrect, isAnswerCorrect } from '@/lib/answers';
 import { ChevronDown } from 'lucide-react';
 
 export function ResultsPage() {
@@ -36,8 +37,7 @@ export function ResultsPage() {
   const attemptData = attempt as any;
   const answers = attemptData ? (attemptData.answers as Record<string, string>) : storeAnswers;
   const totalQuestions = questions.length;
-  let correctCount = 0;
-  questions.forEach((q) => { if (answers[q.id] === q.correct_answer) correctCount++; });
+  const correctCount = countCorrect(questions, answers);
   const score = attemptData ? (attemptData.score || 0) : Math.round((correctCount / totalQuestions) * 100);
   const isPassed = score >= 65;
 
@@ -91,7 +91,7 @@ function ReviewList({ questions, answers }: { questions: any[]; answers: Record<
     <div className="space-y-3">
       {questions.map((q, index) => {
         const userAnswer = answers[q.id];
-        const isCorrect = userAnswer === q.correct_answer;
+        const isCorrect = isAnswerCorrect(userAnswer, q.correct_answer);
         const isSkipped = !userAnswer;
         const isOpen = openId === q.id;
 
@@ -127,14 +127,14 @@ function ReviewList({ questions, answers }: { questions: any[]; answers: Record<
               <CardContent className="pt-0 pb-6 animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="border-t border-ds-border pt-4 space-y-4">
                   <div
-                    className="text-sm text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                    className="text-sm text-ds-text leading-relaxed question-html"
                     dangerouslySetInnerHTML={{ __html: q.question_text || '' }}
                   />
 
                   <div className="space-y-2">
                     {q.options.map((opt: any) => {
-                      const isSelected = userAnswer === opt.id;
-                      const isTheCorrectAnswer = q.correct_answer === opt.id;
+                      const isSelected = answerIncludes(userAnswer, opt.id);
+                      const isTheCorrectAnswer = answerIncludes(q.correct_answer, opt.id);
                       return (
                         <div key={opt.id} className={cn(
                           "p-3 rounded-[8px] border flex items-center justify-between transition-colors",

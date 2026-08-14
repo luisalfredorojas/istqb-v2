@@ -3,6 +3,12 @@ import { Youtube } from 'lucide-react';
 import { useExamStore } from '@/stores/examStore';
 import type { Question } from '@/types';
 import { cn } from '@/lib/utils';
+import {
+  answerIncludes,
+  expectedAnswerCount,
+  isMultipleChoice,
+  toggleAnswer,
+} from '@/lib/answers';
 
 interface QuestionCardProps {
   question: Question;
@@ -13,6 +19,11 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
   const { answers, setAnswer } = useExamStore();
   const selectedAnswer = answers[question.id];
 
+  // Las preguntas de respuesta múltiple ("Which TWO of the following...")
+  // se reconocen porque su respuesta correcta tiene más de una letra.
+  const multiple = isMultipleChoice(question.correct_answer);
+  const expected = expectedAnswerCount(question.correct_answer);
+
   let options: any[] = [];
   const rawOptions = question.options as any;
   if (Array.isArray(rawOptions)) {
@@ -22,7 +33,10 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
   }
 
   const handleSelectAnswer = (optionId: string) => {
-    setAnswer(question.id, optionId);
+    setAnswer(
+      question.id,
+      multiple ? toggleAnswer(selectedAnswer, optionId) : optionId
+    );
   };
 
   return (
@@ -48,7 +62,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
               return (
                 <>
                   <div
-                    className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                    className="text-base text-ds-text leading-relaxed question-html"
                     dangerouslySetInnerHTML={{ __html: before }}
                   />
                   <img
@@ -59,7 +73,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
                   />
                   {after && (
                     <div
-                      className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                      className="text-base text-ds-text leading-relaxed question-html"
                       dangerouslySetInnerHTML={{ __html: after }}
                     />
                   )}
@@ -70,7 +84,7 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
             return (
               <>
                 <div
-                  className="text-base text-ds-text leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:pl-5 [&_li]:mb-1 [&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-ds-border [&_th]:p-2 [&_th]:bg-surface [&_td]:border [&_td]:border-ds-border [&_td]:p-2"
+                  className="text-base text-ds-text leading-relaxed question-html"
                   dangerouslySetInnerHTML={{ __html: question.question_text }}
                 />
                 {imageUrl && (
@@ -87,18 +101,28 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
         </div>
 
         <div className="space-y-3">
-          <p className="text-sm font-medium text-muted">Selecciona una respuesta:</p>
-          <div className="space-y-2" role="radiogroup" aria-label="Opciones de respuesta">
+          <p className="text-sm font-medium text-muted">
+            {multiple
+              ? `Selecciona ${expected} respuestas:`
+              : 'Selecciona una respuesta:'}
+          </p>
+          <div
+            className="space-y-2"
+            role={multiple ? 'group' : 'radiogroup'}
+            aria-label="Opciones de respuesta"
+          >
             {options.length > 0 ? (
-              options.map((option) => (
+              options.map((option) => {
+                const isSelected = answerIncludes(selectedAnswer, option.id);
+                return (
                 <button
                   key={option.id}
                   onClick={() => handleSelectAnswer(option.id)}
-                  role="radio"
-                  aria-checked={selectedAnswer === option.id}
+                  role={multiple ? 'checkbox' : 'radio'}
+                  aria-checked={isSelected}
                   className={cn(
                     'w-full p-4 text-left rounded-[8px] border-2 transition-all min-h-[44px]',
-                    selectedAnswer === option.id
+                    isSelected
                       ? 'border-primary bg-primary-soft'
                       : 'border-ds-border hover:border-ds-border-hover hover:bg-bg'
                   )}
@@ -106,14 +130,23 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
                   <div className="flex items-start gap-3">
                     <div
                       className={cn(
-                        'w-5 h-5 rounded-full border-2 flex-shrink-0 mt-0.5 transition-colors',
-                        selectedAnswer === option.id
+                        'w-5 h-5 border-2 flex-shrink-0 mt-0.5 transition-colors',
+                        // Cuadrado para selección múltiple, círculo para
+                        // respuesta única: la forma le dice al usuario si
+                        // puede marcar más de una opción.
+                        multiple ? 'rounded-[4px]' : 'rounded-full',
+                        isSelected
                           ? 'border-primary bg-primary'
                           : 'border-ds-border-hover'
                       )}
                     >
-                      {selectedAnswer === option.id && (
-                        <div className="w-full h-full rounded-full bg-white scale-50" />
+                      {isSelected && (
+                        <div
+                          className={cn(
+                            'w-full h-full bg-white scale-50',
+                            multiple ? 'rounded-[2px]' : 'rounded-full'
+                          )}
+                        />
                       )}
                     </div>
                     <div className="flex-1">
@@ -126,7 +159,8 @@ export function QuestionCard({ question, questionNumber }: QuestionCardProps) {
                     </div>
                   </div>
                 </button>
-              ))
+                );
+              })
             ) : (
               <div className="text-danger">Error: Opciones no válidas (Raw: {JSON.stringify(question.options)})</div>
             )}
