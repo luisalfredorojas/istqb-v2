@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
-package-lock.json
+# package-lock.json SÍ se versiona: sin él, CI (Netlify) instala las últimas
+# versiones de cada dependencia y el build deja de ser reproducible.
 
 # Environment variables
 .env
