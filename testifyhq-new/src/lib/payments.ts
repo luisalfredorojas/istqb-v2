@@ -19,25 +19,10 @@ export const PLANS: PlanInfo[] = [
   {
     id: 'monthly',
     name: 'Mensual',
-    price: '4,99 €',
+    price: '7,99 €',
     period: '/mes',
-    description: 'Acceso premium mes a mes. Cancela cuando quieras.',
-  },
-  {
-    id: 'yearly',
-    name: 'Anual',
-    price: '39,99 €',
-    period: '/año',
-    description: 'Dos meses gratis frente al plan mensual.',
+    description: 'Acceso premium ilimitado. Cancela cuando quieras.',
     highlight: true,
-    badge: 'Más popular',
-  },
-  {
-    id: 'lifetime',
-    name: 'De por vida',
-    price: '79,99 €',
-    period: 'pago único',
-    description: 'Un solo pago, acceso premium para siempre.',
   },
 ];
 
@@ -45,6 +30,51 @@ export const PLANS: PlanInfo[] = [
  * Crea un checkout en la pasarela y devuelve la URL a la que redirigir.
  * Requiere que el usuario tenga sesión iniciada.
  */
+/** Extrae el mensaje de error real que devuelve una Edge Function. */
+async function extractError(error: unknown, fallback: string): Promise<string> {
+  let detail = (error as { message?: string })?.message || fallback;
+  try {
+    const ctx = (error as { context?: Response }).context;
+    if (ctx && typeof ctx.json === 'function') {
+      const body = await ctx.json();
+      if (body?.error) detail = body.error;
+    }
+  } catch {
+    // Sin cuerpo JSON: nos quedamos con el mensaje genérico.
+  }
+  return detail;
+}
+
+/**
+ * Cancela la suscripción del usuario. Sigue activa hasta el fin del periodo
+ * ya pagado; devuelve esa fecha (si la pasarela la informa).
+ */
+export async function cancelSubscription(): Promise<{ endsAt: string | null }> {
+  const { data, error } = await supabase.functions.invoke<{
+    cancelled: boolean;
+    endsAt: string | null;
+  }>('manage-subscription', { body: { action: 'cancel' } });
+
+  if (error) {
+    throw new Error(await extractError(error, 'No se pudo cancelar la suscripción'));
+  }
+  return { endsAt: data?.endsAt ?? null };
+}
+
+/** Devuelve la URL del portal de cliente (facturas, método de pago). */
+export async function getCustomerPortalUrl(): Promise<string> {
+  const { data, error } = await supabase.functions.invoke<{ url: string }>(
+    'manage-subscription',
+    { body: { action: 'portal' } }
+  );
+
+  if (error) {
+    throw new Error(await extractError(error, 'No se pudo abrir el portal'));
+  }
+  if (!data?.url) throw new Error('No se pudo abrir el portal');
+  return data.url;
+}
+
 export async function createCheckout(plan: PlanId): Promise<string> {
   const { data, error } = await supabase.functions.invoke<{ url: string }>(
     'create-checkout',
@@ -52,18 +82,8 @@ export async function createCheckout(plan: PlanId): Promise<string> {
   );
 
   if (error) {
-    // supabase-js oculta el cuerpo real en un error genérico; lo extraemos
-    // de error.context (la Response) para ver el motivo concreto.
-    let detail = error.message || 'No se pudo iniciar el pago';
-    try {
-      const ctx = (error as { context?: Response }).context;
-      if (ctx && typeof ctx.json === 'function') {
-        const body = await ctx.json();
-        if (body?.error) detail = body.error;
-      }
-    } catch {
-      // Sin cuerpo JSON: nos quedamos con el mensaje genérico.
-    }
+    // supabase-js oculta el cuerpo real en un error genérico.
+    const detail = await extractError(error, 'No se pudo iniciar el pago');
     console.error('create-checkout error:', detail);
     throw new Error(detail);
   }

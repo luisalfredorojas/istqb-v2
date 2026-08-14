@@ -158,11 +158,11 @@ export function LoginPage() {
           {/* Terms */}
           <div className="text-center text-sm text-muted mt-6 pt-6 border-t border-ds-border">
             Al continuar, aceptas nuestros{' '}
-            <Link to="/terms" className="text-primary hover:underline">
-              Términos de servicio
+            <Link to="/terminos" className="text-primary hover:underline">
+              Términos y condiciones
             </Link>
             {' '}y{' '}
-            <Link to="/privacy" className="text-primary hover:underline">
+            <Link to="/privacidad" className="text-primary hover:underline">
               Política de privacidad
             </Link>
           </div>

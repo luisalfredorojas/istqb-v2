@@ -86,16 +86,18 @@ export function Header() {
 
           {user ? (
             <>
-              <div className="hidden md:flex items-center gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-semibold">
-                    {(user.user_metadata?.display_name || user.email)?.charAt(0).toUpperCase()}
-                  </div>
-                  <span className="text-sm text-muted">
-                    {user.user_metadata?.display_name || user.email?.split('@')[0]}
-                  </span>
+              <Link
+                to="/profile"
+                className="hidden md:flex items-center gap-2 rounded-[8px] px-2 py-1 hover:bg-surface-alt transition-colors"
+                aria-label="Mi cuenta"
+              >
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-semibold">
+                  {(user.user_metadata?.display_name || user.email)?.charAt(0).toUpperCase()}
                 </div>
-              </div>
+                <span className={cn('text-sm', pathname === '/profile' ? 'text-primary' : 'text-muted')}>
+                  {user.user_metadata?.display_name || user.email?.split('@')[0]}
+                </span>
+              </Link>
               <Button
                 onClick={handleLogout}
                 variant="outline"

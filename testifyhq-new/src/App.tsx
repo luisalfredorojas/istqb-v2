@@ -17,6 +17,12 @@ import { ExamPage } from './pages/ExamPage';
 import { ResultsPage } from './pages/ResultsPage';
 import { PricingPage } from './pages/PricingPage';
 import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
+import { ProfilePage } from './pages/ProfilePage';
+import { WithdrawalPage } from './pages/WithdrawalPage';
+import { AvisoLegalPage } from './pages/legal/AvisoLegalPage';
+import { PrivacidadPage } from './pages/legal/PrivacidadPage';
+import { TerminosPage } from './pages/legal/TerminosPage';
+import { CookiesPage } from './pages/legal/CookiesPage';
 import { ExamManagementPage } from './pages/admin/ExamManagementPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
@@ -35,6 +41,7 @@ function App() {
             <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/payment/success" element={<ProtectedRoute><PaymentSuccessPage /></ProtectedRoute>} />
             <Route path="/exams" element={<ProtectedRoute><ExamListPage /></ProtectedRoute>} />
@@ -46,6 +53,14 @@ function App() {
               </ProtectedRoute>
             } />
             <Route path="/results/:id" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
+            {/* Legal */}
+            <Route path="/desistimiento" element={<WithdrawalPage />} />
+            <Route path="/aviso-legal" element={<AvisoLegalPage />} />
+            <Route path="/privacidad" element={<PrivacidadPage />} />
+            <Route path="/terminos" element={<TerminosPage />} />
+            <Route path="/cookies" element={<CookiesPage />} />
+            {/* Rutas antiguas del footer, para no romper enlaces existentes */}
+            <Route path="/privacy" element={<PrivacidadPage />} />
             {/* Admin Routes */}
             <Route path="/admin/exams" element={<ProtectedRoute><ExamManagementPage /></ProtectedRoute>} />
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />

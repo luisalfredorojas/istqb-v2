@@ -95,12 +95,12 @@ export function PricingPage() {
         )}
 
         {/* Plans */}
-        <div className="grid gap-6 md:grid-cols-3 mb-8">
+        <div className="grid gap-6 justify-center mb-8">
           {PLANS.map((plan) => (
             <Card
               key={plan.id}
-              className={`relative flex flex-col ${
-                plan.highlight ? 'border-primary shadow-2xl md:scale-105' : ''
+              className={`relative flex flex-col w-full max-w-sm mx-auto ${
+                plan.highlight ? 'border-primary shadow-2xl' : ''
               }`}
             >
               {plan.badge && (
@@ -150,7 +150,7 @@ export function PricingPage() {
         {/* Benefits */}
         <Card className="max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-xl">Todos los planes incluyen</CardTitle>
+            <CardTitle className="text-xl">Premium incluye</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="grid sm:grid-cols-2 gap-3">

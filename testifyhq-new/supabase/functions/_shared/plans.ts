@@ -20,7 +20,7 @@ export const PLANS: Record<PlanId, PlanConfig> = {
     id: "monthly",
     kind: "subscription",
     variantEnv: "LEMONSQUEEZY_VARIANT_MONTHLY",
-    amount: 4.99,
+    amount: 7.99,
     currency: "EUR",
   },
   yearly: {
