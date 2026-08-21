@@ -33,13 +33,17 @@ export const migrateExamsFromFiles = async (files: FileList): Promise<MigrationR
         questions: number;
       };
 
+      const idioma = exam.language === 'es' ? 'español' : 'inglés';
+
       if (action === 'created') {
         result.created++;
-        result.details.push(`✅ ${file.name}: creado "${exam.title}" (${inserted} preguntas)`);
+        result.details.push(
+          `✅ ${file.name}: creado "${exam.title}" en ${idioma} (${inserted} preguntas)`
+        );
       } else {
         result.updated++;
         result.details.push(
-          `🔄 ${file.name}: actualizado "${exam.title}" (${inserted} preguntas, las anteriores fueron reemplazadas)`
+          `🔄 ${file.name}: actualizado "${exam.title}" en ${idioma} (${inserted} preguntas, las anteriores fueron reemplazadas)`
         );
       }
     } catch (err) {

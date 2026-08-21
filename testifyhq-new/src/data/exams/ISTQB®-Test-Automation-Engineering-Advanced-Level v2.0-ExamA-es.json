@@ -1,0 +1,647 @@
+{
+  "empresa": "istqb",
+  "titulo": "ISTQB® Test Automation Engineering Advanced Level v2.0 - Examen A (Español)",
+  "descripcion": "Examen de muestra conjunto A - Compatible con el programa de estudio versión 2.0",
+  "minimo_aprobacion": 26,
+  "retroalimentacion": [
+    {
+      "umbral": 90,
+      "mensaje": "¡Excelente! Nivel muy alto de preparación."
+    },
+    {
+      "umbral": 75,
+      "mensaje": "Muy bien, estás en camino de aprobar."
+    },
+    {
+      "umbral": 65,
+      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+    },
+    {
+      "umbral": 0,
+      "mensaje": "Recomendamos seguir estudiando."
+    }
+  ],
+  "examen": [
+    {
+      "numero": 1,
+      "pregunta": "<p>¿Cuál de las siguientes es una limitación de la automatización de pruebas?</p>",
+      "opciones": [
+        "a) Solo las pruebas de usabilidad pueden automatizarse de forma efectiva",
+        "b) La automatización de pruebas solo puede ejecutarse después de terminar las pruebas de sistema",
+        "c) La automatización de pruebas solo puede verificar resultados que se puedan comprobar visualmente",
+        "d) La automatización de pruebas solo puede verificar resultados que se puedan comprobar mediante código"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Como indica el syllabus: «Test automation can only check test results that can be verified by an automated test oracle». Esto es una limitación y significa que los resultados de los scripts automatizados los verifica la máquina, que está programada para hacerlo (código). a) Es incorrecto: la automatización de pruebas puede realizarse antes y después de las pruebas de sistema. b) Es incorrecto: se refiere a una limitación inexistente. c) Es incorrecto: la automatización de pruebas no se limita a comprobar solo los resultados que pueden verificarse visualmente.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 2,
+      "pregunta": "<p>¿Cuál de las siguientes afirmaciones es verdadera sobre la automatización de pruebas y el SDLC?</p>",
+      "opciones": [
+        "a) En el desarrollo ágil, las pruebas automatizadas se enfocan más en las pruebas de aceptación que en las pruebas de componentes",
+        "b) En el desarrollo ágil, las pruebas automatizadas se enfocan más en las pruebas de componentes que en las pruebas de aceptación",
+        "c) En el modelo en V, la ejecución de pruebas automatizadas debe realizarse después de la ejecución de pruebas manuales",
+        "d) En el modelo en V, la implementación de la automatización de pruebas se realiza a lo largo de todo el ciclo de desarrollo de software"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. En desarrollo ágil, las pruebas de componente automatizadas tienen mayor volumen que las pruebas de aceptación automatizadas. a) Es incorrecto: en desarrollo ágil, las pruebas de componente automatizadas tienen mayor volumen que las de aceptación. c) Es incorrecto: no existe tal regla en el modelo en V. d) Es incorrecto: en el modelo en V la planificación de pruebas, incluida la planificación de la automatización, se realiza en la fase temprana del ciclo de vida del desarrollo de software.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 3,
+      "pregunta": "<p>¿Cuál de los siguientes factores NO es necesario considerar al seleccionar herramientas de prueba adecuadas?</p>",
+      "opciones": [
+        "a) La arquitectura del SUT",
+        "b) La composición real y la experiencia del equipo de pruebas",
+        "c) El licenciamiento y el soporte de la herramienta de prueba",
+        "d) La calidad de los requisitos del SUT"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La calidad de los requisitos del SUT no está directamente relacionada con la selección de la herramienta en sí. a) Es incorrecto: la arquitectura del SUT sí debe considerarse. b) Es incorrecto: la composición real y la experiencia del equipo de pruebas sí deben evaluarse. c) Es incorrecto: es necesario conocer el licenciamiento y el soporte de la herramienta.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 4,
+      "pregunta": "<p>Cuando un sistema se diseña para ser testeable, una de las características es que el marco de automatización de pruebas (TAF) puede acceder a interfaces para realizar acciones sobre el sistema. ¿Cómo se llama esta característica?</p>",
+      "opciones": [
+        "a) Observabilidad",
+        "b) Controlabilidad",
+        "c) Mantenibilidad",
+        "d) Interoperabilidad"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Ver el capítulo 2.1.1 del syllabus. a) Es incorrecto: la observabilidad (observability) consiste en dar visibilidad interna del sistema. c) Es incorrecto: la mantenibilidad es una característica de calidad. d) Es incorrecto: la interoperabilidad también es una característica de calidad. (Syllabus 2.1.1)",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 5,
+      "pregunta": "<p>¿Qué tipo de automatización de pruebas se realiza principalmente en el entorno de preproducción?</p>",
+      "opciones": [
+        "a) Pruebas de componentes",
+        "b) Pruebas de eficiencia de desempeño y pruebas de aceptación de usuario",
+        "c) Análisis estático",
+        "d) Pruebas de integración de componentes"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Es necesario realizar pruebas de eficiencia de desempeño y pruebas de aceptación de usuario en un entorno de preproducción para probar escenarios del mundo real. a) Es incorrecto: las pruebas de componente se realizan en un entorno de build y desarrollo. c) Es incorrecto: el análisis estático normalmente se hace en el entorno de desarrollo. d) Es incorrecto: las pruebas de integración de componentes se hacen en el entorno de desarrollo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 6,
+      "pregunta": "<p>¿En qué entorno se ejecuta normalmente por primera vez un conjunto de pruebas totalmente automatizado contra un candidato a entrega (release candidate)?</p>",
+      "opciones": [
+        "a) Entorno de preproducción/staging",
+        "b) Entorno de compilación (build)",
+        "c) Entorno de producción/operativo",
+        "d) Entorno de integración/pruebas"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las suites robustas de pruebas de interfaz de usuario (UI) y de interfaz de programación de aplicaciones (API) se ejecutan típicamente contra sistemas totalmente integrados. a) Es incorrecto: las pruebas en entorno de preproducción o staging tienen menos foco en aspectos funcionales. b) Es incorrecto: un entorno de build no está preparado para una ejecución de pruebas más robusta. c) Es incorrecto: las suites funcionales completas no suelen ejecutarse contra productos en producción.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 7,
+      "pregunta": "<p>Trabajas para una empresa de TI que desarrolla un sistema multimedia integrado para automóviles basado en Android. El software contiene varios componentes que funcionan en conjunto. Los desarrolladores siguen el enfoque de desarrollo dirigido por pruebas. Tras el desarrollo del software, este se entrega a otra empresa de TI que lo integra con los elementos de hardware y los vende en conjunto a los fabricantes de automóviles.</p><p>¿Cuál de los siguientes aspectos debería considerarse al capturar los requisitos de automatización de pruebas en la empresa de TI para la que trabajas?</p>",
+      "opciones": [
+        "a) ¿Es importante que el enfoque de automatización de pruebas soporte las pruebas de componentes?",
+        "b) ¿Debería el enfoque de automatización de pruebas soportar las pruebas beta?",
+        "c) ¿Es importante que el enfoque de automatización de pruebas soporte la prueba del software en la mayor cantidad posible de tipos de automóviles?",
+        "d) ¿Qué roles de tester deberían estar soportados por el enfoque de automatización de pruebas?",
+        "e) ¿Es importante que el enfoque de automatización de pruebas soporte la aprobación en la tienda de aplicaciones móviles?"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Las pruebas de componente las realiza la empresa de TI que desarrolla el software. d) Es correcto. Las pruebas de componente automatizadas son diseñadas y ejecutadas por los desarrolladores. b) Es incorrecto: no se realizan pruebas beta. c) Es incorrecto: la prueba en tantos tipos de coches como sea posible la realiza la empresa integradora. e) Es incorrecto: el soporte al enfoque de automatización para la aprobación en la tienda de aplicaciones móviles no se realiza.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 8,
+      "pregunta": "<p>Estás evaluando herramientas de automatización de pruebas. La siguiente es una lista de hallazgos de una de las herramientas evaluadas frente a los requisitos de selección:</p><ul><li>La herramienta tiene un tablero muy informativo que muestra toda la información relevante de las pruebas sobre el SUT.</li><li>La herramienta incluye un componente de registro (logging) de pruebas que registra toda la información necesaria posterior a la ejecución de las pruebas y para diagnosticar los problemas encontrados durante ellas.</li><li>La herramienta incluye un componente de reportes de prueba personalizable.</li><li>Durante la prueba de concepto, la herramienta se desempeñó de forma muy lenta frente al SUT, en comparación con las otras herramientas evaluadas.</li><li>El entorno de prueba actual es válido según las notas de la versión de la herramienta, lo que significa que cumple los requisitos de hardware y software.</li></ul><p>¿Cuál debería ser tu siguiente paso respecto a la selección de esta herramienta?</p>",
+      "opciones": [
+        "a) Adquirir más recursos de hardware para el SUT para reducir la degradación del desempeño",
+        "b) Desactivar el registro de pruebas para mejorar el desempeño de la herramienta",
+        "c) Recomendar no seleccionar esta herramienta",
+        "d) Planificar la migración del SUT a otro entorno de hardware/software donde exista la posibilidad de eliminar la sobrecarga de la herramienta"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. La herramienta no cumple los requisitos de selección. a) Es incorrecto: el entorno de pruebas es válido según las notas de versión. b) Es incorrecto: el componente de registro (logging) es esencial para el diagnóstico de problemas. d) Es incorrecto: migrar el SUT es completamente erróneo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 9,
+      "pregunta": "<p>Relaciona la siguiente lista de tareas de las capacidades de la arquitectura de automatización de pruebas con el nombre de rol correcto.</p><ul><li>1. Mapear los casos de prueba abstractos a casos de prueba concretos aptos para su ejecución.</li><li>2. Implementación de casos de prueba y/o conjuntos de pruebas.</li><li>3. Registro de pruebas con información detallada sobre los pasos y las acciones de prueba.</li><li>4. Mecanismo para conectarse al SUT mediante protocolos y servicios.</li></ul><ul><li>A. Definición de pruebas</li><li>B. Adaptación de pruebas</li><li>C. Generación de pruebas</li><li>D. Ejecución de pruebas</li></ul>",
+      "opciones": [
+        "a) 1D, 2A, 3C, 4B",
+        "b) 1C, 2A, 3B, 4D",
+        "c) 1A, 2B, 3D, 4C",
+        "d) 1C, 2A, 3D, 4B"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. 1-C Test Generation: mapear los casos de prueba abstractos a casos de prueba concretos aptos para su ejecución; aquí las herramientas de pruebas basadas en modelos apoyan el diseño automatizado de casos de prueba a partir de un modelo de prueba. 2-A Test Definition: implementación de casos y/o suites de prueba; esta capa soporta la definición e implementación de casos y/o suites de prueba. 3-D Test Execution: registro de pruebas con información detallada sobre los pasos y acciones; esta capa proporciona una herramienta de ejecución para lanzar automáticamente las pruebas seleccionadas y un componente de logging y de reporte. 4-B Test Adaptation: mecanismo para conectarse al SUT mediante protocolos y servicios; esta capa proporciona la funcionalidad para adaptar las pruebas automatizadas a los distintos componentes o interfaces del SUT, ofreciendo distintos adaptadores para el mecanismo de integración. a), b) y c) son incorrectas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 10,
+      "pregunta": "<p>Como ingeniero de automatización de pruebas has encontrado un problema durante la implementación inicial de la solución de automatización de pruebas (TAS). La salida de las pruebas de sistema no pudo traducirse de vuelta a los casos de prueba automatizados para determinar los resultados de las pruebas.</p><p>¿Qué opción puede haber sido MÁS PROBABLEMENTE la causa del problema?</p>",
+      "opciones": [
+        "a) Las bibliotecas de la herramienta de prueba NO fueron diseñadas para actualizarse con cada versión del SUT.",
+        "b) La integración con el sistema bajo prueba (SUT) NO se configuró mediante APIs.",
+        "c) NO se implementaron los adaptadores específicos del SUT para la herramienta seleccionada.",
+        "d) El SUT y la herramienta de gestión de pruebas NO eran compatibles."
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Los adaptadores son necesarios para la traducción de los resultados de las pruebas. a) Es incorrecto: el problema se detectó en la implementación inicial y aún no se habían introducido actualizaciones. b) Es incorrecto: el método de integración utilizado no importa, sea vía API u otro mecanismo. d) Es incorrecto: la pregunta no menciona incompatibilidad con la herramienta de gestión de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 11,
+      "pregunta": "<p>Trabajas en un equipo de desarrollo Android y has estado dando mantenimiento a un marco de automatización de pruebas. Se formó un equipo de desarrollo adicional para construir una nueva aplicación. Tu gerente de proyecto te pide construir un marco de automatización de pruebas para este equipo recién formado. Primero identificas los componentes que podrían reutilizarse para construir ese nuevo marco y luego empiezas a implementar las bibliotecas adicionales basadas en la nueva aplicación.</p><p>¿En qué capa configuras la conexión con la nueva aplicación?</p>",
+      "opciones": [
+        "a) Capa de bibliotecas núcleo",
+        "b) Capa de scripts de prueba",
+        "c) Capa de archivos de funcionalidades (feature files)",
+        "d) Capa de lógica de negocio"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La capa de lógica de negocio se utiliza para configurar el TAF de modo que se ejecute contra el SUT. a) Es incorrecto: las librerías core deben ser genéricas e independientes de la aplicación. b) Es incorrecto: la capa de scripts de prueba solo debe contener scripts de prueba y ninguna configuración. c) Es incorrecto: los feature files contienen escenarios escritos en lenguaje Gherkin.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 12,
+      "pregunta": "<p>Trabajas en un proyecto de automatización de pruebas que se usa para automatizar las pruebas de GUI de un servicio web de transporte público. El proyecto tiene un plazo limitado. Existen casos de prueba manuales que pueden automatizarse primero. Uno de los objetivos es implementar los casos de prueba directamente en los scripts de prueba automatizados.</p><p>¿Qué técnica o enfoque debería usarse para automatizar los casos de prueba y cumplir los objetivos?</p>",
+      "opciones": [
+        "a) Usar la técnica de prueba dirigida por palabras clave",
+        "b) Usar el enfoque de desarrollo dirigido por comportamiento",
+        "c) Usar el enfoque de automatización de pruebas de captura/reproducción",
+        "d) Usar la técnica de automatización de pruebas dirigida por datos"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. La automatización mediante capture/playback es fácil de poner en marcha. a) Es incorrecto: la técnica dirigida por palabras clave es demasiado compleja para esta solución. b) Es incorrecto: el desarrollo dirigido por comportamiento es demasiado complejo y no es necesario. d) Es incorrecto: la automatización dirigida por datos es demasiado compleja y no es necesaria.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 13,
+      "pregunta": "<p>Te incorporas a una empresa donde las pruebas manuales están maduras, pero la automatización de pruebas lleva un tiempo abandonada. Los testers han generado una enorme cantidad de datos de prueba y normalmente usan de 10 a 20 variaciones por escenario. Tras tu revisión inicial, ves que el TAF (marco de automatización de pruebas) puede arreglarse con facilidad, pero los casos de prueba necesitan renovarse por completo.</p><p>¿Cuál de los siguientes enfoques de automatización de pruebas deberías elegir para lograr buenos resultados rápidamente?</p>",
+      "opciones": [
+        "a) Pruebas dirigidas por datos",
+        "b) Desarrollo dirigido por comportamiento",
+        "c) Captura/reproducción",
+        "d) Desarrollo dirigido por pruebas de aceptación"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Los datos de prueba ya están disponibles y pueden reutilizarse para aumentar el número de casos de prueba. b) Es incorrecto: el desarrollo dirigido por comportamiento requiere la participación de representantes del negocio y, en este caso, no se menciona explícitamente si el negocio está involucrado. c) Es incorrecto: capture/playback sería una solución lenta y costosa, mientras que los datos de prueba ya existen. d) Es incorrecto: el desarrollo dirigido por pruebas de aceptación no es un enfoque de automatización.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 14,
+      "pregunta": "<p>Trabajas en un proyecto de automatización de pruebas que se usa para automatizar las pruebas de GUI de un sitio de comercio electrónico. El sitio contiene un asistente digital que ayuda a los usuarios a configurar sus cuentas, su nombre, dirección de facturación, dirección de envío y credenciales de seguridad. Actualmente, el desarrollo del software está en una fase en la que los testers de usabilidad revisan el asistente digital y dan recomendaciones sobre los cambios necesarios. Esto se hace de forma iterativa; los desarrolladores modifican la interfaz gráfica de usuario (GUI) y los testers de usabilidad revisan las modificaciones y vuelven a hacer pruebas de usabilidad.</p><p>¿Qué patrón de diseño es el mejor para implementar en este caso?</p>",
+      "opciones": [
+        "a) Implementar el patrón page object y almacenar todas las acciones de usuario asociadas a los elementos de la GUI en los modelos de página correspondientes",
+        "b) Implementar el patrón de modelo de flujo, almacenar todos los elementos web en los modelos de página correspondientes y almacenar todas las acciones de usuario asociadas a los elementos de la GUI en los modelos de flujo correspondientes",
+        "c) Implementar el patrón de diseño facade y proporcionar interfaces para los elementos de la GUI que oculten el mecanismo interno de localización usado",
+        "d) Implementar el patrón de diseño singleton y crear una única pieza de código para gestionar la localización de elementos"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. El patrón flow model combina el uso de page models y flow models, almacenando la estructura y la lógica de la aplicación en ficheros de clase con propósitos distintos, y se utiliza típicamente cuando la estructura del SUT cambia con frecuencia. a) Es incorrecto: almacenar las acciones de usuario en los ficheros de clase del page model no permite una reutilización y mantenibilidad sencillas de flujos de usuario complejos. c) Es incorrecto: las fachadas proporcionan una interfaz simplificada a un cuerpo de código mayor. d) Es incorrecto: el patrón singleton no resuelve el problema en este caso.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 15,
+      "pregunta": "<p>La alta dirección quiere implementar una TAS en tu organización y te pide liderar esta iniciativa. Se te indicó comenzar con un proyecto piloto.</p><p>¿Cuál de las siguientes afirmaciones describe mejor el objetivo de este proyecto piloto?</p><ul><li>i. Documentar las partes del SUT que no fueron documentadas durante el desarrollo</li><li>ii. Identificar las métricas y los métodos de medición para monitorear el SUT en el entorno de producción</li><li>iii. Analizar los defectos encontrados durante las pruebas de la TAS</li><li>iv. Evaluar las opciones de licenciamiento y las normas corporativas</li><li>v. Seleccionar la herramienta comercial o de código abierto más adecuada</li></ul>",
+      "opciones": [
+        "a) i, ii y iii son objetivos válidos del proyecto piloto",
+        "b) ii y iv son objetivos válidos del proyecto piloto",
+        "c) i, ii y v son objetivos válidos del proyecto piloto",
+        "d) iv y v son objetivos válidos del proyecto piloto"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. iv y v son objetivos válidos del proyecto piloto. a) Es incorrecto: i, ii y iii no son objetivos válidos del proyecto piloto. b) Es incorrecto: ii no es un objetivo válido del proyecto piloto. c) Es incorrecto: i y ii no son objetivos válidos del proyecto piloto.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 16,
+      "pregunta": "<p>Tienes la tarea de implementar una solución de automatización de pruebas (TAS) para pruebas de adecuación funcional que deben ejecutarse automáticamente después de cada compilación diaria. La TAS necesita integrarse sin problemas con la tubería CI/CD existente y ofrecer retroalimentación rápida sobre la calidad del software. Sin embargo, has identificado varios riesgos potenciales que podrían afectar el despliegue y la operación exitosos de la TAS.</p><p>Como ingeniero de automatización de pruebas, necesitas analizar los riesgos de despliegue asociados a la implementación de la TAS y determinar las MEJORES estrategias de mitigación para cada riesgo. Tu objetivo es asegurar una integración fluida de la TAS en el proceso de desarrollo existente, manteniendo la calidad y la fiabilidad del proceso de pruebas.</p><p>¿Cuál de las siguientes opciones relaciona MEJOR los riesgos de despliegue con sus estrategias de mitigación adecuadas?</p><ul><li>1. La ejecución de pruebas no se dispara con la compilación</li><li>2. Solo se puede ejecutar el conjunto de pruebas completo</li><li>3. Los datos de prueba no están disponibles al iniciar la prueba</li><li>4. Dificultad para diagnosticar las pruebas fallidas</li></ul><ul><li>A. Registrar información detallada durante la ejecución de las pruebas</li><li>B. Integrar la automatización de pruebas en la tubería CI/CD</li><li>C. Usar herramientas de terceros para generar datos de prueba</li><li>D. Utilizar arneses de prueba (test harnesses) y fixtures de prueba</li></ul>",
+      "opciones": [
+        "a) 1-B, 2-A, 3-D, 4-C",
+        "b) 1-A, 2-B, 3-C, 4-D",
+        "c) 1-B, 2-D, 3-C, 4-A",
+        "d) 1-D, 2-B, 3-C, 4-A"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. 1-B: integrar la automatización de pruebas en el pipeline CI/CD asegura que la ejecución de pruebas se dispare con el build. 2-D: los test harnesses y los test fixtures permiten una ejecución de pruebas más flexible, no limitada a lanzar la suite completa. 3-C: las herramientas de terceros pueden ayudar a generar datos de prueba cuando no están disponibles fácilmente. 4-A: el registro detallado durante la ejecución de las pruebas facilita el diagnóstico de las pruebas fallidas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 17,
+      "pregunta": "<p>¿Cuál de los siguientes es un factor importante para mejorar la mantenibilidad del código?</p>",
+      "opciones": [
+        "a) Definir funciones genéricas con todos los parámetros necesarios",
+        "b) Dejar que los desarrolladores nombren de forma única las variables del código",
+        "c) Usar analizadores estáticos para mantener el código limpio",
+        "d) Escribir valores fijos en el código para entender fácilmente su significado"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. El uso de analizadores estáticos mejora la mantenibilidad del código. a) Es incorrecto: esta respuesta no mejora la mantenibilidad del código. b) Es incorrecto: nombrar las variables de forma única no mejora la mantenibilidad del código. d) Es incorrecto: codificar los valores de forma fija (hardcode) no mejora la mantenibilidad del código.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 18,
+      "pregunta": "<p>¿Cuál es la forma más efectiva de reducir el tiempo de mantenimiento del código de automatización de pruebas?</p>",
+      "opciones": [
+        "a) Mantener el código fuera de un sistema de control de versiones",
+        "b) Incrustar datos estáticos directamente dentro de los scripts de prueba para acceder a ellos más fácilmente",
+        "c) Aplicar patrones de diseño en tu marco de automatización de pruebas",
+        "d) Reescribir regularmente los scripts de prueba desde cero en lugar de reutilizar los componentes existentes"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Estructurar el código de automatización usando patrones de diseño mejora la reutilización y la escalabilidad, reduciendo el tiempo necesario para el mantenimiento. a) Es incorrecto: mantener el código fuera de un sistema de control de versiones dificulta a los ingenieros de automatización (TAE) gestionar, seguir y colaborar sobre el código de forma efectiva. b) Es incorrecto: incrustar datos fijos en los scripts no es recomendable, ya que los vuelve inflexibles y difíciles de mantener cuando se requieren cambios. d) Es incorrecto: reescribir regularmente los scripts desde cero es ineficiente y genera trabajo innecesario; reutilizar componentes existentes es más efectivo para reducir el tiempo de mantenimiento.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 19,
+      "pregunta": "<p>Hay una empresa de TI que desarrolla un producto de software financiero que cambia con frecuencia, usando el modelo de desarrollo ágil. Los procesos de desarrollo, integración y despliegue están altamente automatizados. Actualmente hay una tubería CI/CD establecida. Estás trabajando en una TAS. El objetivo es crear una TAS que pueda usarse para la mayor cantidad posible de propósitos de automatización de pruebas.</p><p>¿Cuáles de las siguientes opciones son propósitos válidos de automatización de pruebas en este caso?</p>",
+      "opciones": [
+        "a) Ejecutar un conjunto de pruebas de regresión todas las noches",
+        "b) Ejecutar la compilación de un componente",
+        "c) Ejecutar un análisis estático de código",
+        "d) Ejecutar una prueba automatizada de eficiencia de desempeño en la tubería CI/CD",
+        "e) Empaquetar y desplegar la aplicación como parte de la fase de despliegue"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Las pruebas de regresión son necesarias y pueden incorporarse al pipeline CI/CD. d) Es correcto. Las pruebas de eficiencia de desempeño pueden automatizarse. b) Es incorrecto: ejecutar un build no es una tarea de automatización de pruebas. c) Es incorrecto: el análisis estático de código no es una tarea de automatización de pruebas. e) Es incorrecto: empaquetar y desplegar no son tareas de automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 20,
+      "pregunta": "<p>¿Qué afirmación es correcta?</p>",
+      "opciones": [
+        "a) Las pruebas no se ejecutan como parte de la fase de despliegue",
+        "b) Las pruebas no se ejecutan como una tubería separada, disparada por un despliegue exitoso",
+        "c) Los casos de prueba no actúan como puerta de calidad cuando se ejecutan distintos conjuntos de pruebas automatizadas en cada despliegue",
+        "d) No se recomiendan las tuberías para las pruebas de regresión debido al alcance y tamaño extensos de estas pruebas"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. No es una afirmación correcta, puesto que las pruebas no actúan como puertas de calidad para el despliegue. a) Es incorrecto: las pruebas sí se ejecutan durante el despliegue. b) Es incorrecto: las pruebas sí se disparan para ejecutarse tras un despliegue exitoso. d) Es incorrecto: los pipelines son una solución excelente para pruebas periódicas, como las de regresión, y el tamaño de estas pruebas no afecta a su efectividad.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 21,
+      "pregunta": "<p>¿Cómo se usa la gestión de la configuración en la automatización de pruebas?</p>",
+      "opciones": [
+        "a) Permite gestionar los datos de prueba y las configuraciones del entorno de prueba",
+        "b) La configuración del SUT puede almacenarse y eliminarse fácilmente",
+        "c) Permite gestionar los permisos de usuario para acceder a la automatización de pruebas",
+        "d) Los resultados de la automatización de pruebas pueden analizarse fácilmente"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Los datos de prueba y las configuraciones del entorno de pruebas pueden estar bajo gestión de la configuración. b) Es incorrecto: la configuración del SUT puede estar bajo gestión de la configuración, pero no está relacionada con la automatización de pruebas. c) Es incorrecto: la gestión de derechos de usuario no está relacionada con la gestión de la configuración. d) Es incorrecto: la gestión de la configuración no da soporte al análisis de los resultados de la automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 22,
+      "pregunta": "<p>¿Cuál de los siguientes elementos NO forma parte de la configuración del entorno de prueba?</p>",
+      "opciones": [
+        "a) Localizadores uniformes de recursos (URL)",
+        "b) Credenciales",
+        "c) Datos de prueba",
+        "d) Biblioteca núcleo común"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. La configuración del entorno de pruebas forma parte de la librería core común, y no al revés. a) Es incorrecto: las URL forman parte de la configuración del entorno de pruebas. b) Es incorrecto: las credenciales forman parte de la configuración del entorno de pruebas. c) Es incorrecto: los datos de prueba forman parte de la configuración del entorno de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 23,
+      "pregunta": "<p>¿De qué manera las pruebas de contrato NO contribuyen a las dependencias de la automatización de pruebas de API en una infraestructura?</p>",
+      "opciones": [
+        "a) Aseguran que las API se ajusten a contratos predefinidos para la comunicación",
+        "b) Pueden usarse para probar la comunicación de microservicios",
+        "c) Validan la compatibilidad de dos sistemas separados",
+        "d) Verifican si un sistema cumple sus requisitos contractuales"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las pruebas de contrato no tienen relación con los requisitos contractuales. a) Es incorrecto: las pruebas de contrato aseguran que las API sigan acuerdos de comunicación predefinidos, lo que ayuda a gestionar las dependencias de API. b) Es incorrecto: las pruebas de contrato pueden usarse para probar la comunicación entre microservicios. c) Es incorrecto: las pruebas de contrato pueden validar la compatibilidad de dos sistemas separados.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 24,
+      "pregunta": "<p>Estás en un proyecto en el que los equipos trabajan en dividir un antiguo servicio web monolítico en varios microservicios. ¿Cuál de los siguientes documentos puede ayudarte a identificar dependencias y a desarrollar tu solución de automatización de pruebas (TAS) para pruebas de API?</p><ul><li>i. Especificación de la interfaz de programación de aplicaciones (API)</li><li>ii. Diagrama de arquitectura del sistema</li><li>iii. Estrategia de prueba</li><li>iv. Notas de la versión</li></ul>",
+      "opciones": [
+        "a) i, ii y iv",
+        "b) i y ii",
+        "c) ii, iii y iv",
+        "d) i"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. La especificación de la API aporta detalles sobre los endpoints, y el diagrama de arquitectura del sistema muestra las relaciones entre los distintos componentes. a) Es incorrecto: las notas de versión no ayudan a conocer las conexiones y los detalles de la API. c) Es incorrecto: la estrategia de pruebas y las notas de versión no aportan información específica sobre las dependencias de API necesarias para construir un TAS. d) Es incorrecto: la especificación de la API por sí sola no es suficiente; también se necesita el diagrama de arquitectura del sistema para entender las relaciones entre los distintos servicios.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 25,
+      "pregunta": "<p>Trabajas en un proyecto de automatización de pruebas que se usa para automatizar las pruebas de GUI de una tienda web en línea. La tienda contiene un asistente que ayuda a los usuarios a configurar sus cuentas, su nombre, dirección de facturación, dirección de envío y credenciales de seguridad. Durante la automatización de pruebas, primero se graban los pasos del asistente. Durante esos pasos se toman y almacenan capturas de pantalla. Las consideramos como la línea base. Luego se volvió a ejecutar la línea base sin cambios en el SUT y todas las pruebas pasaron.</p><p>Después de que los desarrolladores envían un cambio al asistente, se reproducen los scripts de prueba grabados y las capturas de pantalla de cada paso se comparan con las capturas de la línea base. Durante una reproducción, todos los casos de prueba fallaron, aunque el contenido visible parece no haber cambiado.</p><p>¿Cuál podría ser la causa?</p>",
+      "opciones": [
+        "a) También se graba un ID de sesión técnico usado internamente, que cambia durante la reproducción. Debería sustituirse por variables para evitar los fallos.",
+        "b) Las capturas de pantalla no están correctamente asociadas a los pasos de prueba, lo que hace que las comparaciones se realicen en el orden equivocado.",
+        "c) El fallo ocurrió porque basarse únicamente en comparaciones de capturas de pantalla llevó a resultados inexactos.",
+        "d) La fecha en el encabezado de la GUI es distinta de la fecha en que se grabó. Ese campo de fecha debería excluirse de la comparación",
+        "e) Las capturas de pantalla se tomaron en baja resolución, lo que hizo que los detalles se vieran borrosos y la comparación no fuera confiable."
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Los identificadores de sesión cambian en cada sesión, provocando diferencias en las capturas de pantalla aunque el contenido parezca el mismo. d) Es correcto. Los elementos dinámicos, como las fechas en la GUI, pueden causar falsos negativos y deben excluirse de las comparaciones. b) Es incorrecto: el orden no es relevante, ya que fallan todas las capturas, lo que no ocurriría si el problema fuera solo de orden. c) Es incorrecto: esto no explica por qué fallan todas las comparaciones cuando el contenido parece inalterado. e) Es incorrecto: los cambios de zoom del navegador difícilmente causarían todos los fallos si el contenido parece idéntico al ojo humano.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 26,
+      "pregunta": "<p>Trabajas en un proyecto en el que eres responsable de ampliar el TAF actual, usado para pruebas de servicios web, con capacidades adicionales de registro de pruebas. El TAF usa una herramienta de terceros para crear archivos de log y un reporte HTML que permite visualizar rápidamente los resultados de las pruebas. En la implementación de pruebas se usan varios valores dinámicos para generar los datos de prueba reales, y el SUT, un servicio web sin interfaz de usuario, se conecta a múltiples sistemas de prueba heredados. Lamentablemente, las pruebas son muy inestables y necesitas agregar información significativa al registro de pruebas para analizar mejor las razones de los fallos.</p><p>¿Qué información adicional NO debería incluirse en el registro de pruebas para hacerlo más útil, y por qué?</p>",
+      "opciones": [
+        "a) Deberían incluirse marcas de tiempo en los logs de prueba para ver si el fallo se relaciona con la caída de un sistema heredado determinado",
+        "b) Deberían incluirse capturas de pantalla para ver los pares de petición-respuesta reales",
+        "c) Deberían registrarse los valores generados aleatoriamente para permitir el análisis de los resultados reales obtenidos durante las ejecuciones de prueba",
+        "d) En caso de fallos de aserción, debería registrarse información significativa como los resultados reales frente a los esperados, en lugar de trazas de pila"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. El SUT es un servicio web sin interfaz de usuario, por lo que las capturas de pantalla son irrelevantes. Registrar los datos de petición y respuesta es más útil para analizar las interacciones con el servicio web. a) Es incorrecto: las marcas de tiempo ayudan a ver cuándo hay problemas y si están relacionados con una caída de un servicio legado que afecta a la funcionalidad del SUT. c) Es incorrecto: los valores generados aleatoriamente no quedarían visibles para una investigación posterior. d) Es incorrecto: los mensajes de aserción enfocados pueden ayudar a la investigación de los fallos.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 27,
+      "pregunta": "<p>Durante la fase de diseño de un producto de software crítico en desempeño, la dirección decide crear una TAS para realizar pruebas de carga sobre el software y medir su desempeño. El producto contiene distintos componentes arquitectónicos, incluyendo un front end basado en navegador, microservicios implementados en el back end y una base de datos relacional. Es importante medir todas las transacciones individuales en toda la pila arquitectónica.</p><p>¿Cómo puedes proporcionar automáticamente esta información desde el software de automatización de pruebas?</p>",
+      "opciones": [
+        "a) No puedes. Esta información debe recopilarse manualmente al final de cada transacción",
+        "b) El ingeniero de automatización de pruebas (TAE) puede grabar la información de tiempos durante la ejecución de todas las transacciones",
+        "c) Deberían propagarse IDs de traza (trace IDs) a través de los componentes del software y asociar los valores de tiempo medidos a esos IDs para correlacionar los datos de desempeño.",
+        "d) Deberían insertarse herramientas de terceros en las distintas capas de la arquitectura y esos agentes deberían registrar los datos recopilados en una base de datos"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. El Trace ID es la forma adecuada de asociar los datos de rendimiento entre los distintos componentes arquitectónicos, permitiendo un análisis de rendimiento a nivel de todo el sistema. a) Es incorrecto: la recogida manual de datos es demasiado lenta y propensa a errores; la automatización es esencial. b) Es incorrecto: esto no explica cómo pueden correlacionarse los datos entre los distintos componentes. d) Es incorrecto: las herramientas de terceros pueden recoger datos, pero no proporcionan la correlación necesaria para un análisis completo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 28,
+      "pregunta": "<p>Como ingeniero de automatización de pruebas, tienes la tarea de demostrar a la dirección si la tasa de éxito de las pruebas está mejorando a lo largo de una serie de ejecuciones.</p><p>¿Cuál es el enfoque correcto para cumplir con este requisito?</p>",
+      "opciones": [
+        "a) Comparar los resultados de las pruebas con los resultados esperados",
+        "b) Usar indicadores tipo semáforo para mostrar el avance de la ejecución de pruebas",
+        "c) Reportes de prueba detallados con porcentajes de finalización de las pruebas",
+        "d) Implementar una función de análisis que compare los resultados de pruebas anteriores y destaque las tendencias"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Esta es la implementación adecuada: la funcionalidad de análisis es capaz de comparar la tasa de éxito de ciclos de ejecución anteriores con la más reciente y representarla en un análisis de tendencia. a) Es incorrecto: la comparación de los resultados obtenidos con los esperados solo da la tasa de éxito/fallo de una única ejecución. b) Es incorrecto: los semáforos solo muestran el resumen del progreso de la ejecución y la finalización de los casos de prueba dentro de un único ciclo de ejecución. c) Es incorrecto: los informes detallados con porcentajes de finalización solo muestran el resultado de la ejecución y la finalización de los casos de prueba dentro de un único ciclo de ejecución.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 29,
+      "pregunta": "<p>Tu equipo ha desarrollado una solución de automatización de pruebas (TAS) para un programa de software de diseño asistido por computadora (CAD). Este software tiene varias versiones distintas en producción y ha sido adaptado a diferentes idiomas y plataformas. Los testers manuales han estado usando la TAS en sus computadoras locales con distintas configuraciones de idioma, versiones y plataformas. Antes de continuar con más pruebas automatizadas, necesitas verificar el entorno de automatización de pruebas.</p><p>¿Cuál es una consideración importante al verificar el entorno para esta TAS?</p>",
+      "opciones": [
+        "a) Establecer un repositorio central para verificar que todos los testers usan la misma versión de la herramienta de captura/reproducción y que pueden acceder a ella correctamente",
+        "b) Crear y documentar un procedimiento para verificar la instalación correcta del software CAD en la máquina de cada tester",
+        "c) Configurar un entorno de prueba central donde esté instalado el software CAD y verificar que los scripts de automatización puedan interactuar con él desde cada computadora local",
+        "d) Usar gestión de la configuración para verificar la consistencia de los datos y scripts de prueba en los distintos entornos"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Esta opción se centra en verificar que todos los testers puedan acceder y utilizar la misma versión de la herramienta de capture/playback, lo cual es crucial para asegurar la consistencia del entorno de automatización de pruebas. b) Es incorrecto: aunque documentar los procedimientos de instalación es importante, no trata específicamente sobre la verificación del entorno de automatización de pruebas. c) Es incorrecto: este enfoque no aborda la necesidad de entornos diferentes tal como especifica el escenario. d) Es incorrecto: aunque la gestión de la configuración es importante, esta opción no aborda específicamente la verificación del entorno de automatización de pruebas.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 30,
+      "pregunta": "<p>Trabajas en un equipo de desarrollo de software que requiere que las pruebas se realicen en muchos entornos de prueba distintos. Tu gerente ha señalado que el equipo dedica una cantidad significativa de tiempo a lidiar con falsos positivos porque la solución de automatización de pruebas (TAS) no se configura correctamente al usarla en un nuevo entorno de prueba. Además, parece haber diferencias de versión al comparar la TAS en cada entorno de prueba. Incluso los entornos de prueba nuevos a veces se configuran con componentes de la TAS muy antiguos.</p><p>¿Qué DOS opciones ayudarían a abordar esta situación?</p>",
+      "opciones": [
+        "a) Crear un script de instalación automatizado para las herramientas y configuraciones que componen la TAS",
+        "b) Limitar el uso de la TAS únicamente a los entornos de prueba más importantes",
+        "c) Utilizar un repositorio para almacenar la TAS que sea accesible desde todos los entornos de prueba",
+        "d) Apoyarse en pruebas manuales para verificar que la TAS se haya configurado correctamente en todos los entornos de prueba",
+        "e) Debido a las restricciones de tiempo, omitir la implementación de pruebas de componentes para la TAS"
+      ],
+      "respuesta_correcta": [
+        0,
+        2
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Los scripts automatizados de instalación y configuración aseguran consistencia y repetibilidad durante la puesta en marcha del TAS. c) Es correcto. Los repositorios pueden usarse para verificar versiones consistentes del TAS en todos los entornos de prueba. b) Es incorrecto: el TAS debe diseñarse para ser portable a múltiples entornos de prueba. d) Es incorrecto: las pruebas manuales no son una solución escalable. e) Es incorrecto: al omitir las pruebas de componente, podrían quedar sin detectar problemas potenciales.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 31,
+      "pregunta": "<p>Estás por verificar un conjunto de pruebas automatizadas. Durante el proceso de verificación has encontrado que algunos scripts de prueba pasan una vez y fallan en otra, por lo que no proporcionan resultados de prueba confiables.</p><p>¿Qué deberías hacer para verificar la validez de tus scripts de prueba?</p>",
+      "opciones": [
+        "a) Esto se debe a la ejecución en paralelo de los scripts de prueba; la sincronización resolvería el problema",
+        "b) Volver a ejecutar el conjunto de pruebas automatizadas y analizar los resultados nuevamente",
+        "c) Retirar los scripts de prueba del conjunto de pruebas automatizadas y analizarlos por separado",
+        "d) Esto ocurre porque varios scripts de prueba usan los mismos datos de prueba, así que separar los datos de prueba para cada script resolvería el problema"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Esta debería ser la primera tarea en este caso. a) Es incorrecto: el problema debe analizarse en detalle, ya que la causa raíz aún no se conoce. b) Es incorrecto: esta respuesta no propone ninguna solución. d) Es incorrecto: el problema debe analizarse en detalle, ya que la causa raíz aún no se conoce.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 32,
+      "pregunta": "<p>Tienes un conjunto de pruebas con 25 pruebas automatizadas que verifican la funcionalidad de inicio de sesión de la página principal de una aplicación. El conjunto de pruebas se ejecuta al final de cada ciclo de sprint de dos semanas con fines de prueba de regresión. Notas que dos casos de prueba de los 25 a veces pueden provocar una condición de carrera en la aplicación o recibir un error aleatorio.</p><p>¿Qué acción deberías tomar para estos dos casos de prueba?</p>",
+      "opciones": [
+        "a) No tomar ninguna acción porque a veces se ejecutan con éxito",
+        "b) Reducir la cantidad de casos de prueba del conjunto de 25 a 15 y ver si el conjunto pasa con esa cantidad menor",
+        "c) Retirar los dos casos de prueba del conjunto activo y analizarlos por separado para encontrar la causa raíz",
+        "d) Reemplazar los dos casos de prueba por otros que pasen de forma repetida, de modo que el conjunto siga teniendo 25 casos de prueba automatizados"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Permite que la suite siga usándose para obtener resultados repetibles, dando tiempo a diagnosticar los casos de prueba problemáticos, que volverán a añadirse a la suite una vez corregidos. a) Es incorrecto: el objetivo es tener pruebas repetibles que den resultados consistentes. b) Es incorrecto: eliminar cobertura no es una buena respuesta a la situación. d) Es incorrecto: esto no aborda los errores aleatorios que está experimentando la aplicación.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 33,
+      "pregunta": "<p>Trabajas en un proyecto para automatizar un conjunto de pruebas de regresión. Cuando el conjunto de pruebas de regresión se ejecutó manualmente la última vez, todas las pruebas pasaron. Pero cuando las ejecutas mediante la solución de automatización de pruebas (TAS), encuentras que hay algunas pruebas fallidas.</p><p>¿Qué deberías hacer para manejar esta situación?</p>",
+      "opciones": [
+        "a) Analizar los archivos de log para identificar la causa raíz del problema",
+        "b) Eliminar estos casos de prueba del conjunto de pruebas automatizadas para que las pruebas restantes puedan pasar",
+        "c) Abrir un defecto para el SUT, ya que las pruebas fallidas indican un problema del SUT",
+        "d) Esto es normal porque las pruebas automatizadas se comportan de forma distinta a las pruebas manuales"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. El análisis de los ficheros de log puede identificar la causa raíz del problema. b) Es incorrecto: este proceso no ayudará a resolver el problema original. c) Es incorrecto: estas pruebas no indican directamente un problema en el SUT; primero deben analizarse. d) Es incorrecto: la afirmación es falsa.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 34,
+      "pregunta": "<p>Te estás preparando para ejecutar un conjunto de automatización de pruebas para una aplicación crítica en seguridad que debe cumplir los requisitos de seguridad más altos.</p><p>¿Qué enfoque deberías seguir para verificar el código de automatización de pruebas?</p>",
+      "opciones": [
+        "a) Buscar en los logs de prueba posibles datos de credenciales",
+        "b) Eliminar los casos de prueba que usan datos de prueba sensibles",
+        "c) Ejecutar el conjunto de pruebas de forma lenta y metódica para comprobar si hay vulnerabilidades de seguridad",
+        "d) Usar una herramienta de análisis estático para identificar vulnerabilidades de seguridad"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Las herramientas de análisis estático dan soporte a la identificación de vulnerabilidades de seguridad. a) Es incorrecto: los logs de prueba pueden no contener datos de credenciales presentes en el código de automatización. b) Es incorrecto: no tiene sentido eliminar casos de prueba, ya que afectará a la cobertura de código. c) Es incorrecto: una ejecución más lenta de las pruebas no revela necesariamente vulnerabilidades de seguridad.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 35,
+      "pregunta": "<p>Trabajas en un proyecto de automatización de pruebas que se usa para automatizar las pruebas de la interfaz gráfica de usuario (GUI) de una tienda web en línea. La tienda contiene un asistente que ayuda a los usuarios a configurar sus cuentas: sus nombres, dirección de facturación, dirección de envío y credenciales de seguridad. Actualmente, el desarrollo del software está en una fase en la que los testers de usabilidad revisan el asistente y dan recomendaciones sobre los cambios necesarios. Esto se hace de forma iterativa; los desarrolladores modifican la GUI, los testers de usabilidad revisan las modificaciones y repiten las pruebas de usabilidad. La automatización de pruebas se centra principalmente en las pruebas de mantenimiento. En estos casos de prueba basados en la interfaz, los datos también incluyen los valores de los localizadores de la interfaz. Un problema existente es que los desarrolladores cambian a menudo los identificadores internos de los elementos de la interfaz, por lo que mantener las pruebas requiere mucho esfuerzo.</p><p>¿Cuál de las siguientes podría ser una oportunidad importante de mejora?</p>",
+      "opciones": [
+        "a) Aplicar validación de esquema, que verifica si los elementos de respuesta obligatorios están presentes en la GUI",
+        "b) Mejorar el registro de pruebas para incluir información sobre los elementos de la interfaz y sus localizadores y así identificar fácilmente los casos de prueba rotos",
+        "c) Crear un histograma de pruebas, que permita a los TAE identificar y seleccionar los casos de prueba frágiles",
+        "d) Usar un algoritmo de inteligencia artificial (IA) —basado en aprendizaje automático y reconocimiento de imágenes— para identificar los nuevos selectores y usar autorreparación para corregir los casos de prueba"
+      ],
+      "respuesta_correcta": 3,
+      "numero_respuestas": "ONE",
+      "explicacion": "d) Es correcto. Usar un algoritmo basado en IA da soporte a la identificación de localizadores rotos y a la auto-reparación (self-healing) de los casos de prueba. a) Es incorrecto: la validación de esquema puede aplicarse en pruebas de API, no en pruebas de GUI. b) Es incorrecto: este es un proceso manual y lento. c) Es incorrecto: un histograma de pruebas permite identificar casos de prueba frágiles, pero no resuelve el problema de fondo.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 36,
+      "pregunta": "<p>Tu organización mantiene un conjunto de pruebas de regresión con más de 1000 casos de prueba automatizados que ha sido extremadamente confiable a lo largo de los años. Recientemente el equipo de desarrollo decidió modernizar su pila tecnológica y actualmente está refactorizando el funcionamiento de su front end. Notas que la aplicación está mucho más dirigida por API que la versión anterior y que esto tiene un impacto en cómo se renderizan los elementos de la interfaz. Anticipas que esto afectará la tasa de éxito del 75% de tus casos de prueba automatizados.</p><p>¿Qué enfoques de análisis de datos deberías usar para determinar cómo corregir los casos de prueba automatizados afectados?</p>",
+      "opciones": [
+        "a) Ejecutar los casos de prueba varias veces en una tubería CI/CD, realizar un análisis visual de los reportes y sacar conclusiones a partir de un histograma de pruebas",
+        "b) Usar algoritmos de IA y herramientas de validación de esquemas de API",
+        "c) Recrear los casos de prueba automatizados para reemplazar los que no funcionan correctamente y que se ejecutarán sobre la nueva aplicación",
+        "d) Evitar automatizar ciertos casos de prueba después de analizar los logs de excepciones, las capturas de pantalla y los mensajes de error"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Los algoritmos de IA pueden usarse para auto-reparar los casos de prueba frente a cambios en los valores de los localizadores de UI, y las herramientas de validación de esquema pueden usarse para evaluar rápidamente las actualizaciones del esquema de la API. a) Es incorrecto: analizar histogramas de 1000 casos de prueba llevaría mucho tiempo; además, ya podemos anticipar el impacto sobre los casos de prueba sin generar datos de histograma. c) Es incorrecto: recrear el 75% del test harness no es viable cuando hay otras opciones disponibles. d) Es incorrecto: aunque los logs, las capturas de pantalla y los mensajes de error son fuentes de datos válidas que conviene revisar, eliminar casos de prueba no es una estrategia viable.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 37,
+      "pregunta": "<p>Trabajas en un conjunto de pruebas de regresión automatizadas que tarda demasiado en ejecutarse, y su ejecución no termina durante la noche. El entorno de prueba solo está disponible para pruebas de regresión durante la noche. Ejecutar varios conjuntos en paralelo no es una opción, ya que el sistema objetivo es costoso y existe solo como una única instancia. ¿Cuáles deberían ser tus siguientes pasos para asegurar que la ejecución del conjunto de pruebas termine durante la noche?</p>",
+      "opciones": [
+        "a) Dividir el conjunto de pruebas en varias partes y ejecutar las partes en distintas noches de la semana",
+        "b) Aislar la verificación de resultados de la ejecución de pruebas e iniciar el proceso de verificación después de la ejecución, durante la mañana",
+        "c) Reescribir las pruebas usando la técnica dirigida por palabras clave, ya que se ejecutarán más rápido",
+        "d) Eliminar algunas pruebas del conjunto para reducir el tiempo total de ejecución",
+        "e) Eliminar del conjunto de pruebas cualquier prueba duplicada"
+      ],
+      "respuesta_correcta": [
+        0,
+        4
+      ],
+      "numero_respuestas": "TWO",
+      "explicacion": "a) Es correcto. Dividir la suite de pruebas ayuda a asegurar que la ejecución termine durante la noche. e) Es correcto. Eliminar duplicidades puede reducir el tiempo de ejecución. b) Es incorrecto: la verificación de los resultados no puede aislarse del proceso de ejecución de las pruebas. c) Es incorrecto: no se afirma con carácter general que la técnica dirigida por palabras clave se ejecute más rápido. d) Es incorrecto: reduciría el alcance a una regresión de alto nivel, lo que a largo plazo podría derivar en defectos que se propaguen a producción.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 38,
+      "pregunta": "<p>Como TAE, estás evaluando nuevas versiones de las bibliotecas núcleo.</p><p>¿Cuál es el orden correcto que puede ayudarte a lograr estos resultados?</p>",
+      "opciones": [
+        "a) Crear el plan de adopción; determinar el impacto; actualizar las dependencias; realizar el piloto",
+        "b) Realizar el piloto; determinar el impacto; crear el plan de adopción; actualizar las dependencias",
+        "c) Actualizar las dependencias; determinar el impacto; realizar el piloto; crear el plan de adopción",
+        "d) Determinar el impacto; actualizar las dependencias; crear el plan de adopción; realizar el piloto"
+      ],
+      "respuesta_correcta": 1,
+      "numero_respuestas": "ONE",
+      "explicacion": "b) Es correcto. Este es el orden correcto de las actividades. a) Es incorrecto: el plan de adopción debe elaborarse después de determinar el impacto. c) Es incorrecto: la actualización de las dependencias debe realizarse después de crear el plan de adopción. d) Es incorrecto: determinar el impacto debe realizarse después de ejecutar un piloto.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 39,
+      "pregunta": "<p>Has estado realizando una revisión de calidad de una TAS para optimizar la interacción con los controles dentro de la GUI. La GUI incluye varios tipos de controles (por ejemplo, lista desplegable, casilla de verificación, campo de texto). También hay funciones separadas en los scripts de prueba que actúan sobre los distintos tipos de controles de la GUI para obtener información y para configurarlos (por ejemplo, visible/no visible, habilitado/no habilitado). ¿Cuál de los siguientes pasos deberías considerar para aumentar la eficiencia de la TAS?</p>",
+      "opciones": [
+        "a) Separar las pruebas de los controles según su tipo en distintos conjuntos de pruebas",
+        "b) Investigar si existe una herramienta de automatización de pruebas que pueda reemplazar la solución actual",
+        "c) Verificar si hay funciones que puedan trabajar con varios tipos de controles y consolidar los scripts de prueba usando esas funciones",
+        "d) Usar las nuevas funciones del sistema operativo en los scripts de prueba para manejar los controles de la GUI"
+      ],
+      "respuesta_correcta": 2,
+      "numero_respuestas": "ONE",
+      "explicacion": "c) Es correcto. Consolidar los scripts de prueba es una mejora en este caso. a) Es incorrecto: separar la prueba de los controles debería implementarse dentro de las librerías core. b) Es incorrecto: no es una mejora directa. d) Es incorrecto: no es una mejora directa.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 40,
+      "pregunta": "<p>Como ingeniero de automatización de pruebas, has automatizado la prueba de desempeño de un sistema de gestión de clientes. Para probar de forma efectiva el desempeño de este sistema, necesitas crear datos de prueba diversos que incluyan clientes con perfiles variados según distintos criterios de entrada.</p><p>¿Cuál es la mejor manera de implementar tal solución?</p>",
+      "opciones": [
+        "a) Emplear una herramienta de automatización de pruebas que invoque una API de servicio web que cree nuevas cuentas de usuario y complete sus perfiles con los datos especificados.",
+        "b) Registrar a estos usuarios manualmente mediante la GUI, para que también se pruebe la funcionalidad de la GUI",
+        "c) Usar la base de datos de producción durante la prueba, ya que tiene el volumen y el tipo de datos reales",
+        "d) Implementar un script de automatización de pruebas que anonimice los datos de los clientes antes de usarlos durante la prueba de desempeño"
+      ],
+      "respuesta_correcta": 0,
+      "numero_respuestas": "ONE",
+      "explicacion": "a) Es correcto. Ofrece una solución automatizada y rápida al problema. b) Es incorrecto: esto no es un TAS. c) Es incorrecto: usar directamente una base de datos de producción como origen de los datos de prueba conlleva un riesgo alto. d) Es incorrecto: la anonimización de los datos de prueba es importante, pero queda fuera del alcance de esta solución.",
+      "video_explicacion": "",
+      "imageUrl": ""
+    }
+  ],
+  "idioma": "es"
+}

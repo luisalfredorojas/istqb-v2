@@ -34,3 +34,8 @@ testifyhq-new/a/
 testifyhq-new/b/
 testifyhq-new/c/
 testifyhq-new/d/
+testifyhq-new/advanceAnalyst/
+
+# Estado local de la CLI de Supabase (versiones cacheadas, ref del proyecto,
+# URL del pooler): depende de la máquina y del proyecto enlazado, no del código.
+**/supabase/.temp/

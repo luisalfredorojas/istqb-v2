@@ -1,0 +1,427 @@
+[
+  {
+    "empresa": "istqb",
+    "titulo": "ISTQB® Certified Tester Foundation Level v4.0 - Preguntas Extra (Examen A) (Español)",
+    "descripcion": "Preguntas de práctica adicionales del examen de muestra conjunto A - Compatible con el programa de estudio versión 4.0.1 (Versión 1.7, abril 2025)",
+    "minimo_aprobacion": 17,
+    "retroalimentacion": [
+      {
+        "umbral": 90,
+        "mensaje": "¡Excelente! Nivel muy alto de preparación."
+      },
+      {
+        "umbral": 75,
+        "mensaje": "Muy bien, estás en camino de aprobar."
+      },
+      {
+        "umbral": 65,
+        "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+      },
+      {
+        "umbral": 0,
+        "mensaje": "Recomendamos seguir estudiando."
+      }
+    ],
+    "examen": [
+      {
+        "numero": 1,
+        "pregunta": "Se te asignó la tarea de analizar y corregir las causas de los fallos de un nuevo sistema que está por entregarse. ¿Qué actividad estás realizando?",
+        "opciones": [
+          "a) Depuración",
+          "b) Pruebas de software",
+          "c) Obtención de requisitos",
+          "d) Gestión de defectos"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Correcto. La depuración (debugging) es el proceso de encontrar, analizar y eliminar las causas de los fallos en un componente o sistema. b) Incorrecto - las pruebas de software son el proceso de planificación, preparación y evaluación. c) Incorrecto - la obtención de requisitos no está relacionada con corregir causas de fallos. d) Incorrecto - la gestión de defectos es reconocer, registrar, clasificar, investigar, resolver y disponer de defectos.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 2,
+        "pregunta": "En muchas organizaciones de software, al departamento de pruebas se le llama departamento de Aseguramiento de la Calidad (QA). ¿Es correcta esta afirmación y por qué?",
+        "opciones": [
+          "a) Es correcta. Pruebas y QA significan exactamente lo mismo",
+          "b) Es correcta. Estos nombres pueden usarse indistintamente porque tanto las pruebas como el QA centran sus actividades en los mismos asuntos de calidad",
+          "c) No es correcta. Las pruebas son algo más; las pruebas incluyen todas las actividades relacionadas con la calidad. El QA se centra en los procesos relacionados con la calidad",
+          "d) No es correcta. El QA se centra en los procesos relacionados con la calidad, mientras que las pruebas se concentran en demostrar que un componente o sistema es apto para su propósito y en detectar defectos"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Correcto. Las pruebas y el aseguramiento de calidad no son lo mismo. Las pruebas se enfocan en planificación, preparación y evaluación de componentes/sistemas. QA se enfoca en establecer, introducir, monitorear, mejorar y adherirse a procesos relacionados con la calidad.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 3,
+        "pregunta": "El timbre de un teléfono en un cubículo vecino distrae a un programador y hace que codifique de forma incorrecta la lógica que verifica el límite superior de una variable de entrada. Más tarde, durante las pruebas de sistema, un tester nota que este campo de entrada acepta valores de entrada inválidos.<br><br>¿Cuál de las siguientes opciones describe correctamente un límite superior mal codificado?",
+        "opciones": [
+          "a) La causa raíz",
+          "b) Un fallo",
+          "c) Un error",
+          "d) Un defecto"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Incorrecto - la causa raíz es la distracción que experimentó el programador. b) Incorrecto - aceptar entradas inválidas es un fallo (failure). c) Incorrecto - el error es el error de pensamiento que introdujo el defecto en el código. d) Correcto - el problema en el código es un defecto.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 4,
+        "pregunta": "Considera el siguiente testware.<br><br><div style=\"border: 1px solid currentColor; padding: 12px; border-radius: 4px; margin: 8px 0;\"><strong>Carta de prueba #04.018</strong> &nbsp;&nbsp;&nbsp; Duración de la sesión: 1h<br><br><strong>Explorar:</strong> Página de registro<br><strong>Con:</strong> Distintos conjuntos de datos de entrada incorrectos<br><strong>Para descubrir:</strong> Defectos relacionados con aceptar el proceso de registro con entradas incorrectas</div><br>¿Qué actividad de prueba produce este testware como salida?",
+        "opciones": [
+          "a) Planificación de pruebas",
+          "b) Monitoreo y control de pruebas",
+          "c) Análisis de pruebas",
+          "d) Diseño de pruebas"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "El testware considerado es un test charter. Los test charters son la salida del diseño de pruebas.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 5,
+        "pregunta": "¿Cuál de los siguientes es el MEJOR ejemplo de cómo la trazabilidad apoya a las pruebas?",
+        "opciones": [
+          "a) Realizar el análisis de impacto de un cambio dará información sobre la finalización de las pruebas",
+          "b) Analizar la trazabilidad entre los casos de prueba y los resultados de las pruebas dará información sobre el nivel estimado de riesgo residual",
+          "c) Realizar el análisis de impacto de un cambio ayudará a seleccionar los casos de prueba adecuados para las pruebas de regresión",
+          "d) Analizar la trazabilidad entre la base de prueba, los objetos de prueba y los casos de prueba ayudará a seleccionar los datos de prueba para lograr la cobertura prevista del objeto de prueba"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Correcto. Realizar el análisis de impacto de los cambios ayuda a seleccionar los casos de prueba correctos para las pruebas de regresión. a) Incorrecto - el análisis de impacto no da información sobre completitud de pruebas. b) Incorrecto - la trazabilidad no da información sobre riesgo residual si los casos no se trazan a riesgos. d) Incorrecto - la trazabilidad no ayuda a seleccionar datos de prueba.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 6,
+        "pregunta": "¿Cuál de las siguientes opciones explica MEJOR un beneficio de la independencia de las pruebas?",
+        "opciones": [
+          "a) El uso de un equipo de pruebas independiente permite a la gestión del proyecto asignar la responsabilidad por la calidad del entregable final al equipo de pruebas",
+          "b) Si se puede costear un equipo de pruebas externo a la organización, hay beneficios claros en el sentido de que ese equipo externo no se deja influir tan fácilmente por las preocupaciones de entrega de la gestión del proyecto ni por la necesidad de cumplir plazos estrictos",
+          "c) Un equipo de pruebas independiente puede trabajar separado de los desarrolladores, no necesita distraerse con los cambios en los requisitos del proyecto y puede limitar la comunicación con los desarrolladores al reporte de defectos a través del sistema de gestión de defectos",
+          "d) Cuando las especificaciones contienen ambigüedades e inconsistencias, se hacen suposiciones sobre su interpretación, y un tester independiente puede ser útil para cuestionar esas suposiciones y la interpretación hecha por el desarrollador"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Correcto. Las especificaciones nunca son perfectas, lo que significa que el desarrollador debe hacer suposiciones. Un tester independiente es útil porque puede cuestionar y verificar las suposiciones y la interpretación posterior del desarrollador. a) Incorrecto - la calidad debe ser responsabilidad de todos. b) Incorrecto - no es un beneficio que el equipo externo no cumpla plazos. c) Incorrecto - es mala práctica que el equipo de pruebas trabaje completamente aislado.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 7,
+        "pregunta": "Trabajas como tester en un equipo que sigue el modelo en V. ¿Cuáles de las siguientes actividades PUEDEN realizarse en las fases iniciales del SDLC?",
+        "opciones": [
+          "a) Ejecución de pruebas dinámicas",
+          "b) Pruebas estáticas",
+          "c) Planificación de pruebas",
+          "d) Ejecución de pruebas de aceptación",
+          "e) Pruebas de mantenimiento"
+        ],
+        "respuesta_correcta": [
+          1,
+          2
+        ],
+        "numero_respuestas": "TWO",
+        "explicacion": "b) Correcto. En modelos secuenciales, en las fases iniciales los testers participan en revisiones de requisitos, que son una forma de pruebas estáticas. c) Correcto. La planificación de pruebas puede realizarse temprano en el SDLC antes de que comience el proyecto de pruebas. a) Incorrecto - el código ejecutable se crea en fases posteriores. d) Incorrecto - la ejecución de pruebas de aceptación requiere un producto funcional. e) Incorrecto - las pruebas de mantenimiento se hacen cuando hay un producto desplegado.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 8,
+        "pregunta": "¿Cuáles de las siguientes son ventajas de DevOps?<br><br><ol type=\"i\"><li>Entrega más rápida del producto y menor tiempo de salida al mercado</li><li>Aumenta la necesidad de pruebas manuales repetitivas</li><li>Disponibilidad constante de software ejecutable</li><li>Reducción de la cantidad de pruebas de regresión asociadas a la refactorización de código</li><li>Configurar el marco de automatización de pruebas es barato porque todo está automatizado</li></ol>",
+        "opciones": [
+          "a) i, ii, iv son ventajas",
+          "b) iii, v son ventajas",
+          "c) i, iii son ventajas",
+          "d) ii, iv, v son ventajas"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "i. Verdadero. Lanzamiento más rápido del producto es una ventaja de DevOps. ii. Falso. Típicamente se necesita menos esfuerzo para pruebas manuales gracias a la automatización. iii. Verdadero. La disponibilidad constante de software ejecutable es una ventaja. iv. Falso. Se necesitan más pruebas de regresión, no menos. v. Falso. No todo está automatizado y configurar un framework de automatización es costoso.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 9,
+        "pregunta": "Trabajas como tester en un proyecto de una aplicación móvil de pedidos de comida para uno de tus clientes. El cliente te envió una lista de requisitos. Uno de ellos, con prioridad alta, dice: \"El pedido debe procesarse en menos de 10 segundos en el 95% de los casos\".<br><br>Creaste un conjunto de casos de prueba en los que se realizaron varios pedidos aleatorios, se midió el tiempo de procesamiento y se contrastaron los resultados de las pruebas con los requisitos.<br><br>¿Qué tipo de prueba realizaste?",
+        "opciones": [
+          "a) Funcional, porque los casos de prueba cubren el requisito de negocio del usuario para el sistema",
+          "b) No funcional, porque miden el desempeño del sistema",
+          "c) Funcional, porque los casos de prueba interactúan con la interfaz de usuario",
+          "d) De caja blanca, porque necesitamos conocer la estructura interna del programa para medir el tiempo de procesamiento del pedido"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. Este es un ejemplo de pruebas de eficiencia de rendimiento, un tipo de prueba no funcional. a) Incorrecto - que el requisito venga del cliente no lo hace funcional, porque no verifica \"qué\" hace el sistema sino \"cómo\" (qué tan rápido). c) Incorrecto - el objetivo principal es verificar el rendimiento, no la usabilidad. d) Incorrecto - no se necesita conocer la estructura interna para pruebas de rendimiento.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 10,
+        "pregunta": "La estrategia de prueba de tu organización sugiere que, una vez que un sistema vaya a ser retirado, se debe probar la migración de datos. ¿Como parte de qué tipo de prueba es MÁS probable que se realice esta prueba?",
+        "opciones": [
+          "a) Pruebas de mantenimiento",
+          "b) Pruebas de regresión",
+          "c) Pruebas de fiabilidad",
+          "d) Pruebas de integración"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Correcto. Cuando un sistema se retira, esto puede requerir pruebas de migración de datos, que es una forma de pruebas de mantenimiento. b) Incorrecto - las pruebas de regresión verifican si una corrección afectó otras partes del código. c) Incorrecto - las pruebas de portabilidad se enfocan en transferir el sistema a otro entorno. d) Incorrecto - las pruebas de integración se enfocan en interacciones entre componentes, no en migración de datos.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 11,
+        "pregunta": "La siguiente es una lista de los productos de trabajo producidos en el SDLC.<br><br><ol type=\"i\"><li>Requisitos de negocio</li><li>Cronograma</li><li>Presupuesto de pruebas</li><li>Código ejecutable de terceros</li><li>Historias de usuario y sus criterios de aceptación</li></ol><br>¿Cuáles de ellos pueden revisarse?",
+        "opciones": [
+          "a) i y iv pueden revisarse",
+          "b) i, ii, iii y iv pueden revisarse",
+          "c) i, ii, iii y v pueden revisarse",
+          "d) iii, iv, v pueden revisarse"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "Solo el código ejecutable de terceros no puede ser revisado. Los requisitos de negocio, el cronograma, el presupuesto de pruebas y las historias de usuario con sus criterios de aceptación sí pueden revisarse.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 12,
+        "pregunta": "Decide cuáles de las siguientes afirmaciones (i-v) son verdaderas para las pruebas estáticas.<br><br><ol type=\"i\"><li>Los comportamientos externos anómalos son más fáciles de identificar con estas pruebas</li><li>Las discrepancias respecto a un estándar de codificación son más fáciles de encontrar con estas pruebas</li><li>Identifica fallos causados por defectos cuando se ejecuta el software</li><li>Su objetivo de prueba es identificar defectos lo antes posible</li><li>La falta de cobertura de requisitos de seguridad críticos es más fácil de encontrar y corregir</li></ol>",
+        "opciones": [
+          "a) i, iv, v son verdaderas para las pruebas estáticas",
+          "b) i, iii, iv son verdaderas para las pruebas estáticas",
+          "c) ii, iii son verdaderas para las pruebas estáticas",
+          "d) ii, iv, v son verdaderas para las pruebas estáticas"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "i. Falso - los comportamientos anormales se detectan más fácilmente con pruebas dinámicas. ii. Verdadero - las desviaciones de estándares de codificación son defectos típicos encontrados con pruebas estáticas. iii. Falso - si el software se ejecuta, es prueba dinámica. iv. Verdadero - identificar defectos lo antes posible es el objetivo tanto de pruebas estáticas como dinámicas. v. Verdadero - la falta de cobertura para requisitos críticos de seguridad es un defecto típico encontrado con pruebas estáticas.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 13,
+        "pregunta": "¿Cuál de las siguientes afirmaciones sobre las revisiones formales es VERDADERA?",
+        "opciones": [
+          "a) Algunas revisiones no requieren más de un rol",
+          "b) El proceso de revisión tiene varias actividades",
+          "c) La documentación que se va a revisar no se distribuye antes de la reunión de revisión, con la excepción del producto de trabajo en ciertos tipos de revisión",
+          "d) Los defectos encontrados durante la revisión no se reportan porque no se encuentran mediante pruebas dinámicas"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. Hay varias actividades durante el proceso de revisión formal. a) Incorrecto - en todos los tipos de revisión hay más de un rol, incluso en las informales. c) Incorrecto - la documentación a revisar debe distribuirse lo antes posible. d) Incorrecto - los defectos encontrados durante la revisión deben reportarse.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 14,
+        "pregunta": "¿Qué tarea puede asumir la gerencia durante una revisión formal?",
+        "opciones": [
+          "a) Asumir la responsabilidad general de la revisión",
+          "b) Decidir qué se va a revisar",
+          "c) Asegurar el desarrollo efectivo de las reuniones de revisión y moderar, si es necesario",
+          "d) Registrar la información de la revisión, como las decisiones tomadas"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. Decidir qué se revisará es la tarea de la gerencia en una revisión formal. a) Incorrecto - esta es la tarea del líder de la revisión. c) Incorrecto - esta es la tarea del moderador. d) Incorrecto - esta es la tarea del escriba.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 15,
+        "pregunta": "Un sistema de almacenamiento de vino usa un dispositivo de control que mide la temperatura de la bodega T (medida en °C, redondeada al grado más cercano) y alerta al usuario si se desvía del valor óptimo de 12, según las siguientes reglas:<ul><li>si T = 12, el sistema indica \"temperatura óptima\"</li><li>si T &lt; 12, el sistema indica \"¡la temperatura es demasiado baja!\"</li><li>si T &gt; 12, el sistema indica \"¡la temperatura es demasiado alta!\"</li></ul><br>Quieres usar el análisis de valores límite (BVA) de 3 puntos para verificar el comportamiento del dispositivo de control. Una entrada de prueba es una temperatura en °C proporcionada por el dispositivo.<br><br>¿Cuál es el conjunto MÍNIMO de entradas de prueba que logra el 100% de la cobertura deseada?",
+        "opciones": [
+          "a) 11, 12, 13",
+          "b) 10, 12, 14",
+          "c) 10, 11, 12, 13, 14",
+          "d) 10, 11, 13, 14"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "Hay tres particiones de equivalencia: {..., 10, 11}, {12} y {13, 14, ...}. Los valores límite son 11, 12 y 13. En BVA de 3 puntos, para cada límite se prueban el límite y sus dos vecinos: para 11 probamos 10, 11, 12; para 12 probamos 11, 12, 13; para 13 probamos 12, 13, 14. En total necesitamos probar 10, 11, 12, 13 y 14.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 16,
+        "pregunta": "¿Cuál de las siguientes afirmaciones sobre las pruebas de ramas es CORRECTA?",
+        "opciones": [
+          "a) Si un programa incluye solo ramas incondicionales, entonces se puede lograr el 100% de cobertura de ramas sin ejecutar ningún caso de prueba",
+          "b) Si los casos de prueba ejercitan todas las ramas incondicionales del código, entonces se logra el 100% de cobertura de ramas",
+          "c) Si se logra el 100% de cobertura de sentencias, entonces también se logra el 100% de cobertura de ramas",
+          "d) Si se logra el 100% de cobertura de ramas, entonces se ejercitan todos los resultados de decisión de cada sentencia de decisión del código"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Correcto. Cada resultado de decisión corresponde a una rama condicional, por lo que 100% de cobertura de ramas implica 100% de cobertura de los resultados de decisión. a) Incorrecto - aún se necesita al menos un caso de prueba. b) Incorrecto - cubrir solo ramas incondicionales no implica cubrir todas las condicionales. c) Incorrecto - 100% de cobertura de ramas implica 100% de cobertura de sentencias, no al revés.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 17,
+        "pregunta": "Estás probando una aplicación móvil que permite a los clientes acceder y gestionar sus cuentas bancarias. Estás ejecutando un conjunto de pruebas que consiste en evaluar cada pantalla, y cada campo de cada pantalla, frente a una lista general de buenas prácticas de interfaz de usuario tomada de un libro popular sobre el tema que maximiza la usabilidad de este tipo de aplicaciones.<br><br>¿Cuál de las siguientes opciones categoriza MEJOR la técnica de prueba que estás usando?",
+        "opciones": [
+          "a) De caja negra",
+          "b) Exploratoria",
+          "c) Basada en listas de verificación",
+          "d) Suposición de errores"
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Correcto. La lista de mejores prácticas de interfaz de usuario es la lista de condiciones de prueba que se verifican sistemáticamente. a) Incorrecto - el libro provee guía general, no es un documento formal de requisitos. b) Incorrecto - aunque podría considerarse como test charters, se asemeja más a una lista de condiciones de prueba. d) Incorrecto - las pruebas no se enfocan en fallos potenciales sino en conocimiento sobre lo importante para el usuario.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 18,
+        "pregunta": "¿Cuál de las siguientes opciones describe MEJOR el enfoque colaborativo para la escritura de historias de usuario?",
+        "opciones": [
+          "a) Las historias de usuario las crean los testers y los desarrolladores y luego las aceptan los representantes del negocio",
+          "b) Las historias de usuario las crean en conjunto los representantes del negocio, los desarrolladores y los testers",
+          "c) Las historias de usuario las crean los representantes del negocio y las verifican los desarrolladores y los testers",
+          "d) Las historias de usuario se crean de forma que sean independientes, negociables, valiosas, estimables, pequeñas y testeables"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. La escritura colaborativa de historias de usuario significa que todos los stakeholders crean las historias de usuario de forma colaborativa para obtener una visión compartida. d) Incorrecto - esta es la lista de propiedades (INVEST) que cada historia de usuario debería tener, no la descripción del enfoque colaborativo.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 19,
+        "pregunta": "Considera la siguiente parte de un plan de pruebas.<br><br><div style=\"border: 1px solid currentColor; padding: 12px; border-radius: 4px; margin: 8px 0;\">Las pruebas se realizarán mediante pruebas de componentes y pruebas de integración de componentes. La normativa exige demostrar que se logra el 100% de cobertura de ramas para cada componente clasificado como crítico.</div><br>¿A qué parte del plan de pruebas pertenece este fragmento?",
+        "opciones": [
+          "a) Comunicación",
+          "b) Registro de riesgos",
+          "c) Contexto de las pruebas",
+          "d) Enfoque de prueba"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Correcto. El párrafo contiene información sobre niveles de prueba y criterios de salida, que son parte del enfoque de pruebas (test approach).",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 20,
+        "pregunta": "Tu equipo usa planning poker para estimar el esfuerzo de prueba de una nueva funcionalidad requerida. En tu equipo existe la regla de que, si no hay tiempo para alcanzar un acuerdo total y la variación de los resultados es pequeña, pueden aplicarse reglas como \"aceptar el número con más votos\".<br><br>Después de dos rondas no se alcanzó el consenso, así que se inició una tercera ronda. Puedes ver los resultados de la estimación de pruebas en la tabla siguiente.<br><br><table style=\"border-collapse: collapse; width: 100%;\"><tr style=\"border-bottom: 2px solid currentColor;\"><th style=\"padding: 6px;\"></th><th style=\"padding: 6px; text-align: center;\" colspan=\"8\">Estimaciones de los miembros del equipo</th></tr><tr><td style=\"padding: 6px;\">Ronda 1</td><td style=\"padding: 6px; text-align: center;\">21</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">2</td><td style=\"padding: 6px; text-align: center;\">5</td><td style=\"padding: 6px; text-align: center;\">34</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">8</td><td style=\"padding: 6px; text-align: center;\">8</td></tr><tr><td style=\"padding: 6px;\">Ronda 2</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">8</td><td style=\"padding: 6px; text-align: center;\">8</td><td style=\"padding: 6px; text-align: center;\">34</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">8</td><td style=\"padding: 6px; text-align: center;\">8</td><td style=\"padding: 6px; text-align: center;\">13</td></tr><tr><td style=\"padding: 6px;\">Ronda 3</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">13</td><td style=\"padding: 6px; text-align: center;\">2</td><td style=\"padding: 6px; text-align: center;\">5</td></tr></table><br>¿Cuál de las siguientes opciones es el MEJOR ejemplo del siguiente paso?",
+        "opciones": [
+          "a) El product owner tiene que intervenir y tomar la decisión final",
+          "b) Aceptar 13 como la estimación final de prueba, ya que es el valor con más votos",
+          "c) No se necesita ninguna acción adicional. Se ha alcanzado el consenso",
+          "d) Eliminar la nueva funcionalidad de la entrega actual porque no se alcanzó el consenso"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. Si las estimaciones no son iguales pero la variación es pequeña, se pueden aplicar reglas como \"aceptar el número con más votos\". a) Incorrecto - esto debería ser una actividad del equipo, no decidida por una sola persona. c) Incorrecto - aún no hay consenso ya que algunos dicen 13 y otros 8 o diferentes valores. d) Incorrecto - una funcionalidad no debería removerse solo porque el equipo no puede ponerse de acuerdo en las estimaciones.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 21,
+        "pregunta": "¿Cuál de las siguientes afirmaciones es VERDADERA respecto a la pirámide de pruebas?",
+        "opciones": [
+          "a) Enfatiza tener muchas más pruebas en los niveles de prueba más bajos",
+          "b) Sugiere que cada prueba de bajo nivel verifica una gran parte de la funcionalidad",
+          "c) Describe la distribución de los tipos de prueba a lo largo del SDLC",
+          "d) No tiene ningún impacto en la construcción de pruebas automatizadas"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "a) Correcto. La pirámide de pruebas enfatiza tener un mayor número de pruebas en los niveles más bajos de prueba. b) Incorrecto - las pruebas de nivel bajo son más atómicas y orientadas a lógica específica, lo opuesto. c) Incorrecto - la pirámide muestra cómo se distribuye el número de pruebas entre niveles de prueba. d) Incorrecto - el modelo de la pirámide apoya al equipo en la automatización de pruebas.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 22,
+        "pregunta": "Durante el análisis de riesgos el equipo consideró el siguiente riesgo: \"El sistema permite un descuento demasiado alto para un cliente\". El equipo estimó que el impacto del riesgo es muy alto.<br><br>¿Qué se puede decir sobre la probabilidad del riesgo?",
+        "opciones": [
+          "a) También es muy alta. Un impacto de riesgo alto siempre implica una probabilidad de riesgo alta",
+          "b) Es muy baja. Un impacto de riesgo alto siempre implica una probabilidad de riesgo baja",
+          "c) No se puede decir nada sobre la probabilidad del riesgo. El impacto y la probabilidad del riesgo son independientes.",
+          "d) La probabilidad del riesgo no es importante con un impacto de riesgo tan alto. No hace falta definirla."
+        ],
+        "respuesta_correcta": 2,
+        "numero_respuestas": "ONE",
+        "explicacion": "c) Correcto. El impacto del riesgo y la probabilidad del riesgo son independientes. No se puede decir nada sobre la probabilidad basándose solo en el impacto. d) Incorrecto - se necesitan ambos factores para calcular el nivel de riesgo.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 23,
+        "pregunta": "La siguiente lista contiene riesgos identificados para un nuevo producto de software que se va a desarrollar:<br><br><ol type=\"i\"><li>La gerencia traslada a dos testers con experiencia a otro proyecto</li><li>El sistema no cumple con los estándares de seguridad</li><li>El tiempo de respuesta del sistema excede los requisitos del usuario</li><li>Las partes interesadas tienen expectativas inexactas</li><li>Las personas con discapacidad tienen problemas al usar el sistema</li></ol><br>¿Cuáles de ellos son riesgos de proyecto?",
+        "opciones": [
+          "a) i, iv son riesgos de proyecto",
+          "b) iv, v son riesgos de proyecto",
+          "c) i, iii son riesgos de proyecto",
+          "d) ii, v son riesgos de proyecto"
+        ],
+        "respuesta_correcta": 0,
+        "numero_respuestas": "ONE",
+        "explicacion": "i. Es un riesgo de proyecto (pérdida de personal). ii. Es un riesgo de producto. iii. Es un riesgo de producto. iv. Es un riesgo de proyecto (expectativas incorrectas de stakeholders). v. Es un riesgo de producto.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 24,
+        "pregunta": "¿Cuál de los siguientes es un ejemplo de cómo el análisis de riesgos de producto influye en la exhaustividad y el alcance de las pruebas?",
+        "opciones": [
+          "a) El gerente de pruebas monitorea y reporta diariamente el nivel de todos los riesgos conocidos para que las partes interesadas puedan tomar una decisión informada sobre la fecha de entrega",
+          "b) Uno de los riesgos identificados fue \"Falta de soporte de bases de datos de código abierto\", así que el equipo decidió integrar el sistema con una base de datos de código abierto",
+          "c) Durante el análisis cuantitativo de riesgos, el equipo estimó el nivel total de todos los riesgos identificados y lo reportó como el riesgo residual total antes de las pruebas",
+          "d) La evaluación de riesgos reveló un nivel muy alto de riesgos de desempeño, por lo que se decidió realizar pruebas detalladas de eficiencia de desempeño de forma temprana en el SDLC"
+        ],
+        "respuesta_correcta": 3,
+        "numero_respuestas": "ONE",
+        "explicacion": "d) Correcto. Esto muestra cómo el análisis de riesgos impacta la exhaustividad de las pruebas (es decir, el nivel de detalle). a) Incorrecto - es un ejemplo de monitoreo de riesgos. b) Incorrecto - es una decisión arquitectónica. c) Incorrecto - es un ejemplo de análisis cuantitativo de riesgos, no relacionado con exhaustividad o alcance de las pruebas.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 25,
+        "pregunta": "¿Cuáles DOS de las siguientes opciones son métricas comunes usadas para reportar el nivel de calidad del objeto de prueba?",
+        "opciones": [
+          "a) Cantidad de defectos encontrados durante las pruebas de sistema",
+          "b) Esfuerzo total en el diseño de pruebas dividido entre la cantidad de casos de prueba diseñados",
+          "c) Cantidad de procedimientos de prueba ejecutados",
+          "d) Cantidad de defectos encontrados dividida entre el tamaño de un producto de trabajo",
+          "e) Tiempo necesario para reparar un defecto"
+        ],
+        "respuesta_correcta": [
+          0,
+          3
+        ],
+        "numero_respuestas": "TWO",
+        "explicacion": "a) Correcto. El número de defectos encontrados está relacionado con la calidad del objeto de prueba. d) Correcto. La densidad de defectos está relacionada con la calidad del objeto de prueba. b) Incorrecto - es una medida de eficiencia de pruebas, no de calidad del producto. c) Incorrecto - el número de procedimientos ejecutados no dice nada sobre la calidad. e) Incorrecto - el tiempo de reparación es una métrica de proceso.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      },
+      {
+        "numero": 26,
+        "pregunta": "¿Cuál de los siguientes datos contenidos en un reporte de avance de pruebas es el MENOS útil para los representantes del negocio?",
+        "opciones": [
+          "a) Impedimentos para las pruebas",
+          "b) Cobertura de ramas lograda",
+          "c) Avance de las pruebas",
+          "d) Nuevos riesgos dentro del ciclo de pruebas"
+        ],
+        "respuesta_correcta": 1,
+        "numero_respuestas": "ONE",
+        "explicacion": "b) Correcto. La cobertura de ramas es una métrica técnica utilizada por desarrolladores y analistas técnicos de pruebas. Esta información no es de interés para los representantes del negocio. a) Incorrecto - los impedimentos pueden ser de alto nivel y relevantes para el negocio. c) Incorrecto - el progreso de las pruebas es relevante para el negocio. d) Incorrecto - los riesgos impactan la calidad del producto y son relevantes para el negocio.",
+        "video_explicacion": "",
+        "imageUrl": ""
+      }
+    ],
+    "idioma": "es"
+  }
+]

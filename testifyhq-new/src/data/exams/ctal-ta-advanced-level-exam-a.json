@@ -1,0 +1,847 @@
+{
+  "empresa": "istqb",
+  "idioma": "en",
+  "titulo": "ISTQB® Certified Tester Advanced Level Test Analyst (CTAL-TA) v4.1 - Exam A",
+  "descripcion": "Sample Exam CTAL-TA - Compatible with Syllabus v4.0. Incluye 45 preguntas + 5 adicionales del Apéndice (se omitieron A1, A5 y A6, de tipo ordenamiento/asignación, no representables como opción múltiple).",
+  "minimo_aprobacion": 33,
+  "retroalimentacion": [
+    {
+      "umbral": 90,
+      "mensaje": "¡Excelente! Nivel muy alto de preparación."
+    },
+    {
+      "umbral": 75,
+      "mensaje": "Muy bien, estás en camino de aprobar."
+    },
+    {
+      "umbral": 65,
+      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+    },
+    {
+      "umbral": 0,
+      "mensaje": "Recomendamos seguir estudiando."
+    }
+  ],
+  "examen": [
+    {
+      "numero": 1,
+      "puntos": 1,
+      "pregunta": "<p>Why does a test analyst carry out the same activities in every increment of an incremental development model?</p>",
+      "opciones": [
+        "Because development is also done in cycles consisting of the same activities in every increment",
+        "Because the activities of the test analyst in each increment are limited to test analysis and test design",
+        "Because in each increment, the test analyst is involved as soon as the development begins",
+        "Because each increment develops a new part of the software, which needs to be tested"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Cada incremento se desarrolla y se prueba de forma independiente, por lo que el analista de pruebas realiza las mismas actividades de prueba en cada incremento (análisis, diseño, implementación y ejecución de pruebas). a) Es incorrecto: en los modelos incrementales el desarrollo no es necesariamente cíclico. b) Es incorrecto: normalmente el analista debe analizar, diseñar, implementar y ejecutar pruebas en cada incremento. c) Es incorrecto: el trabajo del analista puede organizarse de forma distinta en cada incremento, por lo que el momento inicial de su involucramiento puede variar.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 2,
+      "puntos": 1,
+      "pregunta": "<p>During test analysis, the test analyst decides to use the 2-value boundary value analysis technique for a domain “age” representing a client’s age, which is used to determine the client’s discount. Which of the following tasks should the test analyst perform during test design?</p>",
+      "opciones": [
+        "Define the test condition: “The system assigns a discount for a child less than 18 and a senior older than 64.”",
+        "Determine whether or not the test cases should document the specific amount of the expected discounts",
+        "Store the identified boundary values for clients’ ages in a test data repository to support automated test execution",
+        "Write an automated test script using keyword-driven testing: “SetAge(18); VerifyDiscountIsNotAssigned().”"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Durante el diseño de pruebas, el analista determina en qué áreas conviene usar casos de prueba de bajo o alto nivel. Indicar el importe específico corresponde a bajo nivel; indicar si se aplica o no el descuento corresponde a alto nivel. a) Es incorrecto: las condiciones de prueba se definen durante el análisis de pruebas. c) Es incorrecto: los datos de prueba se crean y preparan durante la implementación de pruebas. d) Es incorrecto: los scripts de prueba se escriben durante la implementación de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 3,
+      "puntos": 1,
+      "pregunta": "<p>Based on the following (simplified) test case:</p><p><strong>Input</strong>: age below 18<br><strong>Expected output</strong>: The system assigns a children’s discount</p><p>A test analyst creates the following (simplified) test script using keyword-driven testing:</p><p><code>EnterAge(17)<br>VerifyChildrenDiscountApplied(yes)<br>EnterAge(18)<br>VerifyChildrenDiscountApplied(no)</code></p><p>In which test activity does this action take place?</p>",
+      "opciones": [
+        "Test analysis",
+        "Test design",
+        "Test implementation",
+        "Test execution"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Un script de prueba implementa un caso de prueba durante la implementación de pruebas. a) Es incorrecto: en el análisis de pruebas el analista define condiciones de prueba, no scripts. b) Es incorrecto: en el diseño de pruebas el analista diseña casos de prueba; aquí el caso ya está dado. d) Es incorrecto: los scripts de prueba son una entrada de la ejecución de pruebas, no su resultado.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 4,
+      "puntos": 1,
+      "pregunta": "<p>A medical application has an interface for a health card reader. As a test analyst, you require a simulator for the health card reader to replace the hardware devices in the system test environment. You state the following requirements for the simulator:</p><ul><li>The simulator shall implement the exact interface specification to the medical information system as the real devices.</li><li>Testers with access to the system test environment shall be able to edit and manage the virtual health cards.</li><li>The simulator shall be available during system test implementation and execution of all increments.</li></ul><p>Which of the following information is missing and should be added?</p>",
+      "opciones": [
+        "A copy of the health card reader interface specification",
+        "The specific period of time during which the simulator is needed",
+        "A specific backup and restore procedure for the virtual health cards",
+        "The organizational unit which shall provide and maintain the simulator"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. La responsabilidad de proveer el simulador es uno de los elementos de información necesarios que indica el syllabus. a) Es incorrecto: la referencia a la especificación de interfaz ya está incluida en el primer requisito. b) Es incorrecto: el tercer requisito ya indica cuándo se necesita el simulador; los periodos concretos se derivan del cronograma de pruebas. c) Es incorrecto: los procedimientos de respaldo y restauración son necesidades globales del entorno de pruebas, no de un componente individual como el simulador.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 5,
+      "puntos": 1,
+      "pregunta": "<p>A mobile network operator’s existing rating and billing system will be replaced by new software. As rating and billing rules are very complex, the project test strategy plans to test the functional correctness with several days of live network traffic.</p><p>As a test analyst, you want to solve the test oracle problem of generating the details of expected bills for a large amount of traffic with a pseudo-oracle. Which of the following solutions can serve as a pseudo-oracle?</p>",
+      "opciones": [
+        "Run the existing in-house rating and billing system in the test environment to generate the expected results",
+        "Use test scripts to generate expected results in simple test cases and accept all other actual results",
+        "Run automated scripts to verify the phone call counts, durations, and types on the bills based on the traffic data",
+        "Selectively change the call durations in the live network traffic and verify that the bills change accordingly"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. El sistema heredado se desarrolló independientemente para cumplir las mismas especificaciones, por lo que puede servir como pseudo-oráculo listo para usar. b) Es incorrecto: restringir el oráculo a datos simples y aceptar todo lo demás no es un enfoque apropiado para probar la corrección funcional; los casos complejos suelen tener alto riesgo. c) Es incorrecto: esto es prueba basada en propiedades, ya que solo verifica la consistencia de entradas y salidas, no la corrección completa de los resultados. d) Es incorrecto: esto es prueba metamórfica.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 6,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following statements about anonymized test data is MOST likely to be true?</p>",
+      "opciones": [
+        "Test data may lack the variability required for thorough testing",
+        "Test data will be restricted to input data only",
+        "Test data will be outdated as it is time-sensitive",
+        "Test data will primarily serve as keywords for keyword-driven testing"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Los datos anonimizados provienen de datos de producción, que pueden carecer de la variabilidad necesaria para probar a fondo diversos escenarios, incluidas las pruebas negativas. b) Es incorrecto: los datos de producción no se limitan a datos de entrada; también pueden contener, por ejemplo, resultados esperados y datos de configuración. c) Es incorrecto: no hay conexión directa entre la anonimización y la sensibilidad temporal o el envejecimiento de los datos. d) Es incorrecto: los datos anonimizados pueden usarse como valores de parámetros de palabras clave, no como las palabras clave en sí; las palabras clave se definen a partir de procesos de negocio.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 7,
+      "puntos": 2,
+      "pregunta": "<p>You are testing a queueing system using keyword-driven testing. The following keywords are available:</p><ul><li>Start() – creates an empty queue</li><li>Enqueue(e) - inserts element e at the end of the queue</li><li>Dequeue() - removes an element from the beginning of the queue</li><li>CreateQueue(e1, e2, ..., en) – a composite keyword equivalent to the sequence of keywords: Enqueue(e1), Enqueue(e2), ..., Enqueue(en)</li><li>AssertFirstElement(e) - checks if there is an element e at the beginning of the queue; if not, the system returns an error message</li><li>AssertEmpty() - checks if the queue is empty; if not, the system returns an error message</li></ul><p>You have designed the following test scripts:</p><ul><li>i) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertFirstElement(A)</li><li>ii) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertNonempty()</li><li>iii) Start(); Enqueue(A); Dequeue(); Enqueue(B); AssertFirstElement(B)</li><li>iv) Start(); CreateQueue(A, B); Dequeue(); Dequeue(); AssertEmpty()</li><li>v) Start(); CreateQueue(A, B); Dequeue(); AssertFirstElement(B)</li></ul><p>Which of these test scripts verify the following acceptance criterion using the available keywords: \"If more elements were added to the queue than removed, the queue is not empty\"?</p>",
+      "opciones": [
+        "i), ii) and iii)",
+        "ii), iv), and v)",
+        "iii) and v)",
+        "ii) and iv)"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. iii) inserta A, lo elimina y luego inserta B: la cola no queda vacía y contiene B, lo que verifica la aserción AssertFirstElement(B). v) inserta A y B, luego elimina uno; tras la eliminación la cola no queda vacía y contiene B, verificado por AssertFirstElement(B). Esto cumple el criterio de aceptación. i) Es incorrecto: la verificación es errónea porque el elemento restante es B, no A. ii) Es incorrecto: usa la palabra clave “AssertNonempty()” que no está disponible; debe especificarse antes de usarse. iv) Es incorrecto: la verificación es correcta, pero comprueba que la cola queda vacía cuando el número de elementos insertados iguala al de eliminados, que no es lo que dice el criterio de aceptación.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 8,
+      "puntos": 1,
+      "pregunta": "<p>As a test analyst in an incremental-iterative development process, how can you BEST support the management of testware in the test management tool?</p>",
+      "opciones": [
+        "Defining a standard severity classification for failures in test execution",
+        "Specifying the pseudonymization procedure for test data extracted from the live system",
+        "Managing the configuration of the test environments",
+        "Selecting the most suitable set of test cases for regression testing"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Seleccionar el conjunto adecuado de casos de prueba para regresión (ejecución manual/automatizada) es una tarea típica del analista relacionada con la gestión del testware en la herramienta de gestión de pruebas; implica seleccionar y organizar el conjunto correcto para cada versión, algo crucial en modelos incrementales e iterativos. a) Es incorrecto: una clasificación de severidad apoya la gestión de defectos, responsabilidad del test manager. b) Es incorrecto: un procedimiento de seudonimización apoya la gestión de datos de prueba. c) Es incorrecto: gestionar la configuración de los entornos apoya la gestión de la configuración, no la herramienta de gestión de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 9,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following are examples of how a test analyst can contribute to product risk analysis?</p>",
+      "opciones": [
+        "Interviewing business analysts about what can go wrong with the application",
+        "Determining the scope of regression testing by performing an impact analysis",
+        "Identifying and assessing new product risks that occur during test execution",
+        "Estimating the damage that each product risk may cause when it occurs",
+        "Applying the most suitable test techniques for each product risk"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "explicacion": "a) Es correcto. Es la contribución del analista durante la identificación de riesgos, que forma parte del análisis de riesgos. d) Es correcto. Es la contribución del analista durante la valoración de riesgos, que forma parte del análisis de riesgos. b) Es incorrecto: es contribución del analista, pero durante el control de riesgos, no el análisis. c) Es incorrecto: esta tarea pertenece al monitoreo de riesgos, no al análisis. e) Es incorrecto: aplicar técnicas de prueba es una actividad de mitigación de riesgos, que no forma parte del análisis de riesgos.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 10,
+      "puntos": 3,
+      "pregunta": "<p>You are given traceability information about the implemented functions (F1-F5), identified risks (R1-R5), and regression test cases (TC1-TC6) in the form of the following traceability matrices:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F\\R</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><br><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R\\TC</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC5</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC6</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><p>You also have the following information about the risk levels for all of the identified risks:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Risk</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Risk level</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$15,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$10,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$2,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$5,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$20,000</td></tr></table></div><p>All six test cases were executed in the last test cycle. Then, you are informed that the implementation of F3 has changed. You follow risk-based testing and apply an impact analysis, which allows executing only the test cases affected by code changes since the last test execution.</p><p>During the next regression test suite execution, which test case should be executed LAST?</p>",
+      "opciones": [
+        "TC4",
+        "TC5",
+        "TC1",
+        "TC3"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "Primero se hace un análisis de impacto para determinar qué casos de prueba afecta el cambio en F3. F3 se traza a R2, R4 y R5, que se trazan a: R2 -> TC1 y TC3; R4 -> TC3 y TC5; R5 -> TC1 y TC6. Por tanto la ejecución de regresión solo involucra TC1, TC3, TC5 y TC6. Luego se aplica prueba basada en riesgo para priorizar: según los niveles de riesgo, el orden de mitigación es R5, R2 y luego R4. La prioridad queda: primero ejecutar TC1 y TC6 para cubrir R5; luego TC3 para cubrir R2 (TC1 ya ejecutado); por último TC5 para cubrir R4 (TC3 ya ejecutado). El caso de prueba que se ejecuta al final es TC5, por lo que la respuesta correcta es b.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 11,
+      "puntos": 3,
+      "pregunta": "<p>You are system-testing a mobile banking application. The development is divided between a backend team that designs the business logic on the servers and a frontend team that designs the graphical user interface (GUI) and the application on the mobile devices. The backend team is experienced and can debug and resolve defects quickly and reliably. The frontend team has undergone a lot of staff turnover.</p><p>Recently, critical failures occurred in production and were resolved in the previous release:</p><ul><li>Payments rejected by the destination banks due to invalid bank account numbers. The root cause was insufficient validation of bank accounts in the mobile devices.</li><li>Incorrectly displayed GUI elements on some screen sizes and resolutions that obstructed users when entering payments.</li></ul><p>The next release will contain the following changes:</p><ul><li>A new feature was added that allows users to make payments by taking a photo of an invoice with their mobile device.</li><li>A major defect in the calculation of the account balance was fixed.</li><li>The navigation bar in the GUI was redesigned to comply with accessibility standards.</li></ul><p>You have a comprehensive regression test suite with tests categorized by the impact of potential failures. Due to limited testing resources, you cannot execute them all, so you chose the history-based regression testing strategy. Which of the following test objectives suits this scenario THE BEST?</p>",
+      "opciones": [
+        "Execute all regression tests for the bank account validation using both photo-based and manually entered invoice payments",
+        "Execute all regression tests for the settlement of payments and other features related to balance calculations",
+        "Execute all regression tests with a critical or major risk impact of potential failures",
+        "Execute the regression tests of the GUI containing the navigation bar on mobile devices with various displays, prioritized by the device distribution statistics",
+        "Execute at least one regression test for each requirement, prioritizing the most frequently used scenarios"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "explicacion": "a) Es correcto. Los datos históricos muestran que la validación de cuentas bancarias tiene alta probabilidad de fallo e impacto crítico; el reconocimiento fotográfico de cuentas añade más riesgos. d) Es correcto. Los datos históricos muestran que la visualización incorrecta de elementos en distintos dispositivos móviles es muy propensa a fallar; el cambio de la barra de navegación afecta a esos elementos, por lo que el riesgo de regresión en la GUI es alto. b) Es incorrecto: aunque el impacto de un fallo en el cálculo del saldo es mayor, el equipo backend es fiable, así que la probabilidad de regresión es muy baja y el riesgo global no justifica ejecutar todas las pruebas de esa área. c) Es incorrecto: para funciones no relacionadas con los cambios la probabilidad de fallo es muy baja; con recursos limitados la regresión debe limitarse a pruebas con impacto crítico relacionadas con los cambios. e) Es incorrecto: cubrir el 100% de los requisitos sería regresión basada en cobertura, no basada en el historial.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 12,
+      "puntos": 2,
+      "pregunta": "<p>A code complexity evaluation system takes two integers as input, representing the cyclomatic complexity (CC) and the number of variables in the code (VAR). The system checks whether the code is complex based on the following model:</p><p><strong>IF</strong> (CC &ge; 10) <strong>AND</strong> (VAR &ge; 8) <strong>THEN RETURN</strong> “the code is complex”</p><p>The domain determined by the intersection of the above two borders is a set of points in two-dimensional space with integer coordinates (CC, VAR).</p><p>You want to test the functional correctness of the implementation of this domain using domain testing. Which set of test points could result from using the SIMPLIFIED domain coverage to test the correctness of this domain implementation?</p>",
+      "opciones": [
+        "(12, 7), (12, 8), (9, 10), (10, 10)",
+        "(6, 5), (10, 8), (13, 10)",
+        "(11, 8), (11, 9), (9, 11), (10, 11)",
+        "(10, 10), (12, 8), (15, 11)"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. En la cobertura de dominio simplificada para bordes de desigualdad, cada borde debe probarse con un punto ON y un punto OFF. (12, 8) y (12, 7) son ON y OFF para el borde VAR ≥ 8. (10, 10) y (9, 10) son ON y OFF para el borde CC ≥ 10. Estos cuatro puntos forman un conjunto acorde a la cobertura de dominio simplificada. b) Es incorrecto: (10, 8) es ON para ambos bordes, pero un punto ON de un borde debería ser IN para los demás; además faltan los puntos OFF de ambos bordes y (6, 5) no es ON ni OFF de ningún borde. c) Es incorrecto: falta un punto OFF para el borde VAR ≥ 8 y (11, 9) no es ON ni OFF de ningún borde. d) Es incorrecto: (15, 11) no es ON ni OFF de ningún borde y faltan puntos OFF para ambos bordes.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 13,
+      "puntos": 2,
+      "pregunta": "<p>The requirements for brewing espresso are:</p><ul><li>The pressure shall be at least 9 bars for ideal extraction.</li><li>The temperature shall be at least 90&deg;C and at most 96&deg;C to prevent under-extracting or burning coffee.</li></ul><p>You test the software controller that opens the hot water valve when pressure (P) and temperature (T) are in the right range (i.e., P&ge;9 AND T&ge;90 AND T&le;96) and shuts it otherwise (i.e., P&lt;9 OR T&lt;90 OR T&gt;96). The barometer measures the pressure with a precision of 0.1 bar; the thermometer works with a precision of 0.5&deg;C. Your test suite executes the controller with the following inputs (P, T) of pressure in bar and temperature in degrees Celsius:</p><p><code>A = (9, 90)<br>B = (9, 96)<br>C = (8.9, 93)<br>D = (10, 96.5)<br>E = (10, 93)<br>F = (8, 89)<br>G = (10, 98)</code></p><p>Which of the following inputs is missing for 100% reliable domain coverage?</p>",
+      "opciones": [
+        "(8, 93)",
+        "(9.7, 90.5)",
+        "(10.9, 89.5)",
+        "(10, 90)"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Las particiones de equivalencia se definen por la expresión con las dos variables P (presión) y T (temperatura): EP1: P≥9 AND T≥90 AND T≤96 y EP2: P<9 OR T<90 OR T>96. EP1 tiene tres bordes cerrados; la cobertura de dominio confiable requiere un punto ON, uno OFF, uno IN y uno OUT para cada uno. c) Es correcto. (10.9, 89.5) es un punto OFF para T≥90 y, a la vez, un punto ON para T<90, ya que la temperatura 89.5 es la más cercana al borde con la precisión dada de 0.5°C.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 14,
+      "puntos": 2,
+      "pregunta": "<p>You are testing the functional correctness of a particular application on various environments, described by the following parameters and their possible values:</p><ul><li>operating system (possible values: Windows, Linux, iOS)</li><li>RAM (possible values: 16GB, 32GB, 64GB)</li><li>whether there is a USB-C port (possible values: yes, no)</li></ul><p>Based on market research, the most common configuration is Windows OS with 16GB of memory and a USB-C port. You have already prepared the tests for the following configurations:</p><ul><li>Windows, 16GB, USB-C</li><li>iOS, 16GB, USB-C</li><li>Windows, 32GB, USB-C</li><li>Windows, 64GB, USB-C</li><li>Linux, 16GB, no USB-C</li></ul><p>Consider the following new configurations that can be tested:</p><ul><li>i) Windows, 16GB, no USB-C</li><li>ii) Linux, 16GB, USB-C</li><li>iii) Linux, 64GB, no USB-C</li><li>iv) iOS, 32GB, no USB-C</li><li>v) iOS, 64GB, USB-C</li></ul><p>Which of them should be added to the existing set to fully achieve the BASE CHOICE coverage criterion?</p>",
+      "opciones": [
+        "i) and ii)",
+        "iii) and iv)",
+        "ii), iv), and v)",
+        "i), iii), and v)"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "La cobertura Base Choice requiere probar la configuración base y todas las configuraciones donde solo un elemento se reemplaza con todos sus valores posibles. Se necesitan seis casos: 1) Win, 16, USB-C (base); 2) Linux, 16, USB-C (SO reemplazado por Linux); 3) iOS, 16, USB-C (SO reemplazado por iOS); 4) Win, 32, USB-C (memoria por 32GB); 5) Win, 64, USB-C (memoria por 64GB); 6) Win, 16, sin USB-C (puerto reemplazado por sin USB-C). Las configuraciones 1, 3, 4 y 5 ya están en el conjunto existente, por lo que hay que agregar 2 (Linux, 16, USB-C) y 6 (Windows, 16GB, sin USB-C). La respuesta correcta es a.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 15,
+      "puntos": 2,
+      "pregunta": "<p>A company offering house insurance policies has several policy options. They depend on the following factors:</p><ul><li>Building type: house, semi-detached, apartment building, cottage</li><li>Material: wood, concrete, brick, mixed</li><li>Location: city, suburb, countryside</li></ul><p>Using pairwise testing, how many test cases are required to achieve 100% pairwise coverage?</p>",
+      "opciones": [
+        "16",
+        "12",
+        "64",
+        "4"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "Se necesitan 4x4 para la combinación de todos los pares de tipo de edificio y material. Todas las combinaciones de tipo de edificio y ubicación, así como todas las de material y ubicación, pueden definirse dentro de esos 16 casos de prueba. Por tanto, la respuesta a) (16) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 16,
+      "puntos": 1,
+      "pregunta": "<p>Which difficulty of random testing can be addressed by using GUIDED random testing?</p>",
+      "opciones": [
+        "Lack of well-defined coverage criteria",
+        "Dependence on an automated test oracle",
+        "Redundancy of selected test data",
+        "Neglecting data semantics"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. La redundancia de los datos de prueba seleccionados puede evitarse modificando la distribución de probabilidad para extraer cada vez un elemento de entre los aún no extraídos; así no se repiten elementos. a) Es incorrecto: la falta de criterios de cobertura bien definidos dificulta las pruebas aleatorias independientemente del tipo usado. b) Es incorrecto: si no se tiene un oráculo automatizado, la prueba aleatoria guiada será tan ineficaz como la no guiada. d) Es incorrecto: la semántica de los datos no depende de si se usa prueba guiada o no guiada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 17,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following is an example of CRUD testing?</p>",
+      "opciones": [
+        "Verifying that a user, after creating an account and defining a password, can modify the account password",
+        "Verifying that a system accepts, as a password, any of 1,000 randomly generated strings of various lengths",
+        "Verifying that the time from requesting a password change to verifying that change is less than 10 milliseconds",
+        "Checking whether a new user can use a password that another user has already used"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Una variante de la prueba CRUD verifica que ocurran todas las operaciones posibles sobre una entidad dada. Aquí la prueba CRUD comprueba si la operación “U” (update) es posible para una entidad dada (la contraseña). b) Es incorrecto: esto es un ejemplo de prueba aleatoria y no tiene que ver con operaciones sobre entidades. c) Es incorrecto: esto es un ejemplo de prueba de rendimiento. d) Es incorrecto: esta prueba no tiene que ver con operaciones crear, leer, actualizar o eliminar sobre entidades.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 18,
+      "puntos": 2,
+      "pregunta": "<p>You are testing a system that implements a circuit breaker pattern. The system is modeled with the state transition diagram shown below.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>All potential round trips are feasible. You have already designed the test case exercising the following sequence of states:</p><p><code>Closed, Open, HalfOpen, Closed, Open, HalfOpen, Open, End</code></p><p>What is the round trip coverage achieved by this test case?</p>",
+      "opciones": [
+        "100%",
+        "50%",
+        "60%",
+        "80%"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "Hay 5 round trips: RT1: Closed, Open, HalfOpen, Closed; RT2: Open, HalfOpen, Closed, Open; RT3: HalfOpen, Closed, Open, HalfOpen; RT4: Open, HalfOpen, Open; RT5: HalfOpen, Open, HalfOpen. El caso que ejercita la secuencia “Closed, Open, HalfOpen, Closed, Open, HalfOpen, Open, End” cubre RT1, RT2, RT3 y RT4. Por tanto logra 4/5 = 80% de cobertura de round trip. La respuesta d) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 19,
+      "puntos": 2,
+      "pregunta": "<p>You are responsible for designing state-based tests for a system component that manages the lifecycle of claims for an insurance company. You have the following specification.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>The variable x contains the claim resolution type with values ‘acc’ for accepted and ‘act’ for active. How many different 1-switches must be exercised by the resulting test suite in order to achieve 100% 1-switch coverage?</p>",
+      "opciones": [
+        "16",
+        "14",
+        "8",
+        "15"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "Hay 16 1-switches en general: Applied>Accepted>Closed, Applied>Accepted>Activated, Accepted>Activated>Closed, Accepted>Activated>Accepted, Accepted>Closed>Activated, Accepted>Closed>Archived, Accepted>Closed>Accepted, Activated>Accepted>Closed, Activated>Accepted>Activated, Activated>Closed>Activated, Activated>Closed>Archived, Activated>Closed>Accepted, Closed>Activated>Accepted, Closed>Activated>Closed, Closed>Accepted>Closed, Closed>Accepted>Activated. Sin embargo, considerando las condiciones de guarda, dos de ellos son inviables: Accepted>Closed>Activated y Activated>Closed>Accepted. Por tanto, b) (14) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 20,
+      "puntos": 2,
+      "pregunta": "<p>You test a food ordering scenario based on the following use case:</p><ul><li>1. The customer opens the application and logs in.</li><li>2. The customer browses the menu and selects items to order.</li><li>3. The customer adds selected items to the cart.</li><li>4. The customer proceeds to the checkout.</li><li>5. The application displays the order summary, including items, quantities, and total price.</li><li>6. The customer confirms the order.</li><li>7. The application asks if the saved payment method should be used.</li><li>8. The customer confirms the saved payment method.</li><li>9. The application processes the payment.</li><li>10. The application sends a confirmation notification to the customer.</li><li>11. The application forwards the order to the restaurant.</li><li>12. The application updates the order status to \"Confirmed\".</li></ul><p><strong>Alternative scenarios:</strong></p><p>4A. The customer goes back to browsing the menu. The scenario goes back to step 2.<br>6A. The customer goes back to browsing the menu. The scenario goes back to step 2.<br>7A. No payment method is saved. The system asks for the credit card details. The customer fills in the data. The scenario goes to step 9.<br>7B. More than one payment method is saved. The system asks the customer to select one of the payment methods. The scenario goes to step 9.</p><p><strong>Exceptions:</strong></p><p>9A. The payment process fails. The system informs the customer about the error. The use case ends.</p><p>The adopted test strategy requires testing the main scenario and all of the alternatives and exceptions. The test strategy allows more than one alternative to be tested within a single test case. However, it is forbidden to create test cases in which both an alternative and an exception would occur (i.e., if an exception occurs in a test case, no alternative can occur in it).</p><p>What is the MINIMUM number of test cases that will cover all the scenarios for this use case?</p>",
+      "opciones": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Se necesita un caso para el escenario principal (1..12), un caso para la excepción 9A (no se permite combinar alternativas con esta, según la estrategia): 1,2,3,4,5,6,7,8,9A; y dos casos para los escenarios alternativos: 1,2,3,4A,2,3,4,5,6,7A,9,10,11,12 y 1,2,3,4,5,6A,2,3,4,5,6,7B,9,10,11,12. Aunque en general se permite combinar alternativas, 7A y 7B no pueden ocurrir en el mismo caso. Por tanto se requieren cuatro casos y la respuesta correcta es c.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 21,
+      "puntos": 2,
+      "pregunta": "<p>Consider the following activity diagram.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>What is the MINIMUM number of test cases to exercise all scenarios defined by this diagram?</p>",
+      "opciones": [
+        "2",
+        "3",
+        "6",
+        "4"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "Hay dos escenarios: uno con el pedido prioritario y otro con el pedido regular. En ambos casos el proceso de enviar la factura y recibir el pago se realiza en paralelo. Por tanto, dos casos de prueba son suficientes. La respuesta a) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 22,
+      "puntos": 2,
+      "pregunta": "<p>You are testing a payment system via an ATM. The payment can be made by debit card (D) or cash (C), and its acceptability depends on several factors, including the PIN, the amount requested, and the location of the ATM. The business rules are described in a decision table shown below:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Conditions</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R6</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R7</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R8</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R9</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R10</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R11</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R12</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Payment type</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">PIN OK</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Requested amount OK</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C4</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Location OK</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Actions</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Process payment</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Inform bank</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Inform client</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><p>What is the MINIMUM number of columns this decision table can have after minimization?</p>",
+      "opciones": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "La tabla minimizada tiene 7 columnas. Al colapsar las reglas equivalentes en acción (por ejemplo R5-R8 y R9-R10 y R11-R12 según los valores “n/a” y “-”), el número mínimo de columnas resultante es 7. Por tanto, la respuesta correcta es d.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 23,
+      "puntos": 2,
+      "pregunta": "<p>Consider the following minimized decision table.</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Conditions</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Registered customer</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Longterm customer</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Credit card expired</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C4</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Purchase amount <= 500&euro;</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Actions</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Credit card option offered</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Instant transfer option offered</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Direct debit option offered</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr></table></div><p>Match the rules (1-4) with their characteristics (A-D).</p><ul><li>1. Rule R2</li><li>2. Rule R3</li><li>3. Rule R4</li><li>4. Rule R5</li></ul><ul><li>A. Its checksum is 1</li><li>B. Its checksum is 2 and it is consistent with the other rules</li><li>C. Its checksum is 8</li><li>D. It is inconsistent with the rule R1</li></ul>",
+      "opciones": [
+        "1D, 2A, 3C, 4B",
+        "1B, 2D, 3A, 4C",
+        "1B, 2C, 3A, 4D",
+        "1D, 2B, 3C, 4A"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "R2 tiene un valor “-”, por lo que representa 2 combinaciones posibles (TTTT y TFTT); su checksum es 2. Ninguna de esas combinaciones se solapa con otras reglas, así que es consistente con las demás (1B). R3 corresponde a la combinación TTFT, que también representa R1, pero esas dos columnas no son equivalentes en acción, por lo que R3 es inconsistente con R1 (2D). R4 no tiene valores “-”, así que representa una sola combinación; su checksum es 1 (3A). R5 tiene tres valores “-”, así que representa 2³=8 combinaciones (4C). Por tanto, la respuesta b) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 24,
+      "puntos": 2,
+      "pregunta": "<p>You are testing a function that searches for hotels according to a given criteria. In the input, the user selects the search area (A), and the minimum (Min) and maximum (Max) allowed price per night. The function returns a list (L) of hotels meeting the criteria.</p><p>Let A1, Min1, and Max1 be the input, and L1 be the expected output of the source test case. Let A2, Min2, and Max2 be the input, and L2 be the expected output of the follow-up test case.</p><p>Which of the following describes a correct metamorphic relation between the source test case and the follow-up test case for the search function?</p>",
+      "opciones": [
+        "If A1 = A2 and Max1 - Min1 &gt; Max2 - Min2, then L2 contains all hotels from L1",
+        "If Min2 &lt; Min1 and Max2 &gt; Max1, then L2 has at least as many elements as L1",
+        "If A1 and A2 are disjoint, then L1 and L2 are disjoint",
+        "If A2 is contained in A1, then L1 contains all hotels from L2"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Ningún hotel puede existir en dos ubicaciones distintas. Por tanto, si A1 y A2 son disjuntas, los resultados de búsqueda para esas dos áreas disjuntas también deben ser disjuntos. a) Es incorrecto: para la misma área los rangos de precio pueden cumplir Max1 - Min1 > Max2 - Min2 pero formar dos intervalos disjuntos; por ejemplo, con Min1=0, Max1=100, Min2=200, Max2=201 la relación se cumple, pero L1 y L2 son disjuntas. b) Es incorrecto: hacer que el rango Min1..Max1 sea subconjunto de Min2..Max2 no garantiza que L1 sea subconjunto de L2, ya que las áreas A1 y A2 podrían diferir. d) Es incorrecto: la relación entre L1 y L2 depende no solo de las áreas sino también de los rangos de precio.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 25,
+      "puntos": 2,
+      "pregunta": "<p>A route planning system calculates the optimal route for a car trip. You test the system, using an API function that has three input parameters: starting point coordinates X, destination point coordinates Y, and optimization criterion O. Criterion O can take one of two values: S (search for the shortest route) or T (search for the route with the fastest travel time). The function returns the length of the optimal route in kilometers.</p><p>You test the correctness of the system using metamorphic testing with the following metamorphic relations:</p><ul><li>MR1: If the criterion changes from S to T, and X and Y remain unchanged, the calculated distance cannot decrease.</li><li>MR2: For the criterion S, the sum of the lengths of routes from X to Y and from Y to Z cannot be lower than the length of the route from X to Z.</li></ul><p>Suppose Rome, Pisa, and Milan are the coordinates of three points on the map. The two source test cases are as follows:</p><ul><li>TC1. Input: X = Rome, Y = Pisa, O = S. Output: 335 km.</li><li>TC2. Input: X = Pisa, Y = Milan, O = S. Output: 282 km.</li></ul><p>Which of the following follow-up test cases causes a failure by violating at least one of the metamorphic relations MR1 or MR2?</p>",
+      "opciones": [
+        "Input: X = Rome, Y = Rome, O = S. Output: 335 km",
+        "Input: X = Pisa, Y = Milan, O = T. Output: 282 km",
+        "Input: X = Milan, Y = Pisa, O = S. Output: 283 km",
+        "Input: X = Rome, Y = Milan, O = S. Output: 630 km"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Este caso, emparejado con TC1 y TC2, cumple las suposiciones de MR2, pero MR2 no se satisface porque, según MR2, el resultado real para X = Rome, Y = Milan, O = T debe ser menor o igual a 335 km + 282 km = 617 km, pero es 630 km. a) Es incorrecto: aunque indique un fallo (la ruta de un punto a sí mismo debería ser 0 km), no cumple las suposiciones de MR1 ni MR2, así que ninguna se viola. b) Es incorrecto: con TC1 no cumple las suposiciones de MR1; con TC2 cumple MR1 pero la relación MR2 se cumple (282 km >= 282 km). c) Es incorrecto: no cumple las suposiciones de MR1, y con TC1/TC2 tampoco se cumplen las de MR2.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 26,
+      "puntos": 2,
+      "pregunta": "<p>You are the test analyst for a company developing a new e-commerce platform. The platform aims to revolutionize online shopping by integrating augmented reality features that allow users to try on clothing and accessories virtually. The discussion between the development team and product owners revealed several important factors that should be taken into account when testing the platform in the upcoming iteration:</p><ul><li>The user interface must be intuitive and responsive across various web browsers. Particular attention should be paid to the augmented reality features and their integration with the overall user experience.</li><li>The platform must be compatible with the most popular headsets on the market.</li><li>The core functionalities of the e-shopping platform (e.g., browsing products, shopping cart features, ordering process, and payment) will be implemented using the existing mechanisms from the previous platform created by the company.</li></ul><p>You are tasked with preparing test charters for exploratory testing on this platform during the current iteration. Exploratory testers are experienced users of e-shopping platforms who now have a thorough understanding of the product being developed.</p><p>Which of the following test charters for an exploratory test session BEST addresses the issues from the scenario above?</p>",
+      "opciones": [
+        "Test charter 1: <strong>Explore</strong> the checkout process <strong>With</strong> various payment methods <strong>To Discover</strong> security vulnerabilities",
+        "Test charter 2: <strong>Explore</strong> the augmented reality “Product Visualization” feature <strong>With</strong> Firefox web browser <strong>To Discover</strong> user experience problems",
+        "Test charter 3: <strong>Explore</strong> the payment process <strong>With</strong> various devices and screen sizes <strong>To Discover</strong> compatibility problems regarding various headset types",
+        "Test charter 4: <strong>Explore</strong> the augmented reality “Fitting Room” feature <strong>With</strong> various web browsers <strong>To Discover</strong> usability problems"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Este test charter aborda el objetivo de prueba adecuado, centrándose en las funciones de realidad aumentada probadas en diversos entornos para encontrar problemas de experiencia de usuario relacionados con dichas funciones. a) Es incorrecto: las vulnerabilidades de seguridad no tienen la mayor prioridad en el escenario, y el proceso de pago reutiliza mecanismos del proyecto anterior, por lo que es poco probable que haya problemas serios de seguridad. b) Es incorrecto: se centra solo en un navegador, pero el escenario indica que la adaptabilidad a varios navegadores es clave; el alcance es demasiado estrecho. c) Es incorrecto: el proceso de pago debería funcionar bien al reutilizar software probado, y es poco probable que requiera un headset de realidad aumentada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 27,
+      "puntos": 2,
+      "pregunta": "<p>The e-commerce company is about to launch its new web application, and its success depends heavily on the flawless operation of its payment system. Your task is to verify that the payment system has the required level of functional correctness and usability.</p><p>The development team recently completed the payment system’s core features and deployed them to a staging environment, which is a replica of the production environment but isolated for testing purposes.</p><p>The payment system is designed to handle a variety of payment methods, including credit card payments, simplified mobile payments, and direct bank transfers. The development team has already implemented a comprehensive set of synthetic test data, including dummy credit card numbers, bank accounts, and various transactions.</p><p>Which of the following is the MOST appropriate test charter for verifying the functional correctness and usability of the payment system?</p>",
+      "opciones": [
+        "Explore the payment system on an external network with penetration testing by simulating attacks to discover if it has any potential system vulnerabilities",
+        "Explore the e-commerce web application on the production server with various personas and usage scenarios to discover system-wide functional and performance issues",
+        "Explore the payment system on the staging server with synthetic test data to evaluate the usability of the payment procedure, the accuracy of results, and to detect areas for improvement",
+        "Explore the graphical user interface of the payment system with user experience design guidelines to discover the intuitiveness and aesthetics of the user interface"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Este test charter es el más adecuado para la situación: especifica claramente el sistema de pago como objetivo de exploración, indica los recursos relevantes (datos de prueba sintéticos y el servidor de staging) y la información a descubrir (exactitud, usabilidad, defectos potenciales y áreas de mejora en el proceso de pago). a) Es incorrecto: se centra en el aspecto de seguridad, que no se alinea con los objetivos de prueba dados. b) Es incorrecto: el alcance es demasiado amplio (toda la aplicación) y usar el servidor de producción no es apropiado como entorno de prueba. d) Es incorrecto: se centra solo en la interfaz de usuario, excluyendo la prueba funcional central del sistema de pago.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 28,
+      "puntos": 2,
+      "pregunta": "<p>Your organization is developing an astronomy quiz app. The specification indicates that 24 astronomy questions are randomly selected from a pool and presented one by one to the player. Each question has four possible answers. One of them is correct; the others are not. When the player selects an answer, the quiz indicates whether the selection is correct or incorrect. Subsequently, the player can proceed to the next question. The quiz displays the score when the player has completed all 24 questions.</p><p>As the test analyst, you designed a checklist to guide experience-based functional system testing.</p><p>Which of the following checklist items is MOST appropriate for verifying the correct flow of user interactions?</p>",
+      "opciones": [
+        "When the application displays a question, are four different answers displayed and selectable?",
+        "For each question, does the application indicate which answer is correct and which answers are incorrect?",
+        "When the player selects an incorrect answer to a question, does the application mark the incorrect answer red and the correct answer (not selected) green?",
+        "How long does an astronomy amateur require, on average, to answer the 24 questions?"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Este ítem de checklist cumple todos los criterios del syllabus (específico, no ambiguo, consistente, relevante, mantenible, accionable, medible y se puede responder con “sí” o “no”). b) Es incorrecto: es ambiguo, porque la aplicación solo debe indicar la respuesta correcta e incorrecta cuando el usuario ha seleccionado una. c) Es incorrecto: es inconsistente con la especificación, que no indica que la corrección deba señalarse mediante colores. d) Es incorrecto: no se puede responder con “sí” o “no”.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 29,
+      "puntos": 2,
+      "pregunta": "<p>You are responsible for the system testing of a web-based single-player computer game. You have performed experience-based testing for previous versions of the game using a checklist. Among others, you have tested interrupting the game with the following checklist items:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Description</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-01</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Can the player interrupt the game at any time?</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-02</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Are the user actions that interrupt the game consistent across all web pages?</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-03</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Does the application show the same warning with the two buttons to confirm the interruption or continue the game every time it is interrupted?</td></tr></table></div><p>The next increment focuses on the accessibility of the computer game for players with various disabilities, without changing the functionality. Which of the following checklist items should you add to your checklist to address the new features?</p>",
+      "opciones": [
+        "Given the interrupt warning, if the player clicks the ’Continue game’ button, does the application resume the game where it was left?",
+        "Is the game vulnerable to security attacks when players with disabilities interrupt it on purpose or unintentionally?",
+        "Is the readability of the interrupt warning text and the captions of the buttons at a maximum of 5th-grade school English?",
+        "Are the colors of the buttons on the interrupt warning clearly distinguishable for players with red-green color deficiency?",
+        "Which is the highest grade of color blindness with which players can still differentiate the colors of the buttons of the interrupt warning?"
+      ],
+      "respuesta_correcta": [
+        2,
+        3
+      ],
+      "explicacion": "c) Es correcto. Verifica la accesibilidad de la situación de interrupción del juego para jugadores con dificultades de lectura. d) Es correcto. Verifica la accesibilidad de la interrupción del juego para jugadores con discapacidad visual. a) Es incorrecto: es un ítem que verifica la corrección funcional, no la accesibilidad; como la funcionalidad no cambia, no aborda los cambios. b) Es incorrecto: verifica la seguridad, no la accesibilidad; no hay razón para creer que el comportamiento de jugadores con discapacidad afecte la vulnerabilidad del juego. e) Es incorrecto: no es un ítem de checklist válido porque no se puede responder con sí/no/no aplica.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 30,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following BEST utilizes the advantages of crowd testing?</p>",
+      "opciones": [
+        "Designing test cases with a test analyst",
+        "Performing beta testing with diverse users",
+        "Executing the same test scripts repeatedly",
+        "Reviewing the GUI design with many reviewers"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. El crowd testing distribuye las pruebas entre un grupo de testers internos o externos con diversos orígenes y ubicaciones, lo que lo hace una buena opción para realizar pruebas beta. a) Es incorrecto: el crowd testing es un tipo de prueba dinámica, no tiene que ver con el diseño de casos de prueba. c) Es incorrecto: ejecutar scripts repetidamente no aprovecha la principal ventaja del crowd testing, que aporta variabilidad y la perspectiva de usuarios reales. d) Es incorrecto: el crowd testing es un tipo de prueba dinámica, no estática.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 31,
+      "puntos": 3,
+      "pregunta": "<p>You are a test analyst on a project for a route-finding application for drivers. The project is conducted using Scrum, which combines elements from both iterative development models and incremental development models. In the current iteration of the project, three features were developed and are currently under test:</p><ul><li>an interactive map interface that allows users to visualize routes</li><li>a turn-by-turn navigation instruction for guiding users along their chosen route with real-time updates on upcoming turns, exits, and maneuvers</li><li>voice guidance providing hands-free instruction to drivers, enhancing safety and convenience during the journey</li></ul><p>The application is being developed for smartphones and is expected to work on both iOS and Android systems. Test analysts in each iteration are responsible for system testing on the fully integrated app.</p><p>The test analysis has revealed that it may be difficult or even impossible to assess whether the route found by the algorithm is optimal. The risk analysis identified the following very high-level risk: “The application fails to work correctly on all potential configurations of mobile devices, including items such as network settings, phone type, operating system, display settings, and time and date settings.”</p><p>Considering only the information described in the above scenario, which of the following test techniques will be most useful in designing test cases for the system under test?</p>",
+      "opciones": [
+        "Domain analysis",
+        "Metamorphic testing",
+        "CRUD testing",
+        "Decision table testing",
+        "Pairwise testing"
+      ],
+      "respuesta_correcta": [
+        1,
+        4
+      ],
+      "explicacion": "b) Es correcto. La prueba metamórfica es apropiada porque el escenario implica claramente que no habrá oráculo de prueba (es difícil evaluar si la ruta es óptima); en tales casos, la prueba metamórfica es una buena solución al problema del oráculo. e) Es correcto. La prueba por pares (pairwise) es apropiada porque el riesgo de que la aplicación no funcione en algunas configuraciones puede abordarse aplicándola. a) Es incorrecto: el análisis de dominio no es adecuado porque el escenario no sugiere un alto riesgo de defectos en la implementación de dominio. c) Es incorrecto: la prueba CRUD no es adecuada porque el escenario no sugiere la necesidad de verificar el ciclo de vida de entidades. d) Es incorrecto: la prueba de tabla de decisión no es adecuada porque el escenario no describe problemas relacionados con reglas.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 32,
+      "puntos": 3,
+      "pregunta": "<p>A new AI-based system is being developed. The management claims that it improves the accuracy of predictions of thunderstorms by an order of magnitude. One challenge you identified quickly is that the number of input parameters and their values is potentially very high. In addition, the AI-based system was not sufficiently specified, i.e. the test basis is incomplete and ambiguous. However, there is a proper set of test cases created by a subject matter expert who unfortunately left the project. There is pressure from management to deliver the system soon.</p><p>Which of the following test techniques should be applied in this context?</p>",
+      "opciones": [
+        "State-based testing",
+        "Metamorphic testing",
+        "Scenario-based testing",
+        "Combinatorial testing",
+        "CRUD testing"
+      ],
+      "respuesta_correcta": [
+        1,
+        3
+      ],
+      "explicacion": "b) Es correcto. Ya existe un conjunto de casos de prueba, pero el experto que los creó dejó el proyecto. Determinar relaciones metamórficas para los casos de prueba fuente es aplicable y una buena opción porque la base de pruebas es débil y probablemente no pueda usarse como oráculo. d) Es correcto. La prueba combinatoria es una solución viable porque requiere poco tiempo y hay un gran número de parámetros y valores de parámetros. a) Es incorrecto: no hay indicios en la descripción de que el objeto de prueba tenga estados que puedan comprobarse. c) Es incorrecto: no hay pistas de que existan escenarios disponibles. e) Es incorrecto: no hay indicios de que la funcionalidad de ciclo de vida CRUD sea relevante.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 33,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following is a benefit of test design automation and why?</p>",
+      "opciones": [
+        "Improved defect prevention due to early modeling of test conditions",
+        "Effective defect detection due to repeatable, automated test scripts",
+        "Efficient maintenance of test scripts due to configuration management",
+        "Faster analysis of anomalies due to automated failure recognition"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. El modelado temprano de condiciones de prueba desde la perspectiva de pruebas es un control de calidad eficaz de la base de pruebas, que previene la aparición de defectos en los productos de trabajo de fases posteriores del ciclo de vida. b) Es incorrecto: los scripts automatizados y repetibles benefician la automatización de la ejecución de pruebas, no el diseño de pruebas. c) Es incorrecto: la gestión de la configuración tiene muchos beneficios, pero no forma parte de la automatización del diseño de pruebas. d) Es incorrecto: el reconocimiento automático de fallos no tiene relación con la automatización del diseño de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 34,
+      "puntos": 1,
+      "pregunta": "<p>You are testing the following user story for an e-shop app:</p><p><strong>As a</strong> registered customer<br><strong>I want to</strong> filter for a specific category of items<br><strong>So that</strong> I don’t have to browse through the entire assortment of the store</p><p>Which of the following is an example of functional correctness testing for this user story?</p>",
+      "opciones": [
+        "Verifying that the filtering mechanism lists those categories for which the shop offers items",
+        "Verifying that filtering by a particular category shows items belonging to this and only this category",
+        "Verifying that the category tree is loaded correctly from a customer relations management system",
+        "Verifying that the filtering function is easy to learn and its GUI is simple and aesthetically pleasing"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Es un ejemplo de prueba de corrección funcional porque verifica la corrección funcional de una característica, es decir, la corrección del mecanismo de filtrado. a) Es incorrecto: es un ejemplo de prueba de idoneidad funcional, ya que comprueba si las categorías listadas son útiles para los usuarios. c) Es incorrecto: es un ejemplo de prueba de interoperabilidad, ya que se centra en la interacción entre dos sistemas. d) Es incorrecto: es un ejemplo de prueba de usabilidad, ya que verifica la facilidad de aprendizaje y la estética de la interfaz en lugar de la corrección funcional.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 35,
+      "puntos": 1,
+      "pregunta": "<p>An organization is developing a new in-house application designed to support all staff. The product owner engaged external user experience consultants to perform usability test sessions. Which of the following is the BEST contribution the organization’s test analyst can make?</p>",
+      "opciones": [
+        "Selecting the participants from the user group with the most experience with the business process",
+        "Participating in the usability test sessions to evaluate the efficiency of working with the application",
+        "Helping the participants during the test sessions to enter the right data and find the right buttons",
+        "Describing the most likely patterns of use of the application by various personas within the organization"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Los analistas de pruebas pueden usar su conocimiento de perfiles operacionales, es decir, patrones de uso y personas, para crear escenarios que reflejen usos reales del sistema. a) Es incorrecto: seleccionar a los usuarios más experimentados no tiene en cuenta las características de los grupos de usuarios objetivo que deben participar. b) Es incorrecto: los participantes en las sesiones de usabilidad deben ser usuarios de la organización, no analistas de pruebas. c) Es incorrecto: no se debe corregir ni guiar a los participantes, sino observarlos; ayudarlos no permitiría evaluar correctamente la eficacia y eficiencia del uso real del sistema.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 36,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following activities can a test analyst use to best contribute to the adaptability testing of a cloud-based web application?</p>",
+      "opciones": [
+        "Evaluating the extent to which users with disabilities can adapt to the application’s usage scenarios",
+        "Designing tests covering the data exchange between the web client and the cloud server components",
+        "Analyzing operational profiles and describing the expected number of concurrent users of the application",
+        "Designing tests that evaluate whether the server components can be transferred to various cloud service platforms"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. La prueba de adaptabilidad incluye la adaptación a diversas plataformas de servicio en la nube. Como indica la sección 4.3.1, el analista apoya la prueba de adaptabilidad identificando los entornos objetivo previstos y diseñando pruebas que cubran combinaciones de esos entornos. a) Es incorrecto: apoya la prueba de accesibilidad, no de adaptabilidad; la adaptabilidad trata de adaptar el sistema a sus entornos, no de que los usuarios se adapten al sistema. b) Es incorrecto: apoya la prueba de interoperabilidad. c) Es incorrecto: apoya la prueba de carga y escalabilidad.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 37,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following is the best example of a test analyst’s contribution to interoperability testing of an online store?</p>",
+      "opciones": [
+        "To verify that the user can access and use the online store seamlessly on various devices and web browsers",
+        "To verify that the online store can integrate with third-party payment gateways and exchange payment data correctly",
+        "To validate that users with diverse cultural backgrounds can use the online store effectively and efficiently",
+        "To verify that the discount system strictly follows the specified rules and returns accurate results"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. La interoperabilidad es el grado en que dos o más componentes o sistemas pueden intercambiar información y usar la información intercambiada. a) Es incorrecto: es un ejemplo de prueba de adaptabilidad (ver sección 4.3.1 y la definición del glosario). c) Es incorrecto: es un ejemplo de prueba de usabilidad (sección 4.2.1). d) Es incorrecto: es un ejemplo de prueba de corrección funcional con foco en la exactitud (sección 4.1.1).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 38,
+      "puntos": 1,
+      "pregunta": "<p>Which of the following activities is LEAST effective in defect prevention?</p>",
+      "opciones": [
+        "Dynamic testing",
+        "Risk analysis",
+        "Reviewing an architectural design",
+        "Root cause analysis"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. La prueba dinámica es el enfoque menos eficaz para la prevención de defectos porque se usa principalmente para detectar defectos que ya existen en el objeto de prueba, no para prevenir que ocurran. b) Es incorrecto: el análisis de riesgos es eficaz en la prevención de defectos, ya que ayuda a identificar problemas potenciales de forma temprana. c) Es incorrecto: revisar un diseño arquitectónico es una actividad eficaz de prevención de defectos. d) Es incorrecto: el análisis de causa raíz es una técnica eficaz de prevención de defectos.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 39,
+      "puntos": 2,
+      "pregunta": "<p>For a system that allocates discounts on purchases, the following two business rules apply:</p><ul><li>Customers with a loyalty card or whose last purchase was at least $1,000 will receive a 10% discount. Otherwise, they will receive a 5% discount if they subscribe to the newsletter.</li><li>If a customer has not signed up for the newsletter, they will receive no discount.</li></ul><p>The requirements are modeled using the following decision table:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Conditions</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Rule 1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Rule 2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Rule 3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Rule 4</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Has a loyalty card?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">YES</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Last purchase &gt;= $1000?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">YES</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Subscribed to the newsletter?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">YES</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Action</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Discount</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">5%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0%</td></tr></table></div><p>What problem (if any) with the requirements can you discover by analyzing this decision table?</p>",
+      "opciones": [
+        "Inconsistency – there is at least one feasible combination of conditions for which the specification describes two contradicting actions",
+        "Incompleteness – there is at least one feasible combination of conditions for which the specification predicts no behavior at all",
+        "Overlapping rules – there are at least two action-equivalent columns that match the same combination of conditions",
+        "There is no problem – the decision table models the requirements correctly, and there are no anomalies in the requirements"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. La combinación (YES, YES, NO) de las tres condiciones (tiene tarjeta de fidelidad, última compra >= $1000 y no suscrito al boletín) encaja con la Regla 1 y la Regla 4, pero esas reglas tienen descuentos diferentes. Esto es una contradicción. b) Es incorrecto: las reglas de la tabla de decisión cubren todas las combinaciones de condiciones. c) Es incorrecto: no hay redundancia; la Regla 1 y la Regla 2 tienen el mismo descuento, pero modelan una sola regla de negocio. d) Es incorrecto: hay una contradicción, ver la respuesta correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 40,
+      "puntos": 2,
+      "pregunta": "<p>You are reviewing the requirements specification of a beverage vending machine. You are focusing on the coin controller that collects, validates, and counts the inserted coins. You notice the following requirements related to the behavior of the coin controller:</p><ul><li>Req201: For each ordering transaction, the coin controller distinguishes the situations among modes empty, partially inserted, and sufficient to identify whether the user has paid enough to start the beverage delivery</li><li>Req215: If the user has paid enough, the controller shall immediately return any further inserted coins.</li><li>Req235: The coin controller shall validate the inserted coins and immediately return invalid coins with an appropriate error message.</li><li>Req236: The coin controller changes its mode to sufficient as soon as the user inserts enough coins.</li><li>Req237: The user shall be able to cancel the transaction before beverage delivery and get the inserted coins returned. The coin controller will be empty after cancel is selected.</li><li>Req243: The coin controller shall display an appropriate message when the user has inserted enough coins for payment and sum up any further coins inserted.</li><li>Req253: When the user inserts a coin with which the required amount is not reached, the coin controller shall remain in the partially inserted mode and add the value of the inserted coin to the intermediate value paid.</li><li>Req267: If the coin controller is in sufficient mode and the user triggers the delivery, it shall deliver the beverage to the user.</li></ul><p>You decided to model the behavior of the coin controller with a state machine diagram. Which of the following anomalies will be MOST LIKELY detected by the modeling?</p>",
+      "opciones": [
+        "It is not clear which event will trigger the coin controller to switch from the partially inserted mode to the sufficient mode",
+        "The specification is ambiguous when the coin controller is in the partially inserted mode. The same event triggers returning the coins and delivering the beverage",
+        "The specification is incomplete because there is no event defined for returning an invalid coin",
+        "The specification is ambiguous in the sufficient mode. The same event is supposed to trigger two competing outcomes, i.e., summing up the coins and immediately returning the coins"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Ver Req215 y Req243: ambos requisitos describen el mismo evento (inserción de una moneda) para la misma precondición o punto del ciclo de vida (estar en modo suficiente). Esta combinación refleja una ambigüedad que llevaría a un comportamiento no determinista; al modelarlo con una máquina de estados, esta anomalía se detecta fácilmente. a) Es incorrecto: Req236 especifica el evento (el usuario inserta suficientes monedas); aunque “suficientes monedas” es ambiguo, esa ambigüedad no se nota en un modelo de transición de estados. b) Es incorrecto: ver Req267 (entregar la bebida) y Req237 (devolver las monedas); esos requisitos resultan en eventos distintos. c) Es incorrecto: ver Req235; devolver una moneda inválida no es un evento en sí, sino un resultado esperado que puede usarse en las pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 41,
+      "puntos": 2,
+      "pregunta": "<p>A company has developed an online shopping website. This year, to better serve new customers, the company decided to develop a new feature to guide new customers using the website. The requirements engineering team developed the following requirements for this new feature:</p><p><strong>Use case</strong>: Familiarize the customer with the online shopping website and purchasing</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Customer</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">System</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">1. The user visits the website.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">2. The system shows a promotion banner prompting customers to access the new customer guide.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">3. The user clicks on the prompt.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">4. The system opens the guide.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">5. The user navigates through the guide's introductory section, learning about the website's features and layout.</td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">6. The user follows the guide’s instructions to make a successful purchase.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">7. The system shows the successful completion of the purchase.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">8. The user closes the prompt.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">9. The system closes the guide.</td></tr></table></div><p>You are the test analyst for this product, and you review the above use case using a scenario-based reviewing technique.</p><p>Which of the following defects submitted during your review is a false-positive result?</p>",
+      "opciones": [
+        "The system should offer experienced users an option to dismiss the guide permanently",
+        "In step 4: Once the user has responded to the promotion, the system should hide the promotion banner",
+        "The system should provide an option for the user to reopen the guide whenever they are interested",
+        "After step 5, the system should automatically close the guide, assuming that it is no longer needed"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Cerrar la guía sin el consentimiento de los usuarios les quita el control y puede percibirse como intrusivo o irrespetuoso con sus preferencias de aprendizaje. Aunque los usuarios no necesiten la guía inmediatamente después del paso 5, pueden encontrarla útil más adelante al explorar el sitio; por tanto, este defecto reportado es un falso positivo. a) Es incorrecto: los usuarios experimentados ya conocen las funciones del sitio, por lo que ver repetidamente la guía puede ser molesto e intrusivo (defecto válido). b) Es incorrecto: al ocultar el banner tras la respuesta del usuario, el sistema evita ser intrusivo (defecto válido). c) Es incorrecto: ofrecer una opción para volver a acceder a la guía aporta flexibilidad (defecto válido).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 42,
+      "puntos": 2,
+      "pregunta": "<p>Match the review technique descriptions (1-4) with the correct technique names (A-D).</p><p><strong>Descriptions:</strong></p><ul><li>1. Reviewers simulate processes using use cases or activity diagrams and may explore beyond documented scenarios.</li><li>2. Reviewers use fictional personas (e.g., administrators or end users) to focus on specific user roles.</li><li>3. Unstructured reviewing with no guidance, risking duplicate defect reports.</li><li>4. Uses predefined checklists to guide reviewers but encourages exploration beyond listed items.</li></ul><p><strong>Techniques:</strong></p><ul><li>A. Ad hoc reviewing</li><li>B. Checklist-based reviewing</li><li>C. Scenario-based reviewing</li><li>D. Role-based reviewing</li></ul>",
+      "opciones": [
+        "1-C, 2-D, 3-B, 4-A",
+        "1-D, 2-C, 3-A, 4-B",
+        "1-C, 2-D, 3-A, 4-B",
+        "1-A, 2-B, 3-C, 4-D"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "1-C: la revisión basada en escenarios implica “dry runs” de procesos (por ejemplo, casos de uso). 2-D: la revisión basada en roles usa personas para representar roles de usuario (por ejemplo, administradores). 3-A: la revisión ad hoc no es estructurada y arriesga reportes duplicados. 4-B: la revisión basada en checklist usa listas predefinidas pero permite explorar más allá de la lista. Por eso la respuesta c) es correcta. En las demás: a) empareja mal 3-B (ad hoc con checklist); b) intercambia escenario (C) y basada en roles (D) para 1 y 2; d) está completamente mal emparejada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 43,
+      "puntos": 3,
+      "pregunta": "<p>You work as a test analyst in a project that follows an incremental development model. Each increment consists of four sequential phases: requirements, design, implementation, and testing. Each phase ends with an appropriate test activity, and each increment ends with a release to the customer. After the last increment, the client did not raise any defects during the operation. You collect data on the number of defects introduced and detected in different phases of the last increment. The results are presented in the table below.</p><p>For example, the requirements phase introduced 80 defects, and implementation detected 40 of them; static analysis and component testing detected 140 defects in total.</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" colspan=\"2\" rowspan=\"2\"></th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" colspan=\"5\">phase of defect detection and related test activity</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" rowspan=\"2\">total number of introduced defects</th></tr><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">requirements modeling and review</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">design modeling and review</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">implementation: static analysis and component testing</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">testing: system and acceptance testing</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">operation (after release)</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\" rowspan=\"4\"><strong>phase of defect introduction</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>requirements</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">40</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">20</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">80</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>design</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">90</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">30</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">130</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>implementation</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">90</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">100</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>testing</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\" colspan=\"2\"><strong>total number of detected defects</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">20</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">140</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">140</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr></table></div><p>Your management wants to improve defect detection, but due to limited resources, they asked you to select only one phase for which you should carry out the improvement actions. You base your choice on calculating defect detection percentage as the test effectiveness measure for each phase.</p><p>Which phase and test activity should you select for the improvement actions?</p>",
+      "opciones": [
+        "Requirements – modeling and review",
+        "Design – modeling and review",
+        "Implementation – static analysis and component testing",
+        "Testing – system testing and acceptance testing"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "El porcentaje de detección de defectos (DDP) de una fase se mide como D / (D + E), donde D es el número de defectos detectados en esa fase y E el número de defectos que escaparon de esa fase (y se detectaron después). El cálculo para las cuatro fases: DDP(Requisitos – modelado y revisión) = 10 / (10 + 10 + 40 + 20) = 12.5%; DDP(Diseño – modelado y revisión) = (10 + 10) / (10 + 10 + 40 + 90 + 20 + 30) = 10%; DDP(Implementación – análisis estático y prueba de componente) = (40 + 90 + 10) / (40 + 90 + 10 + 20 + 30 + 90) = 50%; DDP(Pruebas – sistema y aceptación) = (20 + 30 + 90 + 0) / (20 + 30 + 90 + 0) = 100%. El DDP más bajo ocurre en la fase de diseño: solo detecta el 10% de los defectos que podrían detectarse en ella. Por tanto, la respuesta correcta es b.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 44,
+      "puntos": 3,
+      "pregunta": "<p>A home security system architecture comprises four components: a control panel, a user interface, a cloud-based backend system, and an event processing engine.</p><p>In similar projects within your organization, a strong correlation was observed between the size of the components and the number of defects found in component testing. On average, one defect was found per 50 lines of code. You use this model to predict the number of defects in each component.</p><p>The test results for the individual system components, containing the actual number of defects, are as follows:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Component</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Lines of code</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Defects found</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Control panel</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">600</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">14</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">User interface</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">2000</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">45</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Backend system</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">400</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">17</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Event processing engine</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">500</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">8</td></tr></table></div><p>You use defect cluster analysis to identify defect-prone areas. Which component, when tested more rigorously, will probably reveal more defects?</p>",
+      "opciones": [
+        "Control panel",
+        "User interface",
+        "Backend system",
+        "Event processing engine"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Según el modelo, el número de defectos previsto es líneas de código (LOC) / 50. Previsto vs. real: control panel 12 vs. 14; user interface 40 vs. 45; backend system 8 vs. 17; event processing engine 10 vs. 8. El número real es similar al previsto para el panel de control, la interfaz de usuario y el motor de procesamiento de eventos. Sin embargo, para el backend el número real es más del doble del previsto. El principio de agrupamiento de defectos sugiere que este es un componente propenso a defectos, que probablemente contiene más defectos. Por tanto, la respuesta c) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 45,
+      "puntos": 1,
+      "pregunta": "<p>How does defect classification support root cause analysis (RCA)?</p>",
+      "opciones": [
+        "It allows RCA to be carried out early, before static testing and dynamic testing, because RCA may be based on abstract categories of defects rather than on specific individual defects",
+        "It allows RCA to be combined with test techniques because defect classification uses the same software development lifecycle models as test techniques",
+        "It makes RCA more efficient because the analysis focuses not on individual defects but on groups of defects with similar characteristics",
+        "It makes RCA more effective because defect classification allows for a deeper analysis of defects and the discovery of more root causes"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Normalmente el número de defectos a analizar es muy grande, por lo que es ineficiente y lento planificar una acción preventiva para cada uno. Una forma de abordarlo es clasificar los defectos en patrones y luego hacer el RCA sobre esos patrones. a) Es incorrecto: el RCA solo puede aplicarse si hay defectos o fallos específicos presentes para analizar, por lo que debe hacerse algo de prueba antes del RCA. b) Es incorrecto: el RCA no tiene relación con las técnicas de prueba. d) Es incorrecto: la clasificación de defectos lleva el problema a un nivel más general, por lo que es poco probable que permita un análisis más detallado y descubrir más causas raíz.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 46,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) Which of the following is typically the responsibility of the test analyst during the execution of an automated regression test suite?</p>",
+      "opciones": [
+        "Manually rerun the test cases that have failed during automated test execution",
+        "Fix the automated test scripts that caused anomalies in the test execution",
+        "Report a defect for each anomaly that occurs during test execution",
+        "Compare actual results with expected results to determine the test result"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Un analista de pruebas debe volver a ejecutar manualmente las pruebas automatizadas fallidas para verificar si el fallo se debe a un defecto genuino o a un problema con la automatización. b) Es incorrecto: corregir los scripts automatizados suele ser responsabilidad de un test automation engineer o un technical test analyst, no del analista de pruebas. c) Es incorrecto: el analista debe primero analizar las anomalías para determinar si las causan defectos reales antes de reportarlas; no todos los fallos en pruebas automatizadas se deben a defectos del sistema. d) Es incorrecto: aunque comparar resultados es tarea del analista, en la regresión automatizada esto lo hacen principalmente los scripts; el rol del analista es investigar los fallos, no realizar la comparación inicial.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 47,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) Consider the following test case:</p><p><strong>Test case</strong>: TC 02.001 - correct calculation of order price with discount<br><strong>Preconditions</strong>: the user is logged in<br><strong>Inputs</strong>: the shopping cart contains products for the amount entitled to the discount<br><strong>Actions</strong>: the user proceeds to payment<br><strong>Expected results</strong>: the total price displayed is reduced by the discount amount entitled</p><p>How can this test case be classified in terms of level of abstraction?</p>",
+      "opciones": [
+        "This is a high-level test case because it covers a business requirement rather than a technical specification.",
+        "This is a high-level test case because it does not contain specific test data.",
+        "This is a low-level test case because the action is an individual step of a business process.",
+        "This is a low-level test case because it can be the basis for creating test scripts that implement this test case with various inputs."
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Un caso de prueba de alto nivel no contiene datos de prueba específicos. Los datos específicos se indican al diseñar casos de prueba de bajo nivel basados en un caso de alto nivel. a) Es incorrecto: aunque es un caso de alto nivel, la explicación no es correcta; el tipo de condición de prueba cubierta no influye en esta clasificación. c) y d) Son incorrectas: no es un caso de prueba de bajo nivel, ver la respuesta correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 48,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) Which of the following describes a valid test case quality criterion and has valid justification?</p>",
+      "opciones": [
+        "Test cases covering important features in the product backlog but not yet included in the current version of the test object should be defined to support future maintenance.",
+        "The test cases should contain the concrete values of the test data required for preconditions, inputs, and outputs to enable test execution.",
+        "If the test basis uses a glossary of functional terms, the test cases should also use that terminology to make them consistent and understandable.",
+        "Test cases based on end-to-end scenarios should be limited to a few steps of the scenarios to ease their combination into test procedures and an analysis of the cause of failures."
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Es un aspecto de la consistencia en cuanto al lenguaje usado. a) Es incorrecto: viola el criterio de necesidad, porque las características aún no implementadas no deberían probarse. b) Es incorrecto: aunque el criterio de completitud requiere una descripción o referencia a los datos de prueba, incluir datos explícitos en el caso afectaría su mantenibilidad; no todos los casos deben ser de bajo nivel. d) Es incorrecto: aunque los casos cortos tienen ventajas frente a los largos, su granularidad debe corresponder siempre a la base de pruebas y a las condiciones de prueba; los escenarios de extremo a extremo no deberían fragmentarse.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 49,
+      "puntos": 2,
+      "pregunta": "<p>(Pregunta adicional) The specification of a safety-critical component states about the integer values of an input parameter the following:</p><ul><li>Values less than 10 shall be rejected;</li><li>Values between 10 and 21 shall be accepted;</li><li>Values greater than or equal to 22 shall be rejected.</li></ul><p>Which of the following input data sets provides 100% reliable domain coverage while using a MINIMAL number of values?</p>",
+      "opciones": [
+        "9, 10, 21, 22",
+        "0, 9, 10, 21, 22, 50",
+        "9, 10, 11, 20, 21, 22",
+        "8, 9, 10, 11, 20, 21, 22, 23"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "La especificación define una variable con tres particiones de equivalencia adyacentes: EP1 con un borde abierto x < 10; EP2 con dos bordes cerrados x ≥ 10 y x ≤ 21; EP3 con un borde abierto x > 21. b) Es correcto. Para el borde abierto de EP1 en 10: 0 es punto IN, 9 es ON, 10 es OFF y 21 es OUT. Para el borde cerrado de EP2 en 10: 0 es OUT, 9 es OFF, 10 es ON y 21 es IN. Para el borde cerrado de EP2 en 21: 10 es IN, 21 es ON, 22 es OFF y 50 es OUT. Para el borde abierto de EP3 en 21: 10 es OUT, 21 es OFF, 22 es ON y 50 es IN. a) Es incorrecto: omite un punto IN para EP1, puntos OUT para EP2 en ambos bordes y un punto IN para EP3 (ese conjunto da cobertura BVA de 2 valores al 100%, no de dominio confiable). c) Es incorrecto: igual que a), omite puntos. d) Es incorrecto: el conjunto no es mínimo, ya que 11 y 20 pueden eliminarse manteniendo la cobertura confiable (es mínimo para cobertura BVA de 3 valores, no para dominio confiable).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 50,
+      "puntos": 2,
+      "pregunta": "<p>(Pregunta adicional) An airline has specific restrictions regarding checked baggage:</p><ul><li>The total dimensions (length + width + height) D of a piece of baggage must be at least 80 cm and cannot exceed 158 cm.</li><li>The weight W must not exceed 23 kg.</li><li>Measurements in centimeters and kilograms are always rounded up to the nearest whole number.</li></ul><p>What is the MINIMUM set of pairs (D,W) of dimension and weight to achieve 100% simplified domain coverage?</p>",
+      "opciones": [
+        "(80,10), (79,10), (125,23), (125,24), (158,20), (159,20)",
+        "(80,23), (79,24), (158,23), (159,24)",
+        "(80,23), (79,23), (80,24), (158,23), (158,24), (159,23)",
+        "(80,23), (79,23), (80,24), (158,20), (159,20)"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "La partición de equivalencia EP1 de dimensiones y pesos válidos de equipaje tiene tres bordes: D ≥ 80, D ≤ 158 y W ≤ 23. La cobertura de dominio simplificada requiere para cada borde un par de un punto ON y un punto OFF lo más cercanos posible entre sí. d) Es correcto. Este conjunto logra cobertura de dominio simplificada del 100% con el número mínimo de cinco elementos. Los puntos ON/OFF para los tres bordes son: (80,23), (79,23) para D ≥ 80; (80,23), (80,24) para W ≤ 23; y (158,20), (159,20) para D ≤ 158. a) Es incorrecto: logra 100% pero no es mínimo (contiene tres pares ON/OFF). b) Es incorrecto: no logra cobertura del 100%; contiene dos puntos ON pero no los puntos OFF requeridos a distancia mínima. c) Es incorrecto: logra 100% pero no es mínimo; el quinto punto (158,24) es superfluo.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    }
+  ]
+}

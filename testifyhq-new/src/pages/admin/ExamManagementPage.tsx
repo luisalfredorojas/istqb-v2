@@ -13,6 +13,7 @@ interface ExamFormData {
   description: string;
   category: string;
   difficulty: 'Foundation' | 'Advanced' | 'Expert';
+  language: 'en' | 'es';
   duration_minutes: number;
   passing_score: number;
   total_questions: number;
@@ -24,6 +25,7 @@ const defaultFormData: ExamFormData = {
   description: '',
   category: 'ISTQB',
   difficulty: 'Foundation',
+  language: 'es',
   duration_minutes: 60,
   passing_score: 65,
   total_questions: 40,
@@ -74,6 +76,9 @@ export function ExamManagementPage() {
     const { data, error } = await supabase
       .from('exams')
       .select('*')
+      // Agrupado por idioma: cada examen tiene su pareja traducida y así
+      // se ve de un vistazo cuáles faltan por traducir.
+      .order('language', { ascending: true })
       .order('id', { ascending: true });
 
     if (error) {
@@ -91,6 +96,7 @@ export function ExamManagementPage() {
       description: exam.description || '',
       category: exam.category,
       difficulty: (exam.difficulty as 'Foundation' | 'Advanced' | 'Expert') || 'Foundation',
+      language: exam.language ?? 'en',
       duration_minutes: exam.duration_minutes,
       passing_score: exam.passing_score,
       total_questions: exam.total_questions,
@@ -325,6 +331,21 @@ export function ExamManagementPage() {
                   </div>
                 </div>
 
+                <div>
+                  <label className="block text-sm font-medium mb-1">Idioma del contenido</label>
+                  <select
+                    value={formData.language}
+                    onChange={(e) => setFormData({ ...formData, language: e.target.value as 'en' | 'es' })}
+                    className="w-full p-2 border rounded-lg"
+                  >
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                  </select>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Determina en qué listado aparece el examen según el switch ES/EN de la cabecera.
+                  </p>
+                </div>
+
                 <div className="grid grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">Duración (min)</label>
@@ -410,6 +431,9 @@ export function ExamManagementPage() {
                       <h3 className="font-semibold text-lg">{exam.title}</h3>
                       <span className={`px-2 py-0.5 text-xs rounded ${exam.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
                         {exam.is_active ? 'Activo' : 'Inactivo'}
+                      </span>
+                      <span className="px-2 py-0.5 text-xs rounded bg-blue-100 text-blue-700 uppercase">
+                        {exam.language ?? 'en'}
                       </span>
                     </div>
                     <p className="text-sm text-gray-600 mt-1">

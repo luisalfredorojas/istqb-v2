@@ -1,0 +1,847 @@
+{
+  "empresa": "istqb",
+  "titulo": "ISTQB® Certified Tester Advanced Level Test Analyst (CTAL-TA) v4.1 - Examen A (Español)",
+  "descripcion": "Examen de muestra CTAL-TA - Compatible con el programa de estudio v4.0. Incluye 45 preguntas + 5 adicionales del Apéndice (se omitieron A1, A5 y A6, de tipo ordenamiento/asignación, no representables como opción múltiple).",
+  "minimo_aprobacion": 33,
+  "retroalimentacion": [
+    {
+      "umbral": 90,
+      "mensaje": "¡Excelente! Nivel muy alto de preparación."
+    },
+    {
+      "umbral": 75,
+      "mensaje": "Muy bien, estás en camino de aprobar."
+    },
+    {
+      "umbral": 65,
+      "mensaje": "Suficiente para aprobar, pero puedes mejorar."
+    },
+    {
+      "umbral": 0,
+      "mensaje": "Recomendamos seguir estudiando."
+    }
+  ],
+  "examen": [
+    {
+      "numero": 1,
+      "puntos": 1,
+      "pregunta": "<p>¿Por qué un analista de pruebas realiza las mismas actividades en cada incremento de un modelo de desarrollo incremental?</p>",
+      "opciones": [
+        "Porque el desarrollo también se hace en ciclos que constan de las mismas actividades en cada incremento",
+        "Porque las actividades del analista de pruebas en cada incremento se limitan al análisis y al diseño de pruebas",
+        "Porque en cada incremento el analista de pruebas se involucra tan pronto como comienza el desarrollo",
+        "Porque cada incremento desarrolla una nueva parte del software, que necesita probarse"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Cada incremento se desarrolla y se prueba de forma independiente, por lo que el analista de pruebas realiza las mismas actividades de prueba en cada incremento (análisis, diseño, implementación y ejecución de pruebas). a) Es incorrecto: en los modelos incrementales el desarrollo no es necesariamente cíclico. b) Es incorrecto: normalmente el analista debe analizar, diseñar, implementar y ejecutar pruebas en cada incremento. c) Es incorrecto: el trabajo del analista puede organizarse de forma distinta en cada incremento, por lo que el momento inicial de su involucramiento puede variar.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 2,
+      "puntos": 1,
+      "pregunta": "<p>Durante el análisis de pruebas, el analista de pruebas decide usar la técnica de análisis de valores límite de 2 valores para un dominio \"edad\" que representa la edad de un cliente y que se usa para determinar su descuento. ¿Cuál de las siguientes tareas debería realizar el analista de pruebas durante el diseño de pruebas?</p>",
+      "opciones": [
+        "Definir la condición de prueba: \"El sistema asigna un descuento a un niño menor de 18 años y a un adulto mayor de más de 64 años.\"",
+        "Determinar si los casos de prueba deben documentar o no el monto específico de los descuentos esperados",
+        "Almacenar los valores límite identificados para las edades de los clientes en un repositorio de datos de prueba para apoyar la ejecución automatizada de pruebas",
+        "Escribir un script de prueba automatizado usando pruebas dirigidas por palabras clave: \"SetAge(18); VerifyDiscountIsNotAssigned().\""
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Durante el diseño de pruebas, el analista determina en qué áreas conviene usar casos de prueba de bajo o alto nivel. Indicar el importe específico corresponde a bajo nivel; indicar si se aplica o no el descuento corresponde a alto nivel. a) Es incorrecto: las condiciones de prueba se definen durante el análisis de pruebas. c) Es incorrecto: los datos de prueba se crean y preparan durante la implementación de pruebas. d) Es incorrecto: los scripts de prueba se escriben durante la implementación de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 3,
+      "puntos": 1,
+      "pregunta": "<p>Con base en el siguiente caso de prueba (simplificado):</p><p><strong>Entrada</strong>: edad menor de 18<br><strong>Salida esperada</strong>: El sistema asigna un descuento infantil</p><p>Un analista de pruebas crea el siguiente script de prueba (simplificado) usando pruebas dirigidas por palabras clave:</p><p><code>EnterAge(17)<br>VerifyChildrenDiscountApplied(yes)<br>EnterAge(18)<br>VerifyChildrenDiscountApplied(no)</code></p><p>¿En qué actividad de prueba tiene lugar esta acción?</p>",
+      "opciones": [
+        "Análisis de pruebas",
+        "Diseño de pruebas",
+        "Implementación de pruebas",
+        "Ejecución de pruebas"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Un script de prueba implementa un caso de prueba durante la implementación de pruebas. a) Es incorrecto: en el análisis de pruebas el analista define condiciones de prueba, no scripts. b) Es incorrecto: en el diseño de pruebas el analista diseña casos de prueba; aquí el caso ya está dado. d) Es incorrecto: los scripts de prueba son una entrada de la ejecución de pruebas, no su resultado.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 4,
+      "puntos": 1,
+      "pregunta": "<p>Una aplicación médica tiene una interfaz para un lector de tarjetas sanitarias. Como analista de pruebas, necesitas un simulador del lector de tarjetas sanitarias para reemplazar los dispositivos de hardware en el entorno de pruebas de sistema. Estableces los siguientes requisitos para el simulador:</p><ul><li>El simulador debe implementar exactamente la misma especificación de interfaz con el sistema de información médica que los dispositivos reales.</li><li>Los testers con acceso al entorno de pruebas de sistema deben poder editar y gestionar las tarjetas sanitarias virtuales.</li><li>El simulador debe estar disponible durante la implementación y la ejecución de las pruebas de sistema de todos los incrementos.</li></ul><p>¿Cuál de las siguientes informaciones falta y debería agregarse?</p>",
+      "opciones": [
+        "Una copia de la especificación de la interfaz del lector de tarjetas sanitarias",
+        "El periodo de tiempo específico durante el cual se necesita el simulador",
+        "Un procedimiento específico de respaldo y restauración para las tarjetas sanitarias virtuales",
+        "La unidad organizativa que debe proporcionar y mantener el simulador"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. La responsabilidad de proveer el simulador es uno de los elementos de información necesarios que indica el syllabus. a) Es incorrecto: la referencia a la especificación de interfaz ya está incluida en el primer requisito. b) Es incorrecto: el tercer requisito ya indica cuándo se necesita el simulador; los periodos concretos se derivan del cronograma de pruebas. c) Es incorrecto: los procedimientos de respaldo y restauración son necesidades globales del entorno de pruebas, no de un componente individual como el simulador.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 5,
+      "puntos": 1,
+      "pregunta": "<p>El sistema de tarificación y facturación existente de un operador de red móvil será reemplazado por un nuevo software. Como las reglas de tarificación y facturación son muy complejas, la estrategia de prueba del proyecto planifica probar la corrección funcional con varios días de tráfico real de la red.</p><p>Como analista de pruebas, quieres resolver el problema del oráculo de prueba para generar el detalle de las facturas esperadas para una gran cantidad de tráfico usando un pseudo-oráculo. ¿Cuál de las siguientes soluciones puede servir como pseudo-oráculo?</p>",
+      "opciones": [
+        "Ejecutar el sistema interno de tarificación y facturación existente en el entorno de pruebas para generar los resultados esperados",
+        "Usar scripts de prueba para generar los resultados esperados en casos de prueba simples y aceptar todos los demás resultados reales",
+        "Ejecutar scripts automatizados para verificar el conteo, la duración y el tipo de las llamadas telefónicas de las facturas con base en los datos de tráfico",
+        "Cambiar selectivamente las duraciones de las llamadas en el tráfico real de la red y verificar que las facturas cambien en consecuencia"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. El sistema heredado se desarrolló independientemente para cumplir las mismas especificaciones, por lo que puede servir como pseudo-oráculo listo para usar. b) Es incorrecto: restringir el oráculo a datos simples y aceptar todo lo demás no es un enfoque apropiado para probar la corrección funcional; los casos complejos suelen tener alto riesgo. c) Es incorrecto: esto es prueba basada en propiedades, ya que solo verifica la consistencia de entradas y salidas, no la corrección completa de los resultados. d) Es incorrecto: esto es prueba metamórfica.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 6,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de las siguientes afirmaciones sobre los datos de prueba anonimizados es MÁS probable que sea verdadera?</p>",
+      "opciones": [
+        "Los datos de prueba pueden carecer de la variabilidad requerida para pruebas exhaustivas",
+        "Los datos de prueba se limitarán únicamente a datos de entrada",
+        "Los datos de prueba quedarán desactualizados porque son sensibles al tiempo",
+        "Los datos de prueba servirán principalmente como palabras clave para pruebas dirigidas por palabras clave"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Los datos anonimizados provienen de datos de producción, que pueden carecer de la variabilidad necesaria para probar a fondo diversos escenarios, incluidas las pruebas negativas. b) Es incorrecto: los datos de producción no se limitan a datos de entrada; también pueden contener, por ejemplo, resultados esperados y datos de configuración. c) Es incorrecto: no hay conexión directa entre la anonimización y la sensibilidad temporal o el envejecimiento de los datos. d) Es incorrecto: los datos anonimizados pueden usarse como valores de parámetros de palabras clave, no como las palabras clave en sí; las palabras clave se definen a partir de procesos de negocio.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 7,
+      "puntos": 2,
+      "pregunta": "<p>Estás probando un sistema de colas usando pruebas dirigidas por palabras clave. Están disponibles las siguientes palabras clave:</p><ul><li>Start() – crea una cola vacía</li><li>Enqueue(e) – inserta el elemento e al final de la cola</li><li>Dequeue() – elimina un elemento del inicio de la cola</li><li>CreateQueue(e1, e2, ..., en) – palabra clave compuesta equivalente a la secuencia de palabras clave: Enqueue(e1), Enqueue(e2), ..., Enqueue(en)</li><li>AssertFirstElement(e) – verifica si hay un elemento e al inicio de la cola; si no, el sistema devuelve un mensaje de error</li><li>AssertEmpty() – verifica si la cola está vacía; si no, el sistema devuelve un mensaje de error</li></ul><p>Has diseñado los siguientes scripts de prueba:</p><ul><li>i) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertFirstElement(A)</li><li>ii) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertNonempty()</li><li>iii) Start(); Enqueue(A); Dequeue(); Enqueue(B); AssertFirstElement(B)</li><li>iv) Start(); CreateQueue(A, B); Dequeue(); Dequeue(); AssertEmpty()</li><li>v) Start(); CreateQueue(A, B); Dequeue(); AssertFirstElement(B)</li></ul><p>¿Cuáles de estos scripts de prueba verifican el siguiente criterio de aceptación usando las palabras clave disponibles: \"Si se agregaron a la cola más elementos de los que se quitaron, la cola no está vacía\"?</p>",
+      "opciones": [
+        "i), ii) y iii)",
+        "ii), iv) y v)",
+        "iii) y v)",
+        "ii) y iv)"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. iii) inserta A, lo elimina y luego inserta B: la cola no queda vacía y contiene B, lo que verifica la aserción AssertFirstElement(B). v) inserta A y B, luego elimina uno; tras la eliminación la cola no queda vacía y contiene B, verificado por AssertFirstElement(B). Esto cumple el criterio de aceptación. i) Es incorrecto: la verificación es errónea porque el elemento restante es B, no A. ii) Es incorrecto: usa la palabra clave “AssertNonempty()” que no está disponible; debe especificarse antes de usarse. iv) Es incorrecto: la verificación es correcta, pero comprueba que la cola queda vacía cuando el número de elementos insertados iguala al de eliminados, que no es lo que dice el criterio de aceptación.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 8,
+      "puntos": 1,
+      "pregunta": "<p>Como analista de pruebas en un proceso de desarrollo incremental-iterativo, ¿cómo puedes apoyar MEJOR la gestión del testware en la herramienta de gestión de pruebas?</p>",
+      "opciones": [
+        "Definiendo una clasificación estándar de severidad para los fallos en la ejecución de pruebas",
+        "Especificando el procedimiento de seudonimización de los datos de prueba extraídos del sistema en producción",
+        "Gestionando la configuración de los entornos de prueba",
+        "Seleccionando el conjunto de casos de prueba más adecuado para las pruebas de regresión"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Seleccionar el conjunto adecuado de casos de prueba para regresión (ejecución manual/automatizada) es una tarea típica del analista relacionada con la gestión del testware en la herramienta de gestión de pruebas; implica seleccionar y organizar el conjunto correcto para cada versión, algo crucial en modelos incrementales e iterativos. a) Es incorrecto: una clasificación de severidad apoya la gestión de defectos, responsabilidad del test manager. b) Es incorrecto: un procedimiento de seudonimización apoya la gestión de datos de prueba. c) Es incorrecto: gestionar la configuración de los entornos apoya la gestión de la configuración, no la herramienta de gestión de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 9,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuáles de los siguientes son ejemplos de cómo un analista de pruebas puede contribuir al análisis de riesgos de producto?</p>",
+      "opciones": [
+        "Entrevistar a los analistas de negocio sobre qué puede salir mal con la aplicación",
+        "Determinar el alcance de las pruebas de regresión realizando un análisis de impacto",
+        "Identificar y evaluar nuevos riesgos de producto que surgen durante la ejecución de pruebas",
+        "Estimar el daño que puede causar cada riesgo de producto cuando ocurre",
+        "Aplicar las técnicas de prueba más adecuadas para cada riesgo de producto"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "explicacion": "a) Es correcto. Es la contribución del analista durante la identificación de riesgos, que forma parte del análisis de riesgos. d) Es correcto. Es la contribución del analista durante la valoración de riesgos, que forma parte del análisis de riesgos. b) Es incorrecto: es contribución del analista, pero durante el control de riesgos, no el análisis. c) Es incorrecto: esta tarea pertenece al monitoreo de riesgos, no al análisis. e) Es incorrecto: aplicar técnicas de prueba es una actividad de mitigación de riesgos, que no forma parte del análisis de riesgos.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 10,
+      "puntos": 3,
+      "pregunta": "<p>Se te proporciona información de trazabilidad sobre las funciones implementadas (F1-F5), los riesgos identificados (R1-R5) y los casos de prueba de regresión (TC1-TC6) en forma de las siguientes matrices de trazabilidad:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F\\R</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">F5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><br><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R\\TC</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC5</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">TC6</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><p>También cuentas con la siguiente información sobre los niveles de riesgo de todos los riesgos identificados:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Riesgo</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Nivel de riesgo</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R1</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$15,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R2</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$10,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R3</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$2,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R4</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$5,000</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">R5</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">$20,000</td></tr></table></div><p>Los seis casos de prueba se ejecutaron en el último ciclo de pruebas. Luego te informan que la implementación de F3 ha cambiado. Sigues pruebas basadas en riesgos y aplicas un análisis de impacto, que permite ejecutar únicamente los casos de prueba afectados por cambios de código desde la última ejecución de pruebas.</p><p>Durante la siguiente ejecución del conjunto de pruebas de regresión, ¿qué caso de prueba debería ejecutarse en ÚLTIMO lugar?</p>",
+      "opciones": [
+        "TC4",
+        "TC5",
+        "TC1",
+        "TC3"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "Primero se hace un análisis de impacto para determinar qué casos de prueba afecta el cambio en F3. F3 se traza a R2, R4 y R5, que se trazan a: R2 -> TC1 y TC3; R4 -> TC3 y TC5; R5 -> TC1 y TC6. Por tanto la ejecución de regresión solo involucra TC1, TC3, TC5 y TC6. Luego se aplica prueba basada en riesgo para priorizar: según los niveles de riesgo, el orden de mitigación es R5, R2 y luego R4. La prioridad queda: primero ejecutar TC1 y TC6 para cubrir R5; luego TC3 para cubrir R2 (TC1 ya ejecutado); por último TC5 para cubrir R4 (TC3 ya ejecutado). El caso de prueba que se ejecuta al final es TC5, por lo que la respuesta correcta es b.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 11,
+      "puntos": 3,
+      "pregunta": "<p>Estás realizando pruebas de sistema de una aplicación de banca móvil. El desarrollo está dividido entre un equipo de backend que diseña la lógica de negocio en los servidores y un equipo de frontend que diseña la interfaz gráfica de usuario (GUI) y la aplicación en los dispositivos móviles. El equipo de backend tiene experiencia y puede depurar y resolver defectos de forma rápida y confiable. El equipo de frontend ha tenido mucha rotación de personal.</p><p>Recientemente ocurrieron fallos críticos en producción que se resolvieron en la entrega anterior:</p><ul><li>Pagos rechazados por los bancos de destino debido a números de cuenta bancaria inválidos. La causa raíz fue una validación insuficiente de las cuentas bancarias en los dispositivos móviles.</li><li>Elementos de la GUI mostrados incorrectamente en algunos tamaños y resoluciones de pantalla, que obstruían a los usuarios al ingresar pagos.</li></ul><p>La siguiente entrega contendrá los siguientes cambios:</p><ul><li>Se agregó una nueva funcionalidad que permite a los usuarios realizar pagos tomando una foto de una factura con su dispositivo móvil.</li><li>Se corrigió un defecto importante en el cálculo del saldo de la cuenta.</li><li>Se rediseñó la barra de navegación de la GUI para cumplir con los estándares de accesibilidad.</li></ul><p>Tienes un conjunto de pruebas de regresión exhaustivo con pruebas categorizadas según el impacto de los fallos potenciales. Debido a recursos de prueba limitados, no puedes ejecutarlas todas, así que elegiste la estrategia de pruebas de regresión basada en el historial. ¿Cuál de los siguientes objetivos de prueba se adapta MEJOR a este escenario?</p>",
+      "opciones": [
+        "Ejecutar todas las pruebas de regresión de la validación de cuentas bancarias usando pagos de facturas tanto basados en foto como ingresados manualmente",
+        "Ejecutar todas las pruebas de regresión de la liquidación de pagos y de otras funcionalidades relacionadas con el cálculo de saldos",
+        "Ejecutar todas las pruebas de regresión con un impacto de riesgo crítico o mayor de los fallos potenciales",
+        "Ejecutar las pruebas de regresión de la GUI que contiene la barra de navegación en dispositivos móviles con distintas pantallas, priorizadas según las estadísticas de distribución de dispositivos",
+        "Ejecutar al menos una prueba de regresión por cada requisito, priorizando los escenarios de uso más frecuente"
+      ],
+      "respuesta_correcta": [
+        0,
+        3
+      ],
+      "explicacion": "a) Es correcto. Los datos históricos muestran que la validación de cuentas bancarias tiene alta probabilidad de fallo e impacto crítico; el reconocimiento fotográfico de cuentas añade más riesgos. d) Es correcto. Los datos históricos muestran que la visualización incorrecta de elementos en distintos dispositivos móviles es muy propensa a fallar; el cambio de la barra de navegación afecta a esos elementos, por lo que el riesgo de regresión en la GUI es alto. b) Es incorrecto: aunque el impacto de un fallo en el cálculo del saldo es mayor, el equipo backend es fiable, así que la probabilidad de regresión es muy baja y el riesgo global no justifica ejecutar todas las pruebas de esa área. c) Es incorrecto: para funciones no relacionadas con los cambios la probabilidad de fallo es muy baja; con recursos limitados la regresión debe limitarse a pruebas con impacto crítico relacionadas con los cambios. e) Es incorrecto: cubrir el 100% de los requisitos sería regresión basada en cobertura, no basada en el historial.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 12,
+      "puntos": 2,
+      "pregunta": "<p>Un sistema de evaluación de complejidad de código recibe dos enteros como entrada, que representan la complejidad ciclomática (CC) y la cantidad de variables del código (VAR). El sistema verifica si el código es complejo con base en el siguiente modelo:</p><p><strong>SI</strong> (CC &ge; 10) <strong>Y</strong> (VAR &ge; 8) <strong>ENTONCES DEVOLVER</strong> \"el código es complejo\"</p><p>El dominio determinado por la intersección de los dos límites anteriores es un conjunto de puntos en el espacio bidimensional con coordenadas enteras (CC, VAR).</p><p>Quieres probar la corrección funcional de la implementación de este dominio usando pruebas de dominio. ¿Qué conjunto de puntos de prueba podría resultar de usar la cobertura de dominio SIMPLIFICADA para probar la corrección de esta implementación del dominio?</p>",
+      "opciones": [
+        "(12, 7), (12, 8), (9, 10), (10, 10)",
+        "(6, 5), (10, 8), (13, 10)",
+        "(11, 8), (11, 9), (9, 11), (10, 11)",
+        "(10, 10), (12, 8), (15, 11)"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. En la cobertura de dominio simplificada para bordes de desigualdad, cada borde debe probarse con un punto ON y un punto OFF. (12, 8) y (12, 7) son ON y OFF para el borde VAR ≥ 8. (10, 10) y (9, 10) son ON y OFF para el borde CC ≥ 10. Estos cuatro puntos forman un conjunto acorde a la cobertura de dominio simplificada. b) Es incorrecto: (10, 8) es ON para ambos bordes, pero un punto ON de un borde debería ser IN para los demás; además faltan los puntos OFF de ambos bordes y (6, 5) no es ON ni OFF de ningún borde. c) Es incorrecto: falta un punto OFF para el borde VAR ≥ 8 y (11, 9) no es ON ni OFF de ningún borde. d) Es incorrecto: (15, 11) no es ON ni OFF de ningún borde y faltan puntos OFF para ambos bordes.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 13,
+      "puntos": 2,
+      "pregunta": "<p>Los requisitos para preparar un espresso son:</p><ul><li>La presión debe ser de al menos 9 bares para una extracción ideal.</li><li>La temperatura debe ser de al menos 90&deg;C y como máximo 96&deg;C para evitar una subextracción o quemar el café.</li></ul><p>Pruebas el controlador de software que abre la válvula de agua caliente cuando la presión (P) y la temperatura (T) están en el rango correcto (es decir, P&ge;9 Y T&ge;90 Y T&le;96) y la cierra en caso contrario (es decir, P&lt;9 O T&lt;90 O T&gt;96). El barómetro mide la presión con una precisión de 0.1 bar; el termómetro trabaja con una precisión de 0.5&deg;C. Tu conjunto de pruebas ejecuta el controlador con las siguientes entradas (P, T) de presión en bares y temperatura en grados Celsius:</p><p><code>A = (9, 90)<br>B = (9, 96)<br>C = (8.9, 93)<br>D = (10, 96.5)<br>E = (10, 93)<br>F = (8, 89)<br>G = (10, 98)</code></p><p>¿Cuál de las siguientes entradas falta para lograr el 100% de cobertura de dominio confiable?</p>",
+      "opciones": [
+        "(8, 93)",
+        "(9.7, 90.5)",
+        "(10.9, 89.5)",
+        "(10, 90)"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Las particiones de equivalencia se definen por la expresión con las dos variables P (presión) y T (temperatura): EP1: P≥9 AND T≥90 AND T≤96 y EP2: P<9 OR T<90 OR T>96. EP1 tiene tres bordes cerrados; la cobertura de dominio confiable requiere un punto ON, uno OFF, uno IN y uno OUT para cada uno. c) Es correcto. (10.9, 89.5) es un punto OFF para T≥90 y, a la vez, un punto ON para T<90, ya que la temperatura 89.5 es la más cercana al borde con la precisión dada de 0.5°C.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 14,
+      "puntos": 2,
+      "pregunta": "<p>Estás probando la corrección funcional de una aplicación en distintos entornos, descritos por los siguientes parámetros y sus valores posibles:</p><ul><li>sistema operativo (valores posibles: Windows, Linux, iOS)</li><li>RAM (valores posibles: 16GB, 32GB, 64GB)</li><li>si tiene o no puerto USB-C (valores posibles: sí, no)</li></ul><p>Según un estudio de mercado, la configuración más común es Windows con 16GB de memoria y puerto USB-C. Ya has preparado las pruebas para las siguientes configuraciones:</p><ul><li>Windows, 16GB, USB-C</li><li>iOS, 16GB, USB-C</li><li>Windows, 32GB, USB-C</li><li>Windows, 64GB, USB-C</li><li>Linux, 16GB, sin USB-C</li></ul><p>Considera las siguientes configuraciones nuevas que pueden probarse:</p><ul><li>i) Windows, 16GB, sin USB-C</li><li>ii) Linux, 16GB, USB-C</li><li>iii) Linux, 64GB, sin USB-C</li><li>iv) iOS, 32GB, sin USB-C</li><li>v) iOS, 64GB, USB-C</li></ul><p>¿Cuáles de ellas deberían agregarse al conjunto existente para lograr por completo el criterio de cobertura de ELECCIÓN BASE (base choice)?</p>",
+      "opciones": [
+        "i) y ii)",
+        "iii) y iv)",
+        "ii), iv) y v)",
+        "i), iii) y v)"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "La cobertura Base Choice requiere probar la configuración base y todas las configuraciones donde solo un elemento se reemplaza con todos sus valores posibles. Se necesitan seis casos: 1) Win, 16, USB-C (base); 2) Linux, 16, USB-C (SO reemplazado por Linux); 3) iOS, 16, USB-C (SO reemplazado por iOS); 4) Win, 32, USB-C (memoria por 32GB); 5) Win, 64, USB-C (memoria por 64GB); 6) Win, 16, sin USB-C (puerto reemplazado por sin USB-C). Las configuraciones 1, 3, 4 y 5 ya están en el conjunto existente, por lo que hay que agregar 2 (Linux, 16, USB-C) y 6 (Windows, 16GB, sin USB-C). La respuesta correcta es a.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 15,
+      "puntos": 2,
+      "pregunta": "<p>Una empresa que ofrece pólizas de seguro de vivienda tiene varias opciones de póliza. Estas dependen de los siguientes factores:</p><ul><li>Tipo de edificación: casa, casa pareada, edificio de departamentos, cabaña</li><li>Material: madera, concreto, ladrillo, mixto</li><li>Ubicación: ciudad, suburbio, zona rural</li></ul><p>Usando pruebas por pares (pairwise), ¿cuántos casos de prueba se requieren para lograr el 100% de cobertura por pares?</p>",
+      "opciones": [
+        "16",
+        "12",
+        "64",
+        "4"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "Se necesitan 4x4 para la combinación de todos los pares de tipo de edificio y material. Todas las combinaciones de tipo de edificio y ubicación, así como todas las de material y ubicación, pueden definirse dentro de esos 16 casos de prueba. Por tanto, la respuesta a) (16) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 16,
+      "puntos": 1,
+      "pregunta": "<p>¿Qué dificultad de las pruebas aleatorias puede abordarse usando pruebas aleatorias GUIADAS?</p>",
+      "opciones": [
+        "La falta de criterios de cobertura bien definidos",
+        "La dependencia de un oráculo de prueba automatizado",
+        "La redundancia de los datos de prueba seleccionados",
+        "El descuido de la semántica de los datos"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. La redundancia de los datos de prueba seleccionados puede evitarse modificando la distribución de probabilidad para extraer cada vez un elemento de entre los aún no extraídos; así no se repiten elementos. a) Es incorrecto: la falta de criterios de cobertura bien definidos dificulta las pruebas aleatorias independientemente del tipo usado. b) Es incorrecto: si no se tiene un oráculo automatizado, la prueba aleatoria guiada será tan ineficaz como la no guiada. d) Es incorrecto: la semántica de los datos no depende de si se usa prueba guiada o no guiada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 17,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de los siguientes es un ejemplo de pruebas CRUD?</p>",
+      "opciones": [
+        "Verificar que un usuario, tras crear una cuenta y definir una contraseña, puede modificar la contraseña de la cuenta",
+        "Verificar que un sistema acepta como contraseña cualquiera de 1,000 cadenas generadas aleatoriamente de distintas longitudes",
+        "Verificar que el tiempo desde que se solicita un cambio de contraseña hasta que se verifica ese cambio es menor a 10 milisegundos",
+        "Comprobar si un nuevo usuario puede usar una contraseña que otro usuario ya haya utilizado"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Una variante de la prueba CRUD verifica que ocurran todas las operaciones posibles sobre una entidad dada. Aquí la prueba CRUD comprueba si la operación “U” (update) es posible para una entidad dada (la contraseña). b) Es incorrecto: esto es un ejemplo de prueba aleatoria y no tiene que ver con operaciones sobre entidades. c) Es incorrecto: esto es un ejemplo de prueba de rendimiento. d) Es incorrecto: esta prueba no tiene que ver con operaciones crear, leer, actualizar o eliminar sobre entidades.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 18,
+      "puntos": 2,
+      "pregunta": "<p>Estás probando un sistema que implementa el patrón circuit breaker. El sistema se modela con el diagrama de transición de estados que se muestra a continuación.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>Todos los recorridos completos (round trips) potenciales son factibles. Ya has diseñado el caso de prueba que ejercita la siguiente secuencia de estados:</p><p><code>Closed, Open, HalfOpen, Closed, Open, HalfOpen, Open, End</code></p><p>¿Cuál es la cobertura de recorridos completos lograda por este caso de prueba?</p>",
+      "opciones": [
+        "100%",
+        "50%",
+        "60%",
+        "80%"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "Hay 5 round trips: RT1: Closed, Open, HalfOpen, Closed; RT2: Open, HalfOpen, Closed, Open; RT3: HalfOpen, Closed, Open, HalfOpen; RT4: Open, HalfOpen, Open; RT5: HalfOpen, Open, HalfOpen. El caso que ejercita la secuencia “Closed, Open, HalfOpen, Closed, Open, HalfOpen, Open, End” cubre RT1, RT2, RT3 y RT4. Por tanto logra 4/5 = 80% de cobertura de round trip. La respuesta d) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 19,
+      "puntos": 2,
+      "pregunta": "<p>Eres responsable de diseñar pruebas basadas en estados para un componente de sistema que gestiona el ciclo de vida de los siniestros de una compañía de seguros. Cuentas con la siguiente especificación.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>La variable x contiene el tipo de resolución del siniestro, con los valores 'acc' para aceptado y 'act' para activo. ¿Cuántos 1-switches diferentes debe ejercitar el conjunto de pruebas resultante para lograr el 100% de cobertura de 1-switch?</p>",
+      "opciones": [
+        "16",
+        "14",
+        "8",
+        "15"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "Hay 16 1-switches en general: Applied>Accepted>Closed, Applied>Accepted>Activated, Accepted>Activated>Closed, Accepted>Activated>Accepted, Accepted>Closed>Activated, Accepted>Closed>Archived, Accepted>Closed>Accepted, Activated>Accepted>Closed, Activated>Accepted>Activated, Activated>Closed>Activated, Activated>Closed>Archived, Activated>Closed>Accepted, Closed>Activated>Accepted, Closed>Activated>Closed, Closed>Accepted>Closed, Closed>Accepted>Activated. Sin embargo, considerando las condiciones de guarda, dos de ellos son inviables: Accepted>Closed>Activated y Activated>Closed>Accepted. Por tanto, b) (14) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 20,
+      "puntos": 2,
+      "pregunta": "<p>Pruebas un escenario de pedido de comida basado en el siguiente caso de uso:</p><ul><li>1. El cliente abre la aplicación e inicia sesión.</li><li>2. El cliente navega por el menú y selecciona los artículos que va a pedir.</li><li>3. El cliente agrega los artículos seleccionados al carrito.</li><li>4. El cliente procede al pago.</li><li>5. La aplicación muestra el resumen del pedido, incluyendo artículos, cantidades y precio total.</li><li>6. El cliente confirma el pedido.</li><li>7. La aplicación pregunta si debe usarse el método de pago guardado.</li><li>8. El cliente confirma el método de pago guardado.</li><li>9. La aplicación procesa el pago.</li><li>10. La aplicación envía una notificación de confirmación al cliente.</li><li>11. La aplicación envía el pedido al restaurante.</li><li>12. La aplicación actualiza el estado del pedido a \"Confirmado\".</li></ul><p><strong>Escenarios alternativos:</strong></p><p>4A. El cliente vuelve a navegar por el menú. El escenario regresa al paso 2.<br>6A. El cliente vuelve a navegar por el menú. El escenario regresa al paso 2.<br>7A. No hay ningún método de pago guardado. El sistema solicita los datos de la tarjeta de crédito. El cliente completa los datos. El escenario continúa en el paso 9.<br>7B. Hay más de un método de pago guardado. El sistema pide al cliente que seleccione uno de los métodos de pago. El escenario continúa en el paso 9.</p><p><strong>Excepciones:</strong></p><p>9A. El proceso de pago falla. El sistema informa al cliente sobre el error. El caso de uso termina.</p><p>La estrategia de prueba adoptada exige probar el escenario principal y todas las alternativas y excepciones. La estrategia de prueba permite probar más de una alternativa dentro de un mismo caso de prueba. Sin embargo, está prohibido crear casos de prueba en los que ocurran a la vez una alternativa y una excepción (es decir, si en un caso de prueba ocurre una excepción, no puede ocurrir ninguna alternativa en él).</p><p>¿Cuál es el número MÍNIMO de casos de prueba que cubrirán todos los escenarios de este caso de uso?</p>",
+      "opciones": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Se necesita un caso para el escenario principal (1..12), un caso para la excepción 9A (no se permite combinar alternativas con esta, según la estrategia): 1,2,3,4,5,6,7,8,9A; y dos casos para los escenarios alternativos: 1,2,3,4A,2,3,4,5,6,7A,9,10,11,12 y 1,2,3,4,5,6A,2,3,4,5,6,7B,9,10,11,12. Aunque en general se permite combinar alternativas, 7A y 7B no pueden ocurrir en el mismo caso. Por tanto se requieren cuatro casos y la respuesta correcta es c.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 21,
+      "puntos": 2,
+      "pregunta": "<p>Considera el siguiente diagrama de actividades.</p><p><strong>[REEMPLAZAR IMAGEN]</strong></p><p>¿Cuál es el número MÍNIMO de casos de prueba para ejercitar todos los escenarios definidos por este diagrama?</p>",
+      "opciones": [
+        "2",
+        "3",
+        "6",
+        "4"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "Hay dos escenarios: uno con el pedido prioritario y otro con el pedido regular. En ambos casos el proceso de enviar la factura y recibir el pago se realiza en paralelo. Por tanto, dos casos de prueba son suficientes. La respuesta a) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 22,
+      "puntos": 2,
+      "pregunta": "<p>Estás probando un sistema de pago mediante un cajero automático. El pago puede realizarse con tarjeta de débito (D) o en efectivo (C), y su aceptación depende de varios factores, entre ellos el PIN, el monto solicitado y la ubicación del cajero. Las reglas de negocio se describen en la tabla de decisión que se muestra a continuación:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Condiciones</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R6</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R7</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R8</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R9</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R10</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R11</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R12</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Tipo de pago</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">D</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">C</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">PIN correcto</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">n/a</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Monto solicitado correcto</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C4</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Ubicación correcta</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Y</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">N</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Acciones</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Procesar el pago</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Informar al banco</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Informar al cliente</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr></table></div><p>¿Cuál es el número MÍNIMO de columnas que puede tener esta tabla de decisión después de minimizarla?</p>",
+      "opciones": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "La tabla minimizada tiene 7 columnas. Al colapsar las reglas equivalentes en acción (por ejemplo R5-R8 y R9-R10 y R11-R12 según los valores “n/a” y “-”), el número mínimo de columnas resultante es 7. Por tanto, la respuesta correcta es d.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 23,
+      "puntos": 2,
+      "pregunta": "<p>Considera la siguiente tabla de decisión minimizada.</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Condiciones</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R4</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">R5</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Cliente registrado</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Cliente antiguo</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Tarjeta de crédito vencida</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">C4</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Monto de la compra <= 500&euro;</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">T</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">F</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Acciones</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A1</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Se ofrece la opción de tarjeta de crédito</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A2</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Se ofrece la opción de transferencia inmediata</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">A3</td><td style=\"border: 1px solid currentColor; padding: 6px;\">Se ofrece la opción de débito directo</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">X</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td></tr></table></div><p>Relaciona las reglas (1-4) con sus características (A-D).</p><ul><li>1. Regla R2</li><li>2. Regla R3</li><li>3. Regla R4</li><li>4. Regla R5</li></ul><ul><li>A. Su suma de verificación es 1</li><li>B. Su suma de verificación es 2 y es consistente con las demás reglas</li><li>C. Su suma de verificación es 8</li><li>D. Es inconsistente con la regla R1</li></ul>",
+      "opciones": [
+        "1D, 2A, 3C, 4B",
+        "1B, 2D, 3A, 4C",
+        "1B, 2C, 3A, 4D",
+        "1D, 2B, 3C, 4A"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "R2 tiene un valor “-”, por lo que representa 2 combinaciones posibles (TTTT y TFTT); su checksum es 2. Ninguna de esas combinaciones se solapa con otras reglas, así que es consistente con las demás (1B). R3 corresponde a la combinación TTFT, que también representa R1, pero esas dos columnas no son equivalentes en acción, por lo que R3 es inconsistente con R1 (2D). R4 no tiene valores “-”, así que representa una sola combinación; su checksum es 1 (3A). R5 tiene tres valores “-”, así que representa 2³=8 combinaciones (4C). Por tanto, la respuesta b) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 24,
+      "puntos": 2,
+      "pregunta": "<p>Estás probando una función que busca hoteles según ciertos criterios. En la entrada, el usuario selecciona el área de búsqueda (A) y el precio mínimo (Min) y máximo (Max) permitido por noche. La función devuelve una lista (L) de hoteles que cumplen los criterios.</p><p>Sean A1, Min1 y Max1 la entrada, y L1 la salida esperada del caso de prueba de origen. Sean A2, Min2 y Max2 la entrada, y L2 la salida esperada del caso de prueba de seguimiento.</p><p>¿Cuál de las siguientes opciones describe una relación metamórfica correcta entre el caso de prueba de origen y el caso de prueba de seguimiento para la función de búsqueda?</p>",
+      "opciones": [
+        "Si A1 = A2 y Max1 - Min1 &gt; Max2 - Min2, entonces L2 contiene todos los hoteles de L1",
+        "Si Min2 &lt; Min1 y Max2 &gt; Max1, entonces L2 tiene al menos tantos elementos como L1",
+        "Si A1 y A2 son disjuntos, entonces L1 y L2 son disjuntos",
+        "Si A2 está contenido en A1, entonces L1 contiene todos los hoteles de L2"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Ningún hotel puede existir en dos ubicaciones distintas. Por tanto, si A1 y A2 son disjuntas, los resultados de búsqueda para esas dos áreas disjuntas también deben ser disjuntos. a) Es incorrecto: para la misma área los rangos de precio pueden cumplir Max1 - Min1 > Max2 - Min2 pero formar dos intervalos disjuntos; por ejemplo, con Min1=0, Max1=100, Min2=200, Max2=201 la relación se cumple, pero L1 y L2 son disjuntas. b) Es incorrecto: hacer que el rango Min1..Max1 sea subconjunto de Min2..Max2 no garantiza que L1 sea subconjunto de L2, ya que las áreas A1 y A2 podrían diferir. d) Es incorrecto: la relación entre L1 y L2 depende no solo de las áreas sino también de los rangos de precio.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 25,
+      "puntos": 2,
+      "pregunta": "<p>Un sistema de planificación de rutas calcula la ruta óptima para un viaje en automóvil. Pruebas el sistema usando una función de API que tiene tres parámetros de entrada: las coordenadas del punto de partida X, las coordenadas del punto de destino Y y el criterio de optimización O. El criterio O puede tomar uno de dos valores: S (buscar la ruta más corta) o T (buscar la ruta con el menor tiempo de viaje). La función devuelve la longitud de la ruta óptima en kilómetros.</p><p>Pruebas la corrección del sistema usando pruebas metamórficas con las siguientes relaciones metamórficas:</p><ul><li>MR1: Si el criterio cambia de S a T, y X e Y permanecen sin cambios, la distancia calculada no puede disminuir.</li><li>MR2: Para el criterio S, la suma de las longitudes de las rutas de X a Y y de Y a Z no puede ser menor que la longitud de la ruta de X a Z.</li></ul><p>Supón que Roma, Pisa y Milán son las coordenadas de tres puntos en el mapa. Los dos casos de prueba de origen son los siguientes:</p><ul><li>TC1. Entrada: X = Roma, Y = Pisa, O = S. Salida: 335 km.</li><li>TC2. Entrada: X = Pisa, Y = Milán, O = S. Salida: 282 km.</li></ul><p>¿Cuál de los siguientes casos de prueba de seguimiento provoca un fallo al violar al menos una de las relaciones metamórficas MR1 o MR2?</p>",
+      "opciones": [
+        "Entrada: X = Roma, Y = Roma, O = S. Salida: 335 km",
+        "Entrada: X = Pisa, Y = Milán, O = T. Salida: 282 km",
+        "Entrada: X = Milán, Y = Pisa, O = S. Salida: 283 km",
+        "Entrada: X = Roma, Y = Milán, O = S. Salida: 630 km"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Este caso, emparejado con TC1 y TC2, cumple las suposiciones de MR2, pero MR2 no se satisface porque, según MR2, el resultado real para X = Rome, Y = Milan, O = T debe ser menor o igual a 335 km + 282 km = 617 km, pero es 630 km. a) Es incorrecto: aunque indique un fallo (la ruta de un punto a sí mismo debería ser 0 km), no cumple las suposiciones de MR1 ni MR2, así que ninguna se viola. b) Es incorrecto: con TC1 no cumple las suposiciones de MR1; con TC2 cumple MR1 pero la relación MR2 se cumple (282 km >= 282 km). c) Es incorrecto: no cumple las suposiciones de MR1, y con TC1/TC2 tampoco se cumplen las de MR2.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 26,
+      "puntos": 2,
+      "pregunta": "<p>Eres el analista de pruebas de una empresa que desarrolla una nueva plataforma de comercio electrónico. La plataforma busca revolucionar las compras en línea integrando funcionalidades de realidad aumentada que permiten a los usuarios probarse ropa y accesorios de forma virtual. La discusión entre el equipo de desarrollo y los product owners reveló varios factores importantes que deberían tenerse en cuenta al probar la plataforma en la próxima iteración:</p><ul><li>La interfaz de usuario debe ser intuitiva y responsiva en distintos navegadores web. Debe prestarse especial atención a las funcionalidades de realidad aumentada y a su integración con la experiencia de usuario general.</li><li>La plataforma debe ser compatible con los visores más populares del mercado.</li><li>Las funcionalidades centrales de la plataforma de compras (por ejemplo, navegar productos, funciones del carrito, proceso de pedido y pago) se implementarán usando los mecanismos existentes de la plataforma anterior creada por la empresa.</li></ul><p>Tienes la tarea de preparar cartas de prueba para pruebas exploratorias sobre esta plataforma durante la iteración actual. Los testers exploratorios son usuarios experimentados de plataformas de compras en línea que ahora tienen un conocimiento profundo del producto en desarrollo.</p><p>¿Cuál de las siguientes cartas de prueba para una sesión de prueba exploratoria aborda MEJOR los asuntos del escenario anterior?</p>",
+      "opciones": [
+        "Carta de prueba 1: <strong>Explorar</strong> el proceso de pago <strong>Con</strong> distintos métodos de pago <strong>Para descubrir</strong> vulnerabilidades de seguridad",
+        "Carta de prueba 2: <strong>Explorar</strong> la funcionalidad de realidad aumentada \"Visualización de producto\" <strong>Con</strong> el navegador Firefox <strong>Para descubrir</strong> problemas de experiencia de usuario",
+        "Carta de prueba 3: <strong>Explorar</strong> el proceso de pago <strong>Con</strong> distintos dispositivos y tamaños de pantalla <strong>Para descubrir</strong> problemas de compatibilidad con distintos tipos de visores",
+        "Carta de prueba 4: <strong>Explorar</strong> la funcionalidad de realidad aumentada \"Probador virtual\" <strong>Con</strong> distintos navegadores web <strong>Para descubrir</strong> problemas de usabilidad"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Este test charter aborda el objetivo de prueba adecuado, centrándose en las funciones de realidad aumentada probadas en diversos entornos para encontrar problemas de experiencia de usuario relacionados con dichas funciones. a) Es incorrecto: las vulnerabilidades de seguridad no tienen la mayor prioridad en el escenario, y el proceso de pago reutiliza mecanismos del proyecto anterior, por lo que es poco probable que haya problemas serios de seguridad. b) Es incorrecto: se centra solo en un navegador, pero el escenario indica que la adaptabilidad a varios navegadores es clave; el alcance es demasiado estrecho. c) Es incorrecto: el proceso de pago debería funcionar bien al reutilizar software probado, y es poco probable que requiera un headset de realidad aumentada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 27,
+      "puntos": 2,
+      "pregunta": "<p>La empresa de comercio electrónico está por lanzar su nueva aplicación web, y su éxito depende en gran medida del funcionamiento impecable de su sistema de pagos. Tu tarea es verificar que el sistema de pagos tenga el nivel requerido de corrección funcional y usabilidad.</p><p>El equipo de desarrollo completó recientemente las funcionalidades centrales del sistema de pagos y las desplegó en un entorno de staging, que es una réplica del entorno de producción pero aislada para fines de prueba.</p><p>El sistema de pagos está diseñado para manejar una variedad de métodos de pago, incluyendo pagos con tarjeta de crédito, pagos móviles simplificados y transferencias bancarias directas. El equipo de desarrollo ya implementó un conjunto integral de datos de prueba sintéticos, incluyendo números ficticios de tarjetas de crédito, cuentas bancarias y diversas transacciones.</p><p>¿Cuál de las siguientes es la carta de prueba MÁS apropiada para verificar la corrección funcional y la usabilidad del sistema de pagos?</p>",
+      "opciones": [
+        "Explorar el sistema de pagos en una red externa con pruebas de penetración simulando ataques para descubrir si tiene vulnerabilidades potenciales del sistema",
+        "Explorar la aplicación web de comercio electrónico en el servidor de producción con distintas personas y escenarios de uso para descubrir problemas funcionales y de desempeño a nivel de todo el sistema",
+        "Explorar el sistema de pagos en el servidor de staging con datos de prueba sintéticos para evaluar la usabilidad del procedimiento de pago, la exactitud de los resultados y detectar áreas de mejora",
+        "Explorar la interfaz gráfica de usuario del sistema de pagos con guías de diseño de experiencia de usuario para descubrir la intuitividad y la estética de la interfaz de usuario"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Este test charter es el más adecuado para la situación: especifica claramente el sistema de pago como objetivo de exploración, indica los recursos relevantes (datos de prueba sintéticos y el servidor de staging) y la información a descubrir (exactitud, usabilidad, defectos potenciales y áreas de mejora en el proceso de pago). a) Es incorrecto: se centra en el aspecto de seguridad, que no se alinea con los objetivos de prueba dados. b) Es incorrecto: el alcance es demasiado amplio (toda la aplicación) y usar el servidor de producción no es apropiado como entorno de prueba. d) Es incorrecto: se centra solo en la interfaz de usuario, excluyendo la prueba funcional central del sistema de pago.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 28,
+      "puntos": 2,
+      "pregunta": "<p>Tu organización está desarrollando una aplicación de trivia de astronomía. La especificación indica que se seleccionan aleatoriamente 24 preguntas de astronomía de un banco y se presentan una por una al jugador. Cada pregunta tiene cuatro respuestas posibles. Una de ellas es correcta; las demás no. Cuando el jugador selecciona una respuesta, la trivia indica si la selección es correcta o incorrecta. Después, el jugador puede pasar a la siguiente pregunta. La trivia muestra el puntaje cuando el jugador ha completado las 24 preguntas.</p><p>Como analista de pruebas, diseñaste una lista de verificación para guiar las pruebas funcionales de sistema basadas en la experiencia.</p><p>¿Cuál de los siguientes elementos de la lista de verificación es el MÁS apropiado para verificar el flujo correcto de las interacciones del usuario?</p>",
+      "opciones": [
+        "Cuando la aplicación muestra una pregunta, ¿se muestran cuatro respuestas diferentes y seleccionables?",
+        "Para cada pregunta, ¿indica la aplicación qué respuesta es correcta y cuáles son incorrectas?",
+        "Cuando el jugador selecciona una respuesta incorrecta a una pregunta, ¿marca la aplicación la respuesta incorrecta en rojo y la respuesta correcta (no seleccionada) en verde?",
+        "¿Cuánto tiempo necesita en promedio un aficionado a la astronomía para responder las 24 preguntas?"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Este ítem de checklist cumple todos los criterios del syllabus (específico, no ambiguo, consistente, relevante, mantenible, accionable, medible y se puede responder con “sí” o “no”). b) Es incorrecto: es ambiguo, porque la aplicación solo debe indicar la respuesta correcta e incorrecta cuando el usuario ha seleccionado una. c) Es incorrecto: es inconsistente con la especificación, que no indica que la corrección deba señalarse mediante colores. d) Es incorrecto: no se puede responder con “sí” o “no”.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 29,
+      "puntos": 2,
+      "pregunta": "<p>Eres responsable de las pruebas de sistema de un videojuego web para un solo jugador. Has realizado pruebas basadas en la experiencia para versiones anteriores del juego usando una lista de verificación. Entre otras cosas, has probado la interrupción del juego con los siguientes elementos de la lista de verificación:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">ID</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Descripción</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-01</td><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Puede el jugador interrumpir el juego en cualquier momento?</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-02</td><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Son consistentes en todas las páginas web las acciones del usuario que interrumpen el juego?</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">INTERRUPT-03</td><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Muestra la aplicación la misma advertencia, con los dos botones para confirmar la interrupción o continuar el juego, cada vez que se interrumpe?</td></tr></table></div><p>El siguiente incremento se centra en la accesibilidad del videojuego para jugadores con distintas discapacidades, sin cambiar la funcionalidad. ¿Cuál de los siguientes elementos deberías agregar a tu lista de verificación para atender las nuevas funcionalidades?</p>",
+      "opciones": [
+        "Dada la advertencia de interrupción, si el jugador hace clic en el botón 'Continuar juego', ¿reanuda la aplicación el juego donde se quedó?",
+        "¿Es el juego vulnerable a ataques de seguridad cuando los jugadores con discapacidad lo interrumpen de forma intencional o involuntaria?",
+        "¿Es la legibilidad del texto de la advertencia de interrupción y de las leyendas de los botones de un nivel máximo equivalente a quinto grado de primaria?",
+        "¿Son los colores de los botones de la advertencia de interrupción claramente distinguibles para jugadores con daltonismo rojo-verde?",
+        "¿Cuál es el mayor grado de daltonismo con el que los jugadores todavía pueden diferenciar los colores de los botones de la advertencia de interrupción?"
+      ],
+      "respuesta_correcta": [
+        2,
+        3
+      ],
+      "explicacion": "c) Es correcto. Verifica la accesibilidad de la situación de interrupción del juego para jugadores con dificultades de lectura. d) Es correcto. Verifica la accesibilidad de la interrupción del juego para jugadores con discapacidad visual. a) Es incorrecto: es un ítem que verifica la corrección funcional, no la accesibilidad; como la funcionalidad no cambia, no aborda los cambios. b) Es incorrecto: verifica la seguridad, no la accesibilidad; no hay razón para creer que el comportamiento de jugadores con discapacidad afecte la vulnerabilidad del juego. e) Es incorrecto: no es un ítem de checklist válido porque no se puede responder con sí/no/no aplica.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 30,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de las siguientes opciones aprovecha MEJOR las ventajas de las pruebas colaborativas (crowd testing)?</p>",
+      "opciones": [
+        "Diseñar casos de prueba con un analista de pruebas",
+        "Realizar pruebas beta con usuarios diversos",
+        "Ejecutar repetidamente los mismos scripts de prueba",
+        "Revisar el diseño de la GUI con muchos revisores"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. El crowd testing distribuye las pruebas entre un grupo de testers internos o externos con diversos orígenes y ubicaciones, lo que lo hace una buena opción para realizar pruebas beta. a) Es incorrecto: el crowd testing es un tipo de prueba dinámica, no tiene que ver con el diseño de casos de prueba. c) Es incorrecto: ejecutar scripts repetidamente no aprovecha la principal ventaja del crowd testing, que aporta variabilidad y la perspectiva de usuarios reales. d) Es incorrecto: el crowd testing es un tipo de prueba dinámica, no estática.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 31,
+      "puntos": 3,
+      "pregunta": "<p>Eres analista de pruebas en un proyecto de una aplicación de búsqueda de rutas para conductores. El proyecto se lleva a cabo con Scrum, que combina elementos de modelos de desarrollo iterativos e incrementales. En la iteración actual del proyecto se desarrollaron tres funcionalidades que están actualmente bajo prueba:</p><ul><li>una interfaz de mapa interactivo que permite a los usuarios visualizar rutas</li><li>instrucciones de navegación paso a paso para guiar a los usuarios por la ruta elegida, con actualizaciones en tiempo real sobre los próximos giros, salidas y maniobras</li><li>guía por voz que proporciona instrucciones manos libres a los conductores, mejorando la seguridad y la comodidad durante el viaje</li></ul><p>La aplicación se desarrolla para teléfonos inteligentes y se espera que funcione tanto en sistemas iOS como Android. En cada iteración, los analistas de pruebas son responsables de las pruebas de sistema sobre la aplicación completamente integrada.</p><p>El análisis de pruebas reveló que puede ser difícil o incluso imposible evaluar si la ruta encontrada por el algoritmo es óptima. El análisis de riesgos identificó el siguiente riesgo de muy alto nivel: \"La aplicación no funciona correctamente en todas las configuraciones potenciales de dispositivos móviles, incluyendo aspectos como la configuración de red, el tipo de teléfono, el sistema operativo, la configuración de pantalla y la configuración de fecha y hora\".</p><p>Considerando únicamente la información descrita en el escenario anterior, ¿cuál de las siguientes técnicas de prueba será la más útil para diseñar casos de prueba para el sistema bajo prueba?</p>",
+      "opciones": [
+        "Análisis de dominio",
+        "Pruebas metamórficas",
+        "Pruebas CRUD",
+        "Pruebas de tabla de decisión",
+        "Pruebas por pares (pairwise)"
+      ],
+      "respuesta_correcta": [
+        1,
+        4
+      ],
+      "explicacion": "b) Es correcto. La prueba metamórfica es apropiada porque el escenario implica claramente que no habrá oráculo de prueba (es difícil evaluar si la ruta es óptima); en tales casos, la prueba metamórfica es una buena solución al problema del oráculo. e) Es correcto. La prueba por pares (pairwise) es apropiada porque el riesgo de que la aplicación no funcione en algunas configuraciones puede abordarse aplicándola. a) Es incorrecto: el análisis de dominio no es adecuado porque el escenario no sugiere un alto riesgo de defectos en la implementación de dominio. c) Es incorrecto: la prueba CRUD no es adecuada porque el escenario no sugiere la necesidad de verificar el ciclo de vida de entidades. d) Es incorrecto: la prueba de tabla de decisión no es adecuada porque el escenario no describe problemas relacionados con reglas.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 32,
+      "puntos": 3,
+      "pregunta": "<p>Se está desarrollando un nuevo sistema basado en IA. La dirección afirma que mejora la exactitud de las predicciones de tormentas eléctricas en un orden de magnitud. Un desafío que identificaste rápidamente es que la cantidad de parámetros de entrada y sus valores es potencialmente muy alta. Además, el sistema basado en IA no se especificó lo suficiente, es decir, la base de prueba está incompleta y es ambigua. Sin embargo, existe un conjunto adecuado de casos de prueba creados por un experto en la materia que, lamentablemente, dejó el proyecto. Hay presión de la dirección para entregar el sistema pronto.</p><p>¿Cuál de las siguientes técnicas de prueba debería aplicarse en este contexto?</p>",
+      "opciones": [
+        "Pruebas basadas en estados",
+        "Pruebas metamórficas",
+        "Pruebas basadas en escenarios",
+        "Pruebas combinatorias",
+        "Pruebas CRUD"
+      ],
+      "respuesta_correcta": [
+        1,
+        3
+      ],
+      "explicacion": "b) Es correcto. Ya existe un conjunto de casos de prueba, pero el experto que los creó dejó el proyecto. Determinar relaciones metamórficas para los casos de prueba fuente es aplicable y una buena opción porque la base de pruebas es débil y probablemente no pueda usarse como oráculo. d) Es correcto. La prueba combinatoria es una solución viable porque requiere poco tiempo y hay un gran número de parámetros y valores de parámetros. a) Es incorrecto: no hay indicios en la descripción de que el objeto de prueba tenga estados que puedan comprobarse. c) Es incorrecto: no hay pistas de que existan escenarios disponibles. e) Es incorrecto: no hay indicios de que la funcionalidad de ciclo de vida CRUD sea relevante.",
+      "numero_respuestas": "TWO",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 33,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de los siguientes es un beneficio de la automatización del diseño de pruebas y por qué?</p>",
+      "opciones": [
+        "Mejor prevención de defectos gracias al modelado temprano de las condiciones de prueba",
+        "Detección efectiva de defectos gracias a scripts de prueba automatizados y repetibles",
+        "Mantenimiento eficiente de los scripts de prueba gracias a la gestión de la configuración",
+        "Análisis más rápido de las anomalías gracias al reconocimiento automatizado de fallos"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. El modelado temprano de condiciones de prueba desde la perspectiva de pruebas es un control de calidad eficaz de la base de pruebas, que previene la aparición de defectos en los productos de trabajo de fases posteriores del ciclo de vida. b) Es incorrecto: los scripts automatizados y repetibles benefician la automatización de la ejecución de pruebas, no el diseño de pruebas. c) Es incorrecto: la gestión de la configuración tiene muchos beneficios, pero no forma parte de la automatización del diseño de pruebas. d) Es incorrecto: el reconocimiento automático de fallos no tiene relación con la automatización del diseño de pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 34,
+      "puntos": 1,
+      "pregunta": "<p>Estás probando la siguiente historia de usuario para una aplicación de tienda en línea:</p><p><strong>Como</strong> cliente registrado<br><strong>Quiero</strong> filtrar por una categoría específica de artículos<br><strong>Para</strong> no tener que navegar por todo el surtido de la tienda</p><p>¿Cuál de los siguientes es un ejemplo de prueba de corrección funcional para esta historia de usuario?</p>",
+      "opciones": [
+        "Verificar que el mecanismo de filtrado lista aquellas categorías para las que la tienda ofrece artículos",
+        "Verificar que filtrar por una categoría en particular muestra artículos que pertenecen a esa categoría y solo a esa",
+        "Verificar que el árbol de categorías se carga correctamente desde un sistema de gestión de relaciones con clientes",
+        "Verificar que la función de filtrado es fácil de aprender y que su GUI es simple y estéticamente agradable"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Es un ejemplo de prueba de corrección funcional porque verifica la corrección funcional de una característica, es decir, la corrección del mecanismo de filtrado. a) Es incorrecto: es un ejemplo de prueba de idoneidad funcional, ya que comprueba si las categorías listadas son útiles para los usuarios. c) Es incorrecto: es un ejemplo de prueba de interoperabilidad, ya que se centra en la interacción entre dos sistemas. d) Es incorrecto: es un ejemplo de prueba de usabilidad, ya que verifica la facilidad de aprendizaje y la estética de la interfaz en lugar de la corrección funcional.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 35,
+      "puntos": 1,
+      "pregunta": "<p>Una organización está desarrollando una nueva aplicación interna diseñada para dar soporte a todo el personal. El product owner contrató consultores externos de experiencia de usuario para realizar sesiones de pruebas de usabilidad. ¿Cuál de las siguientes es la MEJOR contribución que puede hacer el analista de pruebas de la organización?</p>",
+      "opciones": [
+        "Seleccionar a los participantes del grupo de usuarios con más experiencia en el proceso de negocio",
+        "Participar en las sesiones de pruebas de usabilidad para evaluar la eficiencia del trabajo con la aplicación",
+        "Ayudar a los participantes durante las sesiones de prueba a ingresar los datos correctos y encontrar los botones adecuados",
+        "Describir los patrones de uso más probables de la aplicación por parte de distintas personas dentro de la organización"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Los analistas de pruebas pueden usar su conocimiento de perfiles operacionales, es decir, patrones de uso y personas, para crear escenarios que reflejen usos reales del sistema. a) Es incorrecto: seleccionar a los usuarios más experimentados no tiene en cuenta las características de los grupos de usuarios objetivo que deben participar. b) Es incorrecto: los participantes en las sesiones de usabilidad deben ser usuarios de la organización, no analistas de pruebas. c) Es incorrecto: no se debe corregir ni guiar a los participantes, sino observarlos; ayudarlos no permitiría evaluar correctamente la eficacia y eficiencia del uso real del sistema.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 36,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de las siguientes actividades puede usar un analista de pruebas para contribuir mejor a las pruebas de adaptabilidad de una aplicación web basada en la nube?</p>",
+      "opciones": [
+        "Evaluar en qué medida los usuarios con discapacidad pueden adaptarse a los escenarios de uso de la aplicación",
+        "Diseñar pruebas que cubran el intercambio de datos entre el cliente web y los componentes del servidor en la nube",
+        "Analizar los perfiles operativos y describir la cantidad esperada de usuarios concurrentes de la aplicación",
+        "Diseñar pruebas que evalúen si los componentes del servidor pueden transferirse a distintas plataformas de servicios en la nube"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. La prueba de adaptabilidad incluye la adaptación a diversas plataformas de servicio en la nube. Como indica la sección 4.3.1, el analista apoya la prueba de adaptabilidad identificando los entornos objetivo previstos y diseñando pruebas que cubran combinaciones de esos entornos. a) Es incorrecto: apoya la prueba de accesibilidad, no de adaptabilidad; la adaptabilidad trata de adaptar el sistema a sus entornos, no de que los usuarios se adapten al sistema. b) Es incorrecto: apoya la prueba de interoperabilidad. c) Es incorrecto: apoya la prueba de carga y escalabilidad.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 37,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de los siguientes es el mejor ejemplo de la contribución de un analista de pruebas a las pruebas de interoperabilidad de una tienda en línea?</p>",
+      "opciones": [
+        "Verificar que el usuario puede acceder y usar la tienda en línea sin problemas en distintos dispositivos y navegadores web",
+        "Verificar que la tienda en línea puede integrarse con pasarelas de pago de terceros e intercambiar correctamente los datos de pago",
+        "Validar que usuarios con contextos culturales diversos pueden usar la tienda en línea de forma efectiva y eficiente",
+        "Verificar que el sistema de descuentos sigue estrictamente las reglas especificadas y devuelve resultados exactos"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. La interoperabilidad es el grado en que dos o más componentes o sistemas pueden intercambiar información y usar la información intercambiada. a) Es incorrecto: es un ejemplo de prueba de adaptabilidad (ver sección 4.3.1 y la definición del glosario). c) Es incorrecto: es un ejemplo de prueba de usabilidad (sección 4.2.1). d) Es incorrecto: es un ejemplo de prueba de corrección funcional con foco en la exactitud (sección 4.1.1).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 38,
+      "puntos": 1,
+      "pregunta": "<p>¿Cuál de las siguientes actividades es la MENOS efectiva en la prevención de defectos?</p>",
+      "opciones": [
+        "Pruebas dinámicas",
+        "Análisis de riesgos",
+        "Revisar un diseño arquitectónico",
+        "Análisis de causa raíz"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. La prueba dinámica es el enfoque menos eficaz para la prevención de defectos porque se usa principalmente para detectar defectos que ya existen en el objeto de prueba, no para prevenir que ocurran. b) Es incorrecto: el análisis de riesgos es eficaz en la prevención de defectos, ya que ayuda a identificar problemas potenciales de forma temprana. c) Es incorrecto: revisar un diseño arquitectónico es una actividad eficaz de prevención de defectos. d) Es incorrecto: el análisis de causa raíz es una técnica eficaz de prevención de defectos.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 39,
+      "puntos": 2,
+      "pregunta": "<p>Para un sistema que asigna descuentos en las compras, aplican las siguientes dos reglas de negocio:</p><ul><li>Los clientes con tarjeta de fidelidad o cuya última compra fue de al menos $1,000 recibirán un 10% de descuento. En caso contrario, recibirán un 5% de descuento si se suscriben al boletín.</li><li>Si un cliente no se ha suscrito al boletín, no recibirá ningún descuento.</li></ul><p>Los requisitos se modelan con la siguiente tabla de decisión:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Condiciones</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Regla 1</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Regla 2</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Regla 3</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Regla 4</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Tiene tarjeta de fidelidad?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">SÍ</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Última compra &gt;= $1000?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">SÍ</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">¿Suscrito al boletín?</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">-</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">SÍ</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">NO</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>Acción</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Descuento</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">5%</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0%</td></tr></table></div><p>¿Qué problema (si lo hay) en los requisitos puedes descubrir al analizar esta tabla de decisión?</p>",
+      "opciones": [
+        "Inconsistencia: hay al menos una combinación factible de condiciones para la que la especificación describe dos acciones contradictorias",
+        "Incompletitud: hay al menos una combinación factible de condiciones para la que la especificación no predice ningún comportamiento",
+        "Reglas superpuestas: hay al menos dos columnas equivalentes en acción que coinciden con la misma combinación de condiciones",
+        "No hay problema: la tabla de decisión modela correctamente los requisitos y no hay anomalías en ellos"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. La combinación (YES, YES, NO) de las tres condiciones (tiene tarjeta de fidelidad, última compra >= $1000 y no suscrito al boletín) encaja con la Regla 1 y la Regla 4, pero esas reglas tienen descuentos diferentes. Esto es una contradicción. b) Es incorrecto: las reglas de la tabla de decisión cubren todas las combinaciones de condiciones. c) Es incorrecto: no hay redundancia; la Regla 1 y la Regla 2 tienen el mismo descuento, pero modelan una sola regla de negocio. d) Es incorrecto: hay una contradicción, ver la respuesta correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 40,
+      "puntos": 2,
+      "pregunta": "<p>Estás revisando la especificación de requisitos de una máquina expendedora de bebidas. Te enfocas en el controlador de monedas, que recolecta, valida y cuenta las monedas insertadas. Notas los siguientes requisitos relacionados con el comportamiento del controlador de monedas:</p><ul><li>Req201: Para cada transacción de pedido, el controlador de monedas distingue entre los modos vacío, parcialmente insertado y suficiente, para identificar si el usuario ha pagado lo suficiente como para iniciar la entrega de la bebida</li><li>Req215: Si el usuario ha pagado lo suficiente, el controlador debe devolver de inmediato cualquier moneda adicional insertada.</li><li>Req235: El controlador de monedas debe validar las monedas insertadas y devolver de inmediato las monedas inválidas con un mensaje de error apropiado.</li><li>Req236: El controlador de monedas cambia su modo a suficiente en cuanto el usuario inserta monedas suficientes.</li><li>Req237: El usuario debe poder cancelar la transacción antes de la entrega de la bebida y recibir de vuelta las monedas insertadas. El controlador de monedas quedará vacío después de seleccionar cancelar.</li><li>Req243: El controlador de monedas debe mostrar un mensaje apropiado cuando el usuario haya insertado monedas suficientes para el pago y sumar cualquier moneda adicional insertada.</li><li>Req253: Cuando el usuario inserta una moneda con la que no se alcanza el monto requerido, el controlador de monedas debe permanecer en el modo parcialmente insertado y sumar el valor de la moneda insertada al valor intermedio pagado.</li><li>Req267: Si el controlador de monedas está en modo suficiente y el usuario activa la entrega, debe entregar la bebida al usuario.</li></ul><p>Decidiste modelar el comportamiento del controlador de monedas con un diagrama de máquina de estados. ¿Cuál de las siguientes anomalías será MÁS PROBABLEMENTE detectada por el modelado?</p>",
+      "opciones": [
+        "No queda claro qué evento hará que el controlador de monedas cambie del modo parcialmente insertado al modo suficiente",
+        "La especificación es ambigua cuando el controlador de monedas está en el modo parcialmente insertado. El mismo evento provoca devolver las monedas y entregar la bebida",
+        "La especificación está incompleta porque no hay ningún evento definido para devolver una moneda inválida",
+        "La especificación es ambigua en el modo suficiente. Se supone que el mismo evento dispara dos resultados en conflicto, es decir, sumar las monedas y devolverlas de inmediato"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Ver Req215 y Req243: ambos requisitos describen el mismo evento (inserción de una moneda) para la misma precondición o punto del ciclo de vida (estar en modo suficiente). Esta combinación refleja una ambigüedad que llevaría a un comportamiento no determinista; al modelarlo con una máquina de estados, esta anomalía se detecta fácilmente. a) Es incorrecto: Req236 especifica el evento (el usuario inserta suficientes monedas); aunque “suficientes monedas” es ambiguo, esa ambigüedad no se nota en un modelo de transición de estados. b) Es incorrecto: ver Req267 (entregar la bebida) y Req237 (devolver las monedas); esos requisitos resultan en eventos distintos. c) Es incorrecto: ver Req235; devolver una moneda inválida no es un evento en sí, sino un resultado esperado que puede usarse en las pruebas.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 41,
+      "puntos": 2,
+      "pregunta": "<p>Una empresa ha desarrollado un sitio web de compras en línea. Este año, para atender mejor a los clientes nuevos, la empresa decidió desarrollar una nueva funcionalidad que guíe a los clientes nuevos en el uso del sitio web. El equipo de ingeniería de requisitos elaboró los siguientes requisitos para esta nueva funcionalidad:</p><p><strong>Caso de uso</strong>: Familiarizar al cliente con el sitio web de compras en línea y con el proceso de compra</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Cliente</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Sistema</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">1. El usuario visita el sitio web.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">2. El sistema muestra un banner promocional que invita a los clientes a acceder a la guía para clientes nuevos.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">3. El usuario hace clic en el aviso.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">4. El sistema abre la guía.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">5. El usuario navega por la sección introductoria de la guía y conoce las funcionalidades y la disposición del sitio web.</td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">6. El usuario sigue las instrucciones de la guía para realizar una compra exitosa.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">7. El sistema muestra la finalización exitosa de la compra.</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">8. El usuario cierra el aviso.</td><td style=\"border: 1px solid currentColor; padding: 6px;\">9. El sistema cierra la guía.</td></tr></table></div><p>Eres el analista de pruebas de este producto y revisas el caso de uso anterior usando una técnica de revisión basada en escenarios.</p><p>¿Cuál de los siguientes defectos reportados durante tu revisión es un falso positivo?</p>",
+      "opciones": [
+        "El sistema debería ofrecer a los usuarios experimentados la opción de descartar la guía de forma permanente",
+        "En el paso 4: una vez que el usuario ha respondido a la promoción, el sistema debería ocultar el banner promocional",
+        "El sistema debería ofrecer al usuario la opción de volver a abrir la guía cuando le interese",
+        "Después del paso 5, el sistema debería cerrar automáticamente la guía, asumiendo que ya no es necesaria"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "d) Es correcto. Cerrar la guía sin el consentimiento de los usuarios les quita el control y puede percibirse como intrusivo o irrespetuoso con sus preferencias de aprendizaje. Aunque los usuarios no necesiten la guía inmediatamente después del paso 5, pueden encontrarla útil más adelante al explorar el sitio; por tanto, este defecto reportado es un falso positivo. a) Es incorrecto: los usuarios experimentados ya conocen las funciones del sitio, por lo que ver repetidamente la guía puede ser molesto e intrusivo (defecto válido). b) Es incorrecto: al ocultar el banner tras la respuesta del usuario, el sistema evita ser intrusivo (defecto válido). c) Es incorrecto: ofrecer una opción para volver a acceder a la guía aporta flexibilidad (defecto válido).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 42,
+      "puntos": 2,
+      "pregunta": "<p>Relaciona las descripciones de técnicas de revisión (1-4) con los nombres correctos de las técnicas (A-D).</p><p><strong>Descripciones:</strong></p><ul><li>1. Los revisores simulan procesos usando casos de uso o diagramas de actividades y pueden explorar más allá de los escenarios documentados.</li><li>2. Los revisores usan personas ficticias (por ejemplo, administradores o usuarios finales) para enfocarse en roles de usuario específicos.</li><li>3. Revisión no estructurada y sin guía, con riesgo de reportes de defectos duplicados.</li><li>4. Usa listas de verificación predefinidas para guiar a los revisores, pero fomenta explorar más allá de los elementos listados.</li></ul><p><strong>Técnicas:</strong></p><ul><li>A. Revisión ad hoc</li><li>B. Revisión basada en listas de verificación</li><li>C. Revisión basada en escenarios</li><li>D. Revisión basada en roles</li></ul>",
+      "opciones": [
+        "1-C, 2-D, 3-B, 4-A",
+        "1-D, 2-C, 3-A, 4-B",
+        "1-C, 2-D, 3-A, 4-B",
+        "1-A, 2-B, 3-C, 4-D"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "1-C: la revisión basada en escenarios implica “dry runs” de procesos (por ejemplo, casos de uso). 2-D: la revisión basada en roles usa personas para representar roles de usuario (por ejemplo, administradores). 3-A: la revisión ad hoc no es estructurada y arriesga reportes duplicados. 4-B: la revisión basada en checklist usa listas predefinidas pero permite explorar más allá de la lista. Por eso la respuesta c) es correcta. En las demás: a) empareja mal 3-B (ad hoc con checklist); b) intercambia escenario (C) y basada en roles (D) para 1 y 2; d) está completamente mal emparejada.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 43,
+      "puntos": 3,
+      "pregunta": "<p>Trabajas como analista de pruebas en un proyecto que sigue un modelo de desarrollo incremental. Cada incremento consta de cuatro fases secuenciales: requisitos, diseño, implementación y pruebas. Cada fase termina con una actividad de prueba apropiada, y cada incremento termina con una entrega al cliente. Después del último incremento, el cliente no reportó ningún defecto durante la operación. Recopilas datos sobre la cantidad de defectos introducidos y detectados en las distintas fases del último incremento. Los resultados se presentan en la tabla siguiente.</p><p>Por ejemplo, la fase de requisitos introdujo 80 defectos, y la implementación detectó 40 de ellos; el análisis estático y las pruebas de componentes detectaron 140 defectos en total.</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" colspan=\"2\" rowspan=\"2\"></th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" colspan=\"5\">fase de detección del defecto y actividad de prueba relacionada</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\" rowspan=\"2\">cantidad total de defectos introducidos</th></tr><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">requisitos: modelado y revisión</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">diseño: modelado y revisión</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">implementación: análisis estático y pruebas de componentes</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">pruebas: pruebas de sistema y de aceptación</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">operación (después de la entrega)</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\" rowspan=\"4\"><strong>fase de introducción del defecto</strong></td><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>requisitos</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">40</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">20</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">80</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>diseño</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">90</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">30</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">130</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>implementación</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">90</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">100</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\"><strong>pruebas</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\"></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\" colspan=\"2\"><strong>cantidad total de defectos detectados</strong></td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">10</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">20</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">140</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">140</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">0</td><td style=\"border: 1px solid currentColor; padding: 6px;\"></td></tr></table></div><p>Tu dirección quiere mejorar la detección de defectos pero, debido a los recursos limitados, te pidió seleccionar una sola fase para la que debas llevar a cabo las acciones de mejora. Basas tu elección en calcular el porcentaje de detección de defectos como medida de efectividad de las pruebas para cada fase.</p><p>¿Qué fase y actividad de prueba deberías seleccionar para las acciones de mejora?</p>",
+      "opciones": [
+        "Requisitos: modelado y revisión",
+        "Diseño: modelado y revisión",
+        "Implementación: análisis estático y pruebas de componentes",
+        "Pruebas: pruebas de sistema y pruebas de aceptación"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "El porcentaje de detección de defectos (DDP) de una fase se mide como D / (D + E), donde D es el número de defectos detectados en esa fase y E el número de defectos que escaparon de esa fase (y se detectaron después). El cálculo para las cuatro fases: DDP(Requisitos – modelado y revisión) = 10 / (10 + 10 + 40 + 20) = 12.5%; DDP(Diseño – modelado y revisión) = (10 + 10) / (10 + 10 + 40 + 90 + 20 + 30) = 10%; DDP(Implementación – análisis estático y prueba de componente) = (40 + 90 + 10) / (40 + 90 + 10 + 20 + 30 + 90) = 50%; DDP(Pruebas – sistema y aceptación) = (20 + 30 + 90 + 0) / (20 + 30 + 90 + 0) = 100%. El DDP más bajo ocurre en la fase de diseño: solo detecta el 10% de los defectos que podrían detectarse en ella. Por tanto, la respuesta correcta es b.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 44,
+      "puntos": 3,
+      "pregunta": "<p>La arquitectura de un sistema de seguridad para el hogar consta de cuatro componentes: un panel de control, una interfaz de usuario, un sistema backend basado en la nube y un motor de procesamiento de eventos.</p><p>En proyectos similares dentro de tu organización se observó una fuerte correlación entre el tamaño de los componentes y la cantidad de defectos encontrados en las pruebas de componentes. En promedio se encontró un defecto por cada 50 líneas de código. Usas este modelo para predecir la cantidad de defectos en cada componente.</p><p>Los resultados de las pruebas de los componentes individuales del sistema, con la cantidad real de defectos, son los siguientes:</p><div style=\"overflow-x: auto;\"><table style=\"border-collapse: collapse; width: 100%;\"><tr><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Componente</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Líneas de código</th><th style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">Defectos encontrados</th></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Panel de control</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">600</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">14</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Interfaz de usuario</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">2000</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">45</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Sistema backend</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">400</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">17</td></tr><tr><td style=\"border: 1px solid currentColor; padding: 6px;\">Motor de procesamiento de eventos</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">500</td><td style=\"border: 1px solid currentColor; padding: 6px; text-align: center;\">8</td></tr></table></div><p>Usas el análisis de agrupamiento de defectos para identificar las áreas propensas a defectos. ¿Qué componente, al probarse con mayor rigor, probablemente revelará más defectos?</p>",
+      "opciones": [
+        "Panel de control",
+        "Interfaz de usuario",
+        "Sistema backend",
+        "Motor de procesamiento de eventos"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "Según el modelo, el número de defectos previsto es líneas de código (LOC) / 50. Previsto vs. real: control panel 12 vs. 14; user interface 40 vs. 45; backend system 8 vs. 17; event processing engine 10 vs. 8. El número real es similar al previsto para el panel de control, la interfaz de usuario y el motor de procesamiento de eventos. Sin embargo, para el backend el número real es más del doble del previsto. El principio de agrupamiento de defectos sugiere que este es un componente propenso a defectos, que probablemente contiene más defectos. Por tanto, la respuesta c) es correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 45,
+      "puntos": 1,
+      "pregunta": "<p>¿Cómo apoya la clasificación de defectos al análisis de causa raíz (RCA)?</p>",
+      "opciones": [
+        "Permite realizar el RCA de forma temprana, antes de las pruebas estáticas y dinámicas, porque el RCA puede basarse en categorías abstractas de defectos en lugar de en defectos individuales específicos",
+        "Permite combinar el RCA con las técnicas de prueba porque la clasificación de defectos usa los mismos modelos de ciclo de vida de desarrollo de software que las técnicas de prueba",
+        "Hace el RCA más eficiente porque el análisis no se centra en defectos individuales sino en grupos de defectos con características similares",
+        "Hace el RCA más efectivo porque la clasificación de defectos permite un análisis más profundo de los defectos y el descubrimiento de más causas raíz"
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Normalmente el número de defectos a analizar es muy grande, por lo que es ineficiente y lento planificar una acción preventiva para cada uno. Una forma de abordarlo es clasificar los defectos en patrones y luego hacer el RCA sobre esos patrones. a) Es incorrecto: el RCA solo puede aplicarse si hay defectos o fallos específicos presentes para analizar, por lo que debe hacerse algo de prueba antes del RCA. b) Es incorrecto: el RCA no tiene relación con las técnicas de prueba. d) Es incorrecto: la clasificación de defectos lleva el problema a un nivel más general, por lo que es poco probable que permita un análisis más detallado y descubrir más causas raíz.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 46,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) ¿Cuál de las siguientes es normalmente responsabilidad del analista de pruebas durante la ejecución de un conjunto de pruebas de regresión automatizadas?</p>",
+      "opciones": [
+        "Volver a ejecutar manualmente los casos de prueba que fallaron durante la ejecución automatizada",
+        "Corregir los scripts de prueba automatizados que provocaron anomalías en la ejecución de pruebas",
+        "Reportar un defecto por cada anomalía que ocurra durante la ejecución de pruebas",
+        "Comparar los resultados reales con los resultados esperados para determinar el resultado de la prueba"
+      ],
+      "respuesta_correcta": 0,
+      "explicacion": "a) Es correcto. Un analista de pruebas debe volver a ejecutar manualmente las pruebas automatizadas fallidas para verificar si el fallo se debe a un defecto genuino o a un problema con la automatización. b) Es incorrecto: corregir los scripts automatizados suele ser responsabilidad de un test automation engineer o un technical test analyst, no del analista de pruebas. c) Es incorrecto: el analista debe primero analizar las anomalías para determinar si las causan defectos reales antes de reportarlas; no todos los fallos en pruebas automatizadas se deben a defectos del sistema. d) Es incorrecto: aunque comparar resultados es tarea del analista, en la regresión automatizada esto lo hacen principalmente los scripts; el rol del analista es investigar los fallos, no realizar la comparación inicial.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 47,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) Considera el siguiente caso de prueba:</p><p><strong>Caso de prueba</strong>: TC 02.001 - cálculo correcto del precio del pedido con descuento<br><strong>Precondiciones</strong>: el usuario ha iniciado sesión<br><strong>Entradas</strong>: el carrito de compras contiene productos por el monto que da derecho al descuento<br><strong>Acciones</strong>: el usuario procede al pago<br><strong>Resultados esperados</strong>: el precio total mostrado se reduce en el monto del descuento correspondiente</p><p>¿Cómo puede clasificarse este caso de prueba en términos de nivel de abstracción?</p>",
+      "opciones": [
+        "Es un caso de prueba de alto nivel porque cubre un requisito de negocio en lugar de una especificación técnica.",
+        "Es un caso de prueba de alto nivel porque no contiene datos de prueba específicos.",
+        "Es un caso de prueba de bajo nivel porque la acción es un paso individual de un proceso de negocio.",
+        "Es un caso de prueba de bajo nivel porque puede ser la base para crear scripts de prueba que implementen este caso de prueba con distintas entradas."
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "b) Es correcto. Un caso de prueba de alto nivel no contiene datos de prueba específicos. Los datos específicos se indican al diseñar casos de prueba de bajo nivel basados en un caso de alto nivel. a) Es incorrecto: aunque es un caso de alto nivel, la explicación no es correcta; el tipo de condición de prueba cubierta no influye en esta clasificación. c) y d) Son incorrectas: no es un caso de prueba de bajo nivel, ver la respuesta correcta.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 48,
+      "puntos": 1,
+      "pregunta": "<p>(Pregunta adicional) ¿Cuál de las siguientes opciones describe un criterio válido de calidad de un caso de prueba y tiene una justificación válida?</p>",
+      "opciones": [
+        "Deberían definirse casos de prueba que cubran funcionalidades importantes del backlog de producto pero que aún no estén incluidas en la versión actual del objeto de prueba, para apoyar el mantenimiento futuro.",
+        "Los casos de prueba deberían contener los valores concretos de los datos de prueba requeridos para las precondiciones, las entradas y las salidas, para permitir la ejecución de las pruebas.",
+        "Si la base de prueba usa un glosario de términos funcionales, los casos de prueba también deberían usar esa terminología para que sean consistentes y comprensibles.",
+        "Los casos de prueba basados en escenarios de extremo a extremo deberían limitarse a unos pocos pasos de los escenarios para facilitar su combinación en procedimientos de prueba y el análisis de la causa de los fallos."
+      ],
+      "respuesta_correcta": 2,
+      "explicacion": "c) Es correcto. Es un aspecto de la consistencia en cuanto al lenguaje usado. a) Es incorrecto: viola el criterio de necesidad, porque las características aún no implementadas no deberían probarse. b) Es incorrecto: aunque el criterio de completitud requiere una descripción o referencia a los datos de prueba, incluir datos explícitos en el caso afectaría su mantenibilidad; no todos los casos deben ser de bajo nivel. d) Es incorrecto: aunque los casos cortos tienen ventajas frente a los largos, su granularidad debe corresponder siempre a la base de pruebas y a las condiciones de prueba; los escenarios de extremo a extremo no deberían fragmentarse.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 49,
+      "puntos": 2,
+      "pregunta": "<p>(Pregunta adicional) La especificación de un componente crítico en seguridad establece lo siguiente sobre los valores enteros de un parámetro de entrada:</p><ul><li>Los valores menores que 10 deben rechazarse;</li><li>Los valores entre 10 y 21 deben aceptarse;</li><li>Los valores mayores o iguales a 22 deben rechazarse.</li></ul><p>¿Cuál de los siguientes conjuntos de datos de entrada proporciona el 100% de cobertura de dominio confiable usando una cantidad MÍNIMA de valores?</p>",
+      "opciones": [
+        "9, 10, 21, 22",
+        "0, 9, 10, 21, 22, 50",
+        "9, 10, 11, 20, 21, 22",
+        "8, 9, 10, 11, 20, 21, 22, 23"
+      ],
+      "respuesta_correcta": 1,
+      "explicacion": "La especificación define una variable con tres particiones de equivalencia adyacentes: EP1 con un borde abierto x < 10; EP2 con dos bordes cerrados x ≥ 10 y x ≤ 21; EP3 con un borde abierto x > 21. b) Es correcto. Para el borde abierto de EP1 en 10: 0 es punto IN, 9 es ON, 10 es OFF y 21 es OUT. Para el borde cerrado de EP2 en 10: 0 es OUT, 9 es OFF, 10 es ON y 21 es IN. Para el borde cerrado de EP2 en 21: 10 es IN, 21 es ON, 22 es OFF y 50 es OUT. Para el borde abierto de EP3 en 21: 10 es OUT, 21 es OFF, 22 es ON y 50 es IN. a) Es incorrecto: omite un punto IN para EP1, puntos OUT para EP2 en ambos bordes y un punto IN para EP3 (ese conjunto da cobertura BVA de 2 valores al 100%, no de dominio confiable). c) Es incorrecto: igual que a), omite puntos. d) Es incorrecto: el conjunto no es mínimo, ya que 11 y 20 pueden eliminarse manteniendo la cobertura confiable (es mínimo para cobertura BVA de 3 valores, no para dominio confiable).",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    },
+    {
+      "numero": 50,
+      "puntos": 2,
+      "pregunta": "<p>(Pregunta adicional) Una aerolínea tiene restricciones específicas respecto al equipaje documentado:</p><ul><li>Las dimensiones totales (largo + ancho + alto) D de una pieza de equipaje deben ser de al menos 80 cm y no pueden exceder los 158 cm.</li><li>El peso W no debe exceder los 23 kg.</li><li>Las medidas en centímetros y kilogramos siempre se redondean hacia arriba al número entero más cercano.</li></ul><p>¿Cuál es el conjunto MÍNIMO de pares (D,W) de dimensión y peso para lograr el 100% de cobertura de dominio simplificada?</p>",
+      "opciones": [
+        "(80,10), (79,10), (125,23), (125,24), (158,20), (159,20)",
+        "(80,23), (79,24), (158,23), (159,24)",
+        "(80,23), (79,23), (80,24), (158,23), (158,24), (159,23)",
+        "(80,23), (79,23), (80,24), (158,20), (159,20)"
+      ],
+      "respuesta_correcta": 3,
+      "explicacion": "La partición de equivalencia EP1 de dimensiones y pesos válidos de equipaje tiene tres bordes: D ≥ 80, D ≤ 158 y W ≤ 23. La cobertura de dominio simplificada requiere para cada borde un par de un punto ON y un punto OFF lo más cercanos posible entre sí. d) Es correcto. Este conjunto logra cobertura de dominio simplificada del 100% con el número mínimo de cinco elementos. Los puntos ON/OFF para los tres bordes son: (80,23), (79,23) para D ≥ 80; (80,23), (80,24) para W ≤ 23; y (158,20), (159,20) para D ≤ 158. a) Es incorrecto: logra 100% pero no es mínimo (contiene tres pares ON/OFF). b) Es incorrecto: no logra cobertura del 100%; contiene dos puntos ON pero no los puntos OFF requeridos a distancia mínima. c) Es incorrecto: logra 100% pero no es mínimo; el quinto punto (158,24) es superfluo.",
+      "numero_respuestas": "ONE",
+      "video_explicacion": "",
+      "imageUrl": ""
+    }
+  ],
+  "idioma": "es"
+}

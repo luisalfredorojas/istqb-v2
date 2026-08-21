@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useUserRole } from '@/hooks/useUserRole';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useTheme } from '@/hooks/useTheme';
+import { LanguageSwitch } from '@/components/layout/LanguageSwitch';
 import { authHelpers } from '@/lib/supabase';
 import { cn } from '@/lib/utils';
 
@@ -61,6 +62,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-3">
+          {/* Idioma de los exámenes */}
+          <LanguageSwitch />
+
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}

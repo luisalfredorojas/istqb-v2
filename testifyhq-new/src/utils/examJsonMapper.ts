@@ -24,9 +24,15 @@ export type ExamPayload = {
   description: string;
   category: string;
   difficulty: 'Foundation' | 'Advanced' | 'Expert';
+  language: ExamLanguage;
   duration_minutes: number;
   passing_score: number;
 };
+
+/** Idioma del contenido del examen. Los JSON lo declaran en `idioma`. */
+export type ExamLanguage = 'en' | 'es';
+
+const LANGUAGES: ExamLanguage[] = ['en', 'es'];
 
 export type QuestionPayload = {
   question_type: string;
@@ -141,10 +147,20 @@ export function buildExam(data: any, questionCount: number): ExamPayload {
   const isAdvanced = title.toLowerCase().includes('advanced');
   const passingScoreRaw = data.minimo_aprobacion || Math.ceil(questionCount * 0.65);
 
+  // El idioma decide en qué listado aparece el examen. Los archivos previos
+  // a la traducción no lo traen, y son los originales en inglés.
+  const rawLanguage = String(data?.idioma ?? data?.language ?? 'en').trim().toLowerCase();
+  if (!LANGUAGES.includes(rawLanguage as ExamLanguage)) {
+    throw new ValidationError(
+      `idioma inválido "${rawLanguage}" (se esperaba ${LANGUAGES.join(' o ')})`
+    );
+  }
+
   return {
     title,
     description: data.descripcion || data.description || 'Sin descripción',
     category: 'ISTQB',
+    language: rawLanguage as ExamLanguage,
     // Capitalizado: es el valor que exige el CHECK de la tabla, el que usa
     // el formulario del panel y el que se muestra tal cual en el listado.
     difficulty: isAdvanced ? 'Advanced' : 'Foundation',

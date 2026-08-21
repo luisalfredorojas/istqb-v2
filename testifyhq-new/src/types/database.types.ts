@@ -100,6 +100,7 @@ export interface Database {
           description: string | null
           category: string
           difficulty: 'Foundation' | 'Advanced' | 'Expert' | null
+          language: 'en' | 'es'
           duration_minutes: number
           passing_score: number
           total_questions: number
@@ -114,6 +115,7 @@ export interface Database {
           description?: string | null
           category: string
           difficulty?: 'Foundation' | 'Advanced' | 'Expert' | null
+          language?: 'en' | 'es'
           duration_minutes: number
           passing_score: number
           total_questions: number
@@ -128,6 +130,7 @@ export interface Database {
           description?: string | null
           category?: string
           difficulty?: 'Foundation' | 'Advanced' | 'Expert' | null
+          language?: 'en' | 'es'
           duration_minutes?: number
           passing_score?: number
           total_questions?: number

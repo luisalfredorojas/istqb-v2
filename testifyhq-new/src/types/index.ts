@@ -35,6 +35,8 @@ export interface Exam {
   description: string | null;
   category: string;
   difficulty: 'Foundation' | 'Advanced' | 'Expert' | null;
+  /** Idioma del contenido del examen; ver migración ..._exam_language.sql */
+  language: 'en' | 'es';
   duration_minutes: number;
   passing_score: number;
   total_questions: number;

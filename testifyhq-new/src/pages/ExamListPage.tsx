@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExams } from '@/hooks/useExams';
 import { useExamAccess, FREE_ATTEMPT_LIMIT } from '@/hooks/useExamAccess';
+import { useLanguage } from '@/hooks/useLanguage';
 import { Lock, Crown, Sparkles } from 'lucide-react';
 
 export function ExamListPage() {
   const { data: exams, isLoading, error } = useExams();
   const access = useExamAccess();
+  const { language, setLanguage } = useLanguage();
 
   if (isLoading) {
     return (
@@ -29,7 +31,11 @@ export function ExamListPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-ds-text mb-2">Exámenes Disponibles</h1>
-          <p className="text-base text-muted">Selecciona un examen para comenzar a practicar</p>
+          <p className="text-base text-muted">
+            {language === 'es'
+              ? 'Preguntas traducidas al español. Cambia a EN arriba para practicar con el enunciado original en inglés.'
+              : 'Preguntas con el enunciado original en inglés. Cambia a ES arriba para practicar en español.'}
+          </p>
         </div>
 
         {/* Aviso de plan gratuito */}
@@ -53,6 +59,27 @@ export function ExamListPage() {
               <Crown className="w-4 h-4" /> Hazte Premium
             </Link>
           </div>
+        )}
+
+        {exams?.length === 0 && (
+          <Card>
+            <CardContent className="py-12 text-center">
+              <p className="text-ds-text font-medium mb-1">
+                Todavía no hay exámenes en {language === 'es' ? 'español' : 'inglés'}.
+              </p>
+              <p className="text-sm text-muted mb-4">
+                Puedes practicar mientras tanto con los exámenes en{' '}
+                {language === 'es' ? 'inglés' : 'español'}.
+              </p>
+              <button
+                type="button"
+                onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+                className="inline-flex items-center justify-center rounded-[8px] bg-primary text-white text-sm font-medium px-4 h-10 hover:bg-primary-hover transition-colors"
+              >
+                Ver exámenes en {language === 'es' ? 'inglés' : 'español'}
+              </button>
+            </CardContent>
+          </Card>
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
