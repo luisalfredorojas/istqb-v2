@@ -41,20 +41,6 @@ export interface Exam {
   passing_score: number;
   total_questions: number;
   is_active: boolean;
-  is_free: boolean;
-}
-
-export interface ExamAttempt {
-  id: string;
-  user_id: string;
-  exam_id: number;
-  answers: Record<string, string>;
-  score: number | null;
-  percentage: number | null;
-  passed: boolean | null;
-  started_at: string;
-  completed_at: string | null;
-  time_spent_seconds: number | null;
 }
 
 export interface UserProfile {

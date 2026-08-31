@@ -4,26 +4,17 @@ import { queryClient } from './lib/queryClient';
 import { ThemeProvider } from './hooks/useTheme';
 import { LanguageProvider } from './hooks/useLanguage';
 import { Layout } from './components/layout/Layout';
-import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
-import { SignUpPage } from './pages/SignUpPage';
-import { VerifyEmailPage } from './pages/VerifyEmailPage';
-import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
-import { ResetPasswordPage } from './pages/ResetPasswordPage';
-import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ExamListPage } from './pages/ExamListPage';
 import { ExamPage } from './pages/ExamPage';
 import { ResultsPage } from './pages/ResultsPage';
-import { PricingPage } from './pages/PricingPage';
-import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
-import { ProfilePage } from './pages/ProfilePage';
-import { WithdrawalPage } from './pages/WithdrawalPage';
 import { AvisoLegalPage } from './pages/legal/AvisoLegalPage';
 import { PrivacidadPage } from './pages/legal/PrivacidadPage';
 import { TerminosPage } from './pages/legal/TerminosPage';
 import { CookiesPage } from './pages/legal/CookiesPage';
+import { LoginPage } from './pages/LoginPage';
+import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { ExamManagementPage } from './pages/admin/ExamManagementPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
@@ -35,36 +26,32 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Routes>
+            {/* Todo el contenido es público y gratuito: sin cuentas ni planes. */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/verify-email" element={<VerifyEmailPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/reset-password" element={<ResetPasswordPage />} />
-            <Route path="/auth/callback" element={<AuthCallbackPage />} />
-            <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/payment/success" element={<ProtectedRoute><PaymentSuccessPage /></ProtectedRoute>} />
-            <Route path="/exams" element={<ProtectedRoute><ExamListPage /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/exams" element={<ExamListPage />} />
             <Route path="/exam/:id" element={
-              <ProtectedRoute>
-                <ErrorBoundary>
-                  <ExamPage />
-                </ErrorBoundary>
-              </ProtectedRoute>
+              <ErrorBoundary>
+                <ExamPage />
+              </ErrorBoundary>
             } />
-            <Route path="/results/:id" element={<ProtectedRoute><ResultsPage /></ProtectedRoute>} />
+            <Route path="/results/:id" element={<ResultsPage />} />
             {/* Legal */}
-            <Route path="/desistimiento" element={<WithdrawalPage />} />
             <Route path="/aviso-legal" element={<AvisoLegalPage />} />
             <Route path="/privacidad" element={<PrivacidadPage />} />
             <Route path="/terminos" element={<TerminosPage />} />
             <Route path="/cookies" element={<CookiesPage />} />
             {/* Rutas antiguas del footer, para no romper enlaces existentes */}
             <Route path="/privacy" element={<PrivacidadPage />} />
-            {/* Admin Routes */}
-            <Route path="/admin/exams" element={<ProtectedRoute><ExamManagementPage /></ProtectedRoute>} />
+            {/*
+              Administración. El sitio público no tiene login: estas rutas no
+              se enlazan desde ninguna parte y existen solo para que el
+              administrador pueda entrar a gestionar e importar exámenes, algo
+              que la base de datos exige hacer con una sesión de admin.
+            */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/auth/callback" element={<AuthCallbackPage />} />
+            <Route path="/admin/exams" element={<ExamManagementPage />} />
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />
           </Routes>
         </Layout>

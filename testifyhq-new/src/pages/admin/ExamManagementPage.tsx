@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 import { useUserRole } from '@/hooks/useUserRole';
-import { supabase } from '@/lib/supabase';
+import { supabase, authHelpers } from '@/lib/supabase';
 import { migrateExamsFromFiles } from '@/utils/migrateExamsFromFiles';
 import type { Exam } from '@/types';
 
@@ -60,9 +60,9 @@ export function ExamManagementPage() {
       return;
     }
     
-    // If not admin, redirect to dashboard
+    // El sitio es público: quien no sea administrador vuelve a los exámenes.
     if (!roleData?.isAdmin) {
-      navigate('/dashboard');
+      navigate('/exams');
     }
   }, [authLoading, roleData, roleLoading, navigate, user]);
 
@@ -235,7 +235,7 @@ export function ExamManagementPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Acceso Denegado</h1>
           <p className="text-gray-600 mb-4">No tienes permisos para acceder a esta página.</p>
-          <a href="/dashboard" className="text-blue-600 hover:underline">Volver al Dashboard</a>
+          <a href="/exams" className="text-blue-600 hover:underline">Volver a los exámenes</a>
         </div>
       </div>
     );
@@ -249,6 +249,16 @@ export function ExamManagementPage() {
           <p className="text-gray-600 mt-1">Administra los exámenes de la plataforma</p>
         </div>
         <div className="flex gap-3">
+          <Button
+            variant="outline"
+            onClick={async () => {
+              await authHelpers.signOut();
+              navigate('/');
+            }}
+          >
+            Cerrar sesión
+          </Button>
+
           {/* Hidden file input */}
           <input
             ref={fileInputRef}

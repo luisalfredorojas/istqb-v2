@@ -9,8 +9,8 @@ export function AuthCallbackPage() {
     // Handle the OAuth callback
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        // Redirect to dashboard after successful login
-        navigate('/dashboard');
+        // El único motivo para iniciar sesión es administrar los exámenes.
+        navigate('/admin/exams');
       } else {
         // Redirect to login if no session
         navigate('/login');

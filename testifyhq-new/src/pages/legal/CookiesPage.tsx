@@ -30,12 +30,13 @@ export function CookiesPage() {
             </thead>
             <tbody>
               <tr className="border-b border-ds-border">
-                <td className="py-2 pr-4 font-mono text-xs">sb-*-auth-token</td>
+                <td className="py-2 pr-4 font-mono text-xs">testifyhq:attempts</td>
                 <td className="py-2 pr-4">
-                  Mantener tu sesión iniciada de forma segura
+                  Guardar en tu navegador los simulacros que has hecho y su
+                  resultado, para mostrarte tu progreso sin necesidad de cuenta
                 </td>
                 <td className="py-2 pr-4">Técnica (necesaria)</td>
-                <td className="py-2">Hasta cerrar sesión</td>
+                <td className="py-2">Hasta que la borres</td>
               </tr>
               <tr>
                 <td className="py-2 pr-4 font-mono text-xs">theme</td>
@@ -55,8 +56,9 @@ export function CookiesPage() {
       <LegalSection title="3. Cómo gestionarlas">
         <p>
           Puedes borrar o bloquear el almacenamiento local desde la configuración
-          de tu navegador. Ten en cuenta que, al ser técnicas, si las bloqueas no
-          podrás mantener la sesión iniciada ni usar la plataforma con normalidad.
+          de tu navegador; también puedes borrar tu historial desde la página de
+          progreso. Si lo bloqueas, podrás seguir practicando, pero no se
+          guardará el registro de tus simulacros.
         </p>
       </LegalSection>
 

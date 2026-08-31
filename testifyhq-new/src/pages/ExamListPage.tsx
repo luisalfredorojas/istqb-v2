@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExams } from '@/hooks/useExams';
-import { useExamAccess, FREE_ATTEMPT_LIMIT } from '@/hooks/useExamAccess';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Lock, Crown, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export function ExamListPage() {
   const { data: exams, isLoading, error } = useExams();
-  const access = useExamAccess();
   const { language, setLanguage } = useLanguage();
 
   if (isLoading) {
@@ -38,28 +36,18 @@ export function ExamListPage() {
           </p>
         </div>
 
-        {/* Aviso de plan gratuito */}
-        {!access.isLoading && !access.isPremium && (
-          <div className="mb-8 p-4 rounded-[12px] border border-primary-soft-border bg-primary-soft flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-ds-text">
-                  Plan gratuito: solo el Examen A, hasta {FREE_ATTEMPT_LIMIT} simulacros.
-                </p>
-                <p className="text-sm text-muted">
-                  Te quedan <strong>{access.freeAttemptsRemaining}</strong> de {FREE_ATTEMPT_LIMIT} simulacros. Hazte Premium para acceso ilimitado a todos los exámenes.
-                </p>
-              </div>
-            </div>
-            <Link
-              to="/pricing"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[8px] bg-primary text-white text-sm font-medium px-4 h-10 hover:bg-primary-hover transition-colors"
-            >
-              <Crown className="w-4 h-4" /> Hazte Premium
-            </Link>
+        {/* Todos los exámenes son gratuitos y no requieren cuenta. */}
+        <div className="mb-8 p-4 rounded-[12px] border border-primary-soft-border bg-primary-soft flex items-start gap-3">
+          <Sparkles className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="text-sm font-semibold text-ds-text">
+              Todos los exámenes son gratuitos, sin registro y sin límite de intentos.
+            </p>
+            <p className="text-sm text-muted">
+              Tu progreso se guarda en este navegador, así que no necesitas crear ninguna cuenta.
+            </p>
           </div>
-        )}
+        </div>
 
         {exams?.length === 0 && (
           <Card>
@@ -84,30 +72,13 @@ export function ExamListPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {exams?.map((exam) => {
-            const reason = access.lockReason(exam);
-            const locked = reason !== null;
-            const to = locked ? '/pricing' : `/exam/${exam.id}`;
-
             return (
-              <Link key={exam.id} to={to}>
-                <Card
-                  className={`relative h-full transition-colors cursor-pointer ${
-                    locked ? 'opacity-90 hover:border-primary' : 'hover:border-primary'
-                  }`}
-                >
-                  {locked && (
-                    <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-ds-text/85 text-white text-xs font-semibold">
-                      <Lock className="w-3 h-3" />
-                      {reason === 'attempts_exhausted' ? 'Límite alcanzado' : 'Premium'}
-                    </div>
-                  )}
+              <Link key={exam.id} to={`/exam/${exam.id}`}>
+                <Card className="relative h-full transition-colors cursor-pointer hover:border-primary">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <span className="px-3 py-1 bg-primary-soft text-primary text-xs font-semibold rounded-full">{exam.category}</span>
-                        {exam.is_free && (
-                          <span className="px-3 py-1 bg-success-soft text-success text-xs font-semibold rounded-full">Gratis</span>
-                        )}
                         {exam.title.toLowerCase().includes('extra') && (
                           <span className="px-3 py-1 bg-emerald-500/15 text-emerald-400 text-xs font-semibold rounded-full">Extra</span>
                         )}
@@ -132,13 +103,6 @@ export function ExamListPage() {
                         <span>Puntaje mínimo: {exam.passing_score}%</span>
                       </div>
                     </div>
-                    {locked && (
-                      <p className="mt-4 text-sm font-medium text-primary">
-                        {reason === 'attempts_exhausted'
-                          ? 'Has agotado tus simulacros gratis · Hazte Premium'
-                          : 'Disponible con Premium →'}
-                      </p>
-                    )}
                   </CardContent>
                 </Card>
               </Link>

@@ -7,13 +7,10 @@ import { ProgressBar } from '@/components/exam/ProgressBar';
 import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useExams } from '@/hooks/useExams';
-import { useExamAttempts } from '@/hooks/useExamAttempts';
-import { useExamAccess } from '@/hooks/useExamAccess';
-import { useAuth } from '@/hooks/useAuth';
+import { saveAttempt } from '@/lib/localAttempts';
 import { cn } from '@/lib/utils';
 import { countCorrect } from '@/lib/answers';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { Lock, Crown } from 'lucide-react';
 
 export function ExamPage() {
   const { id } = useParams();
@@ -21,17 +18,10 @@ export function ExamPage() {
   const examId = parseInt(id || '1', 10);
   const { data: questions, isLoading, error } = useQuestions(examId);
   const { data: exams } = useExams();
-  const access = useExamAccess();
   const initialized = useRef(false);
-  const { user } = useAuth();
-  const { saveAttempt } = useExamAttempts();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const exam = exams?.find((e) => e.id === examId);
-  // Mientras carga la info de acceso no decidimos; una vez cargada, bloquea si
-  // el examen no está permitido para el plan del usuario.
-  const blocked = !access.isLoading && !!exam && !access.canStart(exam);
-  const lockReason = exam ? access.lockReason(exam) : null;
 
   const {
     currentQuestion, examStarted, examCompleted, startExam, nextQuestion,
@@ -48,16 +38,14 @@ export function ExamPage() {
   }, []);
 
   useEffect(() => {
-    // No iniciar si el usuario no tiene acceso (o mientras se resuelve).
-    if (access.isLoading || blocked) return;
     if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted) {
       startExam(questions.length, 60);
       initialized.current = true;
     }
-  }, [questions, examStarted, examCompleted, startExam, access.isLoading, blocked]);
+  }, [questions, examStarted, examCompleted, startExam]);
 
-  const handleSubmit = async () => {
-    if (!user || !questions) return;
+  const handleSubmit = () => {
+    if (!questions) return;
     setIsSubmitting(true);
     try {
       const correctCount = countCorrect(questions, answers);
@@ -65,62 +53,25 @@ export function ExamPage() {
       const passed = score >= 65;
       const timeSpent = (60 * 60) - timeRemaining;
 
-      await saveAttempt.mutateAsync({
-        user_id: user.id, exam_id: examId, answers, score, percentage: score,
-        passed, started_at: new Date(Date.now() - timeSpent * 1000).toISOString(),
-        completed_at: new Date().toISOString(), time_spent_seconds: timeSpent,
+      // Sin cuentas de usuario, el intento se guarda en este navegador.
+      const attempt = saveAttempt({
+        examId, examTitle: exam?.title ?? 'Examen', answers, score, passed,
+        startedAt: new Date(Date.now() - timeSpent * 1000).toISOString(),
+        completedAt: new Date().toISOString(), timeSpentSeconds: timeSpent,
       });
 
       submitExam();
-      navigate(`/results/${examId}`);
-    } catch (error) {
-      console.error('Error saving exam:', error);
-      // El backstop del servidor (trigger) rechaza intentos fuera del plan gratuito.
-      const message = error instanceof Error ? error.message : '';
-      if (message.includes('FREE_LIMIT_REACHED') || message.includes('PREMIUM_REQUIRED')) {
-        navigate('/pricing');
-        return;
-      }
-      alert('Hubo un error al guardar tu examen. Por favor intenta de nuevo.');
+      // Si el navegador no deja escribir, seguimos con el resultado en memoria.
+      navigate(attempt ? `/results/${examId}?attemptId=${attempt.id}` : `/results/${examId}`);
     } finally { setIsSubmitting(false); }
   };
 
-  if (isLoading || access.isLoading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bg">
         <div className="text-center">
           <div className="animate-spin rounded-full h-10 w-10 border-2 border-ds-border border-t-primary mx-auto mb-4"></div>
           <p className="text-muted">Cargando examen...</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Guard de acceso: bloquea antes de mostrar/iniciar el examen.
-  if (blocked) {
-    const exhausted = lockReason === 'attempts_exhausted';
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-bg px-4">
-        <div className="max-w-md w-full text-center bg-surface rounded-[12px] border border-ds-border p-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-soft mb-5">
-            <Lock className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="text-2xl font-bold text-ds-text mb-2">
-            {exhausted ? 'Has agotado tus simulacros gratis' : 'Este examen es Premium'}
-          </h2>
-          <p className="text-muted mb-6">
-            {exhausted
-              ? `El plan gratuito incluye ${access.attemptsUsed} simulacros de práctica. Hazte Premium para practicar sin límites.`
-              : 'El plan gratuito solo incluye el Examen A. Hazte Premium para acceder a todos los exámenes.'}
-          </p>
-          <div className="flex flex-col gap-3">
-            <Button onClick={() => navigate('/pricing')} className="w-full">
-              <Crown className="w-4 h-4 mr-2" /> Hazte Premium
-            </Button>
-            <Button variant="outline" onClick={() => navigate('/exams')} className="w-full">
-              Volver a exámenes
-            </Button>
-          </div>
         </div>
       </div>
     );
@@ -153,7 +104,7 @@ export function ExamPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="bg-surface rounded-[12px] border border-ds-border p-6 mb-6 transition-colors">
             <div className="flex items-center justify-between mb-4">
-              <h1 className="text-xl font-semibold text-ds-text">Examen ISTQB Foundation</h1>
+              <h1 className="text-xl font-semibold text-ds-text">{exam?.title ?? 'Simulacro ISTQB'}</h1>
               <Timer />
             </div>
             <ProgressBar />

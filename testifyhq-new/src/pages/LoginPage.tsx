@@ -11,7 +11,7 @@ export function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const redirectTo =
-    (location.state as { redirectTo?: string } | null)?.redirectTo ?? '/dashboard';
+    (location.state as { redirectTo?: string } | null)?.redirectTo ?? '/admin/exams';
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,8 +48,6 @@ export function LoginPage() {
       
       if (error.message?.includes('Invalid')) {
         setError('Email o contraseña incorrectos');
-      } else if (error.message?.includes('Email not confirmed')) {
-        setError('Por favor verifica tu email primero');
       } else {
         setError('Error al iniciar sesión. Por favor intenta nuevamente.');
       }
@@ -65,10 +63,11 @@ export function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Bienvenido a TestifyHQ
+            Administración
           </CardTitle>
           <CardDescription className="text-center">
-            Inicia sesión para continuar
+            Acceso reservado para gestionar los exámenes. Practicar no requiere
+            cuenta: los exámenes son públicos y gratuitos.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -129,15 +128,6 @@ export function LoginPage() {
               />
             </div>
 
-            <div className="flex items-center justify-end">
-              <Link 
-                to="/forgot-password" 
-                className="text-sm text-primary hover:underline"
-              >
-                ¿Olvidaste tu contraseña?
-              </Link>
-            </div>
-
             <Button
               type="submit"
               className="w-full"
@@ -147,23 +137,9 @@ export function LoginPage() {
             </Button>
           </form>
 
-          {/* Sign Up Link */}
-          <div className="text-center text-sm text-muted pt-4">
-            ¿No tienes una cuenta?{' '}
-            <Link to="/signup" className="text-primary hover:underline font-medium">
-              Regístrate gratis
-            </Link>
-          </div>
-
-          {/* Terms */}
           <div className="text-center text-sm text-muted mt-6 pt-6 border-t border-ds-border">
-            Al continuar, aceptas nuestros{' '}
-            <Link to="/terminos" className="text-primary hover:underline">
-              Términos y condiciones
-            </Link>
-            {' '}y{' '}
-            <Link to="/privacidad" className="text-primary hover:underline">
-              Política de privacidad
+            <Link to="/exams" className="text-primary hover:underline">
+              Ir a los exámenes
             </Link>
           </div>
         </CardContent>

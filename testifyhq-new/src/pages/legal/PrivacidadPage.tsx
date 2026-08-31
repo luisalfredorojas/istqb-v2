@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { LegalLayout, LegalSection, LegalValue } from './LegalLayout';
 import { COMPANY, DATA_PROCESSORS } from '@/lib/legal';
 
@@ -6,7 +5,7 @@ export function PrivacidadPage() {
   return (
     <LegalLayout
       title="Política de privacidad"
-      intro="Cómo tratamos tus datos personales, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD)."
+      intro="La plataforma es gratuita y no requiere registro: apenas tratamos datos personales. Esto es lo que hay, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD)."
     >
       <LegalSection title="1. Responsable del tratamiento">
         <ul className="space-y-2">
@@ -29,6 +28,11 @@ export function PrivacidadPage() {
       </LegalSection>
 
       <LegalSection title="2. Datos que tratamos y para qué">
+        <p>
+          Para usar la plataforma <strong className="text-ds-text">no te pedimos
+          ningún dato personal</strong>: no hay registro, ni cuentas, ni pagos.
+          Puedes practicar de forma anónima.
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
@@ -40,49 +44,41 @@ export function PrivacidadPage() {
             </thead>
             <tbody>
               <tr className="border-b border-ds-border">
-                <td className="py-2 pr-4">Email, nombre, contraseña cifrada</td>
-                <td className="py-2 pr-4">Crear y gestionar tu cuenta</td>
-                <td className="py-2">Ejecución del contrato</td>
-              </tr>
-              <tr className="border-b border-ds-border">
-                <td className="py-2 pr-4">Resultados e intentos de examen</td>
-                <td className="py-2 pr-4">Mostrar tu progreso y estadísticas</td>
-                <td className="py-2">Ejecución del contrato</td>
-              </tr>
-              <tr className="border-b border-ds-border">
-                <td className="py-2 pr-4">Estado de suscripción y pedidos</td>
-                <td className="py-2 pr-4">Gestionar tu plan y el acceso Premium</td>
-                <td className="py-2">Ejecución del contrato</td>
-              </tr>
-              <tr className="border-b border-ds-border">
-                <td className="py-2 pr-4">Datos de facturación</td>
                 <td className="py-2 pr-4">
-                  Tratados directamente por Lemon Squeezy como vendedor
+                  Resultados de tus simulacros y preferencias (idioma, tema)
                 </td>
-                <td className="py-2">Obligación legal</td>
+                <td className="py-2 pr-4">
+                  Mostrarte tu progreso. Se guardan solo en tu navegador y nunca
+                  llegan a nuestros servidores
+                </td>
+                <td className="py-2">Interés legítimo (almacenamiento técnico)</td>
               </tr>
               <tr>
-                <td className="py-2 pr-4">Solicitudes de desistimiento</td>
-                <td className="py-2 pr-4">Atender y acreditar tu solicitud</td>
-                <td className="py-2">Obligación legal</td>
+                <td className="py-2 pr-4">
+                  Datos técnicos de conexión (IP, navegador) en los registros del
+                  servidor
+                </td>
+                <td className="py-2 pr-4">
+                  Servir el sitio y mantener su seguridad
+                </td>
+                <td className="py-2">Interés legítimo</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p>
-          No tratamos categorías especiales de datos ni tomamos decisiones
-          automatizadas con efectos jurídicos sobre ti.
+          No elaboramos perfiles, no hacemos publicidad, no vendemos datos y no
+          tomamos decisiones automatizadas con efectos jurídicos sobre ti.
         </p>
       </LegalSection>
 
-      <LegalSection title="3. No guardamos tus datos de pago">
+      <LegalSection title="3. Tu progreso no sale de tu dispositivo">
         <p>
-          Los pagos los procesa <strong className="text-ds-text">Lemon Squeezy</strong>,
-          que actúa como vendedor legal (Merchant of Record). Los datos de tu
-          tarjeta se introducen en su entorno seguro y{' '}
-          <strong className="text-ds-text">nunca llegan a nuestros servidores</strong>.
-          Nosotros solo conservamos el estado de tu suscripción y un
-          identificador del pedido.
+          El historial de simulacros se guarda en el{' '}
+          <strong className="text-ds-text">almacenamiento local de tu
+          navegador</strong>. Solo tú puedes verlo, no viaja a ningún servidor y
+          desaparece cuando borras los datos del sitio o usas el botón
+          «Borrar mi historial» de la página de progreso.
         </p>
       </LegalSection>
 
@@ -105,10 +101,11 @@ export function PrivacidadPage() {
 
       <LegalSection title="5. Conservación">
         <p>
-          Conservamos tus datos mientras mantengas la cuenta activa. Si la
-          eliminas, se suprimen salvo aquellos que debamos conservar por
-          obligación legal (por ejemplo, la facturación durante los plazos
-          fiscales, o el registro de solicitudes de desistimiento).
+          No conservamos datos personales tuyos en nuestros sistemas, porque no
+          los recogemos. Los registros técnicos del servidor se conservan
+          durante el tiempo estrictamente necesario para garantizar la seguridad
+          del servicio. Lo que guarda tu navegador permanece hasta que tú lo
+          borres.
         </p>
       </LegalSection>
 
@@ -122,13 +119,10 @@ export function PrivacidadPage() {
           .
         </p>
         <p>
-          Además, desde{' '}
-          <Link to="/profile" className="text-primary hover:underline">
-            tu perfil
-          </Link>{' '}
-          puedes <strong className="text-ds-text">descargar todos tus datos</strong> y{' '}
-          <strong className="text-ds-text">eliminar tu cuenta</strong> directamente,
-          sin necesidad de solicitarlo.
+          Ten en cuenta que, al no existir cuentas de usuario, en la mayoría de
+          los casos no podremos identificarte ni asociar ningún dato contigo
+          (art. 11 RGPD). Tu historial de práctica puedes borrarlo tú mismo en
+          cualquier momento desde la página de progreso.
         </p>
         <p>
           Si consideras que no hemos atendido correctamente tu solicitud, puedes
@@ -148,9 +142,8 @@ export function PrivacidadPage() {
       <LegalSection title="7. Seguridad">
         <p>
           Aplicamos medidas técnicas y organizativas apropiadas: cifrado en
-          tránsito (HTTPS), contraseñas almacenadas con funciones de derivación
-          seguras y control de acceso a nivel de fila en la base de datos, de
-          modo que cada usuario solo puede acceder a sus propios datos.
+          tránsito (HTTPS) y control de acceso a nivel de fila en la base de
+          datos, que solo permite lectura del contenido público de los exámenes.
         </p>
       </LegalSection>
     </LegalLayout>

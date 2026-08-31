@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
 import { LegalLayout, LegalSection, LegalValue } from './LegalLayout';
 import { COMPANY } from '@/lib/legal';
-import { PLANS } from '@/lib/payments';
 import { AlertTriangle } from 'lucide-react';
 
 export function TerminosPage() {
-  const monthly = PLANS.find((p) => p.id === 'monthly');
-
   return (
     <LegalLayout
       title="Términos y condiciones"
-      intro="Condiciones de uso y de contratación del servicio. Te recomendamos leerlas antes de suscribirte."
+      intro="Condiciones de uso del servicio. El acceso es gratuito y no requiere registro."
     >
       {/* Descargo destacado: qué es y qué NO es este servicio */}
       <div className="p-5 rounded-[12px] border border-primary-soft-border bg-primary-soft">
@@ -47,8 +44,8 @@ export function TerminosPage() {
           .
         </p>
         <p>
-          Estas condiciones regulan el uso de la plataforma y la contratación de
-          la suscripción Premium.
+          Estas condiciones regulan el uso de la plataforma, que se ofrece de
+          forma gratuita.
         </p>
       </LegalSection>
 
@@ -80,111 +77,45 @@ export function TerminosPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Cuenta de usuario">
+      <LegalSection title="3. Acceso gratuito y sin registro">
         <p>
-          Para acceder necesitas registrarte con un correo válido. Eres
-          responsable de la confidencialidad de tus credenciales y de la
-          actividad realizada desde tu cuenta. Debes ser mayor de edad o contar
-          con autorización de tu representante legal.
+          Todos los exámenes son{' '}
+          <strong className="text-ds-text">gratuitos y de acceso libre</strong>:
+          no hay planes de pago, no se cobra ningún importe y no es necesario
+          crear una cuenta ni facilitar datos personales para practicar.
+        </p>
+        <p>
+          Tu progreso (los simulacros realizados y sus resultados) se guarda{' '}
+          <strong className="text-ds-text">en el almacenamiento local de tu
+          propio navegador</strong>. No se envía a nuestros servidores, no viaja
+          entre dispositivos y se pierde si borras los datos del sitio.
         </p>
       </LegalSection>
 
-      <LegalSection title="4. Planes y precios">
+      <LegalSection title="4. Uso permitido">
         <p>
-          Existe un <strong className="text-ds-text">plan gratuito</strong> que
-          permite practicar únicamente el Examen A, con un máximo de 2
-          simulacros.
+          No está permitido copiar, redistribuir, revender o publicar los
+          contenidos y preguntas de la plataforma, ni emplear medios
+          automatizados para extraerlos.
         </p>
         <p>
-          El <strong className="text-ds-text">plan Premium</strong> cuesta{' '}
-          <strong className="text-ds-text">{monthly?.price ?? '7,99 €'} al mes</strong> y
-          da acceso ilimitado a todos los exámenes disponibles. Los impuestos
-          aplicables se calculan y muestran en el proceso de pago según tu país
-          de residencia.
+          Podemos restringir el acceso ante un uso que perjudique el servicio o
+          a otros usuarios.
         </p>
       </LegalSection>
 
-      <LegalSection title="5. Contratación, renovación automática y cancelación">
-        <p>
-          La suscripción es de{' '}
-          <strong className="text-ds-text">renovación automática mensual</strong>:
-          se renovará por periodos sucesivos de un mes y se cobrará el importe
-          vigente en cada renovación, salvo que la canceles antes.
-        </p>
-        <p>
-          Puedes <strong className="text-ds-text">cancelar en cualquier momento y
-          con un solo clic</strong> desde{' '}
-          <Link to="/profile" className="text-primary hover:underline">
-            tu perfil
-          </Link>
-          , sin necesidad de llamar ni escribir. Tras cancelar no se realizarán
-          nuevos cobros y conservarás el acceso Premium hasta el final del
-          periodo que ya hayas pagado.
-        </p>
-        <p>
-          Si modificamos el precio, te lo comunicaremos con antelación
-          suficiente para que puedas cancelar antes de que se aplique.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="6. Pago y facturación">
-        <p>
-          Los pagos se procesan a través de{' '}
-          <strong className="text-ds-text">Lemon Squeezy</strong>, que actúa como
-          vendedor legal (Merchant of Record) y es quien emite la factura y
-          gestiona los impuestos aplicables. No almacenamos los datos de tu
-          tarjeta.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="7. Derecho de desistimiento">
-        <p>
-          Como consumidor tienes derecho a desistir del contrato en un plazo de{' '}
-          <strong className="text-ds-text">14 días naturales</strong> desde su
-          celebración, sin necesidad de justificación.
-        </p>
-        <p>
-          Puedes ejercerlo de forma inmediata desde{' '}
-          <Link to="/desistimiento" className="text-primary hover:underline font-medium">
-            Desistir del contrato aquí
-          </Link>
-          , enlace disponible de forma permanente en el pie de página. Recibirás
-          un acuse de recibo con la fecha y hora de tu solicitud.
-        </p>
-        <p>
-          Ten en cuenta que, tratándose de contenido digital de acceso inmediato,
-          el derecho de desistimiento puede decaer si solicitas expresamente el
-          acceso inmediato y reconoces perderlo, conforme al artículo 103.m) del
-          TRLGDCU. Los reembolsos se tramitan a través de Lemon Squeezy como
-          vendedor.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="8. Uso permitido">
-        <p>
-          El acceso es personal e intransferible. No está permitido compartir la
-          cuenta, ni copiar, redistribuir, revender o publicar los contenidos y
-          preguntas de la plataforma, ni emplear medios automatizados para
-          extraerlos.
-        </p>
-        <p>
-          El incumplimiento puede conllevar la suspensión o cancelación de la
-          cuenta sin derecho a reembolso del periodo en curso.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="9. Disponibilidad y modificaciones">
+      <LegalSection title="5. Disponibilidad y modificaciones">
         <p>
           Procuramos mantener el servicio disponible de forma continuada, pero no
           garantizamos la ausencia de interrupciones por mantenimiento o causas
-          técnicas. Podemos modificar o actualizar los contenidos y funciones
-          para mejorar el servicio.
+          técnicas. Al tratarse de un servicio gratuito, podemos modificar,
+          suspender o retirar contenidos y funciones en cualquier momento.
         </p>
       </LegalSection>
 
-      <LegalSection title="10. Protección de datos">
+      <LegalSection title="6. Protección de datos">
         <p>
-          El tratamiento de tus datos se describe en la{' '}
+          El tratamiento de datos se describe en la{' '}
           <Link to="/privacidad" className="text-primary hover:underline">
             política de privacidad
           </Link>
@@ -192,10 +123,10 @@ export function TerminosPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="11. Legislación aplicable y reclamaciones">
+      <LegalSection title="7. Legislación aplicable y reclamaciones">
         <p>
-          Estas condiciones se rigen por la legislación española. Como
-          consumidor, puedes dirigir cualquier reclamación a{' '}
+          Estas condiciones se rigen por la legislación española. Puedes dirigir
+          cualquier reclamación a{' '}
           <a href={`mailto:${COMPANY.email}`} className="text-primary hover:underline">
             {COMPANY.email}
           </a>

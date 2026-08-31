@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/hooks/useAuth';
 
 export function HomePage() {
-  const { user } = useAuth();
-
   return (
     <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden transition-colors"
       style={{
@@ -43,26 +40,18 @@ export function HomePage() {
             <p className="text-lg text-muted leading-relaxed mb-8 animate-[fadeSlideUp_0.6s_ease-out_0.2s_both]">
               Exámenes simulados con retroalimentación instantánea,
               explicaciones detalladas y seguimiento de tu progreso.
-              Todo lo que necesitas para aprobar a la primera.
+              Todo gratis, sin registro y sin límites.
             </p>
 
             <div className="flex gap-4 flex-wrap animate-[fadeSlideUp_0.6s_ease-out_0.3s_both]">
-              {user ? (
-                <Link to="/dashboard">
-                  <Button size="lg" className="text-base px-8 shadow-lg shadow-primary/25">
-                    Ir al Dashboard →
-                  </Button>
-                </Link>
-              ) : (
-                <Link to="/signup">
-                  <Button size="lg" className="text-base px-8 shadow-lg shadow-primary/25">
-                    Comenzar Gratis →
-                  </Button>
-                </Link>
-              )}
               <Link to="/exams">
+                <Button size="lg" className="text-base px-8 shadow-lg shadow-primary/25">
+                  Empezar ahora →
+                </Button>
+              </Link>
+              <Link to="/dashboard">
                 <Button size="lg" variant="outline" className="text-base px-8">
-                  Ver Exámenes
+                  Ver mi progreso
                 </Button>
               </Link>
             </div>
@@ -71,6 +60,7 @@ export function HomePage() {
             <div className="flex gap-8 mt-12 animate-[fadeSlideUp_0.6s_ease-out_0.4s_both]">
               {[
                 { value: '500+', label: 'Preguntas' },
+                { value: '100%', label: 'Gratis' },
                 { value: '24/7', label: 'Disponible' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">

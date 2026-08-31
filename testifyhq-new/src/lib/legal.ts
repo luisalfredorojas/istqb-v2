@@ -24,7 +24,7 @@ export const COMPANY = {
 } as const;
 
 /** Fecha de última actualización de los textos legales. */
-export const LEGAL_LAST_UPDATED = '14 de agosto de 2026';
+export const LEGAL_LAST_UPDATED = '31 de agosto de 2026';
 
 /**
  * Proveedores que tratan datos por cuenta del responsable.
@@ -33,14 +33,8 @@ export const LEGAL_LAST_UPDATED = '14 de agosto de 2026';
 export const DATA_PROCESSORS = [
   {
     name: 'Supabase',
-    purpose: 'Alojamiento de la base de datos y autenticación de usuarios',
+    purpose: 'Alojamiento de la base de datos con el contenido de los exámenes',
     location: 'UE (eu-west-3) · Supabase Inc. (EE. UU.)',
-  },
-  {
-    name: 'Lemon Squeezy (Stripe)',
-    purpose:
-      'Procesamiento de pagos y facturación. Actúa como vendedor legal (Merchant of Record)',
-    location: 'EE. UU. · Cláusulas contractuales tipo',
   },
   {
     name: 'Netlify',

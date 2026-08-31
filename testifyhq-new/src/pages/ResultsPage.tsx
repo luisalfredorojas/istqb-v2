@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
-import { useAttempt } from '@/hooks/useExamAttempts';
+import { useAttempt } from '@/hooks/useAttemptHistory';
 import { cn } from '@/lib/utils';
 import { answerIncludes, countCorrect, isAnswerCorrect } from '@/lib/answers';
 import { ChevronDown } from 'lucide-react';
@@ -18,13 +18,13 @@ export function ResultsPage() {
 
   const { answers: storeAnswers, examCompleted, resetExam } = useExamStore();
   const { data: questions, isLoading: isLoadingQuestions } = useQuestions(examId);
-  const { data: attempt, isLoading: isLoadingAttempt } = useAttempt(attemptId);
+  const attempt = useAttempt(attemptId);
 
   useEffect(() => {
     if (!attemptId && !examCompleted) navigate('/dashboard');
   }, [examCompleted, navigate, attemptId]);
 
-  if (isLoadingQuestions || (attemptId && isLoadingAttempt)) {
+  if (isLoadingQuestions) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bg">
         <div className="animate-spin rounded-full h-10 w-10 border-2 border-ds-border border-t-primary"></div>
@@ -34,14 +34,15 @@ export function ResultsPage() {
 
   if (!questions) return null;
 
-  const attemptData = attempt as any;
-  const answers = attemptData ? (attemptData.answers as Record<string, string>) : storeAnswers;
+  // Con historial local el intento manda; si no existe (navegador sin
+  // almacenamiento) se usa lo que quedó en memoria al terminar el examen.
+  const answers = attempt ? attempt.answers : storeAnswers;
   const totalQuestions = questions.length;
   const correctCount = countCorrect(questions, answers);
-  const score = attemptData ? (attemptData.score || 0) : Math.round((correctCount / totalQuestions) * 100);
+  const score = attempt ? attempt.score : Math.round((correctCount / totalQuestions) * 100);
   const isPassed = score >= 65;
 
-  const handleRetry = () => { resetExam(); navigate('/exam/1'); };
+  const handleRetry = () => { resetExam(); navigate(`/exam/${examId}`); };
 
   return (
     <div className="min-h-screen bg-bg py-12 px-4 transition-colors">
@@ -52,7 +53,7 @@ export function ResultsPage() {
             <CardTitle className="text-2xl font-bold">
               {isPassed ? '¡Felicidades! Aprobaste' : 'No alcanzaste el puntaje necesario'}
             </CardTitle>
-            <p className="text-muted mt-2 text-sm">Resumen de tu examen ISTQB Foundation</p>
+            <p className="text-muted mt-2 text-sm">Resumen de tu simulacro</p>
           </CardHeader>
           <CardContent className="text-center pt-6">
             <div className="flex justify-center items-center gap-8 mb-8">
@@ -70,7 +71,7 @@ export function ResultsPage() {
             </div>
             <div className="flex justify-center gap-4">
               <Button onClick={handleRetry} variant="outline">Intentar Nuevamente</Button>
-              <Link to="/dashboard"><Button>Volver al Dashboard</Button></Link>
+              <Link to="/exams"><Button>Ver todos los exámenes</Button></Link>
             </div>
           </CardContent>
         </Card>

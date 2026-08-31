@@ -27,8 +27,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-sm text-muted hover:text-primary transition-colors">
-                  Planes
+                <Link to="/dashboard" className="text-sm text-muted hover:text-primary transition-colors">
+                  Mi progreso
                 </Link>
               </li>
             </ul>
@@ -66,21 +66,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/*
-          Botón de desistimiento — Directiva (UE) 2023/2673.
-          Debe estar disponible de forma permanente, ser fácilmente accesible
-          y tan visible como las funciones de compra.
-        */}
         <div className="mt-8 pt-8 border-t border-ds-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted text-center sm:text-left">
             © {new Date().getFullYear()} TestifyHQ. Todos los derechos reservados.
           </p>
-          <Link
-            to="/desistimiento"
-            className="inline-flex items-center justify-center rounded-[8px] border border-ds-border px-4 h-10 text-sm font-medium text-ds-text hover:border-primary hover:text-primary transition-colors"
-          >
-            Desistir del contrato aquí
-          </Link>
+          <span className="text-sm text-muted">
+            Acceso libre y gratuito, sin registro.
+          </span>
         </div>
 
         <p className="mt-6 text-xs text-muted text-center leading-relaxed max-w-2xl mx-auto">

@@ -28,7 +28,13 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
  * su sesión. Lo que requiera service_role va en una Edge Function.
  */
 
-// Auth helpers
+/**
+ * Sesión de administración.
+ *
+ * La plataforma es pública y no tiene registro: lo único que necesita una
+ * sesión es el panel de administración, porque la base de datos exige un
+ * admin autenticado para gestionar exámenes.
+ */
 export const authHelpers = {
   async loginWithEmail(email: string, password: string) {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -50,66 +56,8 @@ export const authHelpers = {
     return data;
   },
 
-  async signUp(email: string, password: string, displayName?: string) {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          display_name: displayName,
-        },
-      },
-    });
-    if (error) throw error;
-    return data;
-  },
-
   async signOut() {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
-  },
-
-  async getCurrentUser() {
-    const { data: { user }, error } = await supabase.auth.getUser();
-    if (error) throw error;
-    return user;
-  },
-
-  async resetPassword(email: string) {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
-    });
-    if (error) throw error;
-  },
-
-  async verifyOTP(email: string, token: string) {
-    const { data, error } = await supabase.auth.verifyOtp({
-      email,
-      token,
-      type: 'signup',
-    });
-    if (error) throw error;
-    return data;
-  },
-
-  async resendOTP(email: string) {
-    const { data, error } = await supabase.auth.resend({
-      type: 'signup',
-      email,
-    });
-    if (error) throw error;
-    return data;
-  },
-
-  async updatePassword(newPassword: string) {
-    const { data, error } = await supabase.auth.updateUser({
-      password: newPassword,
-    });
-    if (error) throw error;
-    return data;
-  },
-
-  onAuthStateChange(callback: (event: string, session: any) => void) {
-    return supabase.auth.onAuthStateChange(callback);
   },
 };

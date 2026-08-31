@@ -1,22 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useAuth } from '@/hooks/useAuth';
-import { useUserRole } from '@/hooks/useUserRole';
-import { useSubscription } from '@/hooks/useSubscription';
 import { useTheme } from '@/hooks/useTheme';
 import { LanguageSwitch } from '@/components/layout/LanguageSwitch';
-import { authHelpers } from '@/lib/supabase';
 import { cn } from '@/lib/utils';
 
 export function Header() {
-  const { user } = useAuth();
-  const { data: roleData } = useUserRole(user?.id);
-  const { data: subscription } = useSubscription();
   const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
-
-  // Acceso completo = suscripción premium o administrador.
-  const hasFullAccess = (subscription?.isPremium ?? false) || (roleData?.isAdmin ?? false);
 
   // Resalta el enlace cuya sección coincide con la ruta actual.
   const navClass = (active: boolean) =>
@@ -24,11 +13,6 @@ export function Header() {
       'text-sm font-medium transition-colors',
       active ? 'text-primary' : 'text-muted hover:text-primary'
     );
-
-  const handleLogout = async () => {
-    await authHelpers.signOut();
-    window.location.href = '/';
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-ds-border bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/60 transition-colors">
@@ -44,21 +28,9 @@ export function Header() {
           <Link to="/exams" className={navClass(pathname.startsWith('/exam'))}>
             Exámenes
           </Link>
-          {!hasFullAccess && (
-            <Link to="/pricing" className={navClass(pathname === '/pricing')}>
-              Premium
-            </Link>
-          )}
-          {user && (
-            <Link to="/dashboard" className={navClass(pathname === '/dashboard')}>
-              Dashboard
-            </Link>
-          )}
-          {roleData?.isAdmin && (
-            <Link to="/admin/exams" className={navClass(pathname.startsWith('/admin'))}>
-              ⚙️ Admin
-            </Link>
-          )}
+          <Link to="/dashboard" className={navClass(pathname === '/dashboard')}>
+            Mi progreso
+          </Link>
         </nav>
 
         <div className="flex items-center space-x-3">
@@ -88,33 +60,11 @@ export function Header() {
             </div>
           </button>
 
-          {user ? (
-            <>
-              <Link
-                to="/profile"
-                className="hidden md:flex items-center gap-2 rounded-[8px] px-2 py-1 hover:bg-surface-alt transition-colors"
-                aria-label="Mi cuenta"
-              >
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-semibold">
-                  {(user.user_metadata?.display_name || user.email)?.charAt(0).toUpperCase()}
-                </div>
-                <span className={cn('text-sm', pathname === '/profile' ? 'text-primary' : 'text-muted')}>
-                  {user.user_metadata?.display_name || user.email?.split('@')[0]}
-                </span>
-              </Link>
-              <Button
-                onClick={handleLogout}
-                variant="outline"
-                size="sm"
-              >
-                Cerrar Sesión
-              </Button>
-            </>
-          ) : (
-            <Link to="/login">
-              <Button>Iniciar Sesión</Button>
-            </Link>
-          )}
+          <Link to="/exams" className="hidden sm:block">
+            <span className="inline-flex items-center justify-center rounded-[8px] bg-primary text-white text-sm font-medium px-4 h-10 hover:bg-primary-hover transition-colors">
+              Practicar gratis
+            </span>
+          </Link>
         </div>
       </div>
     </header>
