@@ -171,9 +171,30 @@ ALTER TABLE public.exams DROP COLUMN IF EXISTS is_free;
 --    hay que retirarla antes de poder eliminarlas. Se sustituye por la
 --    regla llana: cada uno edita su propia fila.
 -- ---------------------------------------------------------------------
-DROP POLICY IF EXISTS "Users can update own profile (no billing)" ON public.users;
-DROP POLICY IF EXISTS "Users can update own profile (limited)"    ON public.users;
-DROP POLICY IF EXISTS "Users can update own profile"              ON public.users;
+--    Ojo: no basta con ir por nombre. Producción tiene políticas aplicadas
+--    a mano que no están en ninguna migración de este repo (apareció una
+--    llamada "Users can update own profile (restricted)"), así que se
+--    buscan por lo que hacen —mencionar una columna de facturación— y no
+--    por cómo se llaman. Solo se tocan políticas de public.users: las de
+--    SELECT que no citan esas columnas se quedan como están.
+DO $$
+DECLARE
+  pol RECORD;
+BEGIN
+  FOR pol IN
+    SELECT policyname
+      FROM pg_policies
+     WHERE schemaname = 'public'
+       AND tablename  = 'users'
+       AND (COALESCE(qual, '') || ' ' || COALESCE(with_check, ''))
+           ~ '(subscription_|provider_customer_id|provider_subscription_id|is_lifetime)'
+  LOOP
+    RAISE NOTICE 'Eliminando política de facturación obsoleta: %', pol.policyname;
+    EXECUTE format('DROP POLICY %I ON public.users', pol.policyname);
+  END LOOP;
+END $$;
+
+DROP POLICY IF EXISTS "Users can update own profile" ON public.users;
 
 CREATE POLICY "Users can update own profile"
   ON public.users
