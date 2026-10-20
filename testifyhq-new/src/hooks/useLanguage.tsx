@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useLayoutEffect, useState, type ReactNode } from 'react';
+import { isHydrating } from '@/lib/hydration';
 
 /**
  * Idioma del *contenido de los exámenes* (enunciados y opciones), no de la
@@ -16,20 +17,33 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
+const DEFAULT_LANGUAGE: ExamLanguage = 'es';
+
+function readStoredLanguage(): ExamLanguage {
+  if (typeof window === 'undefined') return DEFAULT_LANGUAGE;
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === 'es' || stored === 'en') return stored;
+
+  // Sin preferencia guardada: los exámenes oficiales de ISTQB están en
+  // inglés, pero el público de la web es hispanohablante, así que el
+  // idioma del navegador decide y en la duda se muestra español.
+  return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es';
+}
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<ExamLanguage>(() => {
-    if (typeof window === 'undefined') return 'es';
+  const [language, setLanguage] = useState<ExamLanguage>(() =>
+    isHydrating() ? DEFAULT_LANGUAGE : readStoredLanguage()
+  );
 
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === 'es' || stored === 'en') return stored;
-
-    // Sin preferencia guardada: los exámenes oficiales de ISTQB están en
-    // inglés, pero el público de la web es hispanohablante, así que el
-    // idioma del navegador decide y en la duda se muestra español.
-    return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es';
-  });
+  // Al hidratar se empieza con el idioma del HTML prerenderizado.
+  useLayoutEffect(() => {
+    // Un único cambio al montar, antes de pintar: es justo lo que se busca.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (isHydrating()) setLanguage(readStoredLanguage());
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, language);

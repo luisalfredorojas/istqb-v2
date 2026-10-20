@@ -1,2 +1,25 @@
-# SPA Routing - redirect all routes to index.html
-/*    /index.html   200
+# Netlify sirve primero los archivos que existen (assets, robots.txt,
+# sitemap.xml, el index.html prerenderizado de la portada). Estas reglas
+# solo se aplican al resto.
+
+# Páginas públicas prerenderizadas por scripts/prerender.mjs.
+/exams          /exams.html        200
+/aviso-legal    /aviso-legal.html  200
+/privacidad     /privacidad.html   200
+/terminos       /terminos.html     200
+/cookies        /cookies.html      200
+
+# Ruta antigua del footer.
+/privacy        /privacidad        301
+
+# Páginas de la app: se pintan en el navegador a partir del HTML vacío.
+/exam/*         /app.html          200
+/results/*      /app.html          200
+/dashboard      /app.html          200
+/login          /app.html          200
+/auth/*         /app.html          200
+/admin/*        /app.html          200
+
+# Todo lo demás no existe: la app muestra su página de "no encontrada",
+# pero con estado 404 para que Google no la indexe como contenido.
+/*              /app.html          404

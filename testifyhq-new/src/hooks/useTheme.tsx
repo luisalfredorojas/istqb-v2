@@ -1,4 +1,5 @@
-import { useState, useEffect, createContext, useContext, type ReactNode } from 'react';
+import { useState, useEffect, useLayoutEffect, createContext, useContext, type ReactNode } from 'react';
+import { isHydrating } from '@/lib/hydration';
 
 type Theme = 'light' | 'dark';
 
@@ -7,16 +8,30 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
+const DEFAULT_THEME: Theme = 'dark';
+
+function readStoredTheme(): Theme {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('theme') as Theme;
+    if (stored) return stored;
+  }
+  return DEFAULT_THEME;
+}
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme') as Theme;
-      if (stored) return stored;
-    }
-    return 'dark';
-  });
+  const [theme, setTheme] = useState<Theme>(() =>
+    isHydrating() ? DEFAULT_THEME : readStoredTheme()
+  );
+
+  // Al hidratar se empieza con el tema del HTML prerenderizado. El <html>
+  // ya tiene la clase correcta desde el script de index.html.
+  useLayoutEffect(() => {
+    // Un único cambio al montar, antes de pintar: es justo lo que se busca.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (isHydrating()) setTheme(readStoredTheme());
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;

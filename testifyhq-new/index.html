@@ -2,18 +2,37 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Plataforma de práctica para certificaciones ISTQB. Practica con exámenes reales, retroalimentación instantánea y seguimiento de progreso." />
-    <title>TestifyHQ — Prepárate para tu certificación ISTQB</title>
+    <meta name="theme-color" content="#0F172A" />
+    <title>Simulador de examen ISTQB gratis en español | TestifyHQ</title>
+    <meta name="description" content="Practica para la certificación ISTQB con simulacros de examen gratis, en español e inglés. Sin registro y con explicaciones." />
+    <!--
+      scripts/prerender.mjs sustituye el título y la descripción de cada
+      página pública y añade aquí canonical, robots y Open Graph.
+    -->
+    <!--seo-->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TestifyHQ" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary" />
+
+    <!--
+      El tema se aplica antes de pintar: las páginas llegan prerenderizadas
+      y, sin esto, se verían un instante en claro antes de pasar a oscuro.
+    -->
+    <script>
+      try {
+        if (localStorage.getItem('theme') !== 'light') document.documentElement.classList.add('dark');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
 
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    
-    <!-- Payphone Payment Script v1.1 -->
-    <script type="module" src="https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.js"></script>
   </head>
   <body>
     <div id="root"></div>

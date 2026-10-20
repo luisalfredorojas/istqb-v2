@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login
+Disallow: /auth/
+
+Sitemap: https://testifyhq.com/sitemap.xml

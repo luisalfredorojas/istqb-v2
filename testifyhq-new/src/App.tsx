@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './lib/queryClient';
@@ -18,14 +19,29 @@ import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { ExamManagementPage } from './pages/admin/ExamManagementPage';
 import { ExamStatsPage } from './pages/admin/ExamStatsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { RouteMeta } from './components/RouteMeta';
 
-function App() {
+/**
+ * Proveedores y rutas van separados del router para que
+ * src/entry-server.tsx pueda renderizar las mismas páginas con un
+ * StaticRouter al prerenderizar el HTML estático.
+ */
+export function AppProviders({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
     <LanguageProvider>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      {children}
+    </QueryClientProvider>
+    </LanguageProvider>
+    </ThemeProvider>
+  );
+}
+
+export function AppRoutes() {
+  return (
         <Layout>
+          <RouteMeta />
           <Routes>
             {/* Todo el contenido es público y gratuito: sin cuentas ni planes. */}
             <Route path="/" element={<HomePage />} />
@@ -57,10 +73,16 @@ function App() {
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />
           </Routes>
         </Layout>
+  );
+}
+
+function App() {
+  return (
+    <AppProviders>
+      <BrowserRouter>
+        <AppRoutes />
       </BrowserRouter>
-    </QueryClientProvider>
-    </LanguageProvider>
-    </ThemeProvider>
+    </AppProviders>
   );
 }
 
