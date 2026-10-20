@@ -8,6 +8,7 @@ import { useExamStore } from '@/stores/examStore';
 import { useQuestions } from '@/hooks/useQuestions';
 import { useExams } from '@/hooks/useExams';
 import { saveAttempt } from '@/lib/localAttempts';
+import { trackExamStarted, trackExamCompleted } from '@/lib/examEvents';
 import { cn } from '@/lib/utils';
 import { countCorrect } from '@/lib/answers';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -41,8 +42,9 @@ export function ExamPage() {
     if (questions && questions.length > 0 && !initialized.current && !examStarted && !examCompleted) {
       startExam(questions.length, 60);
       initialized.current = true;
+      trackExamStarted(examId);
     }
-  }, [questions, examStarted, examCompleted, startExam]);
+  }, [questions, examStarted, examCompleted, startExam, examId]);
 
   const handleSubmit = () => {
     if (!questions) return;
@@ -52,6 +54,8 @@ export function ExamPage() {
       const score = Math.round((correctCount / questions.length) * 100);
       const passed = score >= 65;
       const timeSpent = (60 * 60) - timeRemaining;
+
+      trackExamCompleted(examId, { score, passed, timeSpentSeconds: timeSpent });
 
       // Sin cuentas de usuario, el intento se guarda en este navegador.
       const attempt = saveAttempt({

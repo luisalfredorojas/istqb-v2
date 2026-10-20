@@ -16,6 +16,7 @@ import { CookiesPage } from './pages/legal/CookiesPage';
 import { LoginPage } from './pages/LoginPage';
 import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { ExamManagementPage } from './pages/admin/ExamManagementPage';
+import { ExamStatsPage } from './pages/admin/ExamStatsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/auth/callback" element={<AuthCallbackPage />} />
             <Route path="/admin/exams" element={<ExamManagementPage />} />
+            <Route path="/admin/stats" element={<ExamStatsPage />} />
             <Route path="*" element={<div className="container mx-auto px-4 py-12 text-center"><h1 className="text-4xl font-bold">404 - Página no encontrada</h1></div>} />
           </Routes>
         </Layout>

@@ -249,6 +249,9 @@ export function ExamManagementPage() {
           <p className="text-gray-600 mt-1">Administra los exámenes de la plataforma</p>
         </div>
         <div className="flex gap-3">
+          <Button variant="outline" onClick={() => navigate('/admin/stats')}>
+            📊 Estadísticas
+          </Button>
           <Button
             variant="outline"
             onClick={async () => {

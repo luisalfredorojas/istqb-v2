@@ -294,6 +294,37 @@ export interface Database {
         }
         Relationships: []
       }
+      exam_events: {
+        Row: {
+          id: number
+          exam_id: number
+          event: 'started' | 'completed'
+          score: number | null
+          passed: boolean | null
+          time_spent_seconds: number | null
+          prior_attempts: number | null
+          created_at: string
+        }
+        Insert: {
+          exam_id: number
+          event: 'started' | 'completed'
+          score?: number | null
+          passed?: boolean | null
+          time_spent_seconds?: number | null
+          prior_attempts?: number | null
+          created_at?: string
+        }
+        Update: {
+          exam_id?: number
+          event?: 'started' | 'completed'
+          score?: number | null
+          passed?: boolean | null
+          time_spent_seconds?: number | null
+          prior_attempts?: number | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       withdrawal_requests: {
         Row: {
           id: string
@@ -335,7 +366,22 @@ export interface Database {
       }
     }
     Views: {
-      [_ in never]: never
+      exam_event_stats: {
+        Row: {
+          exam_id: number
+          title: string
+          language: 'en' | 'es'
+          started: number
+          completed: number
+          started_7d: number
+          started_30d: number
+          avg_score: number | null
+          pass_rate: number | null
+          completed_by_returning: number
+          last_event_at: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       import_exam: {

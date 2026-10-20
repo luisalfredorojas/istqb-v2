@@ -53,6 +53,19 @@ export function PrivacidadPage() {
                 </td>
                 <td className="py-2">Interés legítimo (almacenamiento técnico)</td>
               </tr>
+              <tr className="border-b border-ds-border">
+                <td className="py-2 pr-4">
+                  Aviso anónimo al empezar y al terminar un simulacro: qué
+                  examen, la nota, el tiempo empleado y cuántos simulacros
+                  llevabas hechos en ese navegador
+                </td>
+                <td className="py-2 pr-4">
+                  Saber qué exámenes se usan y cómo funcionan, para mejorar la
+                  plataforma. No incluye tus respuestas, tu IP ni ningún
+                  identificador, así que no permite saber quién lo hizo
+                </td>
+                <td className="py-2">Interés legítimo</td>
+              </tr>
               <tr>
                 <td className="py-2 pr-4">
                   Datos técnicos de conexión (IP, navegador) en los registros del
@@ -79,6 +92,11 @@ export function PrivacidadPage() {
           navegador</strong>. Solo tú puedes verlo, no viaja a ningún servidor y
           desaparece cuando borras los datos del sitio o usas el botón
           «Borrar mi historial» de la página de progreso.
+        </p>
+        <p>
+          Lo único que recibimos es el aviso anónimo descrito arriba, sin tus
+          respuestas y sin nada que lo relacione contigo ni con tus otros
+          simulacros. Lo usamos solo en forma de totales por examen.
         </p>
       </LegalSection>
 

@@ -24,7 +24,7 @@ export const COMPANY = {
 } as const;
 
 /** Fecha de última actualización de los textos legales. */
-export const LEGAL_LAST_UPDATED = '31 de agosto de 2026';
+export const LEGAL_LAST_UPDATED = '20 de octubre de 2026';
 
 /**
  * Proveedores que tratan datos por cuenta del responsable.

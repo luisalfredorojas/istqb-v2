@@ -88,7 +88,10 @@ export function TerminosPage() {
           Tu progreso (los simulacros realizados y sus resultados) se guarda{' '}
           <strong className="text-ds-text">en el almacenamiento local de tu
           propio navegador</strong>. No se envía a nuestros servidores, no viaja
-          entre dispositivos y se pierde si borras los datos del sitio.
+          entre dispositivos y se pierde si borras los datos del sitio. Solo
+          recibimos un aviso anónimo al empezar y terminar cada simulacro, sin
+          tus respuestas ni datos que te identifiquen, como se explica en la
+          Política de Privacidad.
         </p>
       </LegalSection>
 
